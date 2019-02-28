@@ -3,7 +3,7 @@ package LN;
 import java.time.LocalDate;
 
 public class clsTemporada {
-	/*
+	/**
 	 * Crearemos los atributos siguientes:
 	 * puestos por el tema del número que pueda quedar un equipo y tiene que ser entero
 	 * trofeos porque al final de la temporada los tres primeros recibirán un trofeo y cada trofeo tendrá un nombre
@@ -14,7 +14,7 @@ public class clsTemporada {
 	private String trofeos;
 	private LocalDate añoTemporada;
 	private String ganador;
-	/*
+	/**
 	 * Crearemos un contructor vacío y un contructor con parámetros
 	 */
 	
@@ -32,7 +32,7 @@ public class clsTemporada {
 		this.añoTemporada = añoTemporada;
 		this.ganador = ganador;
 	}
-	/*
+	/**
 	 * Crearemos los getter y setters de los atributos que hemos puesto
 	 */
 	public int getPuestos() {
@@ -59,6 +59,38 @@ public class clsTemporada {
 	public void setGanador(String ganador) {
 		this.ganador = ganador;
 	}
+	/**
+	 * Generaremos el hashcode con el añotemporada y los puestos para buscar añadir o eliminar
+	 */
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((añoTemporada == null) ? 0 : añoTemporada.hashCode());
+		result = prime * result + puestos;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		clsTemporada other = (clsTemporada) obj;
+		if (añoTemporada == null) {
+			if (other.añoTemporada != null)
+				return false;
+		} else if (!añoTemporada.equals(other.añoTemporada))
+			return false;
+		if (puestos != other.puestos)
+			return false;
+		return true;
+	}
+	
 	
 
 }
