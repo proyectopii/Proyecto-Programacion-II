@@ -94,51 +94,56 @@ public class clsGestorLN {
 	public ArrayList<clsTemporada>MostrarTemporada(){
 		return tutemporada;
 	}
-	public void eliminarEquipacion(clsEquipacion e) {
-		//tuequipacion.remove(e);
-	}
-	public void eliminarEquipo(clsEquipo eq) {
+	/**
+	 * Por si queremos eliminar alguna cosa dejamos lo metodos ahi
+	 * @param nombreEquipo
+	 * @param fundacionEquipo
+	 * @param color1
+	 * @param color2
+	 * @param publicidad
+	 * @param seriagrafiado
+	 */
+	public void eliminarEquipacion(String nombreEquipo, LocalDate fundacionEquipo,String color1, String color2, String publicidad, String seriagrafiado) {
 		
 	}
-	public void eliminarEscudo(clsEscudo es) {
+	public void eliminarEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
+		
+	}
+	public void eliminarEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
 	
 	}
-	public void eliminarIntercambio(clsIntercambio i) {
+	public void eliminarIntercambio(String nombreEquipo, LocalDate fundacionEquipo,String equipoOrigen, String equipoDestino) {
 		
 	}
-	public void eliminarJugador(clsJugador j) {
+	public void eliminarJugador(String nombreEquipo, LocalDate fundacionEquipo, String nombreJugador, int formaFisica, int edad,
+			double skills) {
 		
 	}
-	public void eliminarPartido(clsPartidos p) {
-		
-	}
-	public void eliminarTemporada(clsTemporada t) {
-		
-	}
+	
 	/**
 	 * Por si quieres buscar una equipacion, un equipo, un escudo, un intercambio, un jugador, un partido o una temporada.
 	 * 
 	 */
-	public boolean buscarEquipacion(clsEquipacion e) {
-		return tuequipacion.indexOf(e)!=-1;
+	public boolean buscarEquipacion(String color1) {
+		return tuequipacion.indexOf(color1)!=-1;
 	}
-	public boolean buscarEquipo(clsEquipo eq) {
-		return tuequipo.indexOf(eq)!=-1;
+	public boolean buscarEquipo(String nombreEquipo) {
+		return tuequipo.indexOf(nombreEquipo)!=-1;
 	}
-	public boolean buscarEscudo(clsEscudo es) {
-		return tuescudo.indexOf(es)!=-1;
+	public boolean buscarEscudo(String formaEscudo) {
+		return tuescudo.indexOf(formaEscudo)!=-1;
 	}
-	public boolean buscarIntercambio(clsIntercambio i) {
-		return tuintercambio.indexOf(i)!=-1;
+	public boolean buscarIntercambio(String equipoDestino) {
+		return tuintercambio.indexOf(equipoDestino)!=-1;
 	}
-	public boolean buscarJugador(clsJugador j) {
-		return tujugador.indexOf(j)!=-1;
+	public boolean buscarJugador(String NombreJugador) {
+		return tujugador.indexOf(NombreJugador)!=-1;
 	}
-	public boolean buscarPartido(clsPartidos p) {
-		return tupartido.indexOf(p)!=-1;
+	public boolean buscarPartido(String FechaIncioPartido) {
+		return tupartido.indexOf(FechaIncioPartido)!=-1;
 	}
-	public boolean buscarTemporada(clsTemporada t) {
-		return tutemporada.indexOf(t)!=-1;
+	public boolean buscarTemporada(String ganador) {
+		return tutemporada.indexOf(ganador)!=-1;
 	}
 	
 

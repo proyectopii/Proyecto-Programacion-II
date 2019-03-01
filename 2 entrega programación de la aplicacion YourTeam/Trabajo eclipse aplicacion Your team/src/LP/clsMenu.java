@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import LN.clsGestorLN;
 
 public class clsMenu {
+	/**
+	 * Crear un Menu para que pueda crearse su equipo, hacer un intercambio, cambiar cosas del equipo o salir 
+	 */
 	public static void MenuPrincipal() {
 		int op=0;
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
@@ -24,8 +27,12 @@ public class clsMenu {
 				
 				break;
 			case 2:
+				CrearIntercambio();
 				break;
 			case 3:
+				/**
+				 * Lo dejamos en blanco porque aun no hemos creado eliminar o buscar
+				 */
 				break;
 			case 4:
 				System.out.println("Ha sido un placer adios y que tengas un buen día");
@@ -35,7 +42,14 @@ public class clsMenu {
 
          }while(op!=4);
 	}
+	/**
+	 * Crear un gln para acceder al gestor y guardar la correspondiente iformación
+	 */
 	public static clsGestorLN gln = new clsGestorLN(); 
+	
+	/**
+	 * Crear los métodos para la creación del equipo con sus atributos y finalmente lo guardaremos en el gestor
+	 */
 	
 	public static void Crearequipo() {
 		String nombreEquipo;
@@ -47,6 +61,10 @@ public class clsMenu {
 		
 		gln.añadirEquipo(nombreEquipo, fundacionEquipo);
 	}
+	
+	/**
+	 * Crear los métodos para la creación del equipacion con sus atributos y finalmente lo guardaremos en el gestor
+	 */
 	
 	public static void Crearequipacion () {
 		String color1;
@@ -64,6 +82,7 @@ public class clsMenu {
 		
 		System.out.println("¿Quieres poner publicidad?");
 		oppublicidad=UtilidadesLP.leerCadena();
+		
 		if (oppublicidad.equalsIgnoreCase("si")) {
 			System.out.println("¿Qué publicidad quieres poner?");
 			publicidad=UtilidadesLP.leerCadena();
@@ -72,6 +91,7 @@ public class clsMenu {
 		
 		System.out.println("¿Quieres poner serigrafiado?");
 		opserigrafiado=UtilidadesLP.leerCadena();
+		
 		if (opserigrafiado.equalsIgnoreCase("si")) {
 			System.out.println("¿Qué publicidad quieres poner?");
 			serigrafiado=UtilidadesLP.leerCadena();
@@ -80,6 +100,11 @@ public class clsMenu {
 		
 		gln.añadirEquipacion(null, null, color1, color2, oppublicidad, serigrafiado);
 	}
+	
+	/**
+	 * Crear los métodos para la creación del escudo con sus atributos y finalmente lo guardaremos en el gestor
+	 */
+	
 	public static void CrearEscudo() {
 		String formaEscudo;
 		String colorEscudo;
@@ -92,6 +117,22 @@ public class clsMenu {
 		
 		gln.añadirEscudo(null, null, formaEscudo, colorEscudo);
 		
+	}
+	
+	/**
+	 * Crear los métodos para el intercambio del equipo con sus atributos y finalmente lo guardaremos en el gestor
+	 */
+	
+	public static void CrearIntercambio() {
+		String equipoOrigen;
+		String equipoDestino;
+		
+		System.out.println("Escribe el nombre de tu equipo para poder intercambiar un jugador");
+		equipoOrigen=UtilidadesLP.leerCadena();
+		System.out.println("Escribe el equipo con el que quieres intercambiar");
+		equipoDestino=UtilidadesLP.leerCadena();
+		
+		gln.añadirIntercambio(null, null, equipoOrigen, equipoDestino);
 	}
 	
 }
