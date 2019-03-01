@@ -1,6 +1,8 @@
 package LN;
 
-public class clsEscudo {
+import java.time.LocalDate;
+
+public class clsEscudo extends clsEquipo {
 	/**
 	 * Crearemos los atributos de clsEscudo
 	 * Un formaEscudo porque cada escudo tendrá una forma
@@ -16,8 +18,8 @@ public class clsEscudo {
 		String formaEscudo="";
 		String colorEscudo="";
 	}
-	public clsEscudo(String formaEscudo, String colorEscudo) {
-		super();
+	public clsEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
+		super(nombreEquipo, fundacionEquipo);
 		this.formaEscudo = formaEscudo;
 		this.colorEscudo = colorEscudo;
 	}

@@ -10,7 +10,7 @@ public class clsEquipacion extends clsEquipo {
 	 * cada equipación tendrá derecho a poder escribirse frases en las camisetas
 	 */
 	private String color1;
-	private String colo2;
+	private String color2;
 	private String publicidad;
 	private String seriagrafiado;
 	/**
@@ -27,7 +27,7 @@ public class clsEquipacion extends clsEquipo {
 	public clsEquipacion(String nombreEquipo, LocalDate fundacionEquipo,String color1, String colo2, String publicidad, String seriagrafiado) {
 		super(nombreEquipo, fundacionEquipo);
 		this.color1 = color1;
-		this.colo2 = colo2;
+		this.color2 = colo2;
 		this.publicidad = publicidad;
 		this.seriagrafiado = seriagrafiado;
 	}
@@ -42,10 +42,10 @@ public class clsEquipacion extends clsEquipo {
 		this.color1 = color1;
 	}
 	public String getColo2() {
-		return colo2;
+		return color2;
 	}
 	public void setColo2(String colo2) {
-		this.colo2 = colo2;
+		this.color2 = colo2;
 	}
 	public String getPublicidad() {
 		return publicidad;
@@ -63,7 +63,7 @@ public class clsEquipacion extends clsEquipo {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((colo2 == null) ? 0 : colo2.hashCode());
+		result = prime * result + ((color2 == null) ? 0 : color2.hashCode());
 		result = prime * result + ((color1 == null) ? 0 : color1.hashCode());
 		return result;
 	}
@@ -79,10 +79,10 @@ public class clsEquipacion extends clsEquipo {
 		if (getClass() != obj.getClass())
 			return false;
 		clsEquipacion other = (clsEquipacion) obj;
-		if (colo2 == null) {
-			if (other.colo2 != null)
+		if (color2 == null) {
+			if (other.color2 != null)
 				return false;
-		} else if (!colo2.equals(other.colo2))
+		} else if (!color2.equals(other.color2))
 			return false;
 		if (color1 == null) {
 			if (other.color1 != null)

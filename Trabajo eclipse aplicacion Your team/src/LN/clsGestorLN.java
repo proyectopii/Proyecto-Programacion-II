@@ -1,5 +1,6 @@
 package LN;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class clsGestorLN {
@@ -32,28 +33,67 @@ public class clsGestorLN {
 	 * Crearíamos los de eliminar por si querríamos eliminar al
 	 * @param e
 	 */
-	public void añadirEquipo(clsEquipo e) {
-		tuequipo.add(e);
+	public void añadirEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
+		clsEquipo objtuequipo = new clsEquipo(nombreEquipo,fundacionEquipo);  
+		
+		tuequipo.add(objtuequipo);
+		
 	}
-	public void añadirEquipacion(clsEquipacion eq) {
-		tuequipacion.add(eq);
-	}
-	public void añadirEscudo(clsEscudo es) {
-		tuescudo.add(es);
-	}
-	public void añadirIntercambio(clsIntercambio i) {
-		tuintercambio.add(i);
-	}
-	public void añadirJugador(clsJugador j) {
-		tujugador.add(j);
-	}
-	public void añadirPartido(clsPartidos p) {
-		tupartido.add(p);
-	}
-	public void añadirTemporada(clsTemporada t) {
-		tutemporada.add(t);
+	public void añadirEquipacion(String nombreEquipo, LocalDate fundacionEquipo,String color1, String color2, String publicidad, String seriagrafiado) {
+		clsEquipacion objtuequipacion = new clsEquipacion(nombreEquipo,fundacionEquipo,color1,color2,publicidad,seriagrafiado); 
+		tuequipacion.add(objtuequipacion);
 	}
 	
+	public void añadirEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
+		clsEscudo objtuescudo = new clsEscudo(nombreEquipo,fundacionEquipo,formaEscudo,colorEscudo); 
+		tuescudo.add(objtuescudo);
+	}
+	public void añadirIntercambio(String nombreEquipo, LocalDate fundacionEquipo,String equipoOrigen, String equipoDestino) {
+		clsIntercambio objtuintercambio = new clsIntercambio(nombreEquipo,fundacionEquipo,equipoOrigen,equipoDestino); 
+		tuintercambio.add(objtuintercambio);
+	}
+	public void añadirJugador(String nombreEquipo, LocalDate fundacionEquipo, String nombreJugador, int formaFisica, int edad,
+			double skills) {
+		clsJugador objtujugador=new clsJugador(nombreEquipo,fundacionEquipo,nombreJugador,formaFisica,edad,skills);
+		tujugador.add(objtujugador);
+	}
+	public void añadirPartido(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
+		clsPartidos objtupartido=new clsPartidos(equipoLocal,equipoVisitante,fechaInicioPartido);
+		tupartido.add(objtupartido);
+	}
+	
+	public void añadirTemporada(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido,int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
+		clsTemporada objtutemporada=new clsTemporada(equipoLocal,equipoVisitante,fechaInicioPartido,puestos,trofeos,anioTemporada,ganador);
+		tutemporada.add(objtutemporada);
+	}
+
+	public ArrayList<clsEquipacion>MostrarEquipacion(){
+		return tuequipacion;
+	}
+	
+	public ArrayList<clsEquipo>MostrarEquipo(){
+		return tuequipo;
+	}
+	
+	public ArrayList<clsEscudo>MostrarEscudo(){
+		return tuescudo;
+	}
+	
+	public ArrayList<clsIntercambio>MostrarIntercambio(){
+		return tuintercambio;
+	}
+	
+	public ArrayList<clsJugador>MostrarJugador(){
+		return tujugador;
+	}
+	
+	public ArrayList<clsPartidos>MostrarPartido(){
+		return tupartido;
+	}
+	
+	public ArrayList<clsTemporada>MostrarTemporada(){
+		return tutemporada;
+	}
 	public void eliminarEquipacion(clsEquipacion e) {
 		//tuequipacion.remove(e);
 	}

@@ -2,7 +2,7 @@ package LN;
 
 import java.time.LocalDate;
 
-public class clsTemporada {
+public class clsTemporada extends clsPartidos {
 	/**
 	 * Crearemos los atributos siguientes:
 	 * puestos por el tema del número que pueda quedar un equipo y tiene que ser entero
@@ -25,8 +25,8 @@ public class clsTemporada {
 		String ganador="";
 	}
 	
-	public clsTemporada(int puestos, String trofeos, LocalDate añoTemporada, String ganador) {
-		super();
+	public clsTemporada(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido,int puestos, String trofeos, LocalDate añoTemporada, String ganador) {
+		super(equipoLocal,equipoVisitante,fechaInicioPartido);
 		this.puestos = puestos;
 		this.trofeos = trofeos;
 		this.añoTemporada = añoTemporada;
