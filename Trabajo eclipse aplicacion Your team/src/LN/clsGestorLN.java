@@ -3,6 +3,8 @@ package LN;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import Comun.itfProperty;
+
 public class clsGestorLN {
 	/**
 	 * Aquí creamos el Arraylist privado donde guardaremos los equipos
@@ -14,6 +16,7 @@ public class clsGestorLN {
 	private ArrayList<clsPartidos> tupartido;
 	private ArrayList<clsTemporada> tutemporada;
 	private ArrayList<clsIntercambio> tuintercambio;
+	
 	
 	/**
 	 * Crearemos el constructor del arraylist
@@ -67,9 +70,13 @@ public class clsGestorLN {
 		tutemporada.add(objtutemporada);
 	}
 
-	public ArrayList<clsEquipacion>MostrarEquipacion(){
-		return tuequipacion;
-	}
+	/**public ArrayList<itfProperty>MostrarEquipacion(){
+		ArrayList<itfProperty> guardatodo=new ArrayList<>();
+		for (clsEquipacion eq: tuequipacion) 
+			{guardatodo.add(eq);
+		}
+		return guardatodo;
+	}*/
 	
 	public ArrayList<clsEquipo>MostrarEquipo(){
 		return tuequipo;
