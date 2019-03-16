@@ -17,9 +17,9 @@ public class clsJugador extends clsEquipo {
 	 * Crearemos un constructor vacío y otro con parámetros
 	 */
 	
-	public clsJugador(String nombreEquipo, LocalDate fundacionEquipo, String nombreJugador, int formaFisica, int edad,
+	public clsJugador( String nombreJugador, int formaFisica, int edad,
 			double skills) {
-		super(nombreEquipo, fundacionEquipo);
+		super();
 		this.nombreJugador = nombreJugador;
 		this.formaFisica = formaFisica;
 		this.edad = edad;

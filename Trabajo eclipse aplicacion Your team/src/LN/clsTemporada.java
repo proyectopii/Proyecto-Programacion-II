@@ -25,8 +25,8 @@ public class clsTemporada extends clsPartidos {
 		String ganador="";
 	}
 	
-	public clsTemporada(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido,int puestos, String trofeos, LocalDate añoTemporada, String ganador) {
-		super(equipoLocal,equipoVisitante,fechaInicioPartido);
+	public clsTemporada(int puestos, String trofeos, LocalDate añoTemporada, String ganador) {
+		super();
 		this.puestos = puestos;
 		this.trofeos = trofeos;
 		this.añoTemporada = añoTemporada;

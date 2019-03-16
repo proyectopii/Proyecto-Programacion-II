@@ -51,13 +51,13 @@ public class clsGestorLN {
 		clsEscudo objtuescudo = new clsEscudo(nombreEquipo,fundacionEquipo,formaEscudo,colorEscudo); 
 		tuescudo.add(objtuescudo);
 	}
-	public void añadirIntercambio(String nombreEquipo, LocalDate fundacionEquipo,String equipoOrigen, String equipoDestino) {
-		clsIntercambio objtuintercambio = new clsIntercambio(nombreEquipo,fundacionEquipo,equipoOrigen,equipoDestino); 
+	public void añadirIntercambio(String equipoOrigen, String equipoDestino) {
+		clsIntercambio objtuintercambio = new clsIntercambio(equipoOrigen,equipoDestino); 
 		tuintercambio.add(objtuintercambio);
 	}
-	public void añadirJugador(String nombreEquipo, LocalDate fundacionEquipo, String nombreJugador, int formaFisica, int edad,
+	public void añadirJugador(String nombreJugador, int formaFisica, int edad,
 			double skills) {
-		clsJugador objtujugador=new clsJugador(nombreEquipo,fundacionEquipo,nombreJugador,formaFisica,edad,skills);
+		clsJugador objtujugador=new clsJugador(nombreJugador,formaFisica,edad,skills);
 		tujugador.add(objtujugador);
 	}
 	public void añadirPartido(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
@@ -65,18 +65,21 @@ public class clsGestorLN {
 		tupartido.add(objtupartido);
 	}
 	
-	public void añadirTemporada(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido,int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
-		clsTemporada objtutemporada=new clsTemporada(equipoLocal,equipoVisitante,fechaInicioPartido,puestos,trofeos,anioTemporada,ganador);
+	public void añadirTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
+		clsTemporada objtutemporada=new clsTemporada(puestos,trofeos,anioTemporada,ganador);
 		tutemporada.add(objtutemporada);
 	}
 
-	/**public ArrayList<itfProperty>MostrarEquipacion(){
+	public ArrayList<itfProperty>MostrarEquipacion()
+	{
 		ArrayList<itfProperty> guardatodo=new ArrayList<>();
+		
 		for (clsEquipacion eq: tuequipacion) 
-			{guardatodo.add(eq);
+		{
+			guardatodo.add((itfProperty)eq);
 		}
 		return guardatodo;
-	}*/
+	}
 	
 	public ArrayList<clsEquipo>MostrarEquipo(){
 		return tuequipo;

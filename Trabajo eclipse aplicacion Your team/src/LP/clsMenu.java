@@ -132,7 +132,7 @@ public class clsMenu {
 		System.out.println("Escribe el equipo con el que quieres intercambiar");
 		equipoDestino=UtilidadesLP.leerCadena();
 		
-		gln.añadirIntercambio(null, null, equipoOrigen, equipoDestino);
+		gln.añadirIntercambio( equipoOrigen, equipoDestino);
 	}
 	
 }

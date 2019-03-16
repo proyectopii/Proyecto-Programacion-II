@@ -16,8 +16,8 @@ public class clsIntercambio extends clsEquipo{
 		String equipoOrigen="";
 		String equipoDestino="";
 	}
-	public clsIntercambio(String nombreEquipo, LocalDate fundacionEquipo,String equipoOrigen, String equipoDestino) {
-		super(nombreEquipo, fundacionEquipo);
+	public clsIntercambio(String equipoOrigen, String equipoDestino) {
+		super();
 		this.equipoOrigen = equipoOrigen;
 		this.equipoDestino = equipoDestino;
 	}
