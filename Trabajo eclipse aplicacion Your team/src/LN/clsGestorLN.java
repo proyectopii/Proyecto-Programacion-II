@@ -70,13 +70,13 @@ public class clsGestorLN {
 		tutemporada.add(objtutemporada);
 	}
 
-	public ArrayList<itfProperty>MostrarEquipacion()
+	public ArrayList<clsGestorLN>MostrarEquipacion()
 	{
-		ArrayList<itfProperty> guardatodo=new ArrayList<>();
+		ArrayList<clsGestorLN> guardatodo=new ArrayList<>();
 		
 		for (clsEquipacion eq: tuequipacion) 
 		{
-			guardatodo.add((itfProperty)eq);
+			guardatodo.add((clsGestorLN)eq);
 		}
 		return guardatodo;
 	}
@@ -154,6 +154,116 @@ public class clsGestorLN {
 	}
 	public boolean buscarTemporada(String ganador) {
 		return tutemporada.indexOf(ganador)!=-1;
+	}
+	/**
+	 * A continuación pondremos varios métodos
+	 */
+	private ArrayList<itfProperty> contenedor;
+	
+	public clsGestorLN() {
+		
+		contenedor = new ArrayList<>();
+	}
+	public boolean añadir( clsGestorLN obj  ) 
+	{		
+		//no existe el dato en el array
+		if( buscar( obj ) == false )
+		{
+			contenedor.add( obj );
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}		
+	}
+	
+	public boolean buscar( clsGestorLN obj )
+	{		
+		int p = contenedor.indexOf( obj );
+				
+		if ( p == -1 )
+			return false;
+		else
+			return true;	
+	}
+	
+	public boolean borrar ( ItfProperty obj )
+	{
+		if( buscar( obj ) == true )
+		{
+			contenedor.remove( obj );
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}		
+	}	
+
+	public boolean cargar(String nomFichero )
+	{
+		try
+		{
+			File f = new File( nomFichero );
+			FileInputStream fis = new FileInputStream(f);
+			ObjectInputStream oos = new ObjectInputStream(fis);
+									
+			contenedor = (ArrayList<ItfProperty>) oos.readObject();
+						
+			oos.close();//DEATH
+			
+			return true;
+		}
+		catch( FileNotFoundException ex )
+		{
+			System.out.println("Error nombre del fichero no se acepta!");
+			return false;
+		}
+		catch( IOException ex )
+		{
+			System.out.println("Error no se encuentra la ruta!");
+			return false;
+		}
+		catch( ClassCastException ex )
+		{
+			System.out.println("Error el tipo de dato no corresponde!");
+			return false;
+		}
+		catch (ClassNotFoundException ex ) {
+		
+			System.out.println("Error el tipo de dato no existe!");
+			return false;
+		}		
+	}
+	
+	public boolean grabar(String nomFichero )
+	{
+		//tratamiento de excepciones
+		try
+		{
+			File f = new File( nomFichero );
+			FileOutputStream fos = new FileOutputStream(f);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+									
+			oos.writeObject( contenedor );
+						
+			oos.close();//DEATH
+			
+			return true;
+		}
+		catch( FileNotFoundException ex )
+		{
+			System.out.println("Error nombre del fichero no se acepta!");
+			return false;
+		}
+		catch( IOException ex )
+		{
+			System.out.println("Error no se encuentra la ruta!");
+			return false;
+		}
 	}
 	
 
