@@ -5,6 +5,7 @@ import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA;
 import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_NOMBREJUGADOR;
 import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_SKILLS;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import COMUN.itfProperty;
@@ -28,7 +29,7 @@ public class clsJugador extends clsEquipo implements itfProperty {
 	}
 
 	public clsJugador(String nombreJugador, int formaFisica, int edad, double skills, String nombreEquipo,
-			LocalDate fundacionEquipo) {
+			Date fundacionEquipo) {
 		super(nombreEquipo, fundacionEquipo);
 		this.nombreJugador = nombreJugador;
 		this.formaFisica = formaFisica;

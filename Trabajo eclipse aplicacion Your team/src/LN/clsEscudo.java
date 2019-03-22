@@ -3,6 +3,7 @@ package LN;
 import static COMUN.Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO;
 import static COMUN.Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import COMUN.itfProperty;
@@ -24,7 +25,7 @@ public class clsEscudo extends clsEquipo implements itfProperty {
 		String colorEscudo = "";
 	}
 
-	public clsEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
+	public clsEscudo(String nombreEquipo, Date fundacionEquipo, String formaEscudo, String colorEscudo) {
 		super(nombreEquipo, fundacionEquipo);
 		this.formaEscudo = formaEscudo;
 		this.colorEscudo = colorEscudo;

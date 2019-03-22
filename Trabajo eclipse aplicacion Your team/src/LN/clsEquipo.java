@@ -3,6 +3,7 @@ package LN;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import COMUN.itfProperty;
@@ -14,17 +15,17 @@ public class clsEquipo implements itfProperty {
 	 * nombreEquipo todos los equipos tendran una fecha de fundaci?n
 	 */
 	private String nombreEquipo;
-	private LocalDate fundacionEquipo;
+	private Date fundacionEquipo;
 
 	/**
 	 * Crearemos un constructor vac?o y otro con par?metros
 	 */
 	public clsEquipo() {
 		String nombreEquipo = "";
-		LocalDate fundacionEquipo = LocalDate.now();
+		Date fundacionEquipo = null;
 	}
 
-	public clsEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
+	public clsEquipo(String nombreEquipo, Date fundacionEquipo) {
 		super();
 		this.nombreEquipo = nombreEquipo;
 		this.fundacionEquipo = fundacionEquipo;
@@ -88,7 +89,7 @@ public class clsEquipo implements itfProperty {
 	public void setObjectProperty(String propiedad, Object valor) {
 		switch(propiedad) {
 		case PROPIEDAD_clsEQUIPO_NOMBREEQUIPO:nombreEquipo=((String) valor); break;
-		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:fundacionEquipo=((LocalDate)valor);break;
+		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:fundacionEquipo=((Date)valor);break;
 		}
 		
 	}

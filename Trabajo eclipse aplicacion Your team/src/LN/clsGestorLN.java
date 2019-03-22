@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -44,21 +45,21 @@ public class clsGestorLN {
 	 * 
 	 * @param
 	 */
-	public void anadirEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
+	public void anadirEquipo(String nombreEquipo, Date fundacionEquipo) {
 		clsEquipo objtuequipo = new clsEquipo(nombreEquipo, fundacionEquipo);
 
 		tuequipo.add(objtuequipo);
 
 	}
 
-	public void anadirEquipacion(String nombreEquipo, LocalDate fundacionEquipo, String color1, String color2,
+	public void anadirEquipacion(String nombreEquipo, Date fundacionEquipo, String color1, String color2,
 			String publicidad, String seriagrafiado, int dorsal) {
 		clsEquipacion objtuequipacion = new clsEquipacion(nombreEquipo, fundacionEquipo, color1, color2, publicidad,
 				seriagrafiado, dorsal);
 		tuequipacion.add(objtuequipacion);
 	}
 
-	public void anadirEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
+	public void anadirEscudo(String nombreEquipo, Date fundacionEquipo, String formaEscudo, String colorEscudo) {
 		clsEscudo objtuescudo = new clsEscudo(nombreEquipo, fundacionEquipo, formaEscudo, colorEscudo);
 		tuescudo.add(objtuescudo);
 	}
@@ -68,7 +69,7 @@ public class clsGestorLN {
 		tuintercambio.add(objtuintercambio);
 	}
 
-	public void anadirJugador(String nombreJugador, int formaFisica, int edad, double skills,String nombreEquipo,LocalDate fundacionEquipo) {
+	public void anadirJugador(String nombreJugador, int formaFisica, int edad, double skills,String nombreEquipo,Date fundacionEquipo) {
 		clsJugador objtujugador = new clsJugador(nombreJugador, formaFisica, edad, skills,nombreEquipo,fundacionEquipo);
 		tujugador.add(objtujugador);
 	}

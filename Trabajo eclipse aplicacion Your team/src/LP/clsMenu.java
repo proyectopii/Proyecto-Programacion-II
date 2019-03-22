@@ -1,5 +1,6 @@
 package LP;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import LN.clsGestorLN;
@@ -53,11 +54,12 @@ public class clsMenu {
 	
 	public static void Crearequipo() {
 		String nombreEquipo;
-		LocalDate fundacionEquipo;
+		Date fundacionEquipo;
 		
 		System.out.println("Escribe un nombre para tu equipo");
 		nombreEquipo=UtilidadesLP.leerCadena();
-		fundacionEquipo=LocalDate.now();
+		String date = null;
+		fundacionEquipo=Date.valueOf(date);
 		
 		gln.anadirEquipo(nombreEquipo, fundacionEquipo);
 	}

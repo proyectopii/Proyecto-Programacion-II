@@ -6,8 +6,7 @@ import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_DORSAL;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDAD;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADO;
 
-
-
+import java.sql.Date;
 import java.time.LocalDate;
 
 import COMUN.itfProperty;
@@ -37,13 +36,13 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 		int dorsal = 0;
 	}
 
-	public clsEquipacion(String nombreEquipo, LocalDate fundacionEquipo, String color1, String color2,
-			String publicidad, String seriagrafiado, int dorsal) {
+	public clsEquipacion(String nombreEquipo, Date fundacionEquipo, String color1, String color2,
+			String publicidad, String serigrafiado, int dorsal) {
 		super(nombreEquipo, fundacionEquipo);
 		this.color1 = color1;
 		this.color2 = color2;
 		this.publicidad = publicidad;
-		this.serigrafiado = seriagrafiado;
+		this.serigrafiado = serigrafiado;
 		this.dorsal = dorsal;
 	}
 
