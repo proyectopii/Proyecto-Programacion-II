@@ -3,40 +3,40 @@ package LN;
 import java.time.LocalDate;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS;
-import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_AÑOTEMPORADA;
+import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_GANADOR;
 
 import COMUN.itfProperty;
 
 public class clsTemporada extends clsPartidos implements itfProperty {
 	/**
-	 * Crearemos los atributos siguientes: puestos por el tema del número que pueda
+	 * Crearemos los atributos siguientes: puestos por el tema del n?mero que pueda
 	 * quedar un equipo y tiene que ser entero trofeos porque al final de la
-	 * temporada los tres primeros recibirán un trofeo y cada trofeo tendrá un
-	 * nombre un año de temporada para saber en que año estamos en dicha temporada
-	 * un ganador que será el que quede primero y se cogerá el nombre de ciho equipo
+	 * temporada los tres primeros recibir?n un trofeo y cada trofeo tendr? un
+	 * nombre un a?o de temporada para saber en que a?o estamos en dicha temporada
+	 * un ganador que ser? el que quede primero y se coger? el nombre de ciho equipo
 	 */
 	private int puestos;
 	private String trofeos;
-	private LocalDate añoTemporada;
+	private LocalDate anioTemporada;
 	private String ganador;
 
 	/**
-	 * Crearemos un contructor vacío y un contructor con parámetros
+	 * Crearemos un contructor vac?o y un contructor con par?metros
 	 */
 
 	public clsTemporada() {
 		int puestos = 0;
 		String trofeos = "";
-		LocalDate añoTemporada = LocalDate.now();
+		LocalDate anioTemporada = LocalDate.now();
 		String ganador = "";
 	}
 
-	public clsTemporada(int puestos, String trofeos, LocalDate añoTemporada, String ganador) {
+	public clsTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
 		super();
 		this.puestos = puestos;
 		this.trofeos = trofeos;
-		this.añoTemporada = añoTemporada;
+		this.anioTemporada = anioTemporada;
 		this.ganador = ganador;
 	}
 
@@ -46,7 +46,7 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 	
 
 	/**
-	 * Generaremos el hashcode con el añotemporada y los puestos para buscar añadir
+	 * Generaremos el hashcode con el a?otemporada y los puestos para buscar a?adir
 	 * o eliminar
 	 */
 
@@ -54,7 +54,7 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((añoTemporada == null) ? 0 : añoTemporada.hashCode());
+		result = prime * result + ((anioTemporada == null) ? 0 : anioTemporada.hashCode());
 		result = prime * result + puestos;
 		return result;
 	}
@@ -68,10 +68,10 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 		if (getClass() != obj.getClass())
 			return false;
 		clsTemporada other = (clsTemporada) obj;
-		if (añoTemporada == null) {
-			if (other.añoTemporada != null)
+		if (anioTemporada == null) {
+			if (other.anioTemporada != null)
 				return false;
-		} else if (!añoTemporada.equals(other.añoTemporada))
+		} else if (!anioTemporada.equals(other.anioTemporada))
 			return false;
 		if (puestos != other.puestos)
 			return false;
@@ -85,8 +85,8 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 			return this.puestos;
 		case PROPIEDAD_clsTEMPORADA_TROFEOS:
 			return this.trofeos;
-		case PROPIEDAD_clsTEMPORADA_AÑOTEMPORADA:
-			return this.añoTemporada;
+		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:
+			return this.anioTemporada;
 		case PROPIEDAD_clsTEMPORADA_GANADOR:
 			return this.ganador;
 		default:
@@ -100,7 +100,7 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 		switch(propiedad) {
 		case PROPIEDAD_clsTEMPORADA_PUESTOS:puestos=((int)valor);break;
 		case PROPIEDAD_clsTEMPORADA_TROFEOS:trofeos=((String)valor);break;
-		case PROPIEDAD_clsTEMPORADA_AÑOTEMPORADA:añoTemporada=((LocalDate)valor);break;
+		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:anioTemporada=((LocalDate)valor);break;
 		case PROPIEDAD_clsTEMPORADA_GANADOR:ganador=((String)valor);break;
 		}
 	}

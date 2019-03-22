@@ -14,10 +14,10 @@ import COMUN.itfProperty;
 
 public class clsEquipacion extends clsEquipo implements itfProperty {
 	/**
-	 * Ponemos los atributos de la clase clsEquipación color 1 y color 2 porque cada
-	 * equipación tendrá dos colores a elegir publicidad porque cada equipo tendrá
-	 * derecho a ser patrocinado por alguién aunque si no quiere no pasará nada cada
-	 * equipación tendrá derecho a poder escribirse frases en las camisetas
+	 * Ponemos los atributos de la clase clsEquipaci?n color 1 y color 2 porque cada
+	 * equipaci?n tendr? dos colores a elegir publicidad porque cada equipo tendr?
+	 * derecho a ser patrocinado por algui?n aunque si no quiere no pasar? nada cada
+	 * equipaci?n tendr? derecho a poder escribirse frases en las camisetas
 	 */
 	private String color1;
 	private String color2;
@@ -26,8 +26,8 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 	private int dorsal;
 
 	/**
-	 * Primeramente crearemos un constructor vacío Después crearemos un constructor
-	 * con parámetros
+	 * Primeramente crearemos un constructor vac?o Despu?s crearemos un constructor
+	 * con par?metros
 	 */
 	public clsEquipacion() {
 		String color1 = "";
@@ -48,7 +48,7 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 	}
 
 	/**
-	 * Aquí crearemos los getters and setters de los atributos
+	 * Aqu? crearemos los getters and setters de los atributos
 	 */
 	
 
@@ -63,7 +63,7 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 
 	/**
 	 * Generamos el hashcode por si da el caso que queremos buscar, eliminar o
-	 * añadir lo haremos a través de sus colores
+	 * a?adir lo haremos a trav?s de sus colores
 	 */
 	@Override
 	public boolean equals(Object obj) {

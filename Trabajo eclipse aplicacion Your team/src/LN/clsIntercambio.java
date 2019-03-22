@@ -8,14 +8,14 @@ import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO;
 
 public class clsIntercambio extends clsEquipo implements itfProperty {
 	/**
-	 * Crearemos los atributos de clsIntercambio Para hacer un intercambio tendrá
+	 * Crearemos los atributos de clsIntercambio Para hacer un intercambio tendr?
 	 * que haber un equipo origen y equipo destino
 	 */
 	private String equipoOrigen;
 	private String equipoDestino;
 
 	/**
-	 * Ahora crearemos un constructor vacío y otro con parámetros
+	 * Ahora crearemos un constructor vac?o y otro con par?metros
 	 */
 	public clsIntercambio() {
 		String equipoOrigen = "";
@@ -35,7 +35,7 @@ public class clsIntercambio extends clsEquipo implements itfProperty {
 
 	/**
 	 * Generaremos el hashcode con equipo origen y equipo destino por si queremos
-	 * buscar añadir o eliminar
+	 * buscar a?adir o eliminar
 	 */
 	@Override
 	public int hashCode() {

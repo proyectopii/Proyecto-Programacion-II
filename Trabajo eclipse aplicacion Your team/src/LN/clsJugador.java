@@ -11,9 +11,9 @@ import COMUN.itfProperty;
 
 public class clsJugador extends clsEquipo implements itfProperty {
 	/**
-	 * Crearemos los atributos de clsJugador Cada jugador tendrá un nombre y edad
-	 * Cada jugador podrá estar preparado a través de su forma física Cada jugador
-	 * depende de lo habilidoso que sea tendrá unas skills
+	 * Crearemos los atributos de clsJugador Cada jugador tendr? un nombre y edad
+	 * Cada jugador podr? estar preparado a trav?s de su forma f?sica Cada jugador
+	 * depende de lo habilidoso que sea tendr? unas skills
 	 */
 	private String nombreJugador;
 	private int formaFisica;
@@ -21,7 +21,7 @@ public class clsJugador extends clsEquipo implements itfProperty {
 	private double skills;
 
 	/**
-	 * Crearemos un constructor vacío y otro con parámetros
+	 * Crearemos un constructor vac?o y otro con par?metros
 	 */
 	public clsJugador() {
 		
@@ -42,7 +42,7 @@ public class clsJugador extends clsEquipo implements itfProperty {
 	
 
 	/**
-	 * Crearemos el hashcode con nombre jugador por si queremos añadir buscar o
+	 * Crearemos el hashcode con nombre jugador por si queremos a?adir buscar o
 	 * eliminar
 	 */
 	@Override
