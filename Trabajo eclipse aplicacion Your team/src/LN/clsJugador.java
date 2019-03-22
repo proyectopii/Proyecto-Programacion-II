@@ -1,60 +1,49 @@
 package LN;
 
+import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_EDAD;
+import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA;
+import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_NOMBREJUGADOR;
+import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_SKILLS;
+
 import java.time.LocalDate;
 
-public class clsJugador extends clsEquipo {
+import COMUN.itfProperty;
+
+public class clsJugador extends clsEquipo implements itfProperty {
 	/**
-	 * Crearemos los atributos de clsJugador
-	 * Cada jugador tendrá un nombre y edad
-	 * Cada jugador podrá estar preparado a través de su forma física
-	 * Cada jugador depende de lo habilidoso que sea tendrá unas skills
+	 * Crearemos los atributos de clsJugador Cada jugador tendrá un nombre y edad
+	 * Cada jugador podrá estar preparado a través de su forma física Cada jugador
+	 * depende de lo habilidoso que sea tendrá unas skills
 	 */
 	private String nombreJugador;
 	private int formaFisica;
 	private int edad;
 	private double skills;
+
 	/**
 	 * Crearemos un constructor vacío y otro con parámetros
 	 */
-	
-	public clsJugador( String nombreJugador, int formaFisica, int edad,
-			double skills) {
-		super();
+	public clsJugador() {
+		
+	}
+
+	public clsJugador(String nombreJugador, int formaFisica, int edad, double skills, String nombreEquipo,
+			LocalDate fundacionEquipo) {
+		super(nombreEquipo, fundacionEquipo);
 		this.nombreJugador = nombreJugador;
 		this.formaFisica = formaFisica;
 		this.edad = edad;
 		this.skills = skills;
 	}
+
 	/**
 	 * Crearemos los getters y setters de los atributos
 	 */
-	public String getNombreJugador() {
-		return nombreJugador;
-	}
 	
-	public void setNombreJugador(String nombreJugador) {
-		this.nombreJugador = nombreJugador;
-	}
-	public int getFormaFisica() {
-		return formaFisica;
-	}
-	public void setFormaFisica(int formaFisica) {
-		this.formaFisica = formaFisica;
-	}
-	public int getEdad() {
-		return edad;
-	}
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-	public double getSkills() {
-		return skills;
-	}
-	public void setSkills(double skills) {
-		this.skills = skills;
-	}
+
 	/**
-	 * Crearemos el hashcode con nombre jugador por si queremos añadir buscar o eliminar
+	 * Crearemos el hashcode con nombre jugador por si queremos añadir buscar o
+	 * eliminar
 	 */
 	@Override
 	public int hashCode() {
@@ -63,6 +52,7 @@ public class clsJugador extends clsEquipo {
 		result = prime * result + ((nombreJugador == null) ? 0 : nombreJugador.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -79,6 +69,34 @@ public class clsJugador extends clsEquipo {
 			return false;
 		return true;
 	}
-	
+
+	@Override
+	public Object getObjectProperty(String propiedad) {
+		switch (propiedad) {
+		case PROPIEDAD_clsJUGADOR_NOMBREJUGADOR:
+			return this.nombreJugador;
+		case PROPIEDAD_clsJUGADOR_FORMAFISICA:
+			return this.formaFisica;
+		case PROPIEDAD_clsJUGADOR_EDAD:
+			return this.edad;
+		case PROPIEDAD_clsJUGADOR_SKILLS:
+			return this.skills;
+		
+		default:
+			return null;
+		}
+
+	}
+
+	@Override
+	public void setObjectProperty(String propiedad, Object valor) {
+		switch(propiedad) {
+		case PROPIEDAD_clsJUGADOR_NOMBREJUGADOR:nombreJugador=((String)valor);break;
+		case PROPIEDAD_clsJUGADOR_FORMAFISICA:formaFisica=((int)valor);break;
+		case PROPIEDAD_clsJUGADOR_EDAD:edad=((int)valor);break;
+		case PROPIEDAD_clsJUGADOR_SKILLS:skills=((double)valor);break;
+		}
+
+	}
 
 }

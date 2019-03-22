@@ -98,7 +98,7 @@ public class clsMenu {
 			
 		}
 		
-		gln.añadirEquipacion(null, null, color1, color2, oppublicidad, serigrafiado);
+		gln.añadirEquipacion(null, null, color1, color2, oppublicidad, serigrafiado, 0);
 	}
 	
 	/**

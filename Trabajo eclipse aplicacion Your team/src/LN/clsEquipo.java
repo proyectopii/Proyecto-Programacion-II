@@ -1,45 +1,43 @@
 package LN;
 
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO;
+
 import java.time.LocalDate;
 
-public class clsEquipo  {
+import COMUN.itfProperty;
+
+public class clsEquipo implements itfProperty {
 	/**
-	 * Crearemos los atributos de la clase clsEquipo que hereda de la clase clsJugador
-	 * un nombre equipo porque cada equipo obligatoriamente tendrá un nombreEquipo
-	 * todos los equipos tendran una fecha de fundación
+	 * Crearemos los atributos de la clase clsEquipo que hereda de la clase
+	 * clsJugador un nombre equipo porque cada equipo obligatoriamente tendrá un
+	 * nombreEquipo todos los equipos tendran una fecha de fundación
 	 */
 	private String nombreEquipo;
 	private LocalDate fundacionEquipo;
+
 	/**
 	 * Crearemos un constructor vacío y otro con parámetros
 	 */
 	public clsEquipo() {
-		String nombreEquipo="";
-		LocalDate fundacionEquipo=LocalDate.now();
+		String nombreEquipo = "";
+		LocalDate fundacionEquipo = LocalDate.now();
 	}
+
 	public clsEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
 		super();
 		this.nombreEquipo = nombreEquipo;
 		this.fundacionEquipo = fundacionEquipo;
 	}
+
 	/**
 	 * Generaremos los dichos getters and setters de los atributos
 	 */
-	public String getNombreEquipo() {
-		return nombreEquipo;
-	}
 	
-	public void setNombreEquipo(String nombreEquipo) {
-		this.nombreEquipo = nombreEquipo;
-	}
-	public LocalDate getFundacionEquipo() {
-		return fundacionEquipo;
-	}
-	public void setFundacionEquipo(LocalDate fundacionEquipo) {
-		this.fundacionEquipo = fundacionEquipo;
-	}
+
 	/**
-	 * Generaremos el hashcode de nombreEquipo y fundación equipo por si queremos eliminar buscar o añadir
+	 * Generaremos el hashcode de nombreEquipo y fundación equipo por si queremos
+	 * eliminar buscar o añadir
 	 */
 	@Override
 	public int hashCode() {
@@ -49,6 +47,7 @@ public class clsEquipo  {
 		result = prime * result + ((nombreEquipo == null) ? 0 : nombreEquipo.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,12 +69,28 @@ public class clsEquipo  {
 			return false;
 		return true;
 	}
-	
-	
 
-	
-	
-	
-	
+	@Override
+	public Object getObjectProperty(String propiedad) {
+		switch (propiedad) {
+		case PROPIEDAD_clsEQUIPO_NOMBREEQUIPO:
+			return this.nombreEquipo;
+		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:
+			return this.fundacionEquipo;
+
+		default:
+			return null;
+		}
+
+	}
+
+	@Override
+	public void setObjectProperty(String propiedad, Object valor) {
+		switch(propiedad) {
+		case PROPIEDAD_clsEQUIPO_NOMBREEQUIPO:nombreEquipo=((String) valor); break;
+		case  PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:fundacionEquipo=((LocalDate)valor);break;
+		}
+		
+	}
 
 }

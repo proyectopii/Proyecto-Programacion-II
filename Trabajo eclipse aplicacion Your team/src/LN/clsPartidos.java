@@ -1,53 +1,46 @@
 package LN;
 
+import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL;
+import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE;
+import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO;
+
 import java.time.LocalDate;
 
-public class clsPartidos {
+import COMUN.itfProperty;
+
+public class clsPartidos implements itfProperty {
 	/**
-	 * Pondremos los atributos de clsPartidos
-	 * Tendremos un equipo local y un equipo visitante que son los que compiten en un partido
-	 * Podnremos también una fecha para saber en que hora ha empezado
+	 * Pondremos los atributos de clsPartidos Tendremos un equipo local y un equipo
+	 * visitante que son los que compiten en un partido Podnremos también una fecha
+	 * para saber en que hora ha empezado
 	 */
 	private String equipoLocal;
 	private String equipoVisitante;
 	private LocalDate fechaInicioPartido;
+
 	/**
 	 * A continuación pondremos un constructor con parámetros y sin parámetros
 	 */
 	public clsPartidos() {
-		String equipoLocal="";
-		String equipoVisitante="";
-		LocalDate fechaInicioPartido=LocalDate.now();
+		String equipoLocal = "";
+		String equipoVisitante = "";
+		LocalDate fechaInicioPartido = LocalDate.now();
 	}
+
 	public clsPartidos(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
 		super();
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
 		this.fechaInicioPartido = fechaInicioPartido;
 	}
+
 	/**
 	 * También pondremos los getters y setters de los atributos
 	 */
-	public String getEquipoLocal() {
-		return equipoLocal;
-	}
-	public void setEquipoLocal(String equipoLocal) {
-		this.equipoLocal = equipoLocal;
-	}
-	public String getEquipoVisitante() {
-		return equipoVisitante;
-	}
-	public void setEquipoVisitante(String equipoVisitante) {
-		this.equipoVisitante = equipoVisitante;
-	}
-	public LocalDate getFechaInicioPartido() {
-		return fechaInicioPartido;
-	}
-	public void setFechaInicioPartido(LocalDate fechaInicioPartido) {
-		this.fechaInicioPartido = fechaInicioPartido;
-	}
+	
 	/**
-	 * Generaremos el hashcode con equipo local y equipo visitante para añadir eliminar o buscar
+	 * Generaremos el hashcode con equipo local y equipo visitante para añadir
+	 * eliminar o buscar
 	 */
 	@Override
 	public int hashCode() {
@@ -57,6 +50,7 @@ public class clsPartidos {
 		result = prime * result + ((equipoVisitante == null) ? 0 : equipoVisitante.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -78,7 +72,31 @@ public class clsPartidos {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public Object getObjectProperty(String propiedad) {
+		switch (propiedad) {
+		case PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL:
+			return this.equipoLocal;
+		case PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE:
+			return this.equipoVisitante;
+		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:
+			return this.fechaInicioPartido;
+
+		default:
+			return null;
+		}
+
+	}
+
+	@Override
+	public void setObjectProperty(String propiedad, Object valor) {
+		switch(propiedad) {
+		case PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL:equipoLocal=((String)valor);break;
+		case PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE:equipoVisitante=((String)valor);break;
+		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:fechaInicioPartido=((LocalDate)valor);break;
+		}
+
+	}
 
 }
