@@ -74,7 +74,7 @@ public class clsGestorLN {
 		tujugador.add(objtujugador);
 	}
 
-	public void anadirPartido(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
+	public void anadirPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		clsPartidos objtupartido = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
 		tupartido.add(objtupartido);
 	}

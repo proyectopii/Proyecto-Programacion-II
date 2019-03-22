@@ -4,6 +4,7 @@ import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL;
 import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE;
 import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import COMUN.itfProperty;
@@ -16,7 +17,7 @@ public class clsPartidos implements itfProperty {
 	 */
 	private String equipoLocal;
 	private String equipoVisitante;
-	private LocalDate fechaInicioPartido;
+	private Date fechaInicioPartido;
 
 	/**
 	 * A continuaci?n pondremos un constructor con par?metros y sin par?metros
@@ -24,10 +25,10 @@ public class clsPartidos implements itfProperty {
 	public clsPartidos() {
 		String equipoLocal = "";
 		String equipoVisitante = "";
-		LocalDate fechaInicioPartido = LocalDate.now();
+		Date fechaInicioPartido = null;
 	}
 
-	public clsPartidos(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
+	public clsPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		super();
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
@@ -94,7 +95,7 @@ public class clsPartidos implements itfProperty {
 		switch(propiedad) {
 		case PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL:equipoLocal=((String)valor);break;
 		case PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE:equipoVisitante=((String)valor);break;
-		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:fechaInicioPartido=((LocalDate)valor);break;
+		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:fechaInicioPartido=((Date)valor);break;
 		}
 
 	}
