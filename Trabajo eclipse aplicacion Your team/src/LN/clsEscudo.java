@@ -9,14 +9,14 @@ import COMUN.itfProperty;
 
 public class clsEscudo extends clsEquipo implements itfProperty {
 	/**
-	 * Crearemos los atributos de clsEscudo Un formaEscudo porque cada escudo tendrá
-	 * una forma Un colorescudo porque cada escudo de cada equipo tendrá un color
+	 * Crearemos los atributos de clsEscudo Un formaEscudo porque cada escudo tendr?
+	 * una forma Un colorescudo porque cada escudo de cada equipo tendr? un color
 	 */
 	private String formaEscudo;
 	private String colorEscudo;
 
 	/**
-	 * Crearemos un constructo vacío y otro con parámetros
+	 * Crearemos un constructo vac?o y otro con par?metros
 	 */
 
 	public clsEscudo() {
@@ -37,7 +37,7 @@ public class clsEscudo extends clsEquipo implements itfProperty {
 
 	/**
 	 * Ahora generaremos el hashcode con los atributos formaescudo y colorescudo por
-	 * si se querría eliminar buscar o añadir
+	 * si se querr?a eliminar buscar o a?adir
 	 */
 	@Override
 	public int hashCode() {

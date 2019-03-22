@@ -14,7 +14,7 @@ import COMUN.itfProperty;
 
 public class clsGestorLN {
 	/**
-	 * Aquí creamos el Arraylist privado donde guardaremos los equipos
+	 * Aqu? creamos el Arraylist privado donde guardaremos los equipos
 	 */
 	private ArrayList<clsEquipo> tuequipo;
 	private ArrayList<clsEquipacion> tuequipacion;
@@ -38,47 +38,47 @@ public class clsGestorLN {
 	}
 
 	/**
-	 * Aquí crearemos el método donde guardaremos todo cuando querramos añadir
-	 * buscar o eliminar Por ejemplo con el .add iríamos añadiendo los datos de cada
-	 * uno Crearíamos los de eliminar por si querríamos eliminar al
+	 * Aqu? crearemos el m?todo donde guardaremos todo cuando querramos a?adir
+	 * buscar o eliminar Por ejemplo con el .add ir?amos a?adiendo los datos de cada
+	 * uno Crear?amos los de eliminar por si querr?amos eliminar al
 	 * 
-	 * @param e
+	 * @param
 	 */
-	public void añadirEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
+	public void anadirEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
 		clsEquipo objtuequipo = new clsEquipo(nombreEquipo, fundacionEquipo);
 
 		tuequipo.add(objtuequipo);
 
 	}
 
-	public void añadirEquipacion(String nombreEquipo, LocalDate fundacionEquipo, String color1, String color2,
+	public void anadirEquipacion(String nombreEquipo, LocalDate fundacionEquipo, String color1, String color2,
 			String publicidad, String seriagrafiado, int dorsal) {
 		clsEquipacion objtuequipacion = new clsEquipacion(nombreEquipo, fundacionEquipo, color1, color2, publicidad,
 				seriagrafiado, dorsal);
 		tuequipacion.add(objtuequipacion);
 	}
 
-	public void añadirEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
+	public void anadirEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
 		clsEscudo objtuescudo = new clsEscudo(nombreEquipo, fundacionEquipo, formaEscudo, colorEscudo);
 		tuescudo.add(objtuescudo);
 	}
 
-	public void añadirIntercambio(String equipoOrigen, String equipoDestino) {
+	public void anadirIntercambio(String equipoOrigen, String equipoDestino) {
 		clsIntercambio objtuintercambio = new clsIntercambio(equipoOrigen, equipoDestino);
 		tuintercambio.add(objtuintercambio);
 	}
 
-	public void añadirJugador(String nombreJugador, int formaFisica, int edad, double skills,String nombreEquipo,LocalDate fundacionEquipo) {
+	public void anadirJugador(String nombreJugador, int formaFisica, int edad, double skills,String nombreEquipo,LocalDate fundacionEquipo) {
 		clsJugador objtujugador = new clsJugador(nombreJugador, formaFisica, edad, skills,nombreEquipo,fundacionEquipo);
 		tujugador.add(objtujugador);
 	}
 
-	public void añadirPartido(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
+	public void anadirPartido(String equipoLocal, String equipoVisitante, LocalDate fechaInicioPartido) {
 		clsPartidos objtupartido = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
 		tupartido.add(objtupartido);
 	}
 
-	public void añadirTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
+	public void anadirTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
 		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada, ganador);
 		tutemporada.add(objtutemporada);
 	}
@@ -219,7 +219,7 @@ public class clsGestorLN {
 	}
 
 	/**
-	 * A continuación pondremos varios métodos
+	 * A continuaci?n pondremos varios m?todos
 	 */
 	private ArrayList<itfProperty> contenedor;
 
@@ -227,7 +227,7 @@ public class clsGestorLN {
 
 	// contenedor = new ArrayList<>();
 	// }
-	public boolean añadir(itfProperty obj) {
+	public boolean anadir(itfProperty obj) {
 		// no existe el dato en el array
 		if (buscar(obj) == false) {
 			contenedor.add(obj);

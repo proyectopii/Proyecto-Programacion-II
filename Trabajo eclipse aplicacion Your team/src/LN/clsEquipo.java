@@ -10,14 +10,14 @@ import COMUN.itfProperty;
 public class clsEquipo implements itfProperty {
 	/**
 	 * Crearemos los atributos de la clase clsEquipo que hereda de la clase
-	 * clsJugador un nombre equipo porque cada equipo obligatoriamente tendrá un
-	 * nombreEquipo todos los equipos tendran una fecha de fundación
+	 * clsJugador un nombre equipo porque cada equipo obligatoriamente tendr? un
+	 * nombreEquipo todos los equipos tendran una fecha de fundaci?n
 	 */
 	private String nombreEquipo;
 	private LocalDate fundacionEquipo;
 
 	/**
-	 * Crearemos un constructor vacío y otro con parámetros
+	 * Crearemos un constructor vac?o y otro con par?metros
 	 */
 	public clsEquipo() {
 		String nombreEquipo = "";
@@ -36,8 +36,8 @@ public class clsEquipo implements itfProperty {
 	
 
 	/**
-	 * Generaremos el hashcode de nombreEquipo y fundación equipo por si queremos
-	 * eliminar buscar o añadir
+	 * Generaremos el hashcode de nombreEquipo y fundaci?n equipo por si queremos
+	 * eliminar buscar o a?adir
 	 */
 	@Override
 	public int hashCode() {
@@ -88,7 +88,7 @@ public class clsEquipo implements itfProperty {
 	public void setObjectProperty(String propiedad, Object valor) {
 		switch(propiedad) {
 		case PROPIEDAD_clsEQUIPO_NOMBREEQUIPO:nombreEquipo=((String) valor); break;
-		case  PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:fundacionEquipo=((LocalDate)valor);break;
+		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:fundacionEquipo=((LocalDate)valor);break;
 		}
 		
 	}

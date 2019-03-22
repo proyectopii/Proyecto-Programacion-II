@@ -11,7 +11,7 @@ import COMUN.itfProperty;
 public class clsPartidos implements itfProperty {
 	/**
 	 * Pondremos los atributos de clsPartidos Tendremos un equipo local y un equipo
-	 * visitante que son los que compiten en un partido Podnremos también una fecha
+	 * visitante que son los que compiten en un partido Podnremos tambi?n una fecha
 	 * para saber en que hora ha empezado
 	 */
 	private String equipoLocal;
@@ -19,7 +19,7 @@ public class clsPartidos implements itfProperty {
 	private LocalDate fechaInicioPartido;
 
 	/**
-	 * A continuación pondremos un constructor con parámetros y sin parámetros
+	 * A continuaci?n pondremos un constructor con par?metros y sin par?metros
 	 */
 	public clsPartidos() {
 		String equipoLocal = "";
@@ -35,11 +35,11 @@ public class clsPartidos implements itfProperty {
 	}
 
 	/**
-	 * También pondremos los getters y setters de los atributos
+	 * Tambi?n pondremos los getters y setters de los atributos
 	 */
 	
 	/**
-	 * Generaremos el hashcode con equipo local y equipo visitante para añadir
+	 * Generaremos el hashcode con equipo local y equipo visitante para a?adir
 	 * eliminar o buscar
 	 */
 	@Override
