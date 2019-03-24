@@ -18,7 +18,11 @@ import LN.clsJugador;
 import LN.clsPartidos;
 import LN.clsTemporada;
 
-
+/**
+ * También importaremos todas las clases para poner todo
+ * @author Industria 4.0
+ *
+ */
 public class clsDatos {
 	/**
 	 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipaciones

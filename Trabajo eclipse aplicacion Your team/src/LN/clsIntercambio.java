@@ -28,10 +28,7 @@ public class clsIntercambio extends clsEquipo implements itfProperty {
 		this.equipoDestino = equipoDestino;
 	}
 
-	/**
-	 * Ahora crearemos los getters y setters de los atributos
-	 */
-	
+
 
 	/**
 	 * Generaremos el hashcode con equipo origen y equipo destino por si queremos
@@ -67,7 +64,10 @@ public class clsIntercambio extends clsEquipo implements itfProperty {
 			return false;
 		return true;
 	}
-
+	/**
+	 * Ahora crearemos los getters y setters de los atributos
+	 */
+	
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {

@@ -31,9 +31,7 @@ public class clsEscudo extends clsEquipo implements itfProperty {
 		this.colorEscudo = colorEscudo;
 	}
 
-	/**
-	 * Crearemos los getters and setter de cada atributo
-	 */
+
 	
 
 	/**
@@ -70,7 +68,9 @@ public class clsEscudo extends clsEquipo implements itfProperty {
 			return false;
 		return true;
 	}
-
+	/**
+	 * Crearemos los getters and setter de cada atributo
+	 */
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {

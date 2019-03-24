@@ -3,6 +3,10 @@ package COMUN;
 import java.time.LocalDate;
 
 public class Constantes {
+	/**
+	 * Aquí definiremos cada una de las constantes de todos los atributos de las clases
+	 * para luego ponerlas en los métodos set y get
+	 */
 	public static final String PROPIEDAD_clsEQUIPACION_COLOR1="color1";
 	public static final String PROPIEDAD_clsEQUIPACION_COLOR2="color2";
 	public static final String PROPIEDAD_clsEQUIPACION_DORSAL="dorsal";

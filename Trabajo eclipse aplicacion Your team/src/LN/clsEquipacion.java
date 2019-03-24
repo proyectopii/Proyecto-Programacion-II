@@ -46,9 +46,6 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 		this.dorsal = dorsal;
 	}
 
-	/**
-	 * Aqu? crearemos los getters and setters de los atributos
-	 */
 	
 
 	@Override
@@ -85,6 +82,10 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 			return false;
 		return true;
 	}
+	/**
+	 * Aqui crearemos los getters and setters de los atributos
+	 */
+	
 
 	@Override
 	public Object getObjectProperty(String propiedad) {

@@ -35,9 +35,7 @@ public class clsPartidos implements itfProperty {
 		this.fechaInicioPartido = fechaInicioPartido;
 	}
 
-	/**
-	 * Tambi?n pondremos los getters y setters de los atributos
-	 */
+
 	
 	/**
 	 * Generaremos el hashcode con equipo local y equipo visitante para a?adir
@@ -73,7 +71,9 @@ public class clsPartidos implements itfProperty {
 			return false;
 		return true;
 	}
-
+	/**
+	 * Tambi?n pondremos los getters y setters de los atributos
+	 */
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {

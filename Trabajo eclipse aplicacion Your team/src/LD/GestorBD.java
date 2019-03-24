@@ -5,6 +5,9 @@ import java.sql.Statement;
  
 
 public class GestorBD {
+	/**
+	 * Con está clase nos conectaremos a la base de datos
+	 */
 	private static GestorBD instance = null;
 	 
     private Connection connection = null;
@@ -46,7 +49,7 @@ public class GestorBD {
         }
          
         //useSSL = true para que la conexion sea cifrada
-        String sURL = "jdbc:mysql://localhost:3306/coches?useSSL=true";
+        String sURL = "jdbc:mysql://localhost:3306/equipo?useSSL=true";
          
         connection = java.sql.DriverManager.getConnection( sURL , "root", "root");
                  

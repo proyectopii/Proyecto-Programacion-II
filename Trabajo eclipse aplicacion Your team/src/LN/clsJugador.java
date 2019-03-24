@@ -37,10 +37,7 @@ public class clsJugador extends clsEquipo implements itfProperty {
 		this.skills = skills;
 	}
 
-	/**
-	 * Crearemos los getters y setters de los atributos
-	 */
-	
+
 
 	/**
 	 * Crearemos el hashcode con nombre jugador por si queremos a?adir buscar o
@@ -70,7 +67,10 @@ public class clsJugador extends clsEquipo implements itfProperty {
 			return false;
 		return true;
 	}
-
+	/**
+	 * Crearemos los getters y setters de los atributos
+	 */
+	
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {

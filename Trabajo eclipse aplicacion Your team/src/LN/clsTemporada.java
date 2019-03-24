@@ -40,9 +40,7 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 		this.ganador = ganador;
 	}
 
-	/**
-	 * Crearemos los getter y setters de los atributos que hemos puesto
-	 */
+
 	
 
 	/**
@@ -77,7 +75,9 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 			return false;
 		return true;
 	}
-
+	/**
+	 * Crearemos los getter y setters de los atributos que hemos puesto
+	 */
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {

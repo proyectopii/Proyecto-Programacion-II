@@ -31,9 +31,7 @@ public class clsEquipo implements itfProperty {
 		this.fundacionEquipo = fundacionEquipo;
 	}
 
-	/**
-	 * Generaremos los dichos getters and setters de los atributos
-	 */
+
 	
 
 	/**
@@ -70,6 +68,9 @@ public class clsEquipo implements itfProperty {
 			return false;
 		return true;
 	}
+	/**
+	 * Generaremos los dichos getters and setters de los atributos
+	 */
 
 	@Override
 	public Object getObjectProperty(String propiedad) {
