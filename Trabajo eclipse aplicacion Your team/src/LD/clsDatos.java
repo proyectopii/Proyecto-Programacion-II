@@ -9,14 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import COMUN.itfProperty;
-import LN.clsEquipacion;
-import LN.clsEquipo;
-import LN.clsEscudo;
-import LN.clsIntercambio;
-import LN.clsJugador;
-import LN.clsPartidos;
-import LN.clsTemporada;
+
 
 /**
  * También importaremos todas las clases para poner todo
@@ -28,9 +21,9 @@ public class clsDatos {
 	 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipaciones
 	 * @return
 	 */
-	public static List<clsEquipacion> cargarEquipaciones()
+	public static ResultSet cargarEquipaciones()
 	  {
-	    ArrayList<clsEquipacion> vectorBD = new ArrayList<>();
+	   
 	    
 	    try
 	    {
@@ -42,7 +35,8 @@ public class clsDatos {
 	      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
 	       
 	      //hay una tabla coches en la BD
-	      ResultSet rs = stmt.executeQuery("SELECT * FROM Equipaciones");
+	      ResultSet rs = stmt.executeQuery("SELECT * FROM clsEquipaciones");
+	      /**
 	       
 	      // Tratamos los resultado obtenidos en la consulta SQL
 	      while(rs.next())
@@ -58,9 +52,18 @@ public class clsDatos {
 	         
 	        se.printStackTrace();
 	    }
+	    */
 	    
-	    return vectorBD;
-	  }
+	    return rs;
+	    }
+	    catch(SQLException se)
+	    {
+	        se.printStackTrace();
+	        
+	        return null;
+	    }
+	    }
+	 
 	   
 	  
 	  
@@ -71,7 +74,7 @@ public class clsDatos {
 
 
 
-	public static clsEquipacion buscarEquipacion(String nombreEquipo) 
+	public static ResultSet buscarEquipacion(String nombreEquipo) 
 	  {
 		try {
 			((GestorBD) clsDatos.getInstance()).connect();
@@ -81,17 +84,17 @@ public class clsDatos {
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
 
-			Date fundacionEquipo = rs.getDate("fundacionEquipo");
-			String color1 = rs.getString("color1");
-			String color2 = rs.getString("color2");
-			String publicidad = rs.getString("publicidad");
-			String serigrafiado = rs.getString("serigrafiado");
-			int dorsal= rs.getInt("dorsal");
+			//Date fundacionEquipo = rs.getDate("fundacionEquipo");
+			//String color1 = rs.getString("color1");
+			//String color2 = rs.getString("color2");
+			//String publicidad = rs.getString("publicidad");
+			//String serigrafiado = rs.getString("serigrafiado");
+			//int dorsal= rs.getInt("dorsal");
 
-			clsEquipacion e = new clsEquipacion (nombreEquipo, fundacionEquipo,  color1,  color2,
-					 publicidad,  serigrafiado,  dorsal);
+			//clsEquipacion e = new clsEquipacion (nombreEquipo, fundacionEquipo,  color1,  color2,
+					// publicidad,  serigrafiado,  dorsal);
 
-			return e;
+			return rs;
 		} catch (SQLException se) {
 			se.printStackTrace();
 
@@ -168,9 +171,9 @@ public class clsDatos {
 		 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipos
 		 * @return
 		 */
-		public static ArrayList<clsEquipo> cargarEquipo()
+		public static ResultSet cargarEquipo()
 		  {
-		    ArrayList<clsEquipo> vectorBD = new ArrayList<>();
+		    
 		    
 		    try
 		    {
@@ -183,7 +186,7 @@ public class clsDatos {
 		       
 		      //hay una tabla coches en la BD
 		      ResultSet rs = stmt.executeQuery("SELECT * FROM Equipo");
-		       
+		      /* 
 		      // Tratamos los resultado obtenidos en la consulta SQL
 		      while(rs.next())
 		      {
@@ -197,9 +200,16 @@ public class clsDatos {
 		    {
 		         
 		        se.printStackTrace();
-		    }
+		    }*/
 		    
-		    return vectorBD;
+		    return rs;
+		    }
+		    catch(SQLException se)
+		    {
+		        se.printStackTrace();
+		        
+		        return null;
+		    }
 		  }
 		   
 		  
@@ -211,7 +221,7 @@ public class clsDatos {
 
 
 
-		public static clsEquipo buscarEquipo(String nombreEquipo) 
+		public static ResultSet buscarEquipo(String nombreEquipo) 
 		  {
 			try {
 				((GestorBD) clsDatos.getInstance()).connect();
@@ -221,12 +231,12 @@ public class clsDatos {
 
 				ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
 
-				Date fundacionEquipo = rs.getDate("fundacionEquipo");
+				//Date fundacionEquipo = rs.getDate("fundacionEquipo");
 			
 
-				clsEquipo eq= new clsEquipo (nombreEquipo, fundacionEquipo);
+				//clsEquipo eq= new clsEquipo (nombreEquipo, fundacionEquipo);
 
-				return  eq;
+				return  rs;
 			} catch (SQLException se) {
 				se.printStackTrace();
 
@@ -302,9 +312,9 @@ public class clsDatos {
 			 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar escudo
 			 * @return
 			 */
-		    public static ArrayList<clsEscudo> cargarEscudo()
+		    public static ResultSet cargarEscudo()
 			  {
-			    ArrayList<clsEscudo> vectorBD = new ArrayList<>();
+			   
 			    
 			    try
 			    {
@@ -317,7 +327,7 @@ public class clsDatos {
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM Escudo");
-			       
+			      /* 
 			      // Tratamos los resultado obtenidos en la consulta SQL
 			      while(rs.next())
 			      {
@@ -332,8 +342,15 @@ public class clsDatos {
 			         
 			        se.printStackTrace();
 			    }
-			    
-			    return vectorBD;
+			    */
+			    return rs;
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return null;
+			    }
 			  }
 			   
 			  
@@ -345,7 +362,7 @@ public class clsDatos {
 
 
 
-			public static clsEquipo buscarEscudo(String nombreEquipo) 
+			public static ResultSet buscarEscudo(String nombreEquipo) 
 			  {
 				try {
 					((GestorBD) clsDatos.getInstance()).connect();
@@ -355,12 +372,12 @@ public class clsDatos {
 
 					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
 
-					Date fundacionEquipo = rs.getDate("fundacionEquipo");
+					//Date fundacionEquipo = rs.getDate("fundacionEquipo");
 				
 
-					clsEquipo es= new clsEquipo (nombreEquipo, fundacionEquipo);
+					//clsEquipo es= new clsEquipo (nombreEquipo, fundacionEquipo);
 
-					return  es;
+					return  rs;
 				} catch (SQLException se) {
 					se.printStackTrace();
 
@@ -438,9 +455,9 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar intercambio
 				 * @return
 				 */	 
-			  public static ArrayList<clsIntercambio> cargarIntercambio()
+			  public static ResultSet cargarIntercambio()
 			  {
-			    ArrayList<clsIntercambio> vectorBD = new ArrayList<>();
+			    
 			    
 			    try
 			    {
@@ -453,7 +470,7 @@ public class clsDatos {
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM Intercambio");
-			       
+			      /* 
 			      // Tratamos los resultado obtenidos en la consulta SQL
 			      while(rs.next())
 			      {
@@ -468,8 +485,15 @@ public class clsDatos {
 			         
 			        se.printStackTrace();
 			    }
-			    
-			    return vectorBD;
+			    */
+			    return rs;
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return null;
+			    }
 			  }
 			   
 			  
@@ -481,7 +505,7 @@ public class clsDatos {
 
 
 
-			public static clsEquipo buscarIntercambio(String equipoOrigen, String equipoDestino) 
+			public static ResultSet buscarIntercambio(String equipoOrigen, String equipoDestino) 
 			  {
 				try {
 					((GestorBD) clsDatos.getInstance()).connect();
@@ -495,9 +519,9 @@ public class clsDatos {
 					String equipodestino=rs.getString("equipo destino");
 				
 
-					clsIntercambio i= (clsIntercambio) new clsIntercambio (equipoOrigen, equipoDestino);
+					//clsIntercambio i= (clsIntercambio) new clsIntercambio (equipoOrigen, equipoDestino);
 
-					return  i;
+					return  rs;
 				} catch (SQLException se) {
 					se.printStackTrace();
 
@@ -573,9 +597,9 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar jugador
 				 * @return
 				 */	
-			  public static ArrayList<clsJugador> cargarJugador()
+			  public static ResultSet cargarJugador()
 			  {
-			    ArrayList<clsJugador> vectorBD = new ArrayList<>();
+			    
 			    
 			    try
 			    {
@@ -588,7 +612,7 @@ public class clsDatos {
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM Jugador");
-			       
+			       /*
 			      // Tratamos los resultado obtenidos en la consulta SQL
 			      while(rs.next())
 			      {
@@ -603,8 +627,15 @@ public class clsDatos {
 			         
 			        se.printStackTrace();
 			    }
-			    
-			    return vectorBD;
+			    */
+			    return rs;
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return null;
+			    }
 			  }
 			   
 			  
@@ -616,7 +647,7 @@ public class clsDatos {
 
 
 
-			public static clsEquipo buscarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo) 
+			public static ResultSet buscarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo) 
 			  {
 				try {
 					((GestorBD) clsDatos.getInstance()).connect();
@@ -631,9 +662,9 @@ public class clsDatos {
 					
 				
 
-					clsJugador j= new clsJugador (nombreJugador,formaFisica,edad,skills,nombreEquipo,fundacionEquipo);
+					//clsJugador j= new clsJugador (nombreJugador,formaFisica,edad,skills,nombreEquipo,fundacionEquipo);
 
-					return  j;
+					return  rs;
 				} catch (SQLException se) {
 					se.printStackTrace();
 
@@ -709,9 +740,9 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar partidos
 				 * @return
 				 */	
-			  public static ArrayList<clsPartidos> cargarPartido()
+			  public static ResultSet cargarPartido()
 			  {
-			    ArrayList<clsPartidos> vectorBD = new ArrayList<>();
+			   
 			    
 			    try
 			    {
@@ -724,7 +755,7 @@ public class clsDatos {
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM partido");
-			       
+			       /*
 			      // Tratamos los resultado obtenidos en la consulta SQL
 			      while(rs.next())
 			      {
@@ -739,8 +770,15 @@ public class clsDatos {
 			         
 			        se.printStackTrace();
 			    }
-			    
-			    return vectorBD;
+			    */
+			    return rs;
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return null;
+			    }
 			  }
 			   
 			  
@@ -752,7 +790,7 @@ public class clsDatos {
 
 
 
-			public static clsPartidos buscarPartidos(String equipoLocal, String equipoVisitante,Date fechaInicioPartido) 
+			public static ResultSet buscarPartidos(String equipoLocal, String equipoVisitante,Date fechaInicioPartido) 
 			  {
 				try {
 					((GestorBD) clsDatos.getInstance()).connect();
@@ -767,9 +805,9 @@ public class clsDatos {
 					Date fechainiciopartido=rs.getDate("fecha");
 				
 
-					clsPartidos p= (clsPartidos) new clsPartidos (equipoLocal, equipoVisitante,fechaInicioPartido);
+					//clsPartidos p= (clsPartidos) new clsPartidos (equipoLocal, equipoVisitante,fechaInicioPartido);
 
-					return  p;
+					return  rs;
 				} catch (SQLException se) {
 					se.printStackTrace();
 
@@ -845,9 +883,9 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar temporada
 				 * @return
 				 */	
-			  public static ArrayList<clsTemporada> cargarTemporada()
+			  public static ResultSet cargarTemporada()
 			  {
-			    ArrayList<clsTemporada> vectorBD = new ArrayList<>();
+			
 			    
 			    try
 			    {
@@ -860,7 +898,7 @@ public class clsDatos {
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM temporada");
-			       
+			       /*
 			      // Tratamos los resultado obtenidos en la consulta SQL
 			      while(rs.next())
 			      {
@@ -875,8 +913,15 @@ public class clsDatos {
 			         
 			        se.printStackTrace();
 			    }
-			    
-			    return vectorBD;
+			    */
+			    return rs;
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return null;
+			    }
 			  }
 			   
 			  
@@ -888,7 +933,7 @@ public class clsDatos {
 
 
 
-			public static clsTemporada buscartemporada(int puestos,String trofeos,Date anioTemporada,String ganador) 
+			public static ResultSet buscartemporada(int puestos,String trofeos,Date anioTemporada,String ganador) 
 			  {
 				try {
 					((GestorBD) clsDatos.getInstance()).connect();
@@ -902,9 +947,9 @@ public class clsDatos {
 					
 				
 
-					clsTemporada t= new clsTemporada ();
+					//clsTemporada t= new clsTemporada ();
 
-					return  t;
+					return  rs;
 				} catch (SQLException se) {
 					se.printStackTrace();
 
