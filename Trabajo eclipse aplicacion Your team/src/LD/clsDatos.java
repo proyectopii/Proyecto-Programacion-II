@@ -21,7 +21,8 @@ public class clsDatos {
 	 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipaciones
 	 * @return
 	 */
-	public static ResultSet cargarEquipaciones()
+	 private static GestorBD gbd=new GestorBD();
+	public  ResultSet cargarEquipaciones()
 	  {
 	   
 	    
@@ -29,10 +30,11 @@ public class clsDatos {
 	    {
 	      // Todos los accesos a bases de datos deben ir entre try/catch
 	      // Establecemos una conexiï¿½n con nuestra base de datos
-	    	GestorBD.getInstance().connect();
+	    	
+	    	gbd.connect();
 	         
 	      // Creamos y ejecutamos una sentencia SQL
-	      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+	      Statement stmt = gbd.createStatement();
 	       
 	      //hay una tabla coches en la BD
 	      ResultSet rs = stmt.executeQuery("SELECT * FROM clsEquipaciones");
@@ -67,19 +69,19 @@ public class clsDatos {
 	   
 	  
 	  
-	  private static Object getInstance() {
+	  public  Object getInstance() {
 		
 		return null;
 	}
 
 
 
-	public static ResultSet buscarEquipacion(String nombreEquipo) 
+	public  ResultSet buscarEquipacion(String nombreEquipo) 
 	  {
 		try {
-			((GestorBD) clsDatos.getInstance()).connect();
+		 gbd.connect();
 
-			Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 					ResultSet.CONCUR_UPDATABLE);
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
@@ -102,15 +104,15 @@ public class clsDatos {
 		} 
 	  }  
 	  
-	  public static boolean existeclsEquipacion(String nombreEquipo )
+	  public  boolean existeclsEquipacion(String nombreEquipo )
 	  {
 	    try
 	    {
-	       ((GestorBD) clsDatos.getInstance()).connect();
+	       gbd.connect();
 	         
 	      // Creamos y ejecutamos una sentencia SQL
 	      Statement sentencia = 
-	      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+	      gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 	                                           ResultSet.CONCUR_UPDATABLE);
 	            
 	      ResultSet rs = sentencia.executeQuery("SELECT * FROM clsequipaciones where nombreequipo = '" + nombreEquipo +"'" );
@@ -135,14 +137,14 @@ public class clsDatos {
 	    }    
 	  }
 	 
-	  public static void insertarEquipaciones(String nombreEquipo,LocalDate fundacionEquipo, String color1,  String color2,
+	  public  void insertarEquipaciones(String nombreEquipo,LocalDate fundacionEquipo, String color1,  String color2,
 				String publicidad,  String serigrafiado,  int dorsal)
 	  {     
 	    try
 	    {
-	      ((GestorBD) clsDatos.getInstance()).connect();
+	      gbd.connect();
 	       
-	      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+	      Statement sentencia =   gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 	                                           ResultSet.CONCUR_UPDATABLE);
 	 
 	      boolean r = existeclsEquipacion( nombreEquipo );
@@ -159,7 +161,7 @@ public class clsDatos {
 	          System.out.println("Equipo Existente!");
 	      }
 	       
-	      ((GestorBD) clsDatos.getInstance()).disconnect();
+	      gbd.disconnect();
 	     
 	    }
 	    catch(SQLException se)
@@ -171,7 +173,7 @@ public class clsDatos {
 		 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipos
 		 * @return
 		 */
-		public static ResultSet cargarEquipo()
+		public  ResultSet cargarEquipo()
 		  {
 		    
 		    
@@ -179,10 +181,11 @@ public class clsDatos {
 		    {
 		      // Todos los accesos a bases de datos deben ir entre try/catch
 		      // Establecemos una conexiï¿½n con nuestra base de datos
-		    	GestorBD.getInstance().connect();
+		    	
+		    	gbd.connect();
 		         
 		      // Creamos y ejecutamos una sentencia SQL
-		      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+		      Statement stmt =gbd.createStatement();
 		       
 		      //hay una tabla coches en la BD
 		      ResultSet rs = stmt.executeQuery("SELECT * FROM Equipo");
@@ -214,7 +217,7 @@ public class clsDatos {
 		   
 		  
 		  
-		  private static Object getInstance1() {
+		  public  Object getInstance1() {
 			
 			return null;
 		}
@@ -224,9 +227,9 @@ public class clsDatos {
 		public static ResultSet buscarEquipo(String nombreEquipo) 
 		  {
 			try {
-				((GestorBD) clsDatos.getInstance()).connect();
+				gbd.connect();
 
-				Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+				Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 						ResultSet.CONCUR_UPDATABLE);
 
 				ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
@@ -244,15 +247,15 @@ public class clsDatos {
 			} 
 		  }  
 		  
-		  public static boolean existeclsEquipo(String nombreEquipo )
+		  public  boolean existeclsEquipo(String nombreEquipo )
 		  {
 		    try
 		    {
-		       ((GestorBD) clsDatos.getInstance()).connect();
+		       gbd.connect();
 		         
 		      // Creamos y ejecutamos una sentencia SQL
 		      Statement sentencia = 
-		      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+		      gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 		                                           ResultSet.CONCUR_UPDATABLE);
 		            
 		      ResultSet rs = sentencia.executeQuery("SELECT * FROM equipo where nombreequipo = '" + nombreEquipo +"'" );
@@ -277,13 +280,13 @@ public class clsDatos {
 		    }    
 		  }
 		 
-		  public static void insertarEquipo(String nombreEquipo,Date fundacionEquipo)
+		  public  void insertarEquipo(String nombreEquipo,Date fundacionEquipo)
 		  {     
 		    try
 		    {
-		      ((GestorBD) clsDatos.getInstance()).connect();
+		      gbd.connect();
 		       
-		      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+		      Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 		                                           ResultSet.CONCUR_UPDATABLE);
 		 
 		      boolean r = existeclsEquipo( nombreEquipo );
@@ -300,7 +303,7 @@ public class clsDatos {
 		          System.out.println("Equipo Existente!");
 		      }
 		       
-		      ((GestorBD) clsDatos.getInstance()).disconnect();
+		      gbd.disconnect();
 		     
 		    }
 		    catch(SQLException se)
@@ -312,7 +315,7 @@ public class clsDatos {
 			 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar escudo
 			 * @return
 			 */
-		    public static ResultSet cargarEscudo()
+		    public  ResultSet cargarEscudo()
 			  {
 			   
 			    
@@ -320,10 +323,11 @@ public class clsDatos {
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
 			      // Establecemos una conexiï¿½n con nuestra base de datos
-			    	GestorBD.getInstance().connect();
+			    	
+			    	gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
-			      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+			      Statement stmt = gbd.createStatement();
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM Escudo");
@@ -355,19 +359,19 @@ public class clsDatos {
 			   
 			  
 			  
-			  private static Object getInstance2() {
+			  private  Object getInstance2() {
 				
 				return null;
 			}
 
 
 
-			public static ResultSet buscarEscudo(String nombreEquipo) 
+			public  ResultSet buscarEscudo(String nombreEquipo) 
 			  {
 				try {
-					((GestorBD) clsDatos.getInstance()).connect();
+					gbd.connect();
 
-					Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
 					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
@@ -385,15 +389,15 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public static boolean existescudo(String formaEscudo )
+			  public  boolean existescudo(String formaEscudo )
 			  {
 			    try
 			    {
-			       ((GestorBD) clsDatos.getInstance()).connect();
+			       gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
 			      Statement sentencia = 
-			      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
 			      ResultSet rs = sentencia.executeQuery("SELECT * FROM escudo where formaescudo = '" + formaEscudo +"'" );
@@ -418,13 +422,13 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public static void insertarEscudo(String formaEscudo,Date colorEscudo, String nombreEscudo, Date fundacionEquipo)
+			  public  void insertarEscudo(String formaEscudo,Date colorEscudo, String nombreEscudo, Date fundacionEquipo)
 			  {     
 			    try
 			    {
-			      ((GestorBD) clsDatos.getInstance()).connect();
+			      gbd.connect();
 			       
-			      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
 			      boolean r = existeclsEquipo( formaEscudo );
@@ -441,7 +445,7 @@ public class clsDatos {
 			          System.out.println("Escudo Existente!");
 			      }
 			       
-			      ((GestorBD) clsDatos.getInstance()).disconnect();
+			      gbd.disconnect();
 			     
 			    }
 			    catch(SQLException se)
@@ -455,7 +459,7 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar intercambio
 				 * @return
 				 */	 
-			  public static ResultSet cargarIntercambio()
+			  public  ResultSet cargarIntercambio()
 			  {
 			    
 			    
@@ -463,10 +467,11 @@ public class clsDatos {
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
 			      // Establecemos una conexiï¿½n con nuestra base de datos
-			    	GestorBD.getInstance().connect();
+			    	
+			    	gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
-			      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+			      Statement stmt = gbd.createStatement();
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM Intercambio");
@@ -498,19 +503,19 @@ public class clsDatos {
 			   
 			  
 			  
-			  private static Object getInstance3() {
+			  public  Object getInstance3() {
 				
 				return null;
 			}
 
 
 
-			public static ResultSet buscarIntercambio(String equipoOrigen, String equipoDestino) 
+			public  ResultSet buscarIntercambio(String equipoOrigen, String equipoDestino) 
 			  {
 				try {
-					((GestorBD) clsDatos.getInstance()).connect();
+					gbd.connect();
 
-					Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
 					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where quipo origen y equipo destino = '" + equipoOrigen + equipoDestino+ "'");
@@ -529,15 +534,15 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public static boolean existeclsIntercambio(String equipoOrigen, String equipoDestino )
+			  public  boolean existeclsIntercambio(String equipoOrigen, String equipoDestino )
 			  {
 			    try
 			    {
-			       ((GestorBD) clsDatos.getInstance()).connect();
+			       gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
 			      Statement sentencia = 
-			      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
 			      ResultSet rs = sentencia.executeQuery("SELECT * FROM intercambio where equipo origen y equipo destino = '" + equipoOrigen +equipoDestino+"'" );
@@ -562,13 +567,13 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public static void insertarIntercambio(String equipoOrigen,String equipoDestino)
+			  public  void insertarIntercambio(String equipoOrigen,String equipoDestino)
 			  {     
 			    try
 			    {
-			      ((GestorBD) clsDatos.getInstance()).connect();
+			     gbd.connect();
 			       
-			      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
 			      boolean r = existeclsIntercambio( equipoOrigen,equipoDestino );
@@ -585,7 +590,7 @@ public class clsDatos {
 			          System.out.println("Intercambio Existente!");
 			      }
 			       
-			      ((GestorBD) clsDatos.getInstance()).disconnect();
+			      gbd.disconnect();
 			     
 			    }
 			    catch(SQLException se)
@@ -597,7 +602,7 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar jugador
 				 * @return
 				 */	
-			  public static ResultSet cargarJugador()
+			  public  ResultSet cargarJugador()
 			  {
 			    
 			    
@@ -605,10 +610,11 @@ public class clsDatos {
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
 			      // Establecemos una conexiï¿½n con nuestra base de datos
-			    	GestorBD.getInstance().connect();
+			    	
+			    	gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
-			      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+			      Statement stmt = gbd.createStatement();
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM Jugador");
@@ -640,19 +646,19 @@ public class clsDatos {
 			   
 			  
 			  
-			  private static Object getInstance4() {
+			  public  Object getInstance4() {
 				
 				return null;
 			}
 
 
 
-			public static ResultSet buscarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo) 
+			public  ResultSet buscarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo) 
 			  {
 				try {
-					((GestorBD) clsDatos.getInstance()).connect();
+					gbd.connect();
 
-					Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
 					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where jugador = '" + nombreJugador+ "'");
@@ -672,15 +678,15 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public static boolean existeclsJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
+			  public  boolean existeclsJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
 			  {
 			    try
 			    {
-			       ((GestorBD) clsDatos.getInstance()).connect();
+			       gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
 			      Statement sentencia = 
-			      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
 			      ResultSet rs = sentencia.executeQuery("SELECT * FROM jugador where nombre jugador = '" + nombreJugador +"'" );
@@ -705,13 +711,13 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public static void insertarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
+			  public  void insertarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
 			  {     
 			    try
 			    {
-			      ((GestorBD) clsDatos.getInstance()).connect();
+			     gbd.connect();
 			       
-			      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
 			      boolean r = existeclsJugador(nombreJugador, formaFisica, edad, skills, nombreEquipo, fundacionEquipo );
@@ -728,7 +734,7 @@ public class clsDatos {
 			          System.out.println("Jugador Existente!");
 			      }
 			       
-			      ((GestorBD) clsDatos.getInstance()).disconnect();
+			     gbd.disconnect();
 			     
 			    }
 			    catch(SQLException se)
@@ -740,7 +746,7 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar partidos
 				 * @return
 				 */	
-			  public static ResultSet cargarPartido()
+			  public  ResultSet cargarPartido()
 			  {
 			   
 			    
@@ -748,10 +754,11 @@ public class clsDatos {
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
 			      // Establecemos una conexiï¿½n con nuestra base de datos
-			    	GestorBD.getInstance().connect();
+			    	
+			    	gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
-			      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+			      Statement stmt = gbd.createStatement();
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM partido");
@@ -783,19 +790,19 @@ public class clsDatos {
 			   
 			  
 			  
-			  private static Object getInstance5() {
+			  public  Object getInstance5() {
 				
 				return null;
 			}
 
 
 
-			public static ResultSet buscarPartidos(String equipoLocal, String equipoVisitante,Date fechaInicioPartido) 
+			public  ResultSet buscarPartidos(String equipoLocal, String equipoVisitante,Date fechaInicioPartido) 
 			  {
 				try {
-					((GestorBD) clsDatos.getInstance()).connect();
+					gbd.connect();
 
-					Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
 					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where partido  = '" + equipoLocal + equipoVisitante);
@@ -815,15 +822,15 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public static boolean existepartido(String equipoLocal, String equipoVisitante,Date fechaInicioPartido )
+			  public  boolean existepartido(String equipoLocal, String equipoVisitante,Date fechaInicioPartido )
 			  {
 			    try
 			    {
-			       ((GestorBD) clsDatos.getInstance()).connect();
+			      gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
 			      Statement sentencia = 
-			      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
 			      ResultSet rs = sentencia.executeQuery("SELECT * FROM partido where  = '" + equipoLocal +equipoVisitante+fechaInicioPartido+"'" );
@@ -848,13 +855,13 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public static void insertarpartido(String equipoLocal,String equipoVisitante,Date fechaInicioPartido)
+			  public  void insertarpartido(String equipoLocal,String equipoVisitante,Date fechaInicioPartido)
 			  {     
 			    try
 			    {
-			      ((GestorBD) clsDatos.getInstance()).connect();
+			      gbd.connect();
 			       
-			      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
 			      boolean r = existepartido(equipoLocal, equipoVisitante, fechaInicioPartido);
@@ -871,7 +878,7 @@ public class clsDatos {
 			          System.out.println("partido Existente!");
 			      }
 			       
-			      ((GestorBD) clsDatos.getInstance()).disconnect();
+			     gbd.disconnect();
 			     
 			    }
 			    catch(SQLException se)
@@ -883,7 +890,7 @@ public class clsDatos {
 				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar temporada
 				 * @return
 				 */	
-			  public static ResultSet cargarTemporada()
+			  public  ResultSet cargarTemporada()
 			  {
 			
 			    
@@ -891,10 +898,11 @@ public class clsDatos {
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
 			      // Establecemos una conexiï¿½n con nuestra base de datos
-			    	GestorBD.getInstance().connect();
+			    	
+			    	gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
-			      Statement stmt = ((Connection) clsDatos.getInstance()).createStatement();
+			      Statement stmt = gbd.createStatement();
 			       
 			      //hay una tabla coches en la BD
 			      ResultSet rs = stmt.executeQuery("SELECT * FROM temporada");
@@ -926,19 +934,19 @@ public class clsDatos {
 			   
 			  
 			  
-			  private static Object getInstance6() {
+			  public  Object getInstance6() {
 				
 				return null;
 			}
 
 
 
-			public static ResultSet buscartemporada(int puestos,String trofeos,Date anioTemporada,String ganador) 
+			public  ResultSet buscartemporada(int puestos,String trofeos,Date anioTemporada,String ganador) 
 			  {
 				try {
-					((GestorBD) clsDatos.getInstance()).connect();
+					gbd.connect();
 
-					Statement sentencia = ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
 					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where temporada = '" + puestos+trofeos+anioTemporada+ganador+ "'");
@@ -957,15 +965,15 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public static boolean existeTemporada(int puestos,String trofeos,Date anioTemporada,String ganador )
+			  public  boolean existeTemporada(int puestos,String trofeos,Date anioTemporada,String ganador )
 			  {
 			    try
 			    {
-			       ((GestorBD) clsDatos.getInstance()).connect();
+			       gbd.connect();
 			         
 			      // Creamos y ejecutamos una sentencia SQL
 			      Statement sentencia = 
-			      ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
 			      ResultSet rs = sentencia.executeQuery("SELECT * FROM temporada where  = '" + puestos +trofeos+anioTemporada+ganador+"'" );
@@ -990,13 +998,13 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public static void insertarTemporada(int puestos,String trofeos,Date anioTemporada,String ganador  )
+			  public  void insertarTemporada(int puestos,String trofeos,Date anioTemporada,String ganador  )
 			  {     
 			    try
 			    {
-			      ((GestorBD) clsDatos.getInstance()).connect();
+			      gbd.connect();
 			       
-			      Statement sentencia =  ((Connection) clsDatos.getInstance()).createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
 			      boolean r = existeTemporada(puestos, trofeos, anioTemporada, ganador);
@@ -1013,7 +1021,7 @@ public class clsDatos {
 			          System.out.println("Temporada Existente!");
 			      }
 			       
-			      ((GestorBD) clsDatos.getInstance()).disconnect();
+			      gbd.disconnect();
 			     
 			    }
 			    catch(SQLException se)

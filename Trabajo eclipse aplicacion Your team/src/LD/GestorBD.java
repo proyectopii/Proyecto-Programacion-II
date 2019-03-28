@@ -8,7 +8,7 @@ public class GestorBD {
 	/**
 	 * Con está clase nos conectaremos a la base de datos
 	 */
-	private static GestorBD instance = null;
+	
 	 
     private Connection connection = null;
  
@@ -19,24 +19,11 @@ public class GestorBD {
                                     "La conexion a la BD no ha sido creada todavia.");
     }
  
-    private GestorBD()
+    public GestorBD()
     {
     }
  
-    public static GestorBD getInstance()
-    {
-        if (instance == null)
-        {
-                instance = new GestorBD();
-        }
-        return instance;
-    }
- 
-    public static void releaseInstance()
-    {
-        instance = null;
-    }
- 
+    
     public void connect() throws SQLException
     {
         try
