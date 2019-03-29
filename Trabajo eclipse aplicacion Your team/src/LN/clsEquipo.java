@@ -4,11 +4,14 @@ import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import COMUN.itfProperty;
 
 public class clsEquipo implements itfProperty {
+	private static final String fecha = null;
 	/**
 	 * Crearemos los atributos de la clase clsEquipo que hereda de la clase
 	 * clsJugador un nombre equipo porque cada equipo obligatoriamente tendr? un
@@ -16,6 +19,8 @@ public class clsEquipo implements itfProperty {
 	 */
 	private String nombreEquipo;
 	private Date fundacionEquipo;
+	Date date = new Date(0);
+    
 
 	/**
 	 * Crearemos un constructor vac?o y otro con par?metros
@@ -94,5 +99,15 @@ public class clsEquipo implements itfProperty {
 		}
 		
 	}
+	/**
+	 * Aquí meteremos los nombres de los equipos y sus atributos
+	 */
+	clsEquipo e1 = new clsEquipo("Sestao.FC",date);
+	clsEquipo e2 = new clsEquipo("Calasanz.FC",date);
+	clsEquipo e3 = new clsEquipo("Vitoria.FC",date);
+	clsEquipo e4 = new clsEquipo("Bicampeons.FC",date);
+	clsEquipo e5 = new clsEquipo("Deusto.FC",date);
+	clsEquipo e6 = new clsEquipo("Madrid.FC",date);
+	
 
 }

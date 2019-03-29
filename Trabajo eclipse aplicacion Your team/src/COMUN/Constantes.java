@@ -1,5 +1,6 @@
 package COMUN;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Constantes {
@@ -15,6 +16,7 @@ public class Constantes {
 
 	public static final String PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO="fundacionEquipo";
 	public static final String PROPIEDAD_clsEQUIPO_NOMBREEQUIPO="nombreEquipo";
+	
 
 	public static final String PROPIEDAD_clsESCUDO_COLORESCUDO="colorEscudo";
 	public static final String PROPIEDAD_clsESCUDO_FORMAESCUDO="formaEscudo";

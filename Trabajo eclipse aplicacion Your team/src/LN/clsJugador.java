@@ -100,4 +100,5 @@ public class clsJugador extends clsEquipo implements itfProperty {
 
 	}
 
+
 }
