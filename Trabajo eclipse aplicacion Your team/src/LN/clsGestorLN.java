@@ -27,8 +27,9 @@ public class clsGestorLN {
 	private ArrayList<clsPartidos> tupartido;
 	private ArrayList<clsTemporada> tutemporada;
 	private ArrayList<clsIntercambio> tuintercambio;
-	ArrayList<clsJugador> listadoJugadores;
-	ArrayList<clsEquipo> listadoEquipos;
+	private ArrayList<clsJugador> listadoJugadores;
+	private ArrayList<clsEquipo> listadoEquipos;
+	private ArrayList<clsEscudo> listadoEscudos;
 
 	/**
 	 * Crearemos el constructor del arraylist
@@ -43,6 +44,7 @@ public class clsGestorLN {
 		tuintercambio = new ArrayList<clsIntercambio>();
 		listadoJugadores = new ArrayList<clsJugador>();
 		listadoEquipos = new ArrayList<clsEquipo>();
+		listadoEscudos = new ArrayList<clsEscudo>();
 	}
 
 	/**
@@ -56,6 +58,11 @@ public class clsGestorLN {
 		clsEquipo objtuequipo = new clsEquipo(nombreEquipo, fundacionEquipo);
 
 		tuequipo.add(objtuequipo);
+		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+		Collections.sort(listadoEquipos, comp);
 
 	}
 
@@ -69,6 +76,11 @@ public class clsGestorLN {
 	public void anadirEscudo(String nombreEquipo, Date fundacionEquipo, String formaEscudo, String colorEscudo) {
 		clsEscudo objtuescudo = new clsEscudo(nombreEquipo, fundacionEquipo, formaEscudo, colorEscudo);
 		tuescudo.add(objtuescudo);
+		clsComparadorPorColores comp = new clsComparadorPorColores();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+		Collections.sort(listadoEscudos,comp);
 	}
 
 	public void anadirIntercambio(String equipoOrigen, String equipoDestino) {
@@ -81,19 +93,6 @@ public class clsGestorLN {
 		clsJugador objtujugador = new clsJugador(nombreJugador, formaFisica, edad, skills, nombreEquipo,
 				fundacionEquipo);
 		tujugador.add(objtujugador);
-	}
-
-	public void anadirPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
-		clsPartidos objtupartido = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-		tupartido.add(objtupartido);
-	}
-
-	public void anadirTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
-		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada, ganador);
-		tutemporada.add(objtutemporada);
-	}
-
-	public void añadirJugadores() {
 		/**
 		 * Hay que meter los nombres de los jugadores
 		 */
@@ -145,6 +144,16 @@ public class clsGestorLN {
 		 * Aquí ya tenemos los jugadores ordenados
 		 */
 		Collections.sort(listadoJugadores, comp);
+	}
+
+	public void anadirPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
+		clsPartidos objtupartido = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
+		tupartido.add(objtupartido);
+	}
+
+	public void anadirTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
+		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada, ganador);
+		tutemporada.add(objtutemporada);
 	}
 
 	public ArrayList<itfProperty> MostrarEquipacion() {

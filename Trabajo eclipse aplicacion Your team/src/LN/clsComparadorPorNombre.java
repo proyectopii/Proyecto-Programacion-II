@@ -14,5 +14,6 @@ public class clsComparadorPorNombre implements Comparator<clsJugador>  {
 			return (((String) p1.getObjectProperty(PROPIEDAD_clsJUGADOR_NOMBREJUGADOR)).compareTo((String) p2.getObjectProperty(PROPIEDAD_clsJUGADOR_NOMBREJUGADOR)));
 		}
 	}
+	
 
 }
