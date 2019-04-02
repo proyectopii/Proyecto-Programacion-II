@@ -14,13 +14,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class Ventana extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtLocalizacin;
-	private JTextField txtTipo;
-	private JTextField txtUso;
 
 	/**
 	 * Launch the application.
@@ -56,29 +56,18 @@ public class Ventana extends JFrame {
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Piso");
 		
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Alquiler");
-		
 		JCheckBox chckbxNewCheckBox_4 = new JCheckBox("A las afueras");
 		
 		JCheckBox chckbxNewCheckBox_5 = new JCheckBox("Chalet");
 		
 		JCheckBox chckbxNewCheckBox_6 = new JCheckBox("Compra");
 		
-		JCheckBox chckbxNewCheckBox_8 = new JCheckBox("Intermedio");
+		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Intermedio");
 		
 		JCheckBox chckbxNewCheckBox_9 = new JCheckBox("\u00C1tico");
 		
-		txtLocalizacin = new JTextField();
-		txtLocalizacin.setText("Localizaci\u00F3n");
-		txtLocalizacin.setColumns(10);
+		JCheckBox chckbxAlquiler = new JCheckBox("Alquiler");
 		
-		txtTipo = new JTextField();
-		txtTipo.setText("Tipo");
-		txtTipo.setColumns(10);
-		
-		txtUso = new JTextField();
-		txtUso.setText("Renta");
-		txtUso.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Borrar todo");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -90,78 +79,83 @@ public class Ventana extends JFrame {
 				chckbxNewCheckBox_4.setSelected(false);
 				chckbxNewCheckBox_5.setSelected(false);
 				chckbxNewCheckBox_6.setSelected(false);
-				chckbxNewCheckBox_8.setSelected(false);
+				chckbxNewCheckBox_2.setSelected(false);
 				chckbxNewCheckBox_9.setSelected(false);
+				chckbxAlquiler.setSelected(false);
 				
 				
 				
 			}
 		});
+		
+		chckbxAlquiler.setToolTipText("");
+		
+		JLabel lblLocalizacin = new JLabel("Localizaci\u00F3n");
+		lblLocalizacin.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		JLabel lblTipo = new JLabel("Tipo");
+		lblTipo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		JLabel lblRenta = new JLabel("Renta");
+		lblRenta.setFont(new Font("Tahoma", Font.BOLD, 13));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(30)
-					.addComponent(txtLocalizacin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(6)
-					.addComponent(txtTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(6)
-					.addComponent(txtUso, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(37)
-					.addComponent(btnNewButton))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(chckbxNewCheckBox)
-					.addGap(68)
-					.addComponent(chckbxNewCheckBox_1)
-					.addGap(64)
-					.addComponent(chckbxNewCheckBox_2))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(chckbxNewCheckBox_4)
-					.addGap(44)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(chckbxNewCheckBox_8)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(chckbxNewCheckBox_5)
-								.addComponent(chckbxNewCheckBox_9))
-							.addGap(52)
-							.addComponent(chckbxNewCheckBox_6)))
-					.addGap(119))
+								.addComponent(lblLocalizacin)
+								.addComponent(chckbxNewCheckBox_4)
+								.addComponent(chckbxNewCheckBox)
+								.addComponent(chckbxNewCheckBox_2))
+							.addGap(45)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(chckbxNewCheckBox_1)
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblTipo)
+										.addComponent(chckbxNewCheckBox_5)
+										.addComponent(chckbxNewCheckBox_9))
+									.addGap(45)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(chckbxNewCheckBox_6)
+										.addComponent(lblRenta)
+										.addComponent(chckbxAlquiler, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(124)
+							.addComponent(btnNewButton)))
+					.addContainerGap(111, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(22)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(txtLocalizacin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtUso, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblLocalizacin)
+						.addComponent(lblTipo)
+						.addComponent(lblRenta))
+					.addGap(33)
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(17)
-							.addComponent(btnNewButton)))
-					.addGap(65)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(chckbxNewCheckBox)
-						.addComponent(chckbxNewCheckBox_1)
-						.addComponent(chckbxNewCheckBox_2))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(chckbxNewCheckBox)
+								.addComponent(chckbxNewCheckBox_1))
+							.addGap(3)
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(chckbxNewCheckBox_4)
+								.addComponent(chckbxNewCheckBox_5)))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(2)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(1)
-									.addComponent(chckbxNewCheckBox_4))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(1)
-									.addComponent(chckbxNewCheckBox_5))))
-						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(chckbxAlquiler)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(chckbxNewCheckBox_6)))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(chckbxNewCheckBox_9)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(chckbxNewCheckBox_8)
-					.addContainerGap(26, Short.MAX_VALUE))
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(chckbxNewCheckBox_2)
+						.addComponent(chckbxNewCheckBox_9))
+					.addGap(18)
+					.addComponent(btnNewButton)
+					.addContainerGap(67, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 	}
