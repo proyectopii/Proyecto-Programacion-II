@@ -6,7 +6,7 @@ import COMUN.itfProperty;
 import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN;
 import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO;
 
-public class clsIntercambio extends clsEquipo implements itfProperty {
+public class clsIntercambio  implements itfProperty {
 	/**
 	 * Crearemos los atributos de clsIntercambio Para hacer un intercambio tendr?
 	 * que haber un equipo origen y equipo destino

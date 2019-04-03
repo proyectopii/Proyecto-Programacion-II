@@ -36,5 +36,5 @@ public class Constantes {
 	public static final String PROPIEDAD_clsTEMPORADA_PUESTOS="puestos";
 	public static final String PROPIEDAD_clsTEMPORADA_TROFEOS="trofeos";
 	public static final String PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA="anioTemporada";
-	public static final String PROPIEDAD_clsTEMPORADA_GANADOR="ganador";
+	
 }

@@ -4,11 +4,11 @@ import java.time.LocalDate;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA;
-import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_GANADOR;
+
 
 import COMUN.itfProperty;
 
-public class clsTemporada extends clsPartidos implements itfProperty {
+public class clsTemporada  implements itfProperty {
 	/**
 	 * Crearemos los atributos siguientes: puestos por el tema del n?mero que pueda
 	 * quedar un equipo y tiene que ser entero trofeos porque al final de la
@@ -19,7 +19,7 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 	private int puestos;
 	private String trofeos;
 	private LocalDate anioTemporada;
-	private String ganador;
+	
 
 	/**
 	 * Crearemos un contructor vac?o y un contructor con par?metros
@@ -32,12 +32,12 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 		String ganador = "";
 	}
 
-	public clsTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
+	public clsTemporada(int puestos, String trofeos, LocalDate anioTemporada) {
 		super();
 		this.puestos = puestos;
 		this.trofeos = trofeos;
 		this.anioTemporada = anioTemporada;
-		this.ganador = ganador;
+		
 	}
 
 
@@ -87,8 +87,6 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 			return this.trofeos;
 		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:
 			return this.anioTemporada;
-		case PROPIEDAD_clsTEMPORADA_GANADOR:
-			return this.ganador;
 		default:
 			return null;
 		}
@@ -101,7 +99,6 @@ public class clsTemporada extends clsPartidos implements itfProperty {
 		case PROPIEDAD_clsTEMPORADA_PUESTOS:puestos=((int)valor);break;
 		case PROPIEDAD_clsTEMPORADA_TROFEOS:trofeos=((String)valor);break;
 		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:anioTemporada=((LocalDate)valor);break;
-		case PROPIEDAD_clsTEMPORADA_GANADOR:ganador=((String)valor);break;
 		}
 	}
 

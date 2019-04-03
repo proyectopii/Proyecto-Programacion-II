@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 import COMUN.itfProperty;
 
-public class clsEquipacion extends clsEquipo implements itfProperty {
+public class clsEquipacion implements itfProperty {
 	/**
 	 * Ponemos los atributos de la clase clsEquipaci?n color 1 y color 2 porque cada
 	 * equipaci?n tendr? dos colores a elegir publicidad porque cada equipo tendr?
@@ -36,9 +36,9 @@ public class clsEquipacion extends clsEquipo implements itfProperty {
 		int dorsal = 0;
 	}
 
-	public clsEquipacion(String nombreEquipo, Date fundacionEquipo, String color1, String color2,
+	public clsEquipacion( String color1, String color2,
 			String publicidad, String serigrafiado, int dorsal) {
-		super(nombreEquipo, fundacionEquipo);
+		super();
 		this.color1 = color1;
 		this.color2 = color2;
 		this.publicidad = publicidad;

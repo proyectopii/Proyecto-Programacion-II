@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 import COMUN.itfProperty;
 
-public class clsJugador extends clsEquipo implements itfProperty {
+public class clsJugador  implements itfProperty {
 	/**
 	 * Crearemos los atributos de clsJugador Cada jugador tendr? un nombre y edad
 	 * Cada jugador podr? estar preparado a trav?s de su forma f?sica Cada jugador
@@ -28,9 +28,8 @@ public class clsJugador extends clsEquipo implements itfProperty {
 		
 	}
 
-	public clsJugador(String nombreJugador, int formaFisica, int edad, double skills, String nombreEquipo,
-			Date fundacionEquipo) {
-		super(nombreEquipo, fundacionEquipo);
+	public clsJugador(String nombreJugador, int formaFisica, int edad, double skills) {
+		super();
 		this.nombreJugador = nombreJugador;
 		this.formaFisica = formaFisica;
 		this.edad = edad;

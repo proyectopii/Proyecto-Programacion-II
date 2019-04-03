@@ -68,13 +68,13 @@ public class clsGestorLN {
 
 	public void anadirEquipacion(String nombreEquipo, Date fundacionEquipo, String color1, String color2,
 			String publicidad, String seriagrafiado, int dorsal) {
-		clsEquipacion objtuequipacion = new clsEquipacion(nombreEquipo, fundacionEquipo, color1, color2, publicidad,
+		clsEquipacion objtuequipacion = new clsEquipacion( color1, color2, publicidad,
 				seriagrafiado, dorsal);
 		tuequipacion.add(objtuequipacion);
 	}
 
 	public void anadirEscudo(String nombreEquipo, Date fundacionEquipo, String formaEscudo, String colorEscudo) {
-		clsEscudo objtuescudo = new clsEscudo(nombreEquipo, fundacionEquipo, formaEscudo, colorEscudo);
+		clsEscudo objtuescudo = new clsEscudo( formaEscudo, colorEscudo);
 		tuescudo.add(objtuescudo);
 		clsComparadorPorColores comp = new clsComparadorPorColores();
 		/**
@@ -90,33 +90,32 @@ public class clsGestorLN {
 
 	public void anadirJugador(String nombreJugador, int formaFisica, int edad, double skills, String nombreEquipo,
 			Date fundacionEquipo) {
-		clsJugador objtujugador = new clsJugador(nombreJugador, formaFisica, edad, skills, nombreEquipo,
-				fundacionEquipo);
+		clsJugador objtujugador = new clsJugador(nombreJugador, formaFisica, edad, skills);
 		tujugador.add(objtujugador);
 		/**
 		 * Hay que meter los nombres de los jugadores
 		 */
-		clsJugador p1 = new clsJugador("Jesus Baldomero", 100, 22, 2.5, null, null);
-		clsJugador p2 = new clsJugador("Hortensia Ramirez", 100, 25, 1.0, null, null);
-		clsJugador p3 = new clsJugador("Xabier Tolano", 100, 32, 2.0, null, null);
-		clsJugador p4 = new clsJugador("Rogelio Tolosa", 100, 23, 1.5, null, null);
-		clsJugador p5 = new clsJugador("Raul Beltran", 100, 43, 0.5, null, null);
-		clsJugador p6 = new clsJugador("Martin Rodriguez", 100, 44, 1.5, null, null);
-		clsJugador p7 = new clsJugador("Ainhoa Serna", 100, 21, 3.0, null, null);
-		clsJugador p8 = new clsJugador("Oscar Areitio", 100, 48, 2.0, null, null);
-		clsJugador p9 = new clsJugador("OmarEstebanez", 100, 27, 1.0, null, null);
-		clsJugador p10 = new clsJugador("Fran Alba", 100, 32, 2.5, null, null);
-		clsJugador p11 = new clsJugador("Julen Fuente", 100, 21, 1.5, null, null);
-		clsJugador p12 = new clsJugador("Jorge Martiarena", 100, 44, 2.0, null, null);
-		clsJugador p13 = new clsJugador("Amaia Saenz", 100, 42, 0.5, null, null);
-		clsJugador p14 = new clsJugador("Isabel Campillo", 100, 29, 1.0, null, null);
-		clsJugador p15 = new clsJugador("Fran Aizpurua", 100, 53, 0.5, null, null);
-		clsJugador p16 = new clsJugador("Maite Ibisate", 100, 43, 2.0, null, null);
-		clsJugador p17 = new clsJugador("Eugenio Frondoso", 100, 24, 2.5, null, null);
-		clsJugador p18 = new clsJugador("Fernando Goikoetxea", 100, 44, 2.0, null, null);
-		clsJugador p19 = new clsJugador("Olga Tolagua", 100, 56, 2.0, null, null);
-		clsJugador p20 = new clsJugador("Marina Sanchez", 100, 39, 1.00, null, null);
-		clsJugador p21 = new clsJugador("Mikel Lerena", 100, 21, 2.00, null, null);
+		clsJugador p1 = new clsJugador("Jesus Baldomero", 100, 22, 2.5);
+		clsJugador p2 = new clsJugador("Hortensia Ramirez", 100, 25, 1.0);
+		clsJugador p3 = new clsJugador("Xabier Tolano", 100, 32, 2.0);
+		clsJugador p4 = new clsJugador("Rogelio Tolosa", 100, 23, 1.5);
+		clsJugador p5 = new clsJugador("Raul Beltran", 100, 43, 0.5);
+		clsJugador p6 = new clsJugador("Martin Rodriguez", 100, 44, 1.5);
+		clsJugador p7 = new clsJugador("Ainhoa Serna", 100, 21, 3.0);
+		clsJugador p8 = new clsJugador("Oscar Areitio", 100, 48, 2.0);
+		clsJugador p9 = new clsJugador("OmarEstebanez", 100, 27, 1.0);
+		clsJugador p10 = new clsJugador("Fran Alba", 100, 32, 2.5);
+		clsJugador p11 = new clsJugador("Julen Fuente", 100, 21, 1.5);
+		clsJugador p12 = new clsJugador("Jorge Martiarena", 100, 44, 2.0);
+		clsJugador p13 = new clsJugador("Amaia Saenz", 100, 42, 0.5);
+		clsJugador p14 = new clsJugador("Isabel Campillo", 100, 29, 1.0);
+		clsJugador p15 = new clsJugador("Fran Aizpurua", 100, 53, 0.5);
+		clsJugador p16 = new clsJugador("Maite Ibisate", 100, 43, 2.0);
+		clsJugador p17 = new clsJugador("Eugenio Frondoso", 100, 24, 2.5);
+		clsJugador p18 = new clsJugador("Fernando Goikoetxea", 100, 44, 2.0);
+		clsJugador p19 = new clsJugador("Olga Tolagua", 100, 56, 2.0);
+		clsJugador p20 = new clsJugador("Marina Sanchez", 100, 39, 1.00);
+		clsJugador p21 = new clsJugador("Mikel Lerena", 100, 21, 2.00);
 		listadoJugadores.add(p1);
 		listadoJugadores.add(p2);
 		listadoJugadores.add(p3);
@@ -151,8 +150,8 @@ public class clsGestorLN {
 		tupartido.add(objtupartido);
 	}
 
-	public void anadirTemporada(int puestos, String trofeos, LocalDate anioTemporada, String ganador) {
-		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada, ganador);
+	public void anadirTemporada(int puestos, String trofeos, LocalDate anioTemporada) {
+		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada);
 		tutemporada.add(objtutemporada);
 	}
 

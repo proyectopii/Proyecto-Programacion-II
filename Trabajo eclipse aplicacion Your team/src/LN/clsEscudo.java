@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 import COMUN.itfProperty;
 
-public class clsEscudo extends clsEquipo implements itfProperty {
+public class clsEscudo  implements itfProperty {
 	/**
 	 * Crearemos los atributos de clsEscudo Un formaEscudo porque cada escudo tendr?
 	 * una forma Un colorescudo porque cada escudo de cada equipo tendr? un color
@@ -25,8 +25,8 @@ public class clsEscudo extends clsEquipo implements itfProperty {
 		String colorEscudo = "";
 	}
 
-	public clsEscudo(String nombreEquipo, Date fundacionEquipo, String formaEscudo, String colorEscudo) {
-		super(nombreEquipo, fundacionEquipo);
+	public clsEscudo( String formaEscudo, String colorEscudo) {
+		super();
 		this.formaEscudo = formaEscudo;
 		this.colorEscudo = colorEscudo;
 	}
