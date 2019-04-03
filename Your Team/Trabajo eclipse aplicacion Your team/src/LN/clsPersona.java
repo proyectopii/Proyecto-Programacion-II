@@ -23,7 +23,7 @@ public class clsPersona implements itfProperty{
 	}
 	
 	/**
-	 * Crearemos un constructor donde tendremos todos los parámetros
+	 * Crearemos un constructor donde tendremos todos los par?metros
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2

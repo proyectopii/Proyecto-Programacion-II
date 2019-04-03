@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import LN.clsGestorLN;
 
 public class clsMenu {
+
 	/**
 	 * Crear un Menu para que pueda crearse su equipo, hacer un intercambio, cambiar cosas del equipo o salir 
 	 */

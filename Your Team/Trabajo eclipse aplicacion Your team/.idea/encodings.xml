@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/src/COMUN/Constantes.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/COMUN/Excepciones.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/COMUN/itfProperty.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/LD/GestorBD.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/LD/clsDatos.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LN/clsEquipacion.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LN/clsEquipo.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LN/clsEscudo.java" charset="ISO-8859-1" />
@@ -8,6 +13,7 @@
     <file url="file://$PROJECT_DIR$/src/LN/clsIntercambio.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LN/clsJugador.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LN/clsPartidos.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/LN/clsPersona.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LN/clsTemporada.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/LP/clsMenu.java" charset="ISO-8859-1" />
   </component>

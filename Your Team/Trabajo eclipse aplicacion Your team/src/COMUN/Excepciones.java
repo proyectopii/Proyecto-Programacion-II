@@ -6,12 +6,12 @@ import java.sql.Statement;
 
 public class Excepciones {
 	/**
-	 * Aquí meteremos con try catch posible excepciones que se puedan ocasionar para
+	 * Aqu? meteremos con try catch posible excepciones que se puedan ocasionar para
 	 * la base de datos
 	 */
 	 private static Excepciones instance = null;
 	 /**
-	  * Por ejemplo está por si ha habido fallos con la conexión
+	  * Por ejemplo est? por si ha habido fallos con la conexi?n
 	  */
 	 
 	    private Connection connection = null;
@@ -30,7 +30,7 @@ public class Excepciones {
 	    public static Excepciones getInstance()
 	    {
 	    	/**
-	    	 * Aquí ponemos excepción por el tema de drivers
+	    	 * Aqu? ponemos excepci?n por el tema de drivers
 	    	 */
 	        if (instance == null)
 	        {
@@ -55,7 +55,7 @@ public class Excepciones {
 	            e.printStackTrace();
 	        }
 	         /**
-	          * Aquí pondremos nuestra url usuario y contraseña para el workbench
+	          * Aqu? pondremos nuestra url usuario y contrase?a para el workbench
 	          */
 	        //useSSL = true para que la conexion sea cifrada
 	        String sURL = "jdbc:mysql://localhost:3306/coches?useSSL=true";
@@ -68,8 +68,8 @@ public class Excepciones {
 	    public void disconnect() throws SQLException
 	    {
 	    	/**
-	    	 * Con este método al desconectarnos guardamos bien todo y se cierra por miedo a 
-	    	 * que se pierda algo de imformación
+	    	 * Con este m?todo al desconectarnos guardamos bien todo y se cierra por miedo a 
+	    	 * que se pierda algo de imformaci?n
 	    	 */
 	        checkConnected();
 	        connection.close();
@@ -85,7 +85,7 @@ public class Excepciones {
 	    public Statement createStatement(int resultSetType , int resultSetConcurrency ) throws SQLException
 	    {
 	    	/**
-	    	 * Este método es para saber si nuestra conexión está on o off
+	    	 * Este m?todo es para saber si nuestra conexi?n est? on o off
 	    	 */
 	        checkConnected();
 	        return connection.createStatement(resultSetType, resultSetConcurrency );

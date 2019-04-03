@@ -12,13 +12,13 @@ import java.util.List;
 
 
 /**
- * También importaremos todas las clases para poner todo
+ * Tambi?n importaremos todas las clases para poner todo
  * @author Industria 4.0
  *
  */
 public class clsDatos {
 	/**
-	 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipaciones
+	 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar equipaciones
 	 * @return
 	 */
 	 private static GestorBD gbd=new GestorBD();
@@ -29,7 +29,7 @@ public class clsDatos {
 	    try
 	    {
 	      // Todos los accesos a bases de datos deben ir entre try/catch
-	      // Establecemos una conexiï¿½n con nuestra base de datos
+	      // Establecemos una conexi?n con nuestra base de datos
 	    	
 	    	gbd.connect();
 	         
@@ -170,7 +170,7 @@ public class clsDatos {
 	    }
 	 }
 	  /**
-		 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar equipos
+		 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar equipos
 		 * @return
 		 */
 		public  ResultSet cargarEquipo()
@@ -180,7 +180,7 @@ public class clsDatos {
 		    try
 		    {
 		      // Todos los accesos a bases de datos deben ir entre try/catch
-		      // Establecemos una conexiï¿½n con nuestra base de datos
+		      // Establecemos una conexi?n con nuestra base de datos
 		    	
 		    	gbd.connect();
 		         
@@ -312,7 +312,7 @@ public class clsDatos {
 		    }
 		  }
 		    /**
-			 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar escudo
+			 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar escudo
 			 * @return
 			 */
 		    public  ResultSet cargarEscudo()
@@ -322,7 +322,7 @@ public class clsDatos {
 			    try
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
-			      // Establecemos una conexiï¿½n con nuestra base de datos
+			      // Establecemos una conexi?n con nuestra base de datos
 			    	
 			    	gbd.connect();
 			         
@@ -456,7 +456,7 @@ public class clsDatos {
 		    
 		 }
 			  /**
-				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar intercambio
+				 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar intercambio
 				 * @return
 				 */	 
 			  public  ResultSet cargarIntercambio()
@@ -466,7 +466,7 @@ public class clsDatos {
 			    try
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
-			      // Establecemos una conexiï¿½n con nuestra base de datos
+			      // Establecemos una conexi?n con nuestra base de datos
 			    	
 			    	gbd.connect();
 			         
@@ -599,7 +599,7 @@ public class clsDatos {
 			    }
 			  }
 			  /**
-				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar jugador
+				 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar jugador
 				 * @return
 				 */	
 			  public  ResultSet cargarJugador()
@@ -609,7 +609,7 @@ public class clsDatos {
 			    try
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
-			      // Establecemos una conexiï¿½n con nuestra base de datos
+			      // Establecemos una conexi?n con nuestra base de datos
 			    	
 			    	gbd.connect();
 			         
@@ -743,7 +743,7 @@ public class clsDatos {
 			    }
 			  }
 			  /**
-				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar partidos
+				 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar partidos
 				 * @return
 				 */	
 			  public  ResultSet cargarPartido()
@@ -753,7 +753,7 @@ public class clsDatos {
 			    try
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
-			      // Establecemos una conexiï¿½n con nuestra base de datos
+			      // Establecemos una conexi?n con nuestra base de datos
 			    	
 			    	gbd.connect();
 			         
@@ -887,7 +887,7 @@ public class clsDatos {
 			    }
 			  }
 			  /**
-				 * Crearemos métodos para cargar,buscar,si hay repetidos y insertar temporada
+				 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar temporada
 				 * @return
 				 */	
 			  public  ResultSet cargarTemporada()
@@ -897,7 +897,7 @@ public class clsDatos {
 			    try
 			    {
 			      // Todos los accesos a bases de datos deben ir entre try/catch
-			      // Establecemos una conexiï¿½n con nuestra base de datos
+			      // Establecemos una conexi?n con nuestra base de datos
 			    	
 			    	gbd.connect();
 			         

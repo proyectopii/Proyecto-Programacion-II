@@ -2,7 +2,7 @@ package COMUN;
 
 public interface itfProperty {
 	/**
-	 * Con estos métodos crearemos los objetos que pueden ser de cualquier tipo para
+	 * Con estos m?todos crearemos los objetos que pueden ser de cualquier tipo para
 	 * los get properties y set properties
 	 * @param propiedad
 	 * @return

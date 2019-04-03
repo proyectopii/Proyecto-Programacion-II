@@ -15,5 +15,4 @@ public class clsComparadorPorColores implements Comparator<clsEscudo>  {
 	}
 	}
 
-
 }

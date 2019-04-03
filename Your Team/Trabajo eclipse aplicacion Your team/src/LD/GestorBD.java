@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class GestorBD {
 	/**
-	 * Con está clase nos conectaremos a la base de datos
+	 * Con est? clase nos conectaremos a la base de datos
 	 */
 	
 	 
