@@ -24,9 +24,8 @@ public class Constantes {
 	public static final String PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN="equipoOrigen";
 	public static final String PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO="equipoDestino";
 
-	public static final String PROPIEDAD_clsJUGADOR_EDAD="edad";
+
 	public static final String PROPIEDAD_clsJUGADOR_FORMAFISICA="formaFisica";
-	public static final String PROPIEDAD_clsJUGADOR_NOMBREJUGADOR="nombreJugador";
 	public static final String PROPIEDAD_clsJUGADOR_SKILLS="skills";
 
 	public static final String PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL="equipoLocal";
@@ -36,5 +35,11 @@ public class Constantes {
 	public static final String PROPIEDAD_clsTEMPORADA_PUESTOS="puestos";
 	public static final String PROPIEDAD_clsTEMPORADA_TROFEOS="trofeos";
 	public static final String PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA="anioTemporada";
+	
+	public static final String PROPIEDAD_clsPERSONA_NOMBRE="nombre";
+	public static final String PROPIEDAD_clsPERSONA_APELLIDO1="apellido1";
+	public static final String PROPIEDAD_clsPERSONA_APELLIDO2="apellido2";
+	public static final String PROPIEDAD_clsPERSONA_DNI="dni";
+	public static final String PROPIEDAD_clsPERSONA_SEXO="sexo";
 	
 }
