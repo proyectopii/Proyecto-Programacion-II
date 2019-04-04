@@ -21,13 +21,26 @@ public class clsJugador extends clsPersona  implements itfProperty {
 
 	/**
 	 * Crearemos un constructor vac?o y otro con par?metros
+	 * @param skills2 
+	 * @param sexo 
+	 * @param dni 
+	 * @param apellido2 
+	 * @param apellido1 
+	 * @param nombre 
 	 */
 	public clsJugador() {
+		String nombre="";
+		String apellido1="";
+		String apellido2="";
+		String dni="";
+		String sexo="";
+		double skills=0;
+		int formaFisica=0;
 		
 	}
 
-	public clsJugador( int formaFisica,double skills) {
-		super();
+	public clsJugador( String nombre, String apellido1, String apellido2, String dni, String sexo,double skills,int formaFisica) {
+		super(nombre, apellido1,apellido2, dni, sexo);
 		this.formaFisica = formaFisica;
 		this.skills = skills;
 	}
