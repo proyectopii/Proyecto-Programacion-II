@@ -1,5 +1,7 @@
 package LN;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_NOMBRE;
+import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA;
+import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_SKILLS;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_APELLIDO1;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_APELLIDO2;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_DNI;
@@ -42,13 +44,35 @@ public class clsPersona implements itfProperty{
 
 	@Override
 	public Object getObjectProperty(String propiedad) {
+		switch (propiedad) {
+		case PROPIEDAD_clsPERSONA_NOMBRE:
+			return this.nombre;
+		case PROPIEDAD_clsPERSONA_APELLIDO1:
+			return this.apellido1;
+		case PROPIEDAD_clsPERSONA_APELLIDO2:
+		    return this.apellido2;
+		case PROPIEDAD_clsPERSONA_DNI:
+		    return this.dni;
+		case PROPIEDAD_clsPERSONA_SEXO:
+		    return this.sexo;
 		
-		return null;
+		default:
+			return null;
+		}
+		
+		
 	}
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
-		// TODO Auto-generated method stub
+		switch(propiedad) {
+		case PROPIEDAD_clsPERSONA_NOMBRE:nombre=((String)valor);break;
+		case PROPIEDAD_clsPERSONA_APELLIDO1:apellido1=((String)valor);break;
+		case PROPIEDAD_clsPERSONA_APELLIDO2:apellido2=((String)valor);break;
+		case PROPIEDAD_clsPERSONA_DNI:dni=((String)valor);break;
+		case PROPIEDAD_clsPERSONA_SEXO:sexo=((String)valor);break;
+		
 		
 	}
 
+	}
 }
