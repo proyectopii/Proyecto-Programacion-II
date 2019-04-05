@@ -1,5 +1,7 @@
 package LN;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,11 +15,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import LD.GestorBD;
-
+import LD.clsDatos;
+import COMUN.Constantes;
 import COMUN.itfProperty;
 
 public class clsGestorLN {
+	private clsDatos clsDatos = new clsDatos();
 	/**
 	 * Aqu? creamos el Arraylist privado donde guardaremos los equipos
 	 */
@@ -295,86 +298,162 @@ public class clsGestorLN {
 	 */
 	private ArrayList<itfProperty> contenedor;
 
-	// 7public clsGestorLN() {
 
-	// contenedor = new ArrayList<>();
-	// }
-	public boolean anadir(itfProperty obj) {
-		// no existe el dato en el array
-		if (buscar(obj) == false) {
-			contenedor.add(obj);
+/**
+ * Con este metodo añadiremos equipaciones
+ * @param color1
+ * @param color2
+ * @param publicidad
+ * @param serigrafiado
+ * @param dorsal
+ * @return
+ */
+	public boolean anadirclsEquipacion(String color1, String color2,
+			String publicidad, String serigrafiado, int dorsal) {
 
-			return true;
-		} else {
+		clsEquipacion eq = new clsEquipacion( color1,color2,publicidad,serigrafiado,dorsal );//Aqui creamos una nueva equipacion con sus diferentes atributos
+		/**
+		 * Este metodo nos sirve para saber si hay repetidos para que no lo añada
+		 */
+		if( tuequipacion.contains(eq) == true  )
+		{
 			return false;
 		}
-	}
-
-	public boolean buscar(itfProperty obj) {
-		int p = contenedor.indexOf(obj);
-
-		if (p == -1)
-			return false;
+		/**
+		 * Si no es repetido lo añadimos a la base de datos con sus atributos y nos lo retorna
+		 */
 		else
+		{
+			tuequipacion.add( eq);
+			
+			clsDatos.insertarEquipaciones( color1, color2, publicidad, serigrafiado, dorsal);
+			
 			return true;
+		}
 	}
-
-	public boolean borrar(itfProperty obj) {
-		if (buscar(obj) == true) {
-			contenedor.remove(obj);
-
+	/**
+	 * Este metodo lo utilizaremos si queremos cambiar una equipacion
+	 * @param color1
+	 * @param color2
+	 * @param publicidad
+	 * @param serigrafiado
+	 * @return
+	 */
+	
+	public boolean cambioclsEquipacion( String color1, String color2,
+			String publicidad, String serigrafiado )
+	/**
+	 * Con la propiedad itfproperty sacamos la equipacion que tenemos con sus atributos
+	 */
+	{		
+		itfProperty datoABuscar = new clsEquipacion( color1 , color2 , publicidad,serigrafiado,0);
+		
+		int p = tuequipo.indexOf( datoABuscar );
+		
+		if( p != -1 )
+		{
+			datoABuscar = tuequipo.get(p); //Aqui cambiamos la equipacion
+			datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsEQUIPACION_COLOR1 , Constantes.PROPIEDAD_clsEQUIPACION_COLOR2);
+			
 			return true;
-		} else {
+		}
+		else
+		{
 			return false;
 		}
 	}
+	/**
+	 * Con este metodo buscamos equipaciones
+	 * @param color1
+	 * @return
+	 */
 
-	public boolean cargar(String nomFichero) {
-		try {
-			File f = new File(nomFichero);
-			FileInputStream fis = new FileInputStream(f);
-			ObjectInputStream oos = new ObjectInputStream(fis);
+	public String buscarclsequipacion(String color1) {
+		/**
+		 * Utilizaremos itfproperty para buscar y utilizaremos como clave el color 1
+		 */
 
-			contenedor = (ArrayList<itfProperty>) oos.readObject();
-
-			oos.close();// DEATH
-
-			return true;
-		} catch (FileNotFoundException ex) {
-			System.out.println("Error nombre del fichero no se acepta!");
-			return false;
-		} catch (IOException ex) {
-			System.out.println("Error no se encuentra la ruta!");
-			return false;
-		} catch (ClassCastException ex) {
-			System.out.println("Error el tipo de dato no corresponde!");
-			return false;
-		} catch (ClassNotFoundException ex) {
-
-			System.out.println("Error el tipo de dato no existe!");
-			return false;
+		itfProperty datoABuscar = new clsEquipacion( color1,"","","",0 );
+		
+		int p = tuequipacion.indexOf( datoABuscar );
+		
+		if( p != -1 )
+		{
+			datoABuscar = tuequipacion.get(p); //Aqui obtenemos el dato
+			
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1);
+					
+			return prop;
+		}
+		else
+		{
+			return null;
 		}
 	}
-
-	public boolean grabar(String nomFichero) {
-		// tratamiento de excepciones
-		try {
-			File f = new File(nomFichero);
-			FileOutputStream fos = new FileOutputStream(f);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-			oos.writeObject(contenedor);
-
-			oos.close();// DEATH
-
-			return true;
-		} catch (FileNotFoundException ex) {
-			System.out.println("Error nombre del fichero no se acepta!");
-			return false;
-		} catch (IOException ex) {
-			System.out.println("Error no se encuentra la ruta!");
-			return false;
+	/**
+	 * Este metodo lo utilizaremos si queremos borrar alguna equipacion
+	 * @param color1
+	 * @param color2
+	 * @param publicidad
+	 * @param serigrafiado
+	 * @return
+	 */
+	public boolean borrarclsEquipacion(  String color1, String color2,
+			String publicidad, String serigrafiado )
+	{
+		clsEquipacion equipacion = new clsEquipacion(color1, color2, publicidad,serigrafiado,0);
+		
+		return tuequipacion.remove( equipacion );//aqui es cuando borramos la equipacion creada
+	}
+	/**
+	 * Con este metodo recuperaremos la equipacion perdida
+	 * @return
+	 */
+	
+	public ArrayList<clsEquipacion> recuperarEquipaciones() {
+		
+		try
+		{
+			ArrayList<clsEquipacion> temp = new ArrayList<>();
+			
+			ResultSet rs = clsDatos.cargarEquipaciones();//Nos ayudaremos de la base de datos para poder para poder recuperarlo
+			
+			while (rs.next()) {	
+				/**
+				 * Con el getString recuperamos todos sus atributos
+				 */
+	
+				clsEquipacion nuevoCoche = new clsEquipacion(rs.getString("color1"),rs.getString("color2"), rs.getString("serigrafiado"),rs.getString("publicidad"),rs.getInt(0));
+				
+				temp.add(nuevoCoche);
+			}
+					
+			return temp;
+		
+		}
+		catch( SQLException ex )
+		{
+			ex.printStackTrace();
+			return null;
+		}		
+	}
+/**
+ * Cob este metodo guardaremos todas las equipaciones
+ */
+	public void guardarEquipaciones() {
+		/**
+		 * Con el getobjectproperty sacamos todos sus atributos y las guardamos en la base de datos
+		 */
+		
+		for( clsEquipacion c : tuequipacion )
+		{
+			String color1 = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1);
+			String color2 = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR2 );
+			String publicidad = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDAD);
+			String serigrafiado = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADO );
+			int DORSAL = (int) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_DORSAL );
+			
+			clsDatos.insertarEquipaciones(color1, color2, publicidad, serigrafiado, DORSAL);//Aqui es cuando lo guardamps
 		}
 	}
-
 }
