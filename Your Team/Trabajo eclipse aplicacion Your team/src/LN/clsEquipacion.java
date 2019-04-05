@@ -122,4 +122,5 @@ public class clsEquipacion implements itfProperty {
 	
 	}
 
+
 }

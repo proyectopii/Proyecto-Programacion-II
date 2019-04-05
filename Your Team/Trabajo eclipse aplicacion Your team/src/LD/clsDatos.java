@@ -137,7 +137,7 @@ public class clsDatos {
 	    }    
 	  }
 	 
-	  public  void insertarEquipaciones(String nombreEquipo,LocalDate fundacionEquipo, String color1,  String color2,
+	  public  void insertarEquipaciones( String color1,  String color2,
 				String publicidad,  String serigrafiado,  int dorsal)
 	  {     
 	    try
@@ -147,12 +147,11 @@ public class clsDatos {
 	      Statement sentencia =   gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 	                                           ResultSet.CONCUR_UPDATABLE);
 	 
-	      boolean r = existeclsEquipacion( nombreEquipo );
+	      boolean r = existeclsEquipacion( color1 );
 	       
 	      if(r == false)
 	      {         
-	    	 String query ="insert into equipaciones values("+ nombreEquipo +  
-	                 fundacionEquipo + color1 + color2 + publicidad + serigrafiado + dorsal;
+	    	 String query ="insert into equipaciones values(" + color1 + color2 + publicidad + serigrafiado + dorsal;
 	             
 	         sentencia.executeUpdate(query);
 	      }
