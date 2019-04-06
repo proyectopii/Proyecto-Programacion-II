@@ -456,4 +456,41 @@ public class clsGestorLN {
 			clsDatos.insertarEquipaciones(color1, color2, publicidad, serigrafiado, DORSAL);//Aqui es cuando lo guardamps
 		}
 	}
+	//----------------------------------------------------------------------------------------
+	public boolean addEquipo( String nombreEquipo, Date fundacionEquipo )
+	{
+		clsEquipo e = new clsEquipo( nombreEquipo,fundacionEquipo );
+		
+		if( tuequipo.contains( e ) == true  )
+		{
+			return false;
+		}
+		else
+		{
+			tuequipo.add( e );
+			
+			clsDatos.insertarEquipo(nombreEquipo, fundacionEquipo);			
+			return true;
+		}
+	}
+	
+	public boolean cambioDeEquipo( String nombreEquipo  )
+	{		
+		itfProperty datoABuscar = new clsEquipo( nombreEquipo,null );
+		
+		int p = tuequipo.indexOf( datoABuscar );
+		
+		if( p != -1 )
+		{
+			datoABuscar = tuequipo.get(p); 
+			datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO,Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO);
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 }
