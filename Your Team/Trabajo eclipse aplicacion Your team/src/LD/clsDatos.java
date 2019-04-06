@@ -365,7 +365,7 @@ public class clsDatos {
 
 
 
-			public  ResultSet buscarEscudo(String nombreEquipo) 
+			public  ResultSet buscarEscudo(String formaEscudo) 
 			  {
 				try {
 					gbd.connect();
@@ -373,7 +373,7 @@ public class clsDatos {
 					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
-					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
+					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + formaEscudo + "'");
 
 					//Date fundacionEquipo = rs.getDate("fundacionEquipo");
 				
@@ -421,7 +421,7 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public  void insertarEscudo(String formaEscudo,Date colorEscudo, String nombreEscudo, Date fundacionEquipo)
+			  public  void insertarEscudo(String formaEscudo,String colorEscudo)
 			  {     
 			    try
 			    {
@@ -435,7 +435,7 @@ public class clsDatos {
 			      if(r == false)
 			      {         
 			    	 String query ="insert into escudo values("+ formaEscudo +  
-			                 colorEscudo + nombreEscudo + fundacionEquipo ;
+			                 colorEscudo  ;
 			             
 			         sentencia.executeUpdate(query);
 			      }

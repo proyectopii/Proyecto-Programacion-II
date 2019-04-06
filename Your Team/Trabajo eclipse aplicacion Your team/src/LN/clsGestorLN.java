@@ -438,7 +438,7 @@ public class clsGestorLN {
 		}		
 	}
 /**
- * Cob este metodo guardaremos todas las equipaciones
+ * Con este metodo guardaremos todas las equipaciones
  */
 	public void guardarEquipaciones() {
 		/**
@@ -457,13 +457,19 @@ public class clsGestorLN {
 		}
 	}
 	//----------------------------------------------------------------------------------------
-	public boolean addEquipo( String nombreEquipo, Date fundacionEquipo )
+	/**
+	 * En este metodo añadiremos equipo junto con la base de datos
+	 * @param nombreEquipo
+	 * @param fundacionEquipo
+	 * @return
+	 */
+	public boolean añadirEquipo( String nombreEquipo, Date fundacionEquipo )
 	{
 		clsEquipo e = new clsEquipo( nombreEquipo,fundacionEquipo );
 		
 		if( tuequipo.contains( e ) == true  )
 		{
-			return false;
+			return false; //Aquí no nos admitira el equipo si esta repetido
 		}
 		else
 		{
@@ -473,12 +479,17 @@ public class clsGestorLN {
 			return true;
 		}
 	}
+	/**
+	 * Con este metodo cambiaremos de equipo
+	 * @param nombreEquipo
+	 * @return
+	 */
 	
 	public boolean cambioDeEquipo( String nombreEquipo  )
 	{		
-		itfProperty datoABuscar = new clsEquipo( nombreEquipo,null );
+		itfProperty datoABuscar = new clsEquipo( nombreEquipo,null );//utilizaremos la clase itfProperty
 		
-		int p = tuequipo.indexOf( datoABuscar );
+		int p = tuequipo.indexOf( datoABuscar );//Aqui lo buscamos
 		
 		if( p != -1 )
 		{
@@ -492,5 +503,215 @@ public class clsGestorLN {
 			return false;
 		}
 	}
+	/**
+	 * Aqui buscamos el equipo a traves del nombre del equipo
+	 * @param nombreEquipo
+	 * @return
+	 */
+	public String BuscarEquipo( String nombreEquipo  )
+	{
+		
+		itfProperty datoABuscar = new clsEquipo( nombreEquipo , null );
+		
+		int p = tuequipo.indexOf( datoABuscar );//Utilizaremos también el index
+		
+		if( p != -1 )
+		{
+			datoABuscar = tuequipo.get(p); 
+			
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO);
+					
+			return prop;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	/**
+	 * Aqui borraremos el equipo
+	 * @param nombreEquipo
+	 * @return
+	 */
 	
+	public boolean borrarEquipo( String nombreEquipo )
+	{
+		clsEquipo equipo = new clsEquipo(nombreEquipo, null); //despues de crearlo con el remove lo borramos
+		
+		return tuequipo.remove( equipo );
+	}
+	/**
+	 * Por si queremos recuperarlo lo hacemos aqui
+	 * @return
+	 */
+	
+	public ArrayList<clsEquipo> recuperarequipo() {
+		
+		try
+		{
+			ArrayList<clsEquipo> temp = new ArrayList<>();
+			
+			ResultSet rs = clsDatos.cargarEquipo();
+			
+			while (rs.next()) {			
+	
+				clsEquipo nuevoequipo = new clsEquipo(rs.getString("nombreEquipo"), rs.getDate(0));
+				
+				temp.add(nuevoequipo);
+			}
+					
+			return temp;
+		}
+		catch( SQLException ex )
+		{
+			ex.printStackTrace();
+			return null;
+		}		
+	}
+	/**
+	 * Aqui guardaremos los datos 
+	 */
+	
+	public void guardarDatosEquipo() {
+		
+		for( clsEquipo e : tuequipo )
+		{
+			String nombreEquipo = (String) e.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO ); //Con la clase constantes las utilizamos todas las constantes de atributo
+			Date fundacionEquipo = (Date) e.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO );
+		
+			
+			clsDatos.insertarEquipo(nombreEquipo, fundacionEquipo);		}
+		
+	}
+	
+	//---------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui añadiremos los escudos
+	 * @param formaEscudo
+	 * @param colorEscudo
+	 * @return
+	 */
+	public boolean añadirEscudo( String formaEscudo, String colorEscudo  )
+	{
+		clsEscudo es = new clsEscudo( formaEscudo,colorEscudo );
+		
+		if( tuescudo.contains( es ) == true  )//Nos aseguramos que no hay ninguno repetido
+		{
+			return false;
+		}
+		else
+		{
+			tuescudo.add( es );
+			
+			clsDatos.insertarEscudo(formaEscudo, colorEscudo);
+			
+			return true;
+		}
+	}
+	/**
+	 * Con este metodo cambiaremos de escudo
+	 * @param formaEscudo
+	 * @param colorEscudo
+	 * @return
+	 */
+	
+	public boolean cambioEscudo( String formaEscudo , String colorEscudo )
+	{		
+		itfProperty datoABuscar = new clsEscudo( formaEscudo,colorEscudo );
+		
+		int p = tuescudo.indexOf( datoABuscar );//Nos ayudamos del indexof para buscar
+		
+		if( p != -1 )
+		{
+			datoABuscar = tuescudo.get(p); 
+			datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO,Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO);//Utilizamos el setobject
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	/*
+	 * Aqui buscaremos los posibles escudos que haya
+	 */
+	
+	public String BuscarEscudo( String formaEscudo,String colorEscudo  )
+	{
+		
+		itfProperty datoABuscar = new clsEscudo( formaEscudo , colorEscudo );
+		
+		int p = tuescudo.indexOf( datoABuscar );
+		
+		if( p != -1 )
+		{
+			datoABuscar = tuescudo.get(p); 
+			
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO);
+					
+			return prop;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	/**
+	 * Aqui borraremos los escudos que hay
+	 * @param formaEscudo
+	 * @param colorEscudo
+	 * @return
+	 */
+	
+	public boolean borrarEscudo( String formaEscudo,String colorEscudo )
+	{
+		clsEscudo escudo = new clsEscudo(formaEscudo,colorEscudo);
+		
+		return tuescudo.remove( escudo );
+	}
+	/**
+	 * Aqui recuperaremos los escudos que haya
+	 * @return
+	 */
+	
+	public ArrayList<clsEscudo> recuperarEscudo() {
+		
+		try
+		{
+			ArrayList<clsEscudo> temp = new ArrayList<>();
+			
+			ResultSet rs = clsDatos.cargarEscudo();
+			
+			while (rs.next()) {			
+	
+				clsEscudo nuevoEscudo = new clsEscudo(rs.getString("color"), rs.getString("forma"));
+				
+				temp.add(nuevoEscudo);
+			}
+					
+			return temp;
+		}
+		catch( SQLException ex )
+		{
+			ex.printStackTrace();
+			return null;
+		}		
+	}
+	/**
+	 * Aqui guardaremoslos posibles escudos
+	 */
+	
+public void guardarEscudos() {
+		
+		for( clsEscudo es : tuescudo )
+		{
+			String formaEscudo = (String) es.getObjectProperty(Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO );
+			String colorEscudo = (String) es.getObjectProperty(Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO );
+			
+			
+			clsDatos.insertarEscudo(formaEscudo, colorEscudo);
+		}
+		
+	}
 }
