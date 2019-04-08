@@ -677,7 +677,7 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public  boolean existeclsJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
+			  public  boolean existeclsJugador(int formaFisica,double skills )
 			  {
 			    try
 			    {
@@ -688,9 +688,9 @@ public class clsDatos {
 			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
-			      ResultSet rs = sentencia.executeQuery("SELECT * FROM jugador where nombre jugador = '" + nombreJugador +"'" );
+			      ResultSet rs = sentencia.executeQuery("SELECT * FROM jugador where nombre jugador = '" + skills +"'" );
 			       
-			      System.out.println("SELECT * FROM intercambio where all = '" + nombreJugador + formaFisica + edad + skills + nombreEquipo + fundacionEquipo+"'");
+			      System.out.println("SELECT * FROM intercambio where all = '" + formaFisica  + skills );
 			      
 			      if ( rs.first() == false )
 			      {
@@ -710,7 +710,7 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public  void insertarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
+			  public  void insertarJugador(int formaFisica,double skills )
 			  {     
 			    try
 			    {
@@ -719,11 +719,11 @@ public class clsDatos {
 			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
-			      boolean r = existeclsJugador(nombreJugador, formaFisica, edad, skills, nombreEquipo, fundacionEquipo );
+			      boolean r = existeclsJugador(formaFisica, skills );
 			       
 			      if(r == false)
 			      {         
-			    	 String query ="insert into jugador values("+ nombreJugador   
+			    	 String query ="insert into jugador values("+ skills  
 			                 ;
 			             
 			         sentencia.executeUpdate(query);

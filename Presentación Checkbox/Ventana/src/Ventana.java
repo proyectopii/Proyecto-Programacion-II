@@ -98,34 +98,41 @@ public class Ventana extends JFrame {
 		
 		JLabel lblRenta = new JLabel("Renta");
 		lblRenta.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		JButton btnBuscar = new JButton("Buscar");
+		System.out.println("Usted ha seleccionado: ");
+		if(chckbxNewCheckBox .isSelected()) {
+			System.out.println("Usted ha elegido centrico");
+		}
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblLocalizacin)
+						.addComponent(chckbxNewCheckBox_4)
+						.addComponent(chckbxNewCheckBox)
+						.addComponent(chckbxNewCheckBox_2))
+					.addGap(45)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(chckbxNewCheckBox_1)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblLocalizacin)
-								.addComponent(chckbxNewCheckBox_4)
-								.addComponent(chckbxNewCheckBox)
-								.addComponent(chckbxNewCheckBox_2))
+								.addComponent(lblTipo)
+								.addComponent(chckbxNewCheckBox_5)
+								.addComponent(chckbxNewCheckBox_9))
 							.addGap(45)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(chckbxNewCheckBox_1)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblTipo)
-										.addComponent(chckbxNewCheckBox_5)
-										.addComponent(chckbxNewCheckBox_9))
-									.addGap(45)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(chckbxNewCheckBox_6)
-										.addComponent(lblRenta)
-										.addComponent(chckbxAlquiler, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(124)
-							.addComponent(btnNewButton)))
+								.addComponent(chckbxNewCheckBox_6)
+								.addComponent(lblRenta)
+								.addComponent(chckbxAlquiler, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(111, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addGap(42)
+					.addComponent(btnBuscar)
+					.addPreferredGap(ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+					.addComponent(btnNewButton)
+					.addGap(146))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -154,7 +161,9 @@ public class Ventana extends JFrame {
 						.addComponent(chckbxNewCheckBox_2)
 						.addComponent(chckbxNewCheckBox_9))
 					.addGap(18)
-					.addComponent(btnNewButton)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton)
+						.addComponent(btnBuscar))
 					.addContainerGap(67, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
