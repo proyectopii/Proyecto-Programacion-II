@@ -22,6 +22,7 @@ import COMUN.itfProperty;
 
 public class clsGestorLN {
 	private clsDatos clsDatos = new clsDatos();
+	
 	/**
 	 * Aqu? creamos el Arraylist privado donde guardaremos los equipos
 	 */
