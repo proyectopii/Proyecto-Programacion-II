@@ -365,7 +365,7 @@ public class clsDatos {
 
 
 
-			public  ResultSet buscarEscudo(String nombreEquipo) 
+			public  ResultSet buscarEscudo(String formaEscudo) 
 			  {
 				try {
 					gbd.connect();
@@ -373,7 +373,7 @@ public class clsDatos {
 					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 							ResultSet.CONCUR_UPDATABLE);
 
-					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + nombreEquipo + "'");
+					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where nombreEquipo = '" + formaEscudo + "'");
 
 					//Date fundacionEquipo = rs.getDate("fundacionEquipo");
 				
@@ -421,7 +421,7 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public  void insertarEscudo(String formaEscudo,Date colorEscudo, String nombreEscudo, Date fundacionEquipo)
+			  public  void insertarEscudo(String formaEscudo,String colorEscudo)
 			  {     
 			    try
 			    {
@@ -435,7 +435,7 @@ public class clsDatos {
 			      if(r == false)
 			      {         
 			    	 String query ="insert into escudo values("+ formaEscudo +  
-			                 colorEscudo + nombreEscudo + fundacionEquipo ;
+			                 colorEscudo  ;
 			             
 			         sentencia.executeUpdate(query);
 			      }
@@ -677,7 +677,7 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public  boolean existeclsJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
+			  public  boolean existeclsJugador(int formaFisica,double skills )
 			  {
 			    try
 			    {
@@ -688,9 +688,9 @@ public class clsDatos {
 			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
-			      ResultSet rs = sentencia.executeQuery("SELECT * FROM jugador where nombre jugador = '" + nombreJugador +"'" );
+			      ResultSet rs = sentencia.executeQuery("SELECT * FROM jugador where nombre jugador = '" + skills +"'" );
 			       
-			      System.out.println("SELECT * FROM intercambio where all = '" + nombreJugador + formaFisica + edad + skills + nombreEquipo + fundacionEquipo+"'");
+			      System.out.println("SELECT * FROM intercambio where all = '" + formaFisica  + skills );
 			      
 			      if ( rs.first() == false )
 			      {
@@ -710,7 +710,7 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public  void insertarJugador(String nombreJugador,int formaFisica,int edad,double skills,String nombreEquipo,Date fundacionEquipo )
+			  public  void insertarJugador(int formaFisica,double skills )
 			  {     
 			    try
 			    {
@@ -719,11 +719,11 @@ public class clsDatos {
 			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
-			      boolean r = existeclsJugador(nombreJugador, formaFisica, edad, skills, nombreEquipo, fundacionEquipo );
+			      boolean r = existeclsJugador(formaFisica, skills );
 			       
 			      if(r == false)
 			      {         
-			    	 String query ="insert into jugador values("+ nombreJugador   
+			    	 String query ="insert into jugador values("+ skills  
 			                 ;
 			             
 			         sentencia.executeUpdate(query);
@@ -964,7 +964,7 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public  boolean existeTemporada(int puestos,String trofeos,Date anioTemporada,String ganador )
+			  public  boolean existeTemporada(int puestos,String trofeos,Date anioTemporada )
 			  {
 			    try
 			    {
@@ -975,9 +975,9 @@ public class clsDatos {
 			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
-			      ResultSet rs = sentencia.executeQuery("SELECT * FROM temporada where  = '" + puestos +trofeos+anioTemporada+ganador+"'" );
+			      ResultSet rs = sentencia.executeQuery("SELECT * FROM temporada where  = '" + puestos +trofeos+anioTemporada+"'" );
 			       
-			      System.out.println("SELECT * FROM temporada where all = '"  + puestos +trofeos+anioTemporada+ganador+"'");
+			      System.out.println("SELECT * FROM temporada where all = '"  + puestos +trofeos+anioTemporada+"'");
 			      
 			      if ( rs.first() == false )
 			      {
@@ -997,7 +997,7 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public  void insertarTemporada(int puestos,String trofeos,Date anioTemporada,String ganador  )
+			  public  void insertarTemporada(int puestos,String trofeos,Date anioTemporada  )
 			  {     
 			    try
 			    {
@@ -1006,11 +1006,11 @@ public class clsDatos {
 			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
-			      boolean r = existeTemporada(puestos, trofeos, anioTemporada, ganador);
+			      boolean r = existeTemporada(puestos, trofeos, anioTemporada);
 			       
 			      if(r == false)
 			      {         
-			    	 String query ="insert into temproada values("+ puestos+trofeos+anioTemporada+ganador  
+			    	 String query ="insert into temproada values("+ puestos+trofeos+anioTemporada
 			                 ;
 			             
 			         sentencia.executeUpdate(query);
