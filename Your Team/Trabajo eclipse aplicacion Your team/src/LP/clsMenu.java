@@ -15,6 +15,8 @@ public class clsMenu {
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
 		System.out.println("A continuacion te mostraremos un men? para apuntarte");
+		Ventana v =new Ventana();
+		v.setVisible(true);
 		do {
 			System.out.println("1-Empezar creando tu equipo ");
 			System.out.println("2-Hacer un intercambio");
