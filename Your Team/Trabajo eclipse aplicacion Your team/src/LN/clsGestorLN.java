@@ -154,7 +154,7 @@ public class clsGestorLN {
 		tupartido.add(objtupartido);
 	}
 
-	public void anadirTemporada(int puestos, String trofeos, LocalDate anioTemporada) {
+	public void anadirTemporada(int puestos, String trofeos, Date anioTemporada) {
 		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada);
 		tutemporada.add(objtutemporada);
 	}
@@ -228,76 +228,8 @@ public class clsGestorLN {
 
 	}
 
-	/**
-	 * Por si queremos eliminar alguna cosa dejamos lo metodos ahi
-	 * 
-	 * @param nombreEquipo
-	 * @param fundacionEquipo
-	 * @param color1
-	 * @param color2
-	 * @param publicidad
-	 * @param seriagrafiado
-	 */
-	public void eliminarEquipacion(String nombreEquipo, LocalDate fundacionEquipo, String color1, String color2,
-			String publicidad, String seriagrafiado) {
-
-	}
-
-	public void eliminarEquipo(String nombreEquipo, LocalDate fundacionEquipo) {
-
-	}
-
-	public void eliminarEscudo(String nombreEquipo, LocalDate fundacionEquipo, String formaEscudo, String colorEscudo) {
-
-	}
-
-	public void eliminarIntercambio(String nombreEquipo, LocalDate fundacionEquipo, String equipoOrigen,
-			String equipoDestino) {
-
-	}
-
-	public void eliminarJugador(String nombreEquipo, LocalDate fundacionEquipo, String nombreJugador, int formaFisica,
-			int edad, double skills) {
-
-	}
-
-	/**
-	 * Por si quieres buscar una equipacion, un equipo, un escudo, un intercambio,
-	 * un jugador, un partido o una temporada.
-	 * 
-	 */
-	public boolean buscarEquipacion(String color1) {
-		return tuequipacion.indexOf(color1) != -1;
-	}
-
-	public boolean buscarEquipo(String nombreEquipo) {
-		return tuequipo.indexOf(nombreEquipo) != -1;
-	}
-
-	public boolean buscarEscudo(String formaEscudo) {
-		return tuescudo.indexOf(formaEscudo) != -1;
-	}
-
-	public boolean buscarIntercambio(String equipoDestino) {
-		return tuintercambio.indexOf(equipoDestino) != -1;
-	}
-
-	public boolean buscarJugador(String NombreJugador) {
-		return tujugador.indexOf(NombreJugador) != -1;
-	}
-
-	public boolean buscarPartido(String FechaIncioPartido) {
-		return tupartido.indexOf(FechaIncioPartido) != -1;
-	}
-
-	public boolean buscarTemporada(String ganador) {
-		return tutemporada.indexOf(ganador) != -1;
-	}
-
-	/**
-	 * A continuaci?n pondremos varios m?todos
-	 */
-	private ArrayList<itfProperty> contenedor;
+	
+	
 
 	/**
 	 * Con este metodo añadiremos equipaciones
@@ -801,56 +733,231 @@ public class clsGestorLN {
 		}
 
 	}
-	//----------------------------------------------------------------------------------------------------------------------
-	public boolean addJugador( int formaFisica, double skills )
-	{
-		clsJugador j = new clsJugador( formaFisica,skills );
-		
-		if( tujugador.contains( j ) == true  )
-		{
+
+	// ----------------------------------------------------------------------------------------------------------------------
+	public boolean addJugador(int formaFisica, double skills) {
+		clsJugador j = new clsJugador(formaFisica, skills);
+
+		if (tujugador.contains(j) == true) {
 			return false;
-		}
-		else
-		{
-			tujugador.add( j );
-			
-			clsDatos.insertarJugador( formaFisica, skills);
-			
+		} else {
+			tujugador.add(j);
+
+			clsDatos.insertarJugador(formaFisica, skills);
+
 			return true;
 		}
 	}
-	
-	public boolean cambioJugador( int formaFisica, double skills )
-	{		
-		itfProperty datoABuscar = new clsJugador( formaFisica,skills);
-		
-		int p = tujugador.indexOf( datoABuscar );
-		
-		if( p != -1 )
-		{
-			datoABuscar = tujugador.get(p); 
-			datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA,Constantes.PROPIEDAD_clsJUGADOR_SKILLS);
-			
+
+	public boolean cambioJugador(int formaFisica, double skills) {
+		itfProperty datoABuscar = new clsJugador(formaFisica, skills);
+
+		int p = tujugador.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tujugador.get(p);
+			datoABuscar.setObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA,
+					Constantes.PROPIEDAD_clsJUGADOR_SKILLS);
+
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}
-	
-	public String consultarJugador( double skills  )
-	{
-		
-		itfProperty datoABuscar = new clsJugador( 0,skills );
-		
-		int p = tujugador.indexOf( datoABuscar );
-		
-		if( p != -1 )
-		{
-			datoABuscar = tujugador.get(p); 
-			
+
+	public String consultarJugador(double skills) {
+
+		itfProperty datoABuscar = new clsJugador(0, skills);
+
+		int p = tujugador.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tujugador.get(p);
+
 			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_SKILLS);
+
+			return prop;
+		} else {
+			return null;
+		}
+	}
+
+	public boolean borrarJugador(int formaFisica, double skills) {
+		clsJugador jugador = new clsJugador(formaFisica, skills);
+
+		return tujugador.remove(jugador);
+	}
+
+	public ArrayList<clsJugador> recuperarjugador() {
+
+		try {
+			ArrayList<clsJugador> temp = new ArrayList<>();
+
+			ResultSet rs = clsDatos.cargarJugador();
+
+			while (rs.next()) {
+
+				clsJugador jugador = new clsJugador(rs.getInt(100), rs.getDouble(null));
+
+				temp.add(jugador);
+			}
+
+			return temp;
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+	public void guardarJugadores() {
+
+		for (clsJugador j : tujugador) {
+			int formaFisica = (int) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA);
+			double skills = (Double) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_SKILLS);
+
+			clsDatos.insertarJugador(formaFisica, skills);
+		}
+
+	}
+//-------------------------------------------------------------------------------------------------------------------------------------------
+
+	public boolean addPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
+		clsPartidos p = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
+
+		if (tupartido.contains(p) == true) {
+			return false;
+		} else {
+			tupartido.add(p);
+
+			clsDatos.insertarpartido(equipoLocal, equipoVisitante, fechaInicioPartido);
+
+			return true;
+		}
+	}
+
+	public boolean cambioDePartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
+		itfProperty datoABuscar = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
+
+		int p = tupartido.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tupartido.get(p);
+			datoABuscar.setObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL,
+					Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE);
+
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String consultarPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
+
+		itfProperty datoABuscar = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
+
+		int p = tupartido.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tupartido.get(p);
+
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL);
+
+			return prop;
+		} else {
+			return null;
+		}
+	}
+
+	public boolean borrarPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
+		clsPartidos partidos = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
+
+		return tupartido.remove(partidos);
+	}
+
+	public ArrayList<clsPartidos> recuperarPartidos() {
+
+		try {
+			ArrayList<clsPartidos> temp = new ArrayList<>();
+
+			ResultSet rs = clsDatos.cargarPartido();
+
+			while (rs.next()) {
+
+				clsPartidos nuevopartido = new clsPartidos(rs.getString("equipoLocal"), rs.getString("equipoVisitante"),
+						rs.getDate(0));
+
+				temp.add(nuevopartido);
+			}
+
+			return temp;
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+	public void guardarPartidos() {
+
+		for (clsPartidos p : tupartido) {
+			String equipoLocal = (String) p.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL);
+			String equipoVisitante = (String) p.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE);
+			Date fechaInicioPartido = (Date) p.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO);
+
+			clsDatos.insertarpartido(equipoLocal, equipoVisitante, fechaInicioPartido);
+		}
+
+	}
+	
+	//------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	public boolean addTemporada( int puestos, String trofeos, Date anioTemporada  )
+	{
+		clsTemporada t = new clsTemporada( puestos , trofeos , anioTemporada );
+		
+		if( tutemporada.contains( t ) == true  )
+		{
+			return false;
+		}
+		else
+		{
+			tutemporada.add( t );
+			
+			clsDatos.insertarTemporada(puestos, trofeos, anioTemporada);
+			
+			return true;
+		}
+	}
+	
+	public boolean cambioDeTemporada(  int puestos, String trofeos, Date anioTemporada )
+	{		
+		itfProperty datoABuscar = new clsTemporada( puestos,trofeos,anioTemporada);
+		
+		int p = tutemporada.indexOf( datoABuscar );
+		
+		if( p != -1 )
+		{
+			datoABuscar = tutemporada.get(p); 
+			datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA,Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS);
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}	
+
+	public String consultarPropietario( Date anioTemporada  )
+	{
+		
+		itfProperty datoABuscar = new clsTemporada(0, null, anioTemporada );
+		
+		int p = tutemporada.indexOf( datoABuscar );
+		
+		if( p != -1 )
+		{
+			datoABuscar = tutemporada.get(p); 
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA);
 					
 			return prop;
 		}
@@ -859,27 +966,26 @@ public class clsGestorLN {
 			return null;
 		}
 	}
-	
-	public boolean borrarJugador( int formaFisica, double skills )
+	public boolean borrarTemporada( Date anioTemporada)
 	{
-		clsJugador jugador = new clsJugador(formaFisica,skills);
+		clsTemporada temporada = new clsTemporada(0,null,anioTemporada);
 		
-		return tujugador.remove( jugador );
+		return tutemporada.remove( temporada );
 	}
 	
-	public ArrayList<clsJugador> recuperarjugador() {
+	public ArrayList<clsTemporada> recuperarTemporada() {
 		
 		try
 		{
-			ArrayList<clsJugador> temp = new ArrayList<>();
+			ArrayList<clsTemporada> temp = new ArrayList<>();
 			
-			ResultSet rs = clsDatos.cargarJugador()
+			ResultSet rs = clsDatos.cargarTemporada();
 			
 			while (rs.next()) {			
 	
-				clsJugador jugador = new clsJugador(rs.getInt(100), rs.getDouble(null));
+				clsTemporada temporada = new clsTemporada(rs.getInt(0), rs.getString("trofeos"), rs.getDate(0));
 				
-				temp.add(jugador);
+				temp.add(temporada);
 			}
 					
 			return temp;
@@ -891,19 +997,18 @@ public class clsGestorLN {
 		}		
 	}
 	
-public void guardarJugadores() {
+public void guardarTemporada() {
 		
-		for( clsJugador j : tujugador )
+		for( clsTemporada t : tutemporada )
 		{
-			int formaFisica = (int) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA );
-			double skills = (Double) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_SKILLS );
+			int puestos = (int) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS );
+			String trofeos = (String) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS );
+			Date anioTemporada = (Date) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA );
 			
-			
-			clsDatos.insertarJugador(formaFisica, skills);
+			clsDatos.insertarTemporada(puestos, trofeos, anioTemporada);
 		}
 		
 	}
-	
 	
 
 }

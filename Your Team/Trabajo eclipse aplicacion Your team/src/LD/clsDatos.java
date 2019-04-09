@@ -964,7 +964,7 @@ public class clsDatos {
 				} 
 			  }  
 			  
-			  public  boolean existeTemporada(int puestos,String trofeos,Date anioTemporada,String ganador )
+			  public  boolean existeTemporada(int puestos,String trofeos,Date anioTemporada )
 			  {
 			    try
 			    {
@@ -975,9 +975,9 @@ public class clsDatos {
 			     gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			            
-			      ResultSet rs = sentencia.executeQuery("SELECT * FROM temporada where  = '" + puestos +trofeos+anioTemporada+ganador+"'" );
+			      ResultSet rs = sentencia.executeQuery("SELECT * FROM temporada where  = '" + puestos +trofeos+anioTemporada+"'" );
 			       
-			      System.out.println("SELECT * FROM temporada where all = '"  + puestos +trofeos+anioTemporada+ganador+"'");
+			      System.out.println("SELECT * FROM temporada where all = '"  + puestos +trofeos+anioTemporada+"'");
 			      
 			      if ( rs.first() == false )
 			      {
@@ -997,7 +997,7 @@ public class clsDatos {
 			    }    
 			  }
 			 
-			  public  void insertarTemporada(int puestos,String trofeos,Date anioTemporada,String ganador  )
+			  public  void insertarTemporada(int puestos,String trofeos,Date anioTemporada  )
 			  {     
 			    try
 			    {
@@ -1006,11 +1006,11 @@ public class clsDatos {
 			      Statement sentencia =  gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
 			                                           ResultSet.CONCUR_UPDATABLE);
 			 
-			      boolean r = existeTemporada(puestos, trofeos, anioTemporada, ganador);
+			      boolean r = existeTemporada(puestos, trofeos, anioTemporada);
 			       
 			      if(r == false)
 			      {         
-			    	 String query ="insert into temproada values("+ puestos+trofeos+anioTemporada+ganador  
+			    	 String query ="insert into temproada values("+ puestos+trofeos+anioTemporada
 			                 ;
 			             
 			         sentencia.executeUpdate(query);

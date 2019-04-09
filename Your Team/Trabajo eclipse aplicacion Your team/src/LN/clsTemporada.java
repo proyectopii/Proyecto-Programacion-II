@@ -1,6 +1,8 @@
 package LN;
 
 import java.time.LocalDate;
+import java.util.Date;
+
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA;
@@ -18,7 +20,7 @@ public class clsTemporada  implements itfProperty {
 	 */
 	private int puestos;
 	private String trofeos;
-	private LocalDate anioTemporada;
+	private Date anioTemporada;
 	
 
 	/**
@@ -32,7 +34,7 @@ public class clsTemporada  implements itfProperty {
 		String ganador = "";
 	}
 
-	public clsTemporada(int puestos, String trofeos, LocalDate anioTemporada) {
+	public clsTemporada(int puestos, String trofeos, Date anioTemporada) {
 		super();
 		this.puestos = puestos;
 		this.trofeos = trofeos;
@@ -98,7 +100,7 @@ public class clsTemporada  implements itfProperty {
 		switch(propiedad) {
 		case PROPIEDAD_clsTEMPORADA_PUESTOS:puestos=((int)valor);break;
 		case PROPIEDAD_clsTEMPORADA_TROFEOS:trofeos=((String)valor);break;
-		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:anioTemporada=((LocalDate)valor);break;
+		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:anioTemporada=((Date)valor);break;
 		}
 	}
 
