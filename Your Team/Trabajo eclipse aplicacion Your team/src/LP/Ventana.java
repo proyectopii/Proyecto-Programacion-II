@@ -11,11 +11,17 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 
+
 public class Ventana extends JFrame {
+	
+	JButton boton;
+	ImageIcon imagen;
+	Icon icono;
 
 	private JPanel contentPane;
 
@@ -39,6 +45,7 @@ public class Ventana extends JFrame {
 	 * Create the frame.
 	 */
 	public Ventana() {
+		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -61,7 +68,7 @@ public class Ventana extends JFrame {
 		lblLaAppDonde.setBounds(137, 46, 165, 17);
 		lblLaAppDonde.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		
-		JButton btnCrearEquipo = new JButton(new ImageIcon("crearequipo.png"));
+		JButton btnCrearEquipo = new JButton(new ImageIcon("../Imagenes/crearequipo.png"));
 		btnCrearEquipo.setBounds(58, 90, 139, 150);
 		
 		JButton btnContinuar = new JButton(new ImageIcon());
