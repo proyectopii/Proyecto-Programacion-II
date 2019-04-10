@@ -17,6 +17,8 @@ import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Ventana extends JFrame {
 
@@ -100,10 +102,45 @@ public class Ventana extends JFrame {
 		lblRenta.setFont(new Font("Tahoma", Font.BOLD, 13));
 		
 		JButton btnBuscar = new JButton("Buscar");
-		System.out.println("Usted ha seleccionado: ");
-		if(chckbxNewCheckBox .isSelected()) {
-			System.out.println("Usted ha elegido centrico");
-		}
+		btnBuscar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				if(chckbxNewCheckBox .isSelected()) {
+					System.out.println("Usted ha elegido centrico");
+				}
+				if(chckbxNewCheckBox_1 .isSelected()) {
+					System.out.println("Usted ha elegido piso");
+				}
+				if(chckbxNewCheckBox_4 .isSelected()) {
+					System.out.println("Usted ha elegido a las afueras");
+				}
+				if(chckbxNewCheckBox_5 .isSelected()) {
+					System.out.println("Usted ha elegido chalet");
+				}
+				if(chckbxNewCheckBox_6 .isSelected()) {
+					System.out.println("Usted ha elegido compra");
+				}
+				if(chckbxNewCheckBox_2 .isSelected()) {
+					System.out.println("Usted ha elegido intermedio");
+				}
+				if(chckbxNewCheckBox_9 .isSelected()) {
+					System.out.println("Usted ha elegido atico");
+				}
+				if(chckbxAlquiler .isSelected()) {
+					System.out.println("Usted ha elegido alquiler");
+				}
+				
+				
+			}
+		});
+		btnBuscar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+	
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
