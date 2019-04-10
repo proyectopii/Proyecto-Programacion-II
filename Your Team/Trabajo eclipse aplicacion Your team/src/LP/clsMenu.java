@@ -10,8 +10,9 @@ public class clsMenu {
 
 	/**
 	 * Crear un Menu para que pueda crearse su equipo, hacer un intercambio, cambiar cosas del equipo o salir 
+	 * @throws clsExcepcionEquipacionRepetida 
 	 */
-	public static void MenuPrincipal() {
+	public static void MenuPrincipal() throws clsExcepcionEquipacionRepetida {
 		int op=0;
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
@@ -106,7 +107,7 @@ public class clsMenu {
 		try {
 			
 		
-		gln.anadirEquipacion(null, null, color1, color2, oppublicidad, serigrafiado, 0);
+		gln.anadirclsEquipacion(color1, color2, oppublicidad, opserigrafiado, 0);
 		} catch (clsExcepcionEquipacionRepetida e) {
 			System.out.println(e.getMessage());
 			

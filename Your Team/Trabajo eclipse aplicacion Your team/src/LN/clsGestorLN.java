@@ -230,6 +230,7 @@ public class clsGestorLN {
 		return guardatodo;
 
 	}
+	
 
 	
 	
