@@ -27,7 +27,7 @@ public class Ventana extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) { // Main para visualizar la ventana
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -47,14 +47,14 @@ public class Ventana extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));//medidas del panel
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("C\u00E9ntrico");
+		JCheckBox chckbxNewCheckBox = new JCheckBox("C\u00E9ntrico");//Todos los checkbox, los instanciamos
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Piso");
 		
@@ -71,11 +71,11 @@ public class Ventana extends JFrame {
 		JCheckBox chckbxAlquiler = new JCheckBox("Alquiler");
 		
 		
-		JButton btnNewButton = new JButton("Borrar todo");
+		JButton btnNewButton = new JButton("Borrar todo"); // lo borramos todo
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				chckbxNewCheckBox.setSelected(false);
+				chckbxNewCheckBox.setSelected(false); //lo ponemos a false para que no este activo
 				chckbxNewCheckBox_1.setSelected(false);
 				chckbxNewCheckBox_2.setSelected(false);
 				chckbxNewCheckBox_4.setSelected(false);
@@ -104,7 +104,7 @@ public class Ventana extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mouseClicked(MouseEvent arg0) { //la accion de que nuestro boton esta pulsado
 				
 				if(chckbxNewCheckBox .isSelected()) {
 					System.out.println("Usted ha elegido centrico");
