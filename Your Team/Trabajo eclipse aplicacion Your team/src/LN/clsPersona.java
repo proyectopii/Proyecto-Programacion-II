@@ -9,7 +9,7 @@ import static COMUN.Constantes.PROPIEDAD_clsPERSONA_SEXO;
 
 import COMUN.itfProperty;
 
-public class clsPersona implements itfProperty{
+public abstract class clsPersona implements itfProperty{
 	private String nombre;// Un nombre para cada persona
 	private String apellido1; //Un primer apellido para cada persona
 	private String apellido2;//Un segundo apellido para cada persona
