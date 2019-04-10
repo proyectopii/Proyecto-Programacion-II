@@ -736,7 +736,7 @@ public class clsGestorLN {
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------------
-	public boolean addJugador(int formaFisica, double skills) {
+	public boolean addJugador(String nombre, String apellido1, String apellido2,String dni, String sexo,int formaFisica, double skills) {
 		clsJugador j = new clsJugador(formaFisica, skills);
 
 		if (tujugador.contains(j) == true) {
@@ -744,7 +744,7 @@ public class clsGestorLN {
 		} else {
 			tujugador.add(j);
 
-			clsDatos.insertarJugador(formaFisica, skills);
+			clsDatos.insertarJugador(nombre, apellido1, apellido2, dni, sexo, skills, formaFisica);
 
 			return true;
 		}
@@ -813,10 +813,15 @@ public class clsGestorLN {
 	public void guardarJugadores() {
 
 		for (clsJugador j : tujugador) {
+			String nombre = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE);
+			String apellido1 = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1);
+			String apellido2 = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO2);
+			String dni = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
+			String sexo = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_SEXO);
 			int formaFisica = (int) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_FORMAFISICA);
 			double skills = (Double) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_SKILLS);
 
-			clsDatos.insertarJugador(formaFisica, skills);
+			clsDatos.insertarJugador(nombre, apellido1, apellido2, dni, sexo, skills, formaFisica);
 		}
 
 	}
