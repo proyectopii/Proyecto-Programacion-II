@@ -36,9 +36,9 @@ public class GestorBD {
         }
          
         //useSSL = true para que la conexion sea cifrada
-        String sURL = "jdbc:mysql://localhost:3306/equipo?useSSL=true";
+        String sURL = "jdbc:mysql://localhost:3306/mydb?useSSL=true";
          
-        connection = java.sql.DriverManager.getConnection( sURL , "root", "root");
+        connection = java.sql.DriverManager.getConnection( sURL , "root", "bkn1959");
                  
         //System.out.println("Conectado.");
     }
