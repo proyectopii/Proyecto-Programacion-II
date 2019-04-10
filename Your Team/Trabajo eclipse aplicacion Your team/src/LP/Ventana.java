@@ -18,10 +18,6 @@ import javax.swing.JButton;
 
 
 public class Ventana extends JFrame {
-	
-	JButton boton;
-	ImageIcon imagen;
-	Icon icono;
 
 	private JPanel contentPane;
 
@@ -68,7 +64,8 @@ public class Ventana extends JFrame {
 		lblLaAppDonde.setBounds(137, 46, 165, 17);
 		lblLaAppDonde.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		
-		JButton btnCrearEquipo = new JButton(new ImageIcon("../Imagenes/crearequipo.png"));
+		JButton btnCrearEquipo = new JButton();
+		btnCrearEquipo.setIcon(new ImageIcon("D:\\Aitor\\Industria Digital\\1\u00BA Curso\\Semestre II\\Programaci\u00F3n II\\Proyecto-Programacion-II\\Your Team\\Trabajo eclipse aplicacion Your team\\src\\Imagenes\\crearequipo.png"));
 		btnCrearEquipo.setBounds(58, 90, 139, 150);
 		
 		JButton btnContinuar = new JButton(new ImageIcon());
