@@ -3,6 +3,7 @@ package LP;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import COMUN.clsExcepcionEquipacionRepetida;
 import LN.clsGestorLN;
 
 public class clsMenu {
@@ -71,7 +72,7 @@ public class clsMenu {
 	 * Crear los m?todos para la creaci?n del equipacion con sus atributos y finalmente lo guardaremos en el gestor
 	 */
 	
-	public static void Crearequipacion () {
+	public static void Crearequipacion () throws clsExcepcionEquipacionRepetida {
 		String color1;
 		String color2;
 		String publicidad;
@@ -102,8 +103,14 @@ public class clsMenu {
 			serigrafiado=UtilidadesLP.leerCadena();
 			
 		}
+		try {
+			
 		
 		gln.anadirEquipacion(null, null, color1, color2, oppublicidad, serigrafiado, 0);
+		} catch (clsExcepcionEquipacionRepetida e) {
+			System.out.println(e.getMessage());
+			
+		}
 	}
 	
 	/**

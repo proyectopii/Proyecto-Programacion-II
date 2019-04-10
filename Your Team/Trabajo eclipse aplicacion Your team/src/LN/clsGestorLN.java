@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import LD.clsDatos;
 import COMUN.Constantes;
+import COMUN.clsExcepcionEquipacionRepetida;
 import COMUN.itfProperty;
 
 public class clsGestorLN {
@@ -243,7 +244,7 @@ public class clsGestorLN {
 	 * @return
 	 */
 	public boolean anadirclsEquipacion(String color1, String color2, String publicidad, String serigrafiado,
-			int dorsal) {
+			int dorsal)throws clsExcepcionEquipacionRepetida { //Aquí estoy propagando la excepcion
 
 		clsEquipacion eq = new clsEquipacion(color1, color2, publicidad, serigrafiado, dorsal);// Aqui creamos una nueva
 																								// equipacion con sus
@@ -252,13 +253,14 @@ public class clsGestorLN {
 		 * Este metodo nos sirve para saber si hay repetidos para que no lo añada
 		 */
 		if (tuequipacion.contains(eq) == true) {
-			return false;
-		}
+			throw new clsExcepcionEquipacionRepetida();
+		return false;
+		
 		/**
 		 * Si no es repetido lo añadimos a la base de datos con sus atributos y nos lo
 		 * retorna
 		 */
-		else {
+		}else {
 			tuequipacion.add(eq);
 
 			clsDatos.insertarEquipaciones(color1, color2, publicidad, serigrafiado, dorsal);
