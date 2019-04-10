@@ -74,7 +74,8 @@ public class clsGestorLN {
 	}
 
 	public void anadirEquipacion(String nombreEquipo, Date fundacionEquipo, String color1, String color2,
-			String publicidad, String seriagrafiado, int dorsal) {
+			String publicidad, String seriagrafiado, int dorsal) 
+	{
 		clsEquipacion objtuequipacion = new clsEquipacion(color1, color2, publicidad, seriagrafiado, dorsal);
 		tuequipacion.add(objtuequipacion);
 	}
@@ -254,7 +255,7 @@ public class clsGestorLN {
 		 */
 		if (tuequipacion.contains(eq) == true) {
 			throw new clsExcepcionEquipacionRepetida();
-		return false;
+		
 		
 		/**
 		 * Si no es repetido lo añadimos a la base de datos con sus atributos y nos lo

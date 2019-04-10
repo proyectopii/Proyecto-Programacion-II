@@ -6,7 +6,7 @@ package COMUN;
  * @author Industria 4.0
  *
  */
-public class clsExcepcionEquipacionRepetida extends RuntimeException {
+public class clsExcepcionEquipacionRepetida extends Exception {
 	private String mensaje="Equipaion repetida";// Crearemos un mensaje que hereda para poner cuando se de algo repetido
 
 	/**
