@@ -3,14 +3,16 @@ package LP;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import COMUN.clsExcepcionEquipacionRepetida;
 import LN.clsGestorLN;
 
 public class clsMenu {
 
 	/**
 	 * Crear un Menu para que pueda crearse su equipo, hacer un intercambio, cambiar cosas del equipo o salir 
+	 * @throws clsExcepcionEquipacionRepetida 
 	 */
-	public static void MenuPrincipal() {
+	public static void MenuPrincipal() throws clsExcepcionEquipacionRepetida {
 		int op=0;
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
@@ -71,7 +73,7 @@ public class clsMenu {
 	 * Crear los m?todos para la creaci?n del equipacion con sus atributos y finalmente lo guardaremos en el gestor
 	 */
 	
-	public static void Crearequipacion () {
+	public static void Crearequipacion () throws clsExcepcionEquipacionRepetida {
 		String color1;
 		String color2;
 		String publicidad;
@@ -102,8 +104,14 @@ public class clsMenu {
 			serigrafiado=UtilidadesLP.leerCadena();
 			
 		}
+		try {
+			
 		
-		gln.anadirEquipacion(null, null, color1, color2, oppublicidad, serigrafiado, 0);
+		gln.anadirclsEquipacion(color1, color2, oppublicidad, opserigrafiado, 0);
+		} catch (clsExcepcionEquipacionRepetida e) {
+			System.out.println(e.getMessage());
+			
+		}
 	}
 	
 	/**
