@@ -15,11 +15,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class Ventana extends JFrame {
-	
-	Icon icono;
 
 	private JPanel contentPane;
 
@@ -67,16 +67,29 @@ public class Ventana extends JFrame {
 		lblLaAppDonde.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		
 		JButton btnCrearEquipo = new JButton();
-		btnCrearEquipo.setIcon(new ImageIcon(Ventana.class.getResource("/Imagenes/crearequipo.png")));
-		btnCrearEquipo.setBounds(58, 90, 139, 150);
-		icono = new ImageIcon();
-		
-		JButton btnContinuar = new JButton(new ImageIcon(Ventana.class.getResource("/Imagenes/login.png")));
-		btnContinuar.setBounds(247, 90, 139, 150);
+		btnCrearEquipo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCrearEquipo.setIcon(new ImageIcon(Ventana.class.getResource("/Imagenes/crearequipo4.png")));
+		btnCrearEquipo.setBounds(50, 74, 139, 150);
+	
+		JButton btnContinuar = new JButton(new ImageIcon(Ventana.class.getResource("/Imagenes/login1.png")));
+		btnContinuar.setBounds(238, 74, 139, 150);
 		panel.setLayout(null);
 		panel.add(lblBienvenidoAYour);
 		panel.add(lblLaAppDonde);
 		panel.add(btnCrearEquipo);
 		panel.add(btnContinuar);
+		
+		JLabel lblCrearEquipo_1 = new JLabel("Crear Equipo");
+		lblCrearEquipo_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblCrearEquipo_1.setBounds(75, 223, 102, 27);
+		panel.add(lblCrearEquipo_1);
+		
+		JLabel lblContinuar = new JLabel("Continuar");
+		lblContinuar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblContinuar.setBounds(279, 222, 90, 29);
+		panel.add(lblContinuar);
 	}
 }
