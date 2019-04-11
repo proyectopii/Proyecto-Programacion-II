@@ -7,9 +7,11 @@ import static COMUN.Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import COMUN.Constantes;
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
-public class clsPartidos implements itfProperty {
+public class clsPartidos implements itfProperty,Comparable {
 	/**
 	 * Pondremos los atributos de clsPartidos Tendremos un equipo local y un equipo
 	 * visitante que son los que compiten en un partido Podnremos tambi?n una fecha
@@ -84,8 +86,8 @@ public class clsPartidos implements itfProperty {
 		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:
 			return this.fechaInicioPartido;
 
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}
@@ -99,5 +101,14 @@ public class clsPartidos implements itfProperty {
 		}
 
 	}
+	
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return this.fechaInicioPartido.compareTo((Date)((itfProperty) o).getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO));
+	}
+
+	
 
 }

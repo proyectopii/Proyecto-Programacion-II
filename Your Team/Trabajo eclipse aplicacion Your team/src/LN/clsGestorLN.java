@@ -19,6 +19,9 @@ import java.util.List;
 import LD.clsDatos;
 import COMUN.Constantes;
 import COMUN.clsExcepcionEquipacionRepetida;
+import COMUN.clsExcepcionEquipoRepetido;
+import COMUN.clsExcepcionEscudoRepetido;
+import COMUN.clsExcepcionIntercambioRepetido;
 import COMUN.itfProperty;
 
 public class clsGestorLN {
@@ -55,187 +58,6 @@ public class clsGestorLN {
 	}
 
 	/**
-	 * Aqu? crearemos el m?todo donde guardaremos todo cuando querramos a?adir
-	 * buscar o eliminar Por ejemplo con el .add ir?amos a?adiendo los datos de cada
-	 * uno Crear?amos los de eliminar por si querr?amos eliminar al
-	 * 
-	 * @param
-	 */
-	public void anadirEquipo(String nombreEquipo, Date fundacionEquipo) {
-		clsEquipo objtuequipo = new clsEquipo(nombreEquipo, fundacionEquipo);
-
-		tuequipo.add(objtuequipo);
-		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
-		/**
-		 * Aquí ya tenemos los jugadores ordenados
-		 */
-		Collections.sort(listadoEquipos, comp);
-
-	}
-
-	public void anadirEquipacion(String nombreEquipo, Date fundacionEquipo, String color1, String color2,
-			String publicidad, String seriagrafiado, int dorsal) 
-	{
-		clsEquipacion objtuequipacion = new clsEquipacion(color1, color2, publicidad, seriagrafiado, dorsal);
-		tuequipacion.add(objtuequipacion);
-	}
-
-	public void anadirEscudo(String nombreEquipo, Date fundacionEquipo, String formaEscudo, String colorEscudo) {
-		clsEscudo objtuescudo = new clsEscudo(formaEscudo, colorEscudo);
-		tuescudo.add(objtuescudo);
-		clsComparadorPorColores comp = new clsComparadorPorColores();
-		/**
-		 * Aquí ya tenemos los jugadores ordenados
-		 */
-		Collections.sort(listadoEscudos, comp);
-	}
-
-	public void anadirIntercambio(String equipoOrigen, String equipoDestino) {
-		clsIntercambio objtuintercambio = new clsIntercambio(equipoOrigen, equipoDestino);
-		tuintercambio.add(objtuintercambio);
-	}
-
-	public void anadirJugador(String nombre, String apellido1, String apellido2, String dni, String sexo,
-			int formaFisica, double skills) {
-		clsJugador objtujugador = new clsJugador(nombre, apellido1, apellido2, dni, sexo, skills, formaFisica);
-		tujugador.add(objtujugador);
-		/**
-		 * Hay que meter los nombres de los jugadores
-		 */
-		clsJugador p1 = new clsJugador("Jesus", "Baldomero", "Ruiz", "12345678A", "masculino", 2.5, 100);
-		clsJugador p2 = new clsJugador("Hortensia", "Ramirez", "Lopez", "12345671B", "femenino", 1.0, 100);
-		clsJugador p3 = new clsJugador("Xabier", "Tolano", "Herrero", "87654321C", "masculino", 2.0, 100);
-		clsJugador p4 = new clsJugador("Rogelio", "Tolosa", "Chapero", "31264594R", "masculino", 1.5, 100);
-		clsJugador p5 = new clsJugador("Raul", "Beltran", "Orobio", "90216538T", "masculino", 0.5, 100);
-		clsJugador p6 = new clsJugador("Martin", " Rodriguez", "Zuñiga", "26492740L", "masculino", 1.5, 100);
-		clsJugador p7 = new clsJugador("Ainhoa", " Serna", "Ruiz de viñaspe", "24759485O", "masculino", 3.0, 100);
-		clsJugador p8 = new clsJugador("Oscar", "Areitio", "Sela", "32461554G", "masculino", 2.0, 100);
-		clsJugador p9 = new clsJugador("Omar", "Estebanez", "Galdos", "76984329W", "masculino", 1.0, 100);
-		clsJugador p10 = new clsJugador("Fran", " Alba", "Ortiz", "43015694F", "masculino", 2.5, 100);
-		clsJugador p11 = new clsJugador("Julen", "Fuente", "Aguirre", "60439185I", "masculino", 1.5, 100);
-		clsJugador p12 = new clsJugador("Jorge", "Martiarena", "Gibello", "54287419U2", "masculino", 2.0, 100);
-		clsJugador p13 = new clsJugador("Amaia", "Saenz", "Lopez", "54327681O", "femenino", 2.0, 100);
-		clsJugador p14 = new clsJugador("Isabel", " Campillo", "Lerena", "98430165T", "femenino", 1.5, 100);
-		clsJugador p15 = new clsJugador("Fran", "Aizpurua", "Cerro", "95032715Y", "masculino", 1.5, 100);
-		clsJugador p16 = new clsJugador("Maite", "Ibisate", "Guardiola", "32685489K", "femenino", 2.0, 100);
-		clsJugador p17 = new clsJugador("Eugenio", " Frondoso", "Corral", "23517896H", "masculino", 2.5, 100);
-		clsJugador p18 = new clsJugador("Fernando", " Goikoetxea", "Sarabia", "43615379V", "masculino", 2.0, 100);
-		clsJugador p19 = new clsJugador("Olga", "Tolagua", "Nocedal", "76890321K", "femenino", 2.0, 100);
-		clsJugador p20 = new clsJugador("Marina", "Sanchez", "Gutierrez", "21436579O", "femenino", 1.0, 100);
-		clsJugador p21 = new clsJugador("Mikel", "Lerena", "Gomez", "54392016P", "masculino", 2.0, 100);
-		listadoJugadores.add(p1);
-		listadoJugadores.add(p2);
-		listadoJugadores.add(p3);
-		listadoJugadores.add(p4);
-		listadoJugadores.add(p5);
-		listadoJugadores.add(p6);
-		listadoJugadores.add(p7);
-		listadoJugadores.add(p8);
-		listadoJugadores.add(p9);
-		listadoJugadores.add(p10);
-		listadoJugadores.add(p11);
-		listadoJugadores.add(p12);
-		listadoJugadores.add(p13);
-		listadoJugadores.add(p14);
-		listadoJugadores.add(p15);
-		listadoJugadores.add(p16);
-		listadoJugadores.add(p17);
-		listadoJugadores.add(p18);
-		listadoJugadores.add(p19);
-		listadoJugadores.add(p20);
-		listadoJugadores.add(p21);
-
-		clsComparadorPorNombre comp = new clsComparadorPorNombre();
-		/**
-		 * Aquí ya tenemos los jugadores ordenados
-		 */
-		Collections.sort(listadoJugadores, comp);
-	}
-
-	public void anadirPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
-		clsPartidos objtupartido = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-		tupartido.add(objtupartido);
-	}
-
-	public void anadirTemporada(int puestos, String trofeos, Date anioTemporada) {
-		clsTemporada objtutemporada = new clsTemporada(puestos, trofeos, anioTemporada);
-		tutemporada.add(objtutemporada);
-	}
-
-	public ArrayList<itfProperty> MostrarEquipacion() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsEquipacion eq : tuequipacion) {
-			guardatodo.add((itfProperty) eq);
-		}
-		return guardatodo;
-	}
-
-	public ArrayList<itfProperty> MostrarEquipo() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsEquipo e : tuequipo) {
-			guardatodo.add((itfProperty) e);
-		}
-		return guardatodo;
-
-	}
-
-	public ArrayList<itfProperty> MostrarIntercambio() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsIntercambio i : tuintercambio) {
-			guardatodo.add((itfProperty) i);
-		}
-		return guardatodo;
-
-	}
-
-	public ArrayList<itfProperty> MostrarEscudo() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsEscudo es : tuescudo) {
-			guardatodo.add((itfProperty) es);
-		}
-		return guardatodo;
-
-	}
-
-	public ArrayList<itfProperty> MostrarJugador() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsJugador j : tujugador) {
-			guardatodo.add((itfProperty) j);
-		}
-		return guardatodo;
-
-	}
-
-	public ArrayList<itfProperty> MostrarPartidos() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsPartidos p : tupartido) {
-			guardatodo.add((itfProperty) p);
-		}
-		return guardatodo;
-
-	}
-
-	public ArrayList<itfProperty> MostrarTemporada() {
-		ArrayList<itfProperty> guardatodo = new ArrayList<>();
-
-		for (clsTemporada t : tutemporada) {
-			guardatodo.add((itfProperty) t);
-		}
-		return guardatodo;
-
-	}
-	
-
-	
-	
-
-	/**
 	 * Con este metodo añadiremos equipaciones
 	 * 
 	 * @param color1
@@ -250,12 +72,17 @@ public class clsGestorLN {
 
 		clsEquipacion eq = new clsEquipacion(color1, color2, publicidad, serigrafiado, dorsal);// Aqui creamos una nueva
 																								// equipacion con sus
-																								// diferentes atributos
+		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+	
+		Collections.sort(listadoEquipos, comp);																						// diferentes atributos
 		/**
 		 * Este metodo nos sirve para saber si hay repetidos para que no lo añada
 		 */
-		if (tuequipacion.contains(eq) == true) {
-			throw new clsExcepcionEquipacionRepetida();
+		if ((tuequipacion.contains(eq) == true)) {
+			throw new clsExcepcionEquipacionRepetida("Equipación Repetida");
 		
 		
 		/**
@@ -309,12 +136,12 @@ public class clsGestorLN {
 	 * @return
 	 */
 
-	public String buscarclsequipacion(String color1) {
+	public String buscarclsequipacion(String color1, String color2, String publicidad, String serigrafiado,int dorsal) {
 		/**
 		 * Utilizaremos itfproperty para buscar y utilizaremos como clave el color 1
 		 */
 
-		itfProperty datoABuscar = new clsEquipacion(color1, "", "", "", 0);
+		itfProperty datoABuscar = new clsEquipacion(color1, color2, publicidad, serigrafiado, dorsal);
 
 		int p = tuequipacion.indexOf(datoABuscar);
 
@@ -406,11 +233,18 @@ public class clsGestorLN {
 	 * @param fundacionEquipo
 	 * @return
 	 */
-	public boolean añadirEquipo(String nombreEquipo, Date fundacionEquipo) {
+	public boolean añadirEquipo(String nombreEquipo, Date fundacionEquipo) throws clsExcepcionEquipoRepetido {
 		clsEquipo e = new clsEquipo(nombreEquipo, fundacionEquipo);
+		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+	
+		Collections.sort(listadoEquipos, comp);
+
 
 		if (tuequipo.contains(e) == true) {
-			return false; // Aquí no nos admitira el equipo si esta repetido
+			throw new clsExcepcionEquipoRepetido("Equipo repetido");// Aquí no nos admitira el equipo si esta repetido
 		} else {
 			tuequipo.add(e);
 
@@ -536,13 +370,20 @@ public class clsGestorLN {
 	 * @param formaEscudo
 	 * @param colorEscudo
 	 * @return
+	 * @throws Exception 
 	 */
-	public boolean añadirEscudo(String formaEscudo, String colorEscudo) {
+	public boolean añadirEscudo(String formaEscudo, String colorEscudo)throws Exception {
 		clsEscudo es = new clsEscudo(formaEscudo, colorEscudo);
+		clsComparadorPorColores comp = new clsComparadorPorColores();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+	
+		Collections.sort(listadoEscudos, comp);
 
 		if (tuescudo.contains(es) == true)// Nos aseguramos que no hay ninguno repetido
 		{
-			return false;
+			throw new clsExcepcionEscudoRepetido("Escudo repetido");
 		} else {
 			tuescudo.add(es);
 
@@ -551,6 +392,8 @@ public class clsGestorLN {
 			return true;
 		}
 	}
+
+	
 
 	/**
 	 * Con este metodo cambiaremos de escudo
@@ -653,11 +496,11 @@ public class clsGestorLN {
 	}
 
 //--------------------------------------------------------------------------
-	public boolean addIntercambio(String equipoOrigen, String equipoDestino) {
+	public boolean addIntercambio(String equipoOrigen, String equipoDestino)throws clsExcepcionIntercambioRepetido {
 		clsIntercambio i = new clsIntercambio(equipoOrigen, equipoDestino);
 
 		if (tuintercambio.contains(i) == true) {
-			return false;
+			throw new clsExcepcionIntercambioRepetido("Intercambio Repetido");
 		} else {
 			tuintercambio.add(i);
 
@@ -742,6 +585,60 @@ public class clsGestorLN {
 	// ----------------------------------------------------------------------------------------------------------------------
 	public boolean addJugador(String nombre, String apellido1, String apellido2,String dni, String sexo,int formaFisica, double skills) {
 		clsJugador j = new clsJugador(formaFisica, skills);
+		/**
+		 * Hay que meter los nombres de los jugadores
+		 */
+	
+		clsJugador p1 = new clsJugador("Jesus", "Baldomero", "Ruiz", "12345678A", "masculino", 2.5, 100);
+		clsJugador p2 = new clsJugador("Hortensia", "Ramirez", "Lopez", "12345671B", "femenino", 1.0, 100);
+		clsJugador p3 = new clsJugador("Xabier", "Tolano", "Herrero", "87654321C", "masculino", 2.0, 100);
+		clsJugador p4 = new clsJugador("Rogelio", "Tolosa", "Chapero", "31264594R", "masculino", 1.5, 100);
+		clsJugador p5 = new clsJugador("Raul", "Beltran", "Orobio", "90216538T", "masculino", 0.5, 100);
+		clsJugador p6 = new clsJugador("Martin", " Rodriguez", "Zuñiga", "26492740L", "masculino", 1.5, 100);
+		clsJugador p7 = new clsJugador("Ainhoa", " Serna", "Ruiz de viñaspe", "24759485O", "masculino", 3.0, 100);
+		clsJugador p8 = new clsJugador("Oscar", "Areitio", "Sela", "32461554G", "masculino", 2.0, 100);
+		clsJugador p9 = new clsJugador("Omar", "Estebanez", "Galdos", "76984329W", "masculino", 1.0, 100);
+		clsJugador p10 = new clsJugador("Fran", " Alba", "Ortiz", "43015694F", "masculino", 2.5, 100);
+		clsJugador p11 = new clsJugador("Julen", "Fuente", "Aguirre", "60439185I", "masculino", 1.5, 100);
+		clsJugador p12 = new clsJugador("Jorge", "Martiarena", "Gibello", "54287419U2", "masculino", 2.0, 100);
+		clsJugador p13 = new clsJugador("Amaia", "Saenz", "Lopez", "54327681O", "femenino", 2.0, 100);
+		clsJugador p14 = new clsJugador("Isabel", " Campillo", "Lerena", "98430165T", "femenino", 1.5, 100);
+		clsJugador p15 = new clsJugador("Fran", "Aizpurua", "Cerro", "95032715Y", "masculino", 1.5, 100);
+		clsJugador p16 = new clsJugador("Maite", "Ibisate", "Guardiola", "32685489K", "femenino", 2.0, 100);
+		clsJugador p17 = new clsJugador("Eugenio", " Frondoso", "Corral", "23517896H", "masculino", 2.5, 100);
+		clsJugador p18 = new clsJugador("Fernando", " Goikoetxea", "Sarabia", "43615379V", "masculino", 2.0, 100);
+		clsJugador p19 = new clsJugador("Olga", "Tolagua", "Nocedal", "76890321K", "femenino", 2.0, 100);
+		clsJugador p20 = new clsJugador("Marina", "Sanchez", "Gutierrez", "21436579O", "femenino", 1.0, 100);
+		clsJugador p21 = new clsJugador("Mikel", "Lerena", "Gomez", "54392016P", "masculino", 2.0, 100);
+		listadoJugadores.add(p1);
+		listadoJugadores.add(p2);
+		listadoJugadores.add(p3);
+		listadoJugadores.add(p4);
+		listadoJugadores.add(p5);
+		listadoJugadores.add(p6);
+		listadoJugadores.add(p7);
+		listadoJugadores.add(p8);
+		listadoJugadores.add(p9);
+		listadoJugadores.add(p10);
+		listadoJugadores.add(p11);
+		listadoJugadores.add(p12);
+		listadoJugadores.add(p13);
+		listadoJugadores.add(p14);
+		listadoJugadores.add(p15);
+		listadoJugadores.add(p16);
+		listadoJugadores.add(p17);
+		listadoJugadores.add(p18);
+		listadoJugadores.add(p19);
+		listadoJugadores.add(p20);
+		listadoJugadores.add(p21);
+
+		clsComparadorPorNombre comp = new clsComparadorPorNombre();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+	
+		Collections.sort(listadoJugadores, comp);
+	
 
 		if (tujugador.contains(j) == true) {
 			return false;

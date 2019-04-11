@@ -6,6 +6,7 @@ import static COMUN.Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
 public class clsEscudo  implements itfProperty {
@@ -78,8 +79,8 @@ public class clsEscudo  implements itfProperty {
 			return this.formaEscudo;
 		case PROPIEDAD_clsESCUDO_COLORESCUDO:
 			return this.colorEscudo;
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}

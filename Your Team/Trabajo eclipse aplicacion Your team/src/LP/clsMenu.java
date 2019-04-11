@@ -4,15 +4,18 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 import COMUN.clsExcepcionEquipacionRepetida;
+import COMUN.clsExcepcionEquipoRepetido;
+import COMUN.clsExcepcionEscudoRepetido;
+import COMUN.clsExcepcionIntercambioRepetido;
 import LN.clsGestorLN;
 
 public class clsMenu {
 
 	/**
 	 * Crear un Menu para que pueda crearse su equipo, hacer un intercambio, cambiar cosas del equipo o salir 
-	 * @throws clsExcepcionEquipacionRepetida 
+	 * @throws Exception 
 	 */
-	public static void MenuPrincipal() throws clsExcepcionEquipacionRepetida {
+	public static void MenuPrincipal() throws Exception {
 		int op=0;
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
@@ -57,7 +60,7 @@ public class clsMenu {
 	 * Crear los m?todos para la creaci?n del equipo con sus atributos y finalmente lo guardaremos en el gestor
 	 */
 	
-	public static void Crearequipo() {
+	public static void Crearequipo()  {
 		String nombreEquipo;
 		Date fundacionEquipo;
 		
@@ -65,15 +68,19 @@ public class clsMenu {
 		nombreEquipo=UtilidadesLP.leerCadena();
 		String date = null;
 		fundacionEquipo=Date.valueOf(date);
+		try {
+			gln.añadirEquipo(nombreEquipo, fundacionEquipo);
+		} catch (clsExcepcionEquipoRepetido e) {
+			System.out.println(e.getMessage());
+		}
 		
-		gln.anadirEquipo(nombreEquipo, fundacionEquipo);
 	}
 	
 	/**
 	 * Crear los m?todos para la creaci?n del equipacion con sus atributos y finalmente lo guardaremos en el gestor
 	 */
 	
-	public static void Crearequipacion () throws clsExcepcionEquipacionRepetida {
+	public static void Crearequipacion () {
 		String color1;
 		String color2;
 		String publicidad;
@@ -100,7 +107,7 @@ public class clsMenu {
 		opserigrafiado=UtilidadesLP.leerCadena();
 		
 		if (opserigrafiado.equalsIgnoreCase("si")) {
-			System.out.println("?Qu? publicidad quieres poner?");
+			System.out.println("?Que publicidad quieres poner?");
 			serigrafiado=UtilidadesLP.leerCadena();
 			
 		}
@@ -116,9 +123,10 @@ public class clsMenu {
 	
 	/**
 	 * Crear los m?todos para la creaci?n del escudo con sus atributos y finalmente lo guardaremos en el gestor
+	 * @throws Exception 
 	 */
 	
-	public static void CrearEscudo() {
+	public static void CrearEscudo() throws Exception  {
 		String formaEscudo;
 		String colorEscudo;
 		
@@ -128,8 +136,15 @@ public class clsMenu {
 		System.out.println("Di un color para tu escudo");
 		colorEscudo=UtilidadesLP.leerCadena();
 		
-		gln.anadirEscudo(null, null, formaEscudo, colorEscudo);
 		
+			try {
+				gln.añadirEscudo(formaEscudo, colorEscudo);
+			
+			} catch (clsExcepcionEscudoRepetido e) {
+				e.getMessage();
+			}
+		
+					
 	}
 	
 	/**
@@ -144,8 +159,12 @@ public class clsMenu {
 		equipoOrigen=UtilidadesLP.leerCadena();
 		System.out.println("Escribe el equipo con el que quieres intercambiar");
 		equipoDestino=UtilidadesLP.leerCadena();
+		try {
+			gln.addIntercambio(equipoOrigen, equipoDestino);
+		} catch (clsExcepcionIntercambioRepetido e) {
+			e.getMessage();
+		}
 		
-		gln.anadirIntercambio( equipoOrigen, equipoDestino);
 	}
 	
 }

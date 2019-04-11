@@ -2,6 +2,7 @@ package LN;
 
 import java.time.LocalDate;
 
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN;
 import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO;
@@ -75,8 +76,8 @@ public class clsIntercambio  implements itfProperty {
 			return this.equipoOrigen;
 		case PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO:
 			return this.equipoDestino;
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}

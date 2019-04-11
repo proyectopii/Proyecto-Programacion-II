@@ -7,7 +7,7 @@ import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS;
 import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA;
 
-
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
 public class clsTemporada  implements itfProperty {
@@ -89,8 +89,8 @@ public class clsTemporada  implements itfProperty {
 			return this.trofeos;
 		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:
 			return this.anioTemporada;
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}

@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
 public class clsEquipo implements itfProperty {
@@ -85,8 +86,8 @@ public class clsEquipo implements itfProperty {
 		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:
 			return this.fundacionEquipo;
 
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}

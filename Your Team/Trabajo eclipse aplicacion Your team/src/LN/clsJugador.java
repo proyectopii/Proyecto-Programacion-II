@@ -7,6 +7,7 @@ import static COMUN.Constantes.PROPIEDAD_clsJUGADOR_SKILLS;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
 public class clsJugador extends clsPersona  implements itfProperty {
@@ -66,8 +67,8 @@ public class clsJugador extends clsPersona  implements itfProperty {
 		case PROPIEDAD_clsJUGADOR_SKILLS:
 			return this.skills;
 		
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}

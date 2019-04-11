@@ -7,6 +7,7 @@ import static COMUN.Constantes.PROPIEDAD_clsPERSONA_APELLIDO2;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_DNI;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_SEXO;
 
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
 public abstract class clsPersona implements itfProperty{
@@ -56,8 +57,8 @@ public abstract class clsPersona implements itfProperty{
 		case PROPIEDAD_clsPERSONA_SEXO:
 		    return this.sexo;
 		
-		default:
-			return null;
+		default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 		
 		

@@ -9,6 +9,7 @@ import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADO;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
 public class clsEquipacion implements itfProperty {
@@ -101,8 +102,8 @@ public class clsEquipacion implements itfProperty {
 		case PROPIEDAD_clsEQUIPACION_DORSAL:
 			return this.dorsal;
 		
-					default:
-			return null;
+					default:throw new PropiedadInexistente("No existe esa propiedad!");
+			
 		}
 
 	}
