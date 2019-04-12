@@ -100,15 +100,7 @@ public class clsEquipo implements itfProperty {
 		}
 		
 	}
-	/**
-	 * Aquí meteremos los nombres de los equipos y sus atributos
-	 */
-	clsEquipo e1 = new clsEquipo("Sestao.FC",date);
-	clsEquipo e2 = new clsEquipo("Calasanz.FC",date);
-	clsEquipo e3 = new clsEquipo("Vitoria.FC",date);
-	clsEquipo e4 = new clsEquipo("Bicampeons.FC",date);
-	clsEquipo e5 = new clsEquipo("Deusto.FC",date);
-	clsEquipo e6 = new clsEquipo("Madrid.FC",date);
+
 	
 
 }

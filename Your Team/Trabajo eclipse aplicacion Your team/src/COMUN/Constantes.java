@@ -42,4 +42,8 @@ public class Constantes {
 	public static final String PROPIEDAD_clsPERSONA_DNI="dni";
 	public static final String PROPIEDAD_clsPERSONA_SEXO="sexo";
 	
+	
+	public static final String PROPIEDAD_clsMANAGER_CALIDAD="calidad";
+	public static final String PROPIEDAD_clsMANAGER_VALORACION="valoracion";
+	
 }

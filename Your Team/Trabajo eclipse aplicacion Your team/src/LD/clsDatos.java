@@ -1028,6 +1028,143 @@ public class clsDatos {
 			        se.printStackTrace();
 			    }
 			  }
+			  public  ResultSet cargarManager()
+			  {
+			   
+			    
+			    try
+			    {
+			      // Todos los accesos a bases de datos deben ir entre try/catch
+			      // Establecemos una conexi?n con nuestra base de datos
+			    	
+			    	gbd.connect();
+			         
+			      // Creamos y ejecutamos una sentencia SQL
+			      Statement stmt = gbd.createStatement();
+			       
+			      //hay una tabla coches en la BD
+			      ResultSet rs = stmt.executeQuery("SELECT * FROM Manager");
+			      /**
+			       
+			      // Tratamos los resultado obtenidos en la consulta SQL
+			      while(rs.next())
+			      {
+			    	  
+			        clsEquipacion nuevaEquipacion = new clsEquipacion();
+			        vectorBD.add(nuevaEquipacion);
+			      }  
+			       
+			    }
+			    catch(SQLException se)
+			    {
+			         
+			        se.printStackTrace();
+			    }
+			    */
+			    
+			    return rs;
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return null;
+			    }
+			    }
+			 
+			   
+			  
+			  
+			  public  Object getInstance7() {
+				
+				return null;
+			}
+
+
+
+			public  ResultSet buscarManager(int valoracion) 
+			  {
+				try {
+				 gbd.connect();
+
+					Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+							ResultSet.CONCUR_UPDATABLE);
+
+					ResultSet rs = sentencia.executeQuery("SELECT * FROM  where valoracion = '" + valoracion + "'");
+
+				
+					return rs;
+				} catch (SQLException se) {
+					se.printStackTrace();
+
+					return null;
+				} 
+			  }  
+			  
+			  public  boolean existeclsManager( String dni )
+			  {
+			    try
+			    {
+			       gbd.connect();
+			         
+			      // Creamos y ejecutamos una sentencia SQL
+			      Statement sentencia = 
+			      gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			                                           ResultSet.CONCUR_UPDATABLE);
+			            
+			      ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipacion where  dni = '"  + dni +"'" );
+			       
+			      System.out.println("SELECT * FROM Equipacion where dni = '" + dni +"'");
+			      
+			      if ( rs.first() == false )
+			      {
+			    	  return false;
+			      }
+			      else
+			      {
+			    	  return true;
+			      }
+			       
+			    }
+			    catch (SQLException se)
+			    {
+			        se.printStackTrace();
+			        
+			        return false;
+			    }    
+			  }
+			 
+			  public  void insertarManager( String nombre,  String apellido1,
+						String apellido2,  String dni,  String sexo, String calidad, int valoracion)
+			  {     
+			    try
+			    {
+			      gbd.connect();
+			       
+			      Statement sentencia =   gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,             
+			                                           ResultSet.CONCUR_UPDATABLE);
+			 
+			      boolean r = existeclsManager( dni );
+			       
+			      if(r == false)
+			      {         
+			    	 String query ="insert into Equipacion values(" + nombre + apellido1 + apellido2 + dni + sexo + calidad + valoracion ;
+			             
+			         sentencia.executeUpdate(query);
+			      }
+			      else
+			      {
+			          System.out.println("Manager Existente!");
+			      }
+			       
+			      gbd.disconnect();
+			     
+			    }
+			    catch(SQLException se)
+			    {
+			        se.printStackTrace();
+			    }
+			 }
 			  
 			  
 			    
