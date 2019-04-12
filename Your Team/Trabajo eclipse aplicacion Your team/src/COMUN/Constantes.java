@@ -5,41 +5,86 @@ import java.time.LocalDate;
 
 public class Constantes {
 	/**
-	 * Aqu? definiremos cada una de las constantes de todos los atributos de las clases
-	 * para luego ponerlas en los m?todos set y get
+	 * Aqu? definiremos cada una de las constantes de todos los atributos de las
+	 * clases para luego ponerlas en los m?todos set y get
 	 */
-	public static final String PROPIEDAD_clsEQUIPACION_COLOR1="color1";
-	public static final String PROPIEDAD_clsEQUIPACION_COLOR2="color2";
-	public static final String PROPIEDAD_clsEQUIPACION_DORSAL="dorsal";
-	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDAD="publicidad";
-	public static final String  PROPIEDAD_clsEQUIPACION_SERIGRAFIADO="serigrafiado";
+	/**
+	 * Aqui ponemos todas las constantes finales de equipacion como color1, color2,
+	 * dorsal, publicidad y serigrafiado
+	 */
+	public static final String PROPIEDAD_clsEQUIPACION_COLOR1 = "color1";
+	public static final String PROPIEDAD_clsEQUIPACION_COLOR2 = "color2";
+	public static final String PROPIEDAD_clsEQUIPACION_DORSAL = "dorsal";
+	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDAD = "publicidad";
+	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADO = "serigrafiado";
 
-	public static final String PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO="fundacionEquipo";
-	public static final String PROPIEDAD_clsEQUIPO_NOMBREEQUIPO="nombreEquipo";
-	
+	/**
+	 * Aqui ponemos todas las constantes finales de equipo como fundacionEquipo y
+	 * nombreEquipo
+	 */
 
-	public static final String PROPIEDAD_clsESCUDO_COLORESCUDO="colorEscudo";
-	public static final String PROPIEDAD_clsESCUDO_FORMAESCUDO="formaEscudo";
+	public static final String PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO = "fundacionEquipo";
+	public static final String PROPIEDAD_clsEQUIPO_NOMBREEQUIPO = "nombreEquipo";
 
-	public static final String PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN="equipoOrigen";
-	public static final String PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO="equipoDestino";
+	/**
+	 * Aqui ponemos todas las constantes finales de escudo como colorEscudo y
+	 * formaEscudo
+	 */
 
+	public static final String PROPIEDAD_clsESCUDO_COLORESCUDO = "colorEscudo";
+	public static final String PROPIEDAD_clsESCUDO_FORMAESCUDO = "formaEscudo";
 
-	public static final String PROPIEDAD_clsJUGADOR_FORMAFISICA="formaFisica";
-	public static final String PROPIEDAD_clsJUGADOR_SKILLS="skills";
+	/**
+	 * Aqui ponemos todas las constantes finales de intercambio como equipoOrigen y
+	 * equipoDestino
+	 */
 
-	public static final String PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL="equipoLocal";
-	public static final String PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE="equipoVisitante";
-	public static final String PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO="fechaInicioPartido";
+	public static final String PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN = "equipoOrigen";
+	public static final String PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO = "equipoDestino";
 
-	public static final String PROPIEDAD_clsTEMPORADA_PUESTOS="puestos";
-	public static final String PROPIEDAD_clsTEMPORADA_TROFEOS="trofeos";
-	public static final String PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA="anioTemporada";
-	
-	public static final String PROPIEDAD_clsPERSONA_NOMBRE="nombre";
-	public static final String PROPIEDAD_clsPERSONA_APELLIDO1="apellido1";
-	public static final String PROPIEDAD_clsPERSONA_APELLIDO2="apellido2";
-	public static final String PROPIEDAD_clsPERSONA_DNI="dni";
-	public static final String PROPIEDAD_clsPERSONA_SEXO="sexo";
-	
+	/**
+	 * Aqui ponemos todas las constantes finales de jugador como formaFisica y
+	 * skills
+	 */
+
+	public static final String PROPIEDAD_clsJUGADOR_FORMAFISICA = "formaFisica";
+	public static final String PROPIEDAD_clsJUGADOR_SKILLS = "skills";
+
+	/**
+	 * Aqui ponemos todas las constantes finales de partidos como equipoLocal,
+	 * equipoVisitante y fechaInicioPartido
+	 */
+
+	public static final String PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL = "equipoLocal";
+	public static final String PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE = "equipoVisitante";
+	public static final String PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO = "fechaInicioPartido";
+
+	/**
+	 * Aqui ponemos todas las constantes finales de temporada como puestos, trofeos
+	 * y anioTemporada
+	 */
+
+	public static final String PROPIEDAD_clsTEMPORADA_PUESTOS = "puestos";
+	public static final String PROPIEDAD_clsTEMPORADA_TROFEOS = "trofeos";
+	public static final String PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA = "anioTemporada";
+
+	/**
+	 * Aqui ponemos todas las constantes finales de persona como nombre, apellido1,
+	 * apellido2, dni y sexo
+	 */
+
+	public static final String PROPIEDAD_clsPERSONA_NOMBRE = "nombre";
+	public static final String PROPIEDAD_clsPERSONA_APELLIDO1 = "apellido1";
+	public static final String PROPIEDAD_clsPERSONA_APELLIDO2 = "apellido2";
+	public static final String PROPIEDAD_clsPERSONA_DNI = "dni";
+	public static final String PROPIEDAD_clsPERSONA_SEXO = "sexo";
+
+	/**
+	 * Aqui ponemos todas las constantes finales de manager como calidad y
+	 * valoracion
+	 */
+
+	public static final String PROPIEDAD_clsMANAGER_CALIDAD = "calidad";
+	public static final String PROPIEDAD_clsMANAGER_VALORACION = "valoracion";
+
 }

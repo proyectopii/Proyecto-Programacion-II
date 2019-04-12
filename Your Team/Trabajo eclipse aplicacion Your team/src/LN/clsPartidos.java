@@ -105,7 +105,6 @@ public class clsPartidos implements itfProperty,Comparable {
 
 	@Override
 	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
 		return this.fechaInicioPartido.compareTo((Date)((itfProperty) o).getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO));
 	}
 

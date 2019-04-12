@@ -22,6 +22,7 @@ import COMUN.clsExcepcionEquipacionRepetida;
 import COMUN.clsExcepcionEquipoRepetido;
 import COMUN.clsExcepcionEscudoRepetido;
 import COMUN.clsExcepcionIntercambioRepetido;
+import COMUN.clsExcepcionManagerRepetido;
 import COMUN.itfProperty;
 
 public class clsGestorLN {
@@ -40,6 +41,8 @@ public class clsGestorLN {
 	private ArrayList<clsJugador> listadoJugadores;
 	private ArrayList<clsEquipo> listadoEquipos;
 	private ArrayList<clsEscudo> listadoEscudos;
+	private ArrayList<clsManager> listadoManagers;
+	private ArrayList<clsManager> tumanager;
 
 	/**
 	 * Crearemos el constructor del arraylist
@@ -55,6 +58,8 @@ public class clsGestorLN {
 		listadoJugadores = new ArrayList<clsJugador>();
 		listadoEquipos = new ArrayList<clsEquipo>();
 		listadoEscudos = new ArrayList<clsEscudo>();
+		listadoManagers = new ArrayList<clsManager>();
+		tumanager = new ArrayList<clsManager>();
 	}
 
 	/**
@@ -916,6 +921,139 @@ public void guardarTemporada() {
 		}
 		
 	}
+	//-------------------------------------------------------------------------------------------------------------------------------------------
+public boolean addManager( String nombre, String apellido1, String apellido2, String dni, String sexo,String calidad, int valoracion ) throws clsExcepcionManagerRepetido
+{
+	/**
+	 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y valoracion
+	 */
+	clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B", "masculino", "buena", 76);
+	clsManager m2 = new clsManager("Rosa", "Bernarda", "Guereñu", "12332671O", "femenino","media", 54);
+	clsManager m3 = new clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media", 52);
+	clsManager m4 = new clsManager("Michael", "Sese", "Arder", "31324594T", "masculino", "mala", 20);
+	clsManager m5 = new clsManager("Miren", "Subell", "Bies", "90215338B", "femenino", "buena", 80);
+	clsManager m6 = new clsManager("Jone", " Campos", "Iparaguirre", "26471740P","femenina", "muy buena",96);
+	clsManager m7 = new clsManager("Joseba", " Lopez", "Poter", "24753285I", "masculino","mala", 26);
+	/**
+	 * Luego creamos otro arrayList para guardar los managers y los metemos dentro del arraylist
+	 */
+	listadoManagers.add(m1);
+	listadoManagers.add(m2);
+	listadoManagers.add(m3);
+	listadoManagers.add(m4);
+	listadoManagers.add(m5);
+	listadoManagers.add(m6);
+	listadoManagers.add(m7);
+	/**
+	 * Llamamos al comparadaor por nombre para compararlo
+	 */
+	clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
+	/**
+	 * Aquí ya tenemos los managers ordenados
+	 */
+
+	Collections.sort(listadoManagers, comp);
+	clsManager m = new clsManager( nombre , apellido1 , apellido2,dni,sexo,calidad,valoracion );
 	
+	if( tumanager.contains( m ) == true  )
+	{
+		throw new clsExcepcionManagerRepetido("Manager Repetido");
+		
+	}
+	else
+	{
+		tumanager.add( m );
+		
+		clsDatos.insertarManager( nombre , apellido1 , apellido2,dni,sexo,calidad,valoracion );
+		
+		return true;
+	}
+}
+
+public boolean cambioDeManager(  String nombre, String apellido1, String apellido2, String dni, String sexo,String calidad, int valoracion )
+{		
+	itfProperty datoABuscar = new clsManager( nombre,apellido1,apellido2, dni, sexo,calidad,valoracion);
+	
+	int p = tumanager.indexOf( datoABuscar );
+	
+	if( p != -1 )
+	{
+		datoABuscar = tumanager.get(p); 
+		datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsMANAGER_VALORACION,Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
+		
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}	
+
+public String consultarManager( String dni  )
+{
+	
+	itfProperty datoABuscar = new clsManager(null,null,null,dni,null,null,0 );
+	
+	int p = tumanager.indexOf( datoABuscar );
+	
+	if( p != -1 )
+	{
+		datoABuscar = tumanager.get(p); 
+		String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
+				
+		return prop;
+	}
+	else
+	{
+		return null;
+	}
+}
+public boolean borrarManager(  String nombre, String apellido1, String apellido2, String dni, String sexo,String calidad, int valoracion)
+{
+	clsManager manager = new clsManager(nombre,apellido1,apellido2,dni,sexo,calidad,valoracion);
+	
+	return tumanager.remove( manager );
+}
+
+public ArrayList<clsManager> recuperarmanager() {
+	
+	try
+	{
+		ArrayList<clsManager> temp = new ArrayList<>();
+		
+		ResultSet rs = clsDatos.cargarManager();
+		
+		while (rs.next()) {			
+
+			clsManager manager = new clsManager(rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"),rs.getString("dni"), rs.getString("sexo"), rs.getString("calidad"),rs.getInt(0));
+			
+			temp.add(manager);
+		}
+				
+		return temp;
+	}
+	catch( SQLException ex )
+	{
+		ex.printStackTrace();
+		return null;
+	}		
+}
+
+public void guardarManager() {
+	
+	for( clsManager m : tumanager )
+	{
+		String nombre  = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE );
+		String apellido1 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1 );
+		String apellido2 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO2);
+		String dni  = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
+		String sexo = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_SEXO );
+		String calidad = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
+		int valoracion = (int) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_VALORACION);
+		
+		clsDatos.insertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+	}
+	
+}
 
 }

@@ -1,18 +1,34 @@
 package LN;
+/**
+ * Importamos las constantes finales que necesitaremos de la clase cls escudo y es con eso con los que ordenaremos
+ */
 
 import static COMUN.Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO;
 
 import java.util.Comparator;
 
-public class clsComparadorPorColores implements Comparator<clsEscudo>  {
-	
+/**
+ * Creamos el comparador
+ * 
+ * @author Industria 4.0
+ *
+ */
+
+public class clsComparadorPorColores implements Comparator<clsEscudo> {
+	/**
+	 * Aqui comparamos dos colores de escudos de un sitio y de otro y lo ordenaremos
+	 * alfabeticamente como vemos utilizando el String
+	 */
+
 	@Override
 	public int compare(clsEscudo c1, clsEscudo c2) {
-		if (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)).compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)) == 0) {
-		return 0;
-	}else { 
-		return (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)).compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)));
-	}
+		if (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO))
+				.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)) == 0) {
+			return 0;
+		} else {
+			return (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO))
+					.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)));
+		}
 	}
 
 }
