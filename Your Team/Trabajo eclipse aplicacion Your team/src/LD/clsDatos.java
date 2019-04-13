@@ -50,8 +50,10 @@ public class clsDatos {
 
 		return null;
 	}
+
 	/**
 	 * Con este metodo buscaremos equipaciones a través de color1
+	 * 
 	 * @param color1
 	 * @return
 	 */
@@ -74,8 +76,10 @@ public class clsDatos {
 			return null;
 		}
 	}
+
 	/**
 	 * A traves de esto miramos a ver si existe una equipacion a traves de color1
+	 * 
 	 * @param color1
 	 * @return
 	 */
@@ -106,8 +110,10 @@ public class clsDatos {
 			return false;
 		}
 	}
+
 	/**
 	 * A traves de este metodo insertaremos equipaciones
+	 * 
 	 * @param color1
 	 * @param color2
 	 * @param publicidad
@@ -134,7 +140,7 @@ public class clsDatos {
 
 				sentencia.executeUpdate(query);
 			} else {
-				String texto="Equipacion existente";
+				String texto = "Equipacion existente";
 			}
 
 			gbd.disconnect();
@@ -145,7 +151,7 @@ public class clsDatos {
 	}
 
 	/**
-	 * Crearemos m?todos para cargar,buscar,si hay repetidos 
+	 * Crearemos m?todos para cargar,buscar,si hay repetidos
 	 * 
 	 * @return
 	 */
@@ -178,8 +184,10 @@ public class clsDatos {
 
 		return null;
 	}
+
 	/**
 	 * Crearemos un metodo para buscar un equipo a traves de su nombre
+	 * 
 	 * @param nombreEquipo
 	 * @return
 	 */
@@ -202,8 +210,10 @@ public class clsDatos {
 			return null;
 		}
 	}
+
 	/**
 	 * Aqui comprobamos si existe el equipo
+	 * 
 	 * @param nombreEquipo
 	 * @return
 	 */
@@ -234,11 +244,13 @@ public class clsDatos {
 			return false;
 		}
 	}
-/**
- * Aqui insertaremos un equipo 
- * @param nombreEquipo
- * @param fundacionEquipo
- */
+
+	/**
+	 * Aqui insertaremos un equipo
+	 * 
+	 * @param nombreEquipo
+	 * @param fundacionEquipo
+	 */
 	public void insertarEquipo(String nombreEquipo, Date fundacionEquipo) {
 		try {
 			gbd.connect();
@@ -302,8 +314,10 @@ public class clsDatos {
 
 		return null;
 	}
+
 	/**
-	 * Aqui es por si queremos buscar escudos 
+	 * Aqui es por si queremos buscar escudos
+	 * 
 	 * @param formaEscudo
 	 * @return
 	 */
@@ -326,8 +340,10 @@ public class clsDatos {
 			return null;
 		}
 	}
+
 	/**
-	 * Aqui nos aseguramos de que existe 
+	 * Aqui nos aseguramos de que existe
+	 * 
 	 * @param formaEscudo
 	 * @return
 	 */
@@ -358,8 +374,10 @@ public class clsDatos {
 			return false;
 		}
 	}
+
 	/**
 	 * Crearemos este metodo para insertar escudo
+	 * 
 	 * @param formaEscudo
 	 * @param colorEscudo
 	 */
@@ -428,8 +446,10 @@ public class clsDatos {
 
 		return null;
 	}
+
 	/**
 	 * Aqui buscaremos intercambios
+	 * 
 	 * @param equipoOrigen
 	 * @param equipoDestino
 	 * @return
@@ -450,8 +470,6 @@ public class clsDatos {
 			String equiporigen = rs.getString("equipo origen");
 			String equipodestino = rs.getString("equipo destino");
 
-		
-
 			return rs;
 		} catch (SQLException se) {
 			se.printStackTrace();
@@ -459,8 +477,10 @@ public class clsDatos {
 			return null;
 		}
 	}
+
 	/**
 	 * Este metodo sera para saber si existe un intercambio
+	 * 
 	 * @param equipoOrigen
 	 * @param equipoDestino
 	 * @return
@@ -491,8 +511,10 @@ public class clsDatos {
 			return false;
 		}
 	}
+
 	/**
 	 * A traves de eso insertaremos un intercambio
+	 * 
 	 * @param equipoOrigen
 	 * @param equipoDestino
 	 */
@@ -560,8 +582,10 @@ public class clsDatos {
 
 		return null;
 	}
+
 	/**
 	 * A traves de este metodo buscamos jugadores
+	 * 
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2
@@ -593,8 +617,10 @@ public class clsDatos {
 			return null;
 		}
 	}
+
 	/**
 	 * Con este metodo miramos si existe el jugador
+	 * 
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2
@@ -621,7 +647,7 @@ public class clsDatos {
 			System.out.println("SELECT * FROM Jugador where all = '" + nombre + apellido1 + apellido2 + dni + sexo
 					+ skills + formaFisica);
 
-			if (rs.first() == false) { //si retorna falso es que no existe
+			if (rs.first() == false) { // si retorna falso es que no existe
 				return false;
 			} else {
 				return true;
@@ -633,8 +659,10 @@ public class clsDatos {
 			return false;
 		}
 	}
+
 	/**
 	 * Aqui insertaremos jugadores
+	 * 
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2
@@ -652,6 +680,9 @@ public class clsDatos {
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 			boolean r = existeclsJugador(nombre, apellido1, apellido2, dni, sexo, skills, formaFisica);
+			/**
+			 * Aqui hacemos una insert a jugador
+			 */
 
 			if (r == false) {
 				String query = "insert into Jugador values(" + nombre + apellido1 + apellido2 + dni + sexo + skills
@@ -659,7 +690,7 @@ public class clsDatos {
 
 				sentencia.executeUpdate(query);
 			} else {
-				System.out.println("Jugador Existente!");
+				System.out.println("Jugador Existente!"); // Esto es por si hay un jugador repetido
 			}
 
 			gbd.disconnect();
@@ -670,7 +701,7 @@ public class clsDatos {
 	}
 
 	/**
-	 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar partidos
+	 * Crearemos m?todos para cargar partidos
 	 * 
 	 * @return
 	 */
@@ -684,6 +715,9 @@ public class clsDatos {
 
 			// Creamos y ejecutamos una sentencia SQL
 			Statement stmt = gbd.createStatement();
+			/**
+			 * Haremos una select en partido
+			 */
 
 			// hay una tabla coches en la BD
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Partido");
@@ -701,11 +735,23 @@ public class clsDatos {
 		return null;
 	}
 
+	/**
+	 * Con este metodo buscaremos partidos
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 * @return
+	 */
+
 	public ResultSet buscarPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		try {
 			gbd.connect();
 
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			/**
+			 * Aqui haremos una select de partido
+			 */
 
 			ResultSet rs = sentencia.executeQuery(
 					"SELECT * FROM  where Partido  = '" + equipoLocal + equipoVisitante + fechaInicioPartido);
@@ -713,9 +759,6 @@ public class clsDatos {
 			String equipolocal = rs.getString("Equipo local");
 			String equipodestino = rs.getString("Equipo local");
 			Date fechainiciopartido = rs.getDate("Fecha partido");
-
-			// clsPartidos p= (clsPartidos) new clsPartidos (equipoLocal,
-			// equipoVisitante,fechaInicioPartido);
 
 			return rs;
 		} catch (SQLException se) {
@@ -725,12 +768,24 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * Aqui veremos si existe el partido
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 * @return
+	 */
+
 	public boolean existepartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		try {
 			gbd.connect();
 
 			// Creamos y ejecutamos una sentencia SQL
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			/**
+			 * Hacemos una select de partidos
+			 */
 
 			ResultSet rs = sentencia.executeQuery(
 					"SELECT * FROM Partido where  = '" + equipoLocal + equipoVisitante + fechaInicioPartido + "'");
@@ -751,6 +806,14 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * Aqui insertamos partidos
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 */
+
 	public void insertarpartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		try {
 			gbd.connect();
@@ -758,6 +821,9 @@ public class clsDatos {
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 			boolean r = existepartido(equipoLocal, equipoVisitante, fechaInicioPartido);
+			/**
+			 * Para insertar haremos una insert de partidos
+			 */
 
 			if (r == false) {
 				String query = "insert into Partido values(" + equipoLocal + equipoVisitante + fechaInicioPartido;
@@ -775,7 +841,7 @@ public class clsDatos {
 	}
 
 	/**
-	 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar temporada
+	 * Crearemos m?todos para cargar temporada
 	 * 
 	 * @return
 	 */
@@ -789,6 +855,9 @@ public class clsDatos {
 
 			// Creamos y ejecutamos una sentencia SQL
 			Statement stmt = gbd.createStatement();
+			/**
+			 * Hacemos una selec de temporada
+			 */
 
 			// hay una tabla coches en la BD
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Temporada");
@@ -806,11 +875,23 @@ public class clsDatos {
 		return null;
 	}
 
+	/**
+	 * Aqui buscaremos las temporadas
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 * @return
+	 */
+
 	public ResultSet buscartemporada(int puestos, String trofeos, Date anioTemporada) {
 		try {
 			gbd.connect();
 
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			/**
+			 * Para ellos hacemos una select de temporada
+			 */
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM Temporada where Puestos y Trofeos y Anio temporada = '"
 					+ puestos + trofeos + anioTemporada + "'");
@@ -823,12 +904,24 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * Aqui miraremos si existe la temporada
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 * @return
+	 */
+
 	public boolean existeTemporada(int puestos, String trofeos, Date anioTemporada) {
 		try {
 			gbd.connect();
 
 			// Creamos y ejecutamos una sentencia SQL
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			/**
+			 * Aqui hacemos una select de temporada
+			 */
 
 			ResultSet rs = sentencia
 					.executeQuery("SELECT * FROM temporada where Puestos y Trofeos y Anio temporada  = '" + puestos
@@ -850,6 +943,14 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * Aqui insertaremos temporadas
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 */
+
 	public void insertarTemporada(int puestos, String trofeos, Date anioTemporada) {
 		try {
 			gbd.connect();
@@ -857,9 +958,12 @@ public class clsDatos {
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 			boolean r = existeTemporada(puestos, trofeos, anioTemporada);
+			/**
+			 * Para ello hacemos insert en la temporada
+			 */
 
 			if (r == false) {
-				String query = "insert into temproada values(" + puestos + trofeos + anioTemporada;
+				String query = "insert into temporada values(" + puestos + trofeos + anioTemporada;
 
 				sentencia.executeUpdate(query);
 			} else {
@@ -873,6 +977,12 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * A traves de este metodo cargaremos managers
+	 * 
+	 * @return
+	 */
+
 	public ResultSet cargarManager() {
 
 		try {
@@ -883,6 +993,9 @@ public class clsDatos {
 
 			// Creamos y ejecutamos una sentencia SQL
 			Statement stmt = gbd.createStatement();
+			/**
+			 * Hacemos una select de manager
+			 */
 
 			// hay una tabla coches en la BD
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Manager");
@@ -900,11 +1013,21 @@ public class clsDatos {
 		return null;
 	}
 
+	/**
+	 * Aqui buscaremos managers
+	 * 
+	 * @param valoracion
+	 * @return
+	 */
+
 	public ResultSet buscarManager(int valoracion) {
 		try {
 			gbd.connect();
 
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			/**
+			 * Hacemos una select para buscar managers
+			 */
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where valoracion = '" + valoracion + "'");
 
@@ -916,6 +1039,13 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * Aqui vemos si existe el manager
+	 * 
+	 * @param dni
+	 * @return
+	 */
+
 	public boolean existeclsManager(String dni) {
 		try {
 			gbd.connect();
@@ -923,9 +1053,12 @@ public class clsDatos {
 			// Creamos y ejecutamos una sentencia SQL
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipacion where  dni = '" + dni + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM Manager where  dni = '" + dni + "'");
+			/**
+			 * Aqui hacemos una select de manager
+			 */
 
-			System.out.println("SELECT * FROM Equipacion where dni = '" + dni + "'");
+			System.out.println("SELECT * FROM Manager where dni = '" + dni + "'");
 
 			if (rs.first() == false) {
 				return false;
@@ -940,6 +1073,18 @@ public class clsDatos {
 		}
 	}
 
+	/**
+	 * Aqui insertamos al manager con todos sus atributos
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dni
+	 * @param sexo
+	 * @param calidad
+	 * @param valoracion
+	 */
+
 	public void insertarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion) {
 		try {
@@ -948,6 +1093,9 @@ public class clsDatos {
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
 			boolean r = existeclsManager(dni);
+			/**
+			 * Hacemos una insert
+			 */
 
 			if (r == false) {
 				String query = "insert into Equipacion values(" + nombre + apellido1 + apellido2 + dni + sexo + calidad
@@ -955,7 +1103,7 @@ public class clsDatos {
 
 				sentencia.executeUpdate(query);
 			} else {
-				System.out.println("Manager Existente!");
+				System.out.println("Manager Existente!"); // por si hay managers repetidos
 			}
 
 			gbd.disconnect();

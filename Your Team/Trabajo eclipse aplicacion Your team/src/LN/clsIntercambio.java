@@ -7,7 +7,7 @@ import COMUN.itfProperty;
 import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN;
 import static COMUN.Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO;
 
-public class clsIntercambio  implements itfProperty {
+public class clsIntercambio implements itfProperty {
 	/**
 	 * Crearemos los atributos de clsIntercambio Para hacer un intercambio tendr?
 	 * que haber un equipo origen y equipo destino
@@ -23,13 +23,18 @@ public class clsIntercambio  implements itfProperty {
 		String equipoDestino = "";
 	}
 
+	/**
+	 * Aqui generaremos el constructor con parametros
+	 * 
+	 * @param equipoOrigen
+	 * @param equipoDestino
+	 */
+
 	public clsIntercambio(String equipoOrigen, String equipoDestino) {
 		super();
 		this.equipoOrigen = equipoOrigen;
 		this.equipoDestino = equipoDestino;
 	}
-
-
 
 	/**
 	 * Generaremos el hashcode con equipo origen y equipo destino por si queremos
@@ -43,6 +48,10 @@ public class clsIntercambio  implements itfProperty {
 		result = prime * result + ((equipoOrigen == null) ? 0 : equipoOrigen.hashCode());
 		return result;
 	}
+
+	/**
+	 * Generamos el equals para poner un patron de ordenamiento
+	 */
 
 	@Override
 	public boolean equals(Object obj) {
@@ -65,10 +74,11 @@ public class clsIntercambio  implements itfProperty {
 			return false;
 		return true;
 	}
+
 	/**
 	 * Ahora crearemos los getters y setters de los atributos
 	 */
-	
+
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {
@@ -76,19 +86,41 @@ public class clsIntercambio  implements itfProperty {
 			return this.equipoOrigen;
 		case PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO:
 			return this.equipoDestino;
-		default:throw new PropiedadInexistente("No existe esa propiedad!");
-			
+		/**
+		 * Aqui es donde propagaremos y lanzaremos el run time exception con el itf
+		 * property
+		 */
+		default:
+			throw new PropiedadInexistente("No existe esa propiedad!");
+
 		}
 
 	}
 
+	/**
+	 * Aqui tenemos el set object propert
+	 */
+
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
 		switch (propiedad) {
-		case PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN:equipoOrigen=((String)valor);break;
-		case PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO:equipoDestino=((String)valor);break;
+		case PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN:
+			equipoOrigen = ((String) valor);
+			break;
+		case PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO:
+			equipoDestino = ((String) valor);
+			break;
 		}
 
+	}
+
+	/**
+	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
+	 * salgan los nombres
+	 */
+	@Override
+	public String toString() {
+		return "clsIntercambio [equipoOrigen=" + equipoOrigen + ", equipoDestino=" + equipoDestino + "]";
 	}
 
 }

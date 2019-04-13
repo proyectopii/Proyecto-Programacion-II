@@ -10,7 +10,7 @@ import static COMUN.Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA;
 import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
-public class clsTemporada  implements itfProperty {
+public class clsTemporada implements itfProperty {
 	/**
 	 * Crearemos los atributos siguientes: puestos por el tema del n?mero que pueda
 	 * quedar un equipo y tiene que ser entero trofeos porque al final de la
@@ -21,7 +21,6 @@ public class clsTemporada  implements itfProperty {
 	private int puestos;
 	private String trofeos;
 	private Date anioTemporada;
-	
 
 	/**
 	 * Crearemos un contructor vac?o y un contructor con par?metros
@@ -34,16 +33,21 @@ public class clsTemporada  implements itfProperty {
 		String ganador = "";
 	}
 
+	/**
+	 * Aqui tenemos el constuctor con parametros
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 */
+
 	public clsTemporada(int puestos, String trofeos, Date anioTemporada) {
 		super();
 		this.puestos = puestos;
 		this.trofeos = trofeos;
 		this.anioTemporada = anioTemporada;
-		
+
 	}
-
-
-	
 
 	/**
 	 * Generaremos el hashcode con el a?otemporada y los puestos para buscar a?adir
@@ -58,6 +62,10 @@ public class clsTemporada  implements itfProperty {
 		result = prime * result + puestos;
 		return result;
 	}
+
+	/**
+	 * Aqui esta el equals donde estara el patron de ordenamiento
+	 */
 
 	@Override
 	public boolean equals(Object obj) {
@@ -77,6 +85,7 @@ public class clsTemporada  implements itfProperty {
 			return false;
 		return true;
 	}
+
 	/**
 	 * Crearemos los getter y setters de los atributos que hemos puesto
 	 */
@@ -89,19 +98,39 @@ public class clsTemporada  implements itfProperty {
 			return this.trofeos;
 		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:
 			return this.anioTemporada;
-		default:throw new PropiedadInexistente("No existe esa propiedad!");
-			
+		default:
+			throw new PropiedadInexistente("No existe esa propiedad!");
+
 		}
 
 	}
 
+	/**
+	 * Aqui estan los set object property para definir
+	 */
+
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
-		switch(propiedad) {
-		case PROPIEDAD_clsTEMPORADA_PUESTOS:puestos=((int)valor);break;
-		case PROPIEDAD_clsTEMPORADA_TROFEOS:trofeos=((String)valor);break;
-		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:anioTemporada=((Date)valor);break;
+		switch (propiedad) {
+		case PROPIEDAD_clsTEMPORADA_PUESTOS:
+			puestos = ((int) valor);
+			break;
+		case PROPIEDAD_clsTEMPORADA_TROFEOS:
+			trofeos = ((String) valor);
+			break;
+		case PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA:
+			anioTemporada = ((Date) valor);
+			break;
 		}
+	}
+
+	/**
+	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
+	 * salgan los nombres
+	 */
+	@Override
+	public String toString() {
+		return "clsTemporada [puestos=" + puestos + ", trofeos=" + trofeos + ", anioTemporada=" + anioTemporada + "]";
 	}
 
 }

@@ -27,7 +27,7 @@ import COMUN.itfProperty;
 
 public class clsGestorLN {
 	private clsDatos clsDatos = new clsDatos();
-	
+
 	/**
 	 * Aqu? creamos el Arraylist privado donde guardaremos los equipos
 	 */
@@ -72,8 +72,8 @@ public class clsGestorLN {
 	 * @param dorsal
 	 * @return
 	 */
-	public boolean anadirclsEquipacion(String color1, String color2, String publicidad, String serigrafiado,
-			int dorsal)throws clsExcepcionEquipacionRepetida { //Aquí estoy propagando la excepcion
+	public boolean anadirclsEquipacion(String color1, String color2, String publicidad, String serigrafiado, int dorsal)
+			throws clsExcepcionEquipacionRepetida { // Aquí estoy propagando la excepcion
 
 		clsEquipacion eq = new clsEquipacion(color1, color2, publicidad, serigrafiado, dorsal);// Aqui creamos una nueva
 																								// equipacion con sus
@@ -81,20 +81,19 @@ public class clsGestorLN {
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
 		 */
-	
-		Collections.sort(listadoEquipos, comp);																						// diferentes atributos
+
+		Collections.sort(listadoEquipos, comp); // diferentes atributos
 		/**
 		 * Este metodo nos sirve para saber si hay repetidos para que no lo añada
 		 */
 		if ((tuequipacion.contains(eq) == true)) {
 			throw new clsExcepcionEquipacionRepetida("Equipación Repetida");
-		
-		
-		/**
-		 * Si no es repetido lo añadimos a la base de datos con sus atributos y nos lo
-		 * retorna
-		 */
-		}else {
+
+			/**
+			 * Si no es repetido lo añadimos a la base de datos con sus atributos y nos lo
+			 * retorna
+			 */
+		} else {
 			tuequipacion.add(eq);
 
 			clsDatos.insertarEquipaciones(color1, color2, publicidad, serigrafiado, dorsal);
@@ -141,7 +140,8 @@ public class clsGestorLN {
 	 * @return
 	 */
 
-	public String buscarclsequipacion(String color1, String color2, String publicidad, String serigrafiado,int dorsal) {
+	public String buscarclsequipacion(String color1, String color2, String publicidad, String serigrafiado,
+			int dorsal) {
 		/**
 		 * Utilizaremos itfproperty para buscar y utilizaremos como clave el color 1
 		 */
@@ -244,9 +244,8 @@ public class clsGestorLN {
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
 		 */
-	
-		Collections.sort(listadoEquipos, comp);
 
+		Collections.sort(listadoEquipos, comp);
 
 		if (tuequipo.contains(e) == true) {
 			throw new clsExcepcionEquipoRepetido("Equipo repetido");// Aquí no nos admitira el equipo si esta repetido
@@ -375,15 +374,15 @@ public class clsGestorLN {
 	 * @param formaEscudo
 	 * @param colorEscudo
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public boolean añadirEscudo(String formaEscudo, String colorEscudo)throws Exception {
+	public boolean añadirEscudo(String formaEscudo, String colorEscudo) throws Exception {
 		clsEscudo es = new clsEscudo(formaEscudo, colorEscudo);
 		clsComparadorPorColores comp = new clsComparadorPorColores();
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
 		 */
-	
+
 		Collections.sort(listadoEscudos, comp);
 
 		if (tuescudo.contains(es) == true)// Nos aseguramos que no hay ninguno repetido
@@ -397,8 +396,6 @@ public class clsGestorLN {
 			return true;
 		}
 	}
-
-	
 
 	/**
 	 * Con este metodo cambiaremos de escudo
@@ -423,7 +420,8 @@ public class clsGestorLN {
 			return false;
 		}
 	}
-	/*
+
+	/**
 	 * Aqui buscaremos los posibles escudos que haya
 	 */
 
@@ -501,11 +499,25 @@ public class clsGestorLN {
 	}
 
 //--------------------------------------------------------------------------
-	public boolean addIntercambio(String equipoOrigen, String equipoDestino)throws clsExcepcionIntercambioRepetido {
+	/**
+	 * Aqui añadiremos los intercambios que haya
+	 * 
+	 * @param equipoOrigen
+	 * @param equipoDestino
+	 * @return
+	 * @throws clsExcepcionIntercambioRepetido
+	 */
+	public boolean addIntercambio(String equipoOrigen, String equipoDestino) throws clsExcepcionIntercambioRepetido {
 		clsIntercambio i = new clsIntercambio(equipoOrigen, equipoDestino);
+		/**
+		 * Utilizaremos el contains para añadirlo
+		 */
 
 		if (tuintercambio.contains(i) == true) {
 			throw new clsExcepcionIntercambioRepetido("Intercambio Repetido");
+			/**
+			 * Aqui sencillamente si hay repetido no lo añade
+			 */
 		} else {
 			tuintercambio.add(i);
 
@@ -514,6 +526,14 @@ public class clsGestorLN {
 			return true;
 		}
 	}
+
+	/**
+	 * Esta funcion la creamos por si nos confundimos para cambiarlo
+	 * 
+	 * @param equipoOrigen
+	 * @param equipoDestino
+	 * @return
+	 */
 
 	public boolean cambioDeIntercambio(String equipoOrigen, String equipoDestino) {
 		itfProperty datoABuscar = new clsIntercambio(equipoOrigen, equipoDestino);
@@ -530,6 +550,14 @@ public class clsGestorLN {
 			return false;
 		}
 	}
+
+	/**
+	 * Si queremos consultar algun intercambio
+	 * 
+	 * @param equipoOrigen
+	 * @param equipoDestino
+	 * @return
+	 */
 
 	public String consultarPropietario(String equipoOrigen, String equipoDestino) {
 
@@ -548,11 +576,25 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Por si queremos borrar un intercambio que lo haremos a traves del remove
+	 * 
+	 * @param equipoOrigen
+	 * @param equipoDestino
+	 * @return
+	 */
+
 	public boolean borrarIntercambio(String equipoOrigen, String equipoDestino) {
 		clsIntercambio intercambio = new clsIntercambio(equipoOrigen, equipoDestino);
 
 		return tuintercambio.remove(intercambio);
 	}
+
+	/**
+	 * Si queremos recuperar el intercaambio
+	 * 
+	 * @return
+	 */
 
 	public ArrayList<clsIntercambio> recuperarIntercamvio() {
 
@@ -576,6 +618,10 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Aqui guardamos todos los atributos de intercambio
+	 */
+
 	public void guardarIntercambios() {
 
 		for (clsIntercambio i : tuintercambio) {
@@ -588,12 +634,25 @@ public class clsGestorLN {
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------------
-	public boolean addJugador(String nombre, String apellido1, String apellido2,String dni, String sexo,int formaFisica, double skills) {
+	/**
+	 * Aqui añadiremos los jugadores
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dni
+	 * @param sexo
+	 * @param formaFisica
+	 * @param skills
+	 * @return
+	 */
+	public boolean addJugador(String nombre, String apellido1, String apellido2, String dni, String sexo,
+			int formaFisica, double skills) {
 		clsJugador j = new clsJugador(formaFisica, skills);
 		/**
 		 * Hay que meter los nombres de los jugadores
 		 */
-	
+
 		clsJugador p1 = new clsJugador("Jesus", "Baldomero", "Ruiz", "12345678A", "masculino", 2.5, 100);
 		clsJugador p2 = new clsJugador("Hortensia", "Ramirez", "Lopez", "12345671B", "femenino", 1.0, 100);
 		clsJugador p3 = new clsJugador("Xabier", "Tolano", "Herrero", "87654321C", "masculino", 2.0, 100);
@@ -639,11 +698,10 @@ public class clsGestorLN {
 
 		clsComparadorPorNombre comp = new clsComparadorPorNombre();
 		/**
-		 * Aquí ya tenemos los jugadores ordenados
+		 * Aquí ya tenemos los jugadores ordenados y utilizamos el collections sort
 		 */
-	
+
 		Collections.sort(listadoJugadores, comp);
-	
 
 		if (tujugador.contains(j) == true) {
 			return false;
@@ -656,8 +714,19 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Por si quereis cambiar de jugador
+	 * 
+	 * @param formaFisica
+	 * @param skills
+	 * @return
+	 */
+
 	public boolean cambioJugador(int formaFisica, double skills) {
 		itfProperty datoABuscar = new clsJugador(formaFisica, skills);
+		/**
+		 * Utilizaremos el index off para buscar los datos
+		 */
 
 		int p = tujugador.indexOf(datoABuscar);
 
@@ -671,6 +740,13 @@ public class clsGestorLN {
 			return false;
 		}
 	}
+
+	/**
+	 * Esto lo utilizaremos para consultar jugadores
+	 * 
+	 * @param skills
+	 * @return
+	 */
 
 	public String consultarJugador(double skills) {
 
@@ -689,12 +765,25 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Aqui borraremos el jugador con el remove
+	 * 
+	 * @param formaFisica
+	 * @param skills
+	 * @return
+	 */
+
 	public boolean borrarJugador(int formaFisica, double skills) {
 		clsJugador jugador = new clsJugador(formaFisica, skills);
 
 		return tujugador.remove(jugador);
 	}
 
+	/**
+	 * Aqui recuperaremos los jugadores
+	 * 
+	 * @return
+	 */
 	public ArrayList<clsJugador> recuperarjugador() {
 
 		try {
@@ -716,6 +805,10 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Aqui guardaremos los jugadores
+	 */
+
 	public void guardarJugadores() {
 
 		for (clsJugador j : tujugador) {
@@ -731,11 +824,21 @@ public class clsGestorLN {
 		}
 
 	}
-//-------------------------------------------------------------------------------------------------------------------------------------------
 
+//-------------------------------------------------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui añadiremos los partidos
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 * @return
+	 */
 	public boolean addPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		clsPartidos p = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-
+		/**
+		 * Con el contains nos ayudaremos para añadirlo si esta repetido no lo añade
+		 */
 		if (tupartido.contains(p) == true) {
 			return false;
 		} else {
@@ -747,9 +850,20 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Para cambiar de partido utilizaremos este metodo
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 * @return
+	 */
+
 	public boolean cambioDePartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		itfProperty datoABuscar = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-
+		/**
+		 * Buscaremos a traves del indexoff
+		 */
 		int p = tupartido.indexOf(datoABuscar);
 
 		if (p != -1) {
@@ -762,6 +876,15 @@ public class clsGestorLN {
 			return false;
 		}
 	}
+
+	/**
+	 * Consultaremos los partidos aqui y tambien utilizaremos el index off
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 * @return
+	 */
 
 	public String consultarPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 
@@ -786,6 +909,12 @@ public class clsGestorLN {
 		return tupartido.remove(partidos);
 	}
 
+	/**
+	 * Aqui recuperaremos partidos
+	 * 
+	 * @return
+	 */
+
 	public ArrayList<clsPartidos> recuperarPartidos() {
 
 		try {
@@ -808,6 +937,10 @@ public class clsGestorLN {
 		}
 	}
 
+	/**
+	 * Con todos los atributos guardaremos qui los partidos
+	 */
+
 	public void guardarPartidos() {
 
 		for (clsPartidos p : tupartido) {
@@ -819,241 +952,310 @@ public class clsGestorLN {
 		}
 
 	}
-	
-	//------------------------------------------------------------------------------------------------------------------------------------------------
-	
-	public boolean addTemporada( int puestos, String trofeos, Date anioTemporada  )
-	{
-		clsTemporada t = new clsTemporada( puestos , trofeos , anioTemporada );
-		
-		if( tutemporada.contains( t ) == true  )
-		{
+
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui añadiremos temporadas nos ayudaremos del contains
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 * @return
+	 */
+	public boolean addTemporada(int puestos, String trofeos, Date anioTemporada) {
+		clsTemporada t = new clsTemporada(puestos, trofeos, anioTemporada);
+
+		if (tutemporada.contains(t) == true) {
 			return false;
 		}
-		else
-		{
-			tutemporada.add( t );
-			
+		/**
+		 * Si hay una repetida no la añade
+		 */
+		else {
+			tutemporada.add(t);
+
 			clsDatos.insertarTemporada(puestos, trofeos, anioTemporada);
-			
+
 			return true;
 		}
 	}
-	
-	public boolean cambioDeTemporada(  int puestos, String trofeos, Date anioTemporada )
-	{		
-		itfProperty datoABuscar = new clsTemporada( puestos,trofeos,anioTemporada);
-		
-		int p = tutemporada.indexOf( datoABuscar );
-		
-		if( p != -1 )
-		{
-			datoABuscar = tutemporada.get(p); 
-			datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA,Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS);
-			
+
+	/**
+	 * Aqui cambairemos de temporada nos ayudaremos del index of
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 * @return
+	 */
+
+	public boolean cambioDeTemporada(int puestos, String trofeos, Date anioTemporada) {
+		itfProperty datoABuscar = new clsTemporada(puestos, trofeos, anioTemporada);
+
+		int p = tutemporada.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tutemporada.get(p);
+			datoABuscar.setObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA,
+					Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS);
+
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
-	}	
+	}
 
-	public String consultarPropietario( Date anioTemporada  )
-	{
-		
-		itfProperty datoABuscar = new clsTemporada(0, null, anioTemporada );
-		
-		int p = tutemporada.indexOf( datoABuscar );
-		
-		if( p != -1 )
-		{
-			datoABuscar = tutemporada.get(p); 
+	/**
+	 * Aqui consultaremos la temporada y nos ayudaremos del index of
+	 * 
+	 * @param anioTemporada
+	 * @return
+	 */
+
+	public String consultarTemporada(Date anioTemporada) {
+
+		itfProperty datoABuscar = new clsTemporada(0, null, anioTemporada);
+
+		int p = tutemporada.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tutemporada.get(p);
 			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA);
-					
+
 			return prop;
-		}
-		else
-		{
+		} else {
 			return null;
 		}
 	}
-	public boolean borrarTemporada( Date anioTemporada)
-	{
-		clsTemporada temporada = new clsTemporada(0,null,anioTemporada);
-		
-		return tutemporada.remove( temporada );
+
+	/**
+	 * Si queremos borrar la temporada nos ayudaremos del remove
+	 * 
+	 * @param anioTemporada
+	 * @return
+	 */
+	public boolean borrarTemporada(Date anioTemporada) {
+		clsTemporada temporada = new clsTemporada(0, null, anioTemporada);
+
+		return tutemporada.remove(temporada);
 	}
-	
+
+	/**
+	 * Si queremos recuperarla utilizaremos este metodo
+	 * 
+	 * @return
+	 */
+
 	public ArrayList<clsTemporada> recuperarTemporada() {
-		
-		try
-		{
+
+		try {
 			ArrayList<clsTemporada> temp = new ArrayList<>();
-			
+
 			ResultSet rs = clsDatos.cargarTemporada();
-			
-			while (rs.next()) {			
-	
+
+			while (rs.next()) {
+
 				clsTemporada temporada = new clsTemporada(rs.getInt(0), rs.getString("trofeos"), rs.getDate(0));
-				
+
 				temp.add(temporada);
 			}
-					
+
 			return temp;
-		}
-		catch( SQLException ex )
-		{
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 			return null;
-		}		
+		}
 	}
-	
-public void guardarTemporada() {
-		
-		for( clsTemporada t : tutemporada )
-		{
-			int puestos = (int) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS );
-			String trofeos = (String) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS );
-			Date anioTemporada = (Date) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA );
-			
+
+	/**
+	 * Y si queremos guardarla con sus atributos utilizaremos este metodo
+	 */
+	public void guardarTemporada() {
+
+		for (clsTemporada t : tutemporada) {
+			int puestos = (int) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS);
+			String trofeos = (String) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS);
+			Date anioTemporada = (Date) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_ANIOTEMPORADA);
+
 			clsDatos.insertarTemporada(puestos, trofeos, anioTemporada);
 		}
-		
+
 	}
-	//-------------------------------------------------------------------------------------------------------------------------------------------
-public boolean addManager( String nombre, String apellido1, String apellido2, String dni, String sexo,String calidad, int valoracion ) throws clsExcepcionManagerRepetido
-{
+
+	// -------------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y valoracion
+	 * Aqui añadiremos manager nos ayudaremos del contains
 	 */
-	clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B", "masculino", "buena", 76);
-	clsManager m2 = new clsManager("Rosa", "Bernarda", "Guereñu", "12332671O", "femenino","media", 54);
-	clsManager m3 = new clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media", 52);
-	clsManager m4 = new clsManager("Michael", "Sese", "Arder", "31324594T", "masculino", "mala", 20);
-	clsManager m5 = new clsManager("Miren", "Subell", "Bies", "90215338B", "femenino", "buena", 80);
-	clsManager m6 = new clsManager("Jone", " Campos", "Iparaguirre", "26471740P","femenina", "muy buena",96);
-	clsManager m7 = new clsManager("Joseba", " Lopez", "Poter", "24753285I", "masculino","mala", 26);
-	/**
-	 * Luego creamos otro arrayList para guardar los managers y los metemos dentro del arraylist
-	 */
-	listadoManagers.add(m1);
-	listadoManagers.add(m2);
-	listadoManagers.add(m3);
-	listadoManagers.add(m4);
-	listadoManagers.add(m5);
-	listadoManagers.add(m6);
-	listadoManagers.add(m7);
-	/**
-	 * Llamamos al comparadaor por nombre para compararlo
-	 */
-	clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
-	/**
-	 * Aquí ya tenemos los managers ordenados
-	 */
+	public boolean addManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
+			String calidad, int valoracion) throws clsExcepcionManagerRepetido {
+		/**
+		 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y
+		 * valoracion
+		 */
+		clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B", "masculino", "buena", 76);
+		clsManager m2 = new clsManager("Rosa", "Bernarda", "Guereñu", "12332671O", "femenino", "media", 54);
+		clsManager m3 = new clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media", 52);
+		clsManager m4 = new clsManager("Michael", "Sese", "Arder", "31324594T", "masculino", "mala", 20);
+		clsManager m5 = new clsManager("Miren", "Subell", "Bies", "90215338B", "femenino", "buena", 80);
+		clsManager m6 = new clsManager("Jone", " Campos", "Iparaguirre", "26471740P", "femenina", "muy buena", 96);
+		clsManager m7 = new clsManager("Joseba", " Lopez", "Poter", "24753285I", "masculino", "mala", 26);
+		/**
+		 * Luego creamos otro arrayList para guardar los managers y los metemos dentro
+		 * del arraylist
+		 */
+		listadoManagers.add(m1);
+		listadoManagers.add(m2);
+		listadoManagers.add(m3);
+		listadoManagers.add(m4);
+		listadoManagers.add(m5);
+		listadoManagers.add(m6);
+		listadoManagers.add(m7);
+		/**
+		 * Llamamos al comparadaor por nombre para compararlo
+		 */
+		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
+		/**
+		 * Aquí ya tenemos los managers ordenados
+		 */
 
-	Collections.sort(listadoManagers, comp);
-	clsManager m = new clsManager( nombre , apellido1 , apellido2,dni,sexo,calidad,valoracion );
-	
-	if( tumanager.contains( m ) == true  )
-	{
-		throw new clsExcepcionManagerRepetido("Manager Repetido");
-		
-	}
-	else
-	{
-		tumanager.add( m );
-		
-		clsDatos.insertarManager( nombre , apellido1 , apellido2,dni,sexo,calidad,valoracion );
-		
-		return true;
-	}
-}
+		Collections.sort(listadoManagers, comp);
+		clsManager m = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
 
-public boolean cambioDeManager(  String nombre, String apellido1, String apellido2, String dni, String sexo,String calidad, int valoracion )
-{		
-	itfProperty datoABuscar = new clsManager( nombre,apellido1,apellido2, dni, sexo,calidad,valoracion);
-	
-	int p = tumanager.indexOf( datoABuscar );
-	
-	if( p != -1 )
-	{
-		datoABuscar = tumanager.get(p); 
-		datoABuscar.setObjectProperty( Constantes.PROPIEDAD_clsMANAGER_VALORACION,Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
-		
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}	
+		if (tumanager.contains(m) == true) {
+			throw new clsExcepcionManagerRepetido("Manager Repetido");
 
-public String consultarManager( String dni  )
-{
-	
-	itfProperty datoABuscar = new clsManager(null,null,null,dni,null,null,0 );
-	
-	int p = tumanager.indexOf( datoABuscar );
-	
-	if( p != -1 )
-	{
-		datoABuscar = tumanager.get(p); 
-		String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
-				
-		return prop;
-	}
-	else
-	{
-		return null;
-	}
-}
-public boolean borrarManager(  String nombre, String apellido1, String apellido2, String dni, String sexo,String calidad, int valoracion)
-{
-	clsManager manager = new clsManager(nombre,apellido1,apellido2,dni,sexo,calidad,valoracion);
-	
-	return tumanager.remove( manager );
-}
-
-public ArrayList<clsManager> recuperarmanager() {
-	
-	try
-	{
-		ArrayList<clsManager> temp = new ArrayList<>();
-		
-		ResultSet rs = clsDatos.cargarManager();
-		
-		while (rs.next()) {			
-
-			clsManager manager = new clsManager(rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"),rs.getString("dni"), rs.getString("sexo"), rs.getString("calidad"),rs.getInt(0));
-			
-			temp.add(manager);
 		}
-				
-		return temp;
-	}
-	catch( SQLException ex )
-	{
-		ex.printStackTrace();
-		return null;
-	}		
-}
+		/**
+		 * Si hay una repetida no la añade
+		 */
+		else {
+			tumanager.add(m);
 
-public void guardarManager() {
-	
-	for( clsManager m : tumanager )
-	{
-		String nombre  = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE );
-		String apellido1 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1 );
-		String apellido2 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO2);
-		String dni  = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
-		String sexo = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_SEXO );
-		String calidad = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
-		int valoracion = (int) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_VALORACION);
-		
-		clsDatos.insertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			clsDatos.insertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+
+			return true;
+		}
 	}
-	
-}
+
+	/**
+	 * Aqui cambiaremos de manager nos ayudaremos del index off
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dni
+	 * @param sexo
+	 * @param calidad
+	 * @param valoracion
+	 * @return
+	 */
+
+	public boolean cambioDeManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
+			String calidad, int valoracion) {
+		itfProperty datoABuscar = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+
+		int p = tumanager.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tumanager.get(p);
+			datoABuscar.setObjectProperty(Constantes.PROPIEDAD_clsMANAGER_VALORACION,
+					Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
+
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Aqui consultaremos el manager y nos ayudaremos del index off
+	 * 
+	 * @param dni
+	 * @return
+	 */
+
+	public String consultarManager(String dni) {
+
+		itfProperty datoABuscar = new clsManager(null, null, null, dni, null, null, 0);
+
+		int p = tumanager.indexOf(datoABuscar);
+
+		if (p != -1) {
+			datoABuscar = tumanager.get(p);
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
+
+			return prop;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Si queremos borrar algun manager utilizaremos el remove
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dni
+	 * @param sexo
+	 * @param calidad
+	 * @param valoracion
+	 * @return
+	 */
+	public boolean borrarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
+			String calidad, int valoracion) {
+		clsManager manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+
+		return tumanager.remove(manager);
+	}
+
+	/**
+	 * Si queremos recuperarlo utilizaremos este metodo
+	 * 
+	 * @return
+	 */
+
+	public ArrayList<clsManager> recuperarmanager() {
+
+		try {
+			ArrayList<clsManager> temp = new ArrayList<>();
+
+			ResultSet rs = clsDatos.cargarManager();
+
+			while (rs.next()) {
+
+				clsManager manager = new clsManager(rs.getString("nombre"), rs.getString("apellido1"),
+						rs.getString("apellido2"), rs.getString("dni"), rs.getString("sexo"), rs.getString("calidad"),
+						rs.getInt(0));
+
+				temp.add(manager);
+			}
+
+			return temp;
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * Si queremos guardarlo con sus atributos utilizaremos este metodo
+	 */
+
+	public void guardarManager() {
+
+		for (clsManager m : tumanager) {
+			String nombre = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE);
+			String apellido1 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1);
+			String apellido2 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO2);
+			String dni = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_DNI);
+			String sexo = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_SEXO);
+			String calidad = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
+			int valoracion = (int) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_VALORACION);
+
+			clsDatos.insertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+		}
+
+	}
 
 }

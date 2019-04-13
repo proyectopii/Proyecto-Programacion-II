@@ -37,8 +37,17 @@ public class clsEquipacion implements itfProperty {
 		int dorsal = 0;
 	}
 
-	public clsEquipacion( String color1, String color2,
-			String publicidad, String serigrafiado, int dorsal) {
+	/**
+	 * Aqui creamos el constructor con parametros
+	 * 
+	 * @param color1
+	 * @param color2
+	 * @param publicidad
+	 * @param serigrafiado
+	 * @param dorsal
+	 */
+
+	public clsEquipacion(String color1, String color2, String publicidad, String serigrafiado, int dorsal) {
 		super();
 		this.color1 = color1;
 		this.color2 = color2;
@@ -47,7 +56,9 @@ public class clsEquipacion implements itfProperty {
 		this.dorsal = dorsal;
 	}
 
-	
+	/**
+	 * Creamos el hashcode and equals para poder poner un patrón de comparamiento
+	 */
 
 	@Override
 	public int hashCode() {
@@ -83,10 +94,20 @@ public class clsEquipacion implements itfProperty {
 			return false;
 		return true;
 	}
+
+	/**
+	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
+	 * salgan los nombres
+	 */
+	@Override
+	public String toString() {
+		return "clsEquipacion [color1=" + color1 + ", color2=" + color2 + ", publicidad=" + publicidad
+				+ ", serigrafiado=" + serigrafiado + ", dorsal=" + dorsal + "]";
+	}
+
 	/**
 	 * Aqui crearemos los getters and setters de los atributos
 	 */
-	
 
 	@Override
 	public Object getObjectProperty(String propiedad) {
@@ -101,27 +122,44 @@ public class clsEquipacion implements itfProperty {
 			return this.publicidad;
 		case PROPIEDAD_clsEQUIPACION_DORSAL:
 			return this.dorsal;
-		
-					default:throw new PropiedadInexistente("No existe esa propiedad!");
-			
+		/**
+		 * Aqui es donde propagamos y lanzamos el runtime exception por si iria al
+		 * default y cascaria
+		 */
+
+		default:
+			throw new PropiedadInexistente("No existe esa propiedad!");
+
 		}
 
 	}
 
+	/**
+	 * Aqui estan los setobjectproperty
+	 */
+
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
-	
-	switch( propiedad )
-	{
-	case PROPIEDAD_clsEQUIPACION_COLOR1:color1=((String) valor); break;
-	case PROPIEDAD_clsEQUIPACION_COLOR2:color2=((String) valor); break;
-	case PROPIEDAD_clsEQUIPACION_SERIGRAFIADO:serigrafiado=((String) valor); break;
-	case PROPIEDAD_clsEQUIPACION_PUBLICIDAD:publicidad=((String) valor); break;
-	case PROPIEDAD_clsEQUIPACION_DORSAL:dorsal=((int)valor);break;
-	
-	}
-	
-	}
 
+		switch (propiedad) {
+		case PROPIEDAD_clsEQUIPACION_COLOR1:
+			color1 = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_COLOR2:
+			color2 = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADO:
+			serigrafiado = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_PUBLICIDAD:
+			publicidad = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_DORSAL:
+			dorsal = ((int) valor);
+			break;
+
+		}
+
+	}
 
 }

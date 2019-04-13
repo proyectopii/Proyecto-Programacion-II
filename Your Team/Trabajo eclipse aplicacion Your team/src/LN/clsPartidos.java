@@ -11,7 +11,7 @@ import COMUN.Constantes;
 import COMUN.PropiedadInexistente;
 import COMUN.itfProperty;
 
-public class clsPartidos implements itfProperty,Comparable {
+public class clsPartidos implements itfProperty, Comparable {
 	/**
 	 * Pondremos los atributos de clsPartidos Tendremos un equipo local y un equipo
 	 * visitante que son los que compiten en un partido Podnremos tambi?n una fecha
@@ -30,6 +30,14 @@ public class clsPartidos implements itfProperty,Comparable {
 		Date fechaInicioPartido = null;
 	}
 
+	/**
+	 * Aqui tenemos el constructor con parametros
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 */
+
 	public clsPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		super();
 		this.equipoLocal = equipoLocal;
@@ -37,8 +45,6 @@ public class clsPartidos implements itfProperty,Comparable {
 		this.fechaInicioPartido = fechaInicioPartido;
 	}
 
-
-	
 	/**
 	 * Generaremos el hashcode con equipo local y equipo visitante para a?adir
 	 * eliminar o buscar
@@ -51,6 +57,10 @@ public class clsPartidos implements itfProperty,Comparable {
 		result = prime * result + ((equipoVisitante == null) ? 0 : equipoVisitante.hashCode());
 		return result;
 	}
+
+	/**
+	 * Generaremos el equals para ver como hacemos el patron de ordenacion
+	 */
 
 	@Override
 	public boolean equals(Object obj) {
@@ -73,6 +83,7 @@ public class clsPartidos implements itfProperty,Comparable {
 			return false;
 		return true;
 	}
+
 	/**
 	 * Tambi?n pondremos los getters y setters de los atributos
 	 */
@@ -85,29 +96,55 @@ public class clsPartidos implements itfProperty,Comparable {
 			return this.equipoVisitante;
 		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:
 			return this.fechaInicioPartido;
+		/**
+		 * Aqui es donde propagaremos y lanzaremos la excepcion de run time exception de
+		 * itf property
+		 */
 
-		default:throw new PropiedadInexistente("No existe esa propiedad!");
-			
+		default:
+			throw new PropiedadInexistente("No existe esa propiedad!");
+
 		}
 
 	}
 
+	/**
+	 * Aqui estan los set object property que estan para definir
+	 */
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
-		switch(propiedad) {
-		case PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL:equipoLocal=((String)valor);break;
-		case PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE:equipoVisitante=((String)valor);break;
-		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:fechaInicioPartido=((Date)valor);break;
+		switch (propiedad) {
+		case PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL:
+			equipoLocal = ((String) valor);
+			break;
+		case PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE:
+			equipoVisitante = ((String) valor);
+			break;
+		case PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO:
+			fechaInicioPartido = ((Date) valor);
+			break;
 		}
 
 	}
-	
+
+	/**
+	 * Aqui tenemos el comparable para comparar los partidos por fechas
+	 */
 
 	@Override
 	public int compareTo(Object o) {
-		return this.fechaInicioPartido.compareTo((Date)((itfProperty) o).getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO));
+		return this.fechaInicioPartido.compareTo(
+				(Date) ((itfProperty) o).getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO));
 	}
 
-	
+	/**
+	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
+	 * salgan los nombres
+	 */
+	@Override
+	public String toString() {
+		return "clsPartidos [equipoLocal=" + equipoLocal + ", equipoVisitante=" + equipoVisitante
+				+ ", fechaInicioPartido=" + fechaInicioPartido + "]";
+	}
 
 }

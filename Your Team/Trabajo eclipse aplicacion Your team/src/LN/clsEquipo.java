@@ -21,7 +21,6 @@ public class clsEquipo implements itfProperty {
 	private String nombreEquipo;
 	private Date fundacionEquipo;
 	Date date = new Date(0);
-    
 
 	/**
 	 * Crearemos un constructor vac?o y otro con par?metros
@@ -31,18 +30,22 @@ public class clsEquipo implements itfProperty {
 		Date fundacionEquipo = null;
 	}
 
+	/**
+	 * Aqui creamos el constructor con parametros
+	 * 
+	 * @param nombreEquipo
+	 * @param fundacionEquipo
+	 */
+
 	public clsEquipo(String nombreEquipo, Date fundacionEquipo) {
 		super();
 		this.nombreEquipo = nombreEquipo;
 		this.fundacionEquipo = fundacionEquipo;
 	}
 
-
-	
-
 	/**
 	 * Generaremos el hashcode de nombreEquipo y fundaci?n equipo por si queremos
-	 * eliminar buscar o a?adir
+	 * eliminar buscar o aniadir
 	 */
 	@Override
 	public int hashCode() {
@@ -52,6 +55,10 @@ public class clsEquipo implements itfProperty {
 		result = prime * result + ((nombreEquipo == null) ? 0 : nombreEquipo.hashCode());
 		return result;
 	}
+
+	/**
+	 * Generamos el hashcode y equals para establecer un patron de ordenamiento
+	 */
 
 	@Override
 	public boolean equals(Object obj) {
@@ -74,6 +81,7 @@ public class clsEquipo implements itfProperty {
 			return false;
 		return true;
 	}
+
 	/**
 	 * Generaremos los dichos getters and setters de los atributos
 	 */
@@ -85,21 +93,44 @@ public class clsEquipo implements itfProperty {
 			return this.nombreEquipo;
 		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:
 			return this.fundacionEquipo;
+		/**
+		 * Aqui es donde propagaremos y lanzaremos el runtime exception
+		 */
 
-		default:throw new PropiedadInexistente("No existe esa propiedad!");
-			
+		default:
+			throw new PropiedadInexistente("No existe esa propiedad!");
+
 		}
 
 	}
+
+	/**
+	 * AAqui estan los setobjectproperty para definir
+	 */
 
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
-		switch(propiedad) {
-		case PROPIEDAD_clsEQUIPO_NOMBREEQUIPO:nombreEquipo=((String) valor); break;
-		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:fundacionEquipo=((Date)valor);break;
+		switch (propiedad) {
+		case PROPIEDAD_clsEQUIPO_NOMBREEQUIPO:
+			nombreEquipo = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO:
+			fundacionEquipo = ((Date) valor);
+			break;
 		}
-		
+
 	}
+
+	/**
+	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
+	 * salgan los nombres
+	 */
+	@Override
+	public String toString() {
+		return "clsEquipo [nombreEquipo=" + nombreEquipo + ", fundacionEquipo=" + fundacionEquipo + ", date=" + date
+				+ "]";
+	}
+	
 
 	
 
