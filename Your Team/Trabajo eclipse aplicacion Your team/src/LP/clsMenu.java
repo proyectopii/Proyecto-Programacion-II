@@ -155,7 +155,7 @@ public class clsMenu {
 			gln.añadirEscudo(formaEscudo, colorEscudo);
 
 		} catch (clsExcepcionEscudoRepetido e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 
 	}
@@ -179,7 +179,7 @@ public class clsMenu {
 		try {
 			gln.addIntercambio(equipoOrigen, equipoDestino);
 		} catch (clsExcepcionIntercambioRepetido e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 
 	}
