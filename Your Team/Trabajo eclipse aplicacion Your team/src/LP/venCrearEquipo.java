@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class venCrearEquipo extends JFrame {
 
@@ -110,6 +111,7 @@ public class venCrearEquipo extends JFrame {
 		panel.add(lblcualTuGenero);
 		
 		combosexo = new JComboBox();
+		combosexo.setModel(new DefaultComboBoxModel(new String[] {"Otro", "Femenino", "Masculino"}));
 		combosexo.setBounds(242, 80, 93, 22);
 		panel.add(combosexo);
 		
@@ -126,15 +128,15 @@ public class venCrearEquipo extends JFrame {
 			
 			switch(combosexo.getSelectedIndex()) {
 			case 0:
-				sexo = ensexo.Femenino;
+				sexo = ensexo.Otro;
 				break;
 				
 			case 1:
-				sexo = ensexo.Masculino;
+				sexo = ensexo.Femenino;
 				break;
 				
 			default:
-				sexo = ensexo.Otro;
+				sexo = ensexo.Masculino;
 			}
 		}
 	}
