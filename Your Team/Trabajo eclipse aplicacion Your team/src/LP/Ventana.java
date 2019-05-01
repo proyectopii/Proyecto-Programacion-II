@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.Color;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -57,22 +58,24 @@ public class Ventana extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JLabel lblBienvenidoAYour = new JLabel("Bienvenido a Your Team");
-		lblBienvenidoAYour.setForeground(new Color(241, 196, 15));
 		lblBienvenidoAYour.setBounds(72, 11, 307, 29);
+		lblBienvenidoAYour.setForeground(new Color(241, 196, 15));
 		lblBienvenidoAYour.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 		
 		JLabel lblLaAppDonde = new JLabel("Dirige tu propio equipo");
-		lblLaAppDonde.setForeground(new Color(241, 196, 15));
 		lblLaAppDonde.setBounds(137, 46, 165, 17);
+		lblLaAppDonde.setForeground(new Color(241, 196, 15));
 		lblLaAppDonde.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		
 		JButton btnCrearEquipo = new JButton();
+		btnCrearEquipo.setBounds(50, 74, 139, 150);
 		btnCrearEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				venCrearEquipo obj = new venCrearEquipo();
+				obj.setVisible(true);
 			}
 		});
 		btnCrearEquipo.setIcon(new ImageIcon(Ventana.class.getResource("/Imagenes/crearequipo4.png")));
-		btnCrearEquipo.setBounds(50, 74, 139, 150);
 	
 		JButton btnContinuar = new JButton(new ImageIcon(Ventana.class.getResource("/Imagenes/login1.png")));
 		btnContinuar.setBounds(238, 74, 139, 150);
@@ -83,13 +86,13 @@ public class Ventana extends JFrame {
 		panel.add(btnContinuar);
 		
 		JLabel lblCrearEquipo_1 = new JLabel("Crear Equipo");
-		lblCrearEquipo_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblCrearEquipo_1.setBounds(75, 223, 102, 27);
+		lblCrearEquipo_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		panel.add(lblCrearEquipo_1);
 		
 		JLabel lblContinuar = new JLabel("Continuar");
-		lblContinuar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblContinuar.setBounds(279, 222, 90, 29);
+		lblContinuar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		panel.add(lblContinuar);
 	}
 }

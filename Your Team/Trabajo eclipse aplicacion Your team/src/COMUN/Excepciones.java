@@ -18,7 +18,7 @@ public class Excepciones {
 
 	private void checkConnected() {
 		if (connection == null)
-			throw new IllegalStateException("La conexion a la BD no ha sido creada todavia.");
+			throw new IllegalStateException("La conexion a la BD no ha sido creada.");
 	}
 
 	private Excepciones() {

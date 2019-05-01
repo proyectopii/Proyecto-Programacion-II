@@ -21,7 +21,7 @@ public class clsMenu {
 		int op = 0;
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
-		System.out.println("A continuacion te mostraremos un men? para apuntarte");
+		System.out.println("A continuacion te mostraremos un menu para apuntarte");
 		Ventana v = new Ventana();
 		v.setVisible(true);
 		do {
@@ -48,9 +48,7 @@ public class clsMenu {
 			case 4:
 				System.out.println("Ha sido un placer adios y que tengas un buen d?a");
 				break;
-
 			}
-
 		} while (op != 4);
 	}
 

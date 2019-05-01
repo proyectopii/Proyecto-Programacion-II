@@ -25,7 +25,7 @@ public class clsJugador extends clsPersona implements itfProperty {
 	 * @param skills2
 	 * @param formaFisica2
 	 * @param skills2
-	 * @param sexo
+	 * @param ensexo
 	 * @param dni
 	 * @param apellido2
 	 * @param apellido1
