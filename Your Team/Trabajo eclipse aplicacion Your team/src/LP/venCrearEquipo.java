@@ -11,6 +11,8 @@ import COMUN.Constantes.ensexo;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
@@ -18,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
 
 public class venCrearEquipo extends JFrame {
 
@@ -27,6 +30,10 @@ public class venCrearEquipo extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JComboBox combosexo;
+	private JTextField txtnombre;
+	private JTextField txtapellidos;
+	private JTextField txtdni;
+	private JTextField txtnombreequipo;
 	
 	public static final String ACTION_COMAND_SIGUIENTE = "Siguiente";
 
@@ -116,6 +123,12 @@ public class venCrearEquipo extends JFrame {
 		panel.add(combosexo);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				venEquipacion obj = new venEquipacion();
+				obj.setVisible(true);
+			}
+		});
 		btnSiguiente.setBounds(316, 217, 89, 23);
 		panel.add(btnSiguiente);
 		
@@ -137,6 +150,15 @@ public class venCrearEquipo extends JFrame {
 				
 			default:
 				sexo = ensexo.Masculino;
+			}
+			
+			if(!(txtnombre.getText().equals("") && txtapellidos.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
+				txtnombre.setText("");
+				txtapellidos.setText("");
+				txtdni.setText("");
+				txtnombreequipo.setText("");
+			}else {
+				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
 		}
 	}

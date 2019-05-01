@@ -22,7 +22,7 @@ public class clsMenu {
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
 		System.out.println("A continuacion te mostraremos un menu para apuntarte");
-		Ventana v = new Ventana();
+		venInicio v = new venInicio();
 		v.setVisible(true);
 		do {
 			System.out.println("1-Empezar creando tu equipo ");

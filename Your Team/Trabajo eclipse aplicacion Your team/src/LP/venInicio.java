@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class Ventana extends JFrame {
+public class venInicio extends JFrame {
 
 	private JPanel contentPane;
 
@@ -31,7 +31,7 @@ public class Ventana extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ventana frame = new Ventana();
+					venInicio frame = new venInicio();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class Ventana extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ventana() {
+	public venInicio() {
 		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -75,9 +75,9 @@ public class Ventana extends JFrame {
 				obj.setVisible(true);
 			}
 		});
-		btnCrearEquipo.setIcon(new ImageIcon(Ventana.class.getResource("/Imagenes/crearequipo4.png")));
+		btnCrearEquipo.setIcon(new ImageIcon(venInicio.class.getResource("/Imagenes/crearequipo4.png")));
 	
-		JButton btnContinuar = new JButton(new ImageIcon(Ventana.class.getResource("/Imagenes/login1.png")));
+		JButton btnContinuar = new JButton(new ImageIcon(venInicio.class.getResource("/Imagenes/login1.png")));
 		btnContinuar.setBounds(238, 74, 139, 150);
 		panel.setLayout(null);
 		panel.add(lblBienvenidoAYour);
