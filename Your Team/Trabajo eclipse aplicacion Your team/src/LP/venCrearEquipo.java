@@ -151,7 +151,7 @@ public class venCrearEquipo extends JFrame {
 		
 	}
 	
-	public void actionPerformed(ActionEvent e) throws clsExcepcionManagerRepetido, clsExcepcionEquipoRepetido {
+	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 		case ACTION_COMAND_SIGUIENTE:
 			ensexo sexo;
@@ -170,7 +170,7 @@ public class venCrearEquipo extends JFrame {
 			}
 			
 			if(!(txtnombre.getText().equals("") && txtapellido1.getText().equals("") && txtapellido2.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
-				gestor.addManager(txtnombre.getText(), txtapellido1.getText(), txtapellido2.getText(), txtdni.getText(), null, null, 0);
+				gestor.addManager(txtnombre.getText(), txtapellido1.getText(), txtapellido2.getText(), txtdni.getText(), combosexo.getSelectedIndex(), null, 0);
 				gestor.añadirEquipo(txtnombreequipo.getText(), null);
 				
 				txtnombre.setText("");
