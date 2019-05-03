@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import COMUN.Constantes.ensexo;
+import COMUN.clsExcepcionEquipoRepetido;
+import COMUN.clsExcepcionManagerRepetido;
 import LN.clsGestorLN;
 
 import java.awt.Color;
@@ -32,7 +34,8 @@ public class venCrearEquipo extends JFrame {
 	private JTextField textField_3;
 	private JComboBox combosexo;
 	private JTextField txtnombre;
-	private JTextField txtapellidos;
+	private JTextField txtapellido1;
+	private JTextField txtapellido2;
 	private JTextField txtdni;
 	private JTextField txtnombreequipo;
 	
@@ -148,7 +151,7 @@ public class venCrearEquipo extends JFrame {
 		
 	}
 	
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) throws clsExcepcionManagerRepetido, clsExcepcionEquipoRepetido {
 		switch(e.getActionCommand()) {
 		case ACTION_COMAND_SIGUIENTE:
 			ensexo sexo;
@@ -166,8 +169,8 @@ public class venCrearEquipo extends JFrame {
 				sexo = ensexo.Masculino;
 			}
 			
-			if(!(txtnombre.getText().equals("") && txtapellidos.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
-				gestor.addManager(txtnombre.getText(), apellido1, apellido2, dni, sexo, calidad, valoracion)
+			if(!(txtnombre.getText().equals("") && txtapellido1.getText().equals("") && txtapellido2.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
+				gestor.addManager(txtnombre.getText(), txtapellido1.getText(), txtapellido2.getText(), txtdni.getText(), null, null, 0);
 				gestor.añadirEquipo(txtnombreequipo.getText(), null);
 				
 				txtnombre.setText("");

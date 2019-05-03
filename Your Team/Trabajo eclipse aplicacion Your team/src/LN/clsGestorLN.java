@@ -1092,6 +1092,8 @@ public class clsGestorLN {
 		 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y
 		 * valoracion
 		 */
+		
+		/*
 		clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B", "masculino", "buena", 76);
 		clsManager m2 = new clsManager("Rosa", "Bernarda", "Guereñu", "12332671O", "femenino", "media", 54);
 		clsManager m3 = new clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media", 52);
@@ -1099,17 +1101,20 @@ public class clsGestorLN {
 		clsManager m5 = new clsManager("Miren", "Subell", "Bies", "90215338B", "femenino", "buena", 80);
 		clsManager m6 = new clsManager("Jone", " Campos", "Iparaguirre", "26471740P", "femenina", "muy buena", 96);
 		clsManager m7 = new clsManager("Joseba", " Lopez", "Poter", "24753285I", "masculino", "mala", 26);
-		/**
-		 * Luego creamos otro arrayList para guardar los managers y los metemos dentro
-		 * del arraylist
-		 */
+		
+		En caso de descomentar crear comentario Javadoc
+		
 		listadoManagers.add(m1);
 		listadoManagers.add(m2);
-		listadoManagers.add(m3);
+		istadoManagers.add(m3);
 		listadoManagers.add(m4);
 		listadoManagers.add(m5);
 		listadoManagers.add(m6);
 		listadoManagers.add(m7);
+		*/
+		
+		
+		
 		/**
 		 * Llamamos al comparadaor por nombre para compararlo
 		 */
@@ -1119,8 +1124,7 @@ public class clsGestorLN {
 		 */
 
 		Collections.sort(listadoManagers, comp);
-		clsManager m = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
-
+		clsManager m =new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
 		if (tumanager.contains(m) == true) {
 			throw new clsExcepcionManagerRepetido("Manager Repetido");
 
