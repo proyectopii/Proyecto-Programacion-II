@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import COMUN.Constantes.ensexo;
+import LN.clsGestorLN;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -36,6 +37,9 @@ public class venCrearEquipo extends JFrame {
 	private JTextField txtnombreequipo;
 	
 	public static final String ACTION_COMAND_SIGUIENTE = "Siguiente";
+	
+	private clsGestorLN gestor = new clsGestorLN();
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -73,7 +77,7 @@ public class venCrearEquipo extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblcomoQuieresLlamar = new JLabel("\u00BFComo quieres llamar a tu equipo?");
-		lblcomoQuieresLlamar.setBounds(242, 113, 163, 14);
+		lblcomoQuieresLlamar.setBounds(238, 169, 163, 14);
 		panel.add(lblcomoQuieresLlamar);
 		
 		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager y\t equipo, te ayudare");
@@ -82,7 +86,7 @@ public class venCrearEquipo extends JFrame {
 		panel.add(lblVamosACrear);
 		
 		textField = new JTextField();
-		textField.setBounds(242, 138, 137, 20);
+		textField.setBounds(238, 194, 137, 20);
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -91,38 +95,39 @@ public class venCrearEquipo extends JFrame {
 		panel.add(lblNewLabel);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(29, 82, 86, 20);
+		textField_1.setBounds(29, 82, 108, 20);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblcomoTeApellidas = new JLabel("\u00BFComo te apellidas?");
-		lblcomoTeApellidas.setBounds(29, 113, 107, 14);
+		JLabel lblcomoTeApellidas = new JLabel("\u00BFCual es tu primer apellido?");
+		lblcomoTeApellidas.setBounds(29, 113, 143, 14);
 		panel.add(lblcomoTeApellidas);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(29, 138, 86, 20);
+		textField_2.setBounds(29, 138, 108, 20);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblAadeleUnDni = new JLabel("A\u00F1adele un DNI");
-		lblAadeleUnDni.setBounds(29, 169, 86, 14);
+		lblAadeleUnDni.setBounds(238, 57, 86, 14);
 		panel.add(lblAadeleUnDni);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(29, 194, 86, 20);
+		textField_3.setBounds(238, 82, 86, 20);
 		panel.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblcualTuGenero = new JLabel("\u00BFCual tu genero?");
-		lblcualTuGenero.setBounds(242, 57, 93, 14);
+		lblcualTuGenero.setBounds(238, 113, 93, 14);
 		panel.add(lblcualTuGenero);
 		
 		combosexo = new JComboBox();
 		combosexo.setModel(new DefaultComboBoxModel(new String[] {"Otro", "Femenino", "Masculino"}));
-		combosexo.setBounds(242, 80, 93, 22);
+		combosexo.setBounds(238, 136, 93, 22);
 		panel.add(combosexo);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setActionCommand(ACTION_COMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				venEquipacion obj = new venEquipacion();
@@ -131,6 +136,15 @@ public class venCrearEquipo extends JFrame {
 		});
 		btnSiguiente.setBounds(316, 217, 89, 23);
 		panel.add(btnSiguiente);
+		
+		JLabel lblcualEsTu = new JLabel("\u00BFCual es tu segundo apellido?");
+		lblcualEsTu.setBounds(29, 169, 155, 14);
+		panel.add(lblcualEsTu);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(29, 194, 108, 20);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
 		
 	}
 	
@@ -153,8 +167,12 @@ public class venCrearEquipo extends JFrame {
 			}
 			
 			if(!(txtnombre.getText().equals("") && txtapellidos.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
+				gestor.addManager(txtnombre.getText(), apellido1, apellido2, dni, sexo, calidad, valoracion)
+				gestor.añadirEquipo(txtnombreequipo.getText(), null);
+				
 				txtnombre.setText("");
-				txtapellidos.setText("");
+				txtapellido1.setText("");
+				txtapellido2.setText("");
 				txtdni.setText("");
 				txtnombreequipo.setText("");
 			}else {

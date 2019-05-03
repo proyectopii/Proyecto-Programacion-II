@@ -50,12 +50,12 @@ public class venInicio extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(155, 89, 182));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(52, 152, 219));
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(panel);
 		
 		JLabel lblBienvenidoAYour = new JLabel("Bienvenido a Your Team");
 		lblBienvenidoAYour.setBounds(72, 11, 307, 29);
