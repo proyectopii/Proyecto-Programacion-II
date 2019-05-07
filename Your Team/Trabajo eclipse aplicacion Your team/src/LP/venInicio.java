@@ -47,7 +47,7 @@ public class venInicio extends JFrame {
 	public venInicio() {
 		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(155, 89, 182));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

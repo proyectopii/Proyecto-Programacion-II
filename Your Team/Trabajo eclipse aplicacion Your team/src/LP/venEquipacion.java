@@ -44,7 +44,7 @@ public class venEquipacion extends JFrame {
 	 */
 	public venEquipacion() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 467, 311);
+		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(76, 175, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

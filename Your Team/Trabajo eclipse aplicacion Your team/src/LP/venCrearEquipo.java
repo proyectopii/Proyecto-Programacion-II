@@ -65,7 +65,7 @@ public class venCrearEquipo extends JFrame {
 	 */
 	public venCrearEquipo() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.RED);
 		contentPane.setForeground(Color.WHITE);
@@ -83,8 +83,8 @@ public class venCrearEquipo extends JFrame {
 		lblcomoQuieresLlamar.setBounds(238, 169, 163, 14);
 		panel.add(lblcomoQuieresLlamar);
 		
-		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager y\t equipo, te ayudare");
-		lblVamosACrear.setBounds(29, 11, 376, 24);
+		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager y\t el equipo, te ayudare");
+		lblVamosACrear.setBounds(24, 11, 394, 24);
 		lblVamosACrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		panel.add(lblVamosACrear);
 		
@@ -116,7 +116,7 @@ public class venCrearEquipo extends JFrame {
 		panel.add(lblAadeleUnDni);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(238, 82, 86, 20);
+		textField_3.setBounds(238, 82, 93, 20);
 		panel.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -138,7 +138,7 @@ public class venCrearEquipo extends JFrame {
 				obj.setVisible(true);
 			}
 		});
-		btnSiguiente.setBounds(316, 217, 89, 23);
+		btnSiguiente.setBounds(316, 229, 89, 23);
 		panel.add(btnSiguiente);
 		
 		JLabel lblcualEsTu = new JLabel("\u00BFCual es tu segundo apellido?");
