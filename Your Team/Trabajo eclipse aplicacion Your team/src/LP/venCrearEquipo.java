@@ -64,7 +64,7 @@ public class venCrearEquipo extends JFrame {
 	 * Create the frame.
 	 */
 	public venCrearEquipo() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.RED);
@@ -127,6 +127,7 @@ public class venCrearEquipo extends JFrame {
 		combosexo = new JComboBox();
 		combosexo.setModel(new DefaultComboBoxModel(new String[] {"Otro", "Femenino", "Masculino"}));
 		combosexo.setBounds(238, 136, 93, 22);
+		
 		panel.add(combosexo);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
@@ -170,9 +171,17 @@ public class venCrearEquipo extends JFrame {
 			}
 			
 			if(!(txtnombre.getText().equals("") && txtapellido1.getText().equals("") && txtapellido2.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
-				gestor.addManager(txtnombre.getText(), txtapellido1.getText(), txtapellido2.getText(), txtdni.getText(), combosexo.getSelectedIndex(), null, 0);
-				gestor.añadirEquipo(txtnombreequipo.getText(), null);
-				
+				try {gestor.addManager(txtnombre.getText(),
+						txtapellido1.getText(),
+						txtapellido2.getText(),
+						txtdni.getText(),
+						(String)combosexo.getSelectedItem(),
+						null,
+						0);
+					gestor.añadirEquipo(txtnombreequipo.getText(), null);
+				}catch(Exception exv) {
+				}
+								
 				txtnombre.setText("");
 				txtapellido1.setText("");
 				txtapellido2.setText("");
