@@ -8,20 +8,34 @@ package COMUN;
  * @author Industria 4.0
  *
  */
+
 public class clsExcepcionEquipacionRepetida extends Exception {
+
+	private String mensaje;
+
 	/**
 	 * Este caso es que saque un error para cuando haya una equipacion repetida
 	 * Creamos un constructor vacio
 	 * 
 	 * @param mensaje
 	 */
+	public clsExcepcionEquipacionRepetida() {
+
+	}
 
 	public clsExcepcionEquipacionRepetida(String mensaje) {
-		super(mensaje);
+
+		this.mensaje = mensaje;
+
 	}
+
 	/**
 	 * Aqui creamos el constructor donde pondremos el mensaje
 	 */
+
+	public String getMessage() {
+		return mensaje;
+	}
 
 }
 

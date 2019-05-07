@@ -9,18 +9,28 @@ public class clsExcepcionEquipoRepetido extends Exception {
 	 * @author Industria 4.0
 	 *
 	 */
+	private String mensaje;
+
+	/**
+	 * Este caso es que saque un error para cuando haya un equipo repetido Creamos
+	 * un constructor vacio
+	 * 
+	 * @param mensaje
+	 */
+	public clsExcepcionEquipoRepetido() {
+
+	}
 
 	public clsExcepcionEquipoRepetido(String mensaje) {
-		/**
-		 * Este caso es que saque un error para cuando haya un equipo repetido Creamos
-		 * un constructor vacio
-		 * 
-		 * @param mensaje
-		 */
-		super(mensaje);
+		this.mensaje = mensaje;
+
 		/**
 		 * Aqui creamos el constructor donde pondremos el mensaje
 		 */
+	}
+
+	public String getMessage() {
+		return mensaje;
 	}
 
 }
