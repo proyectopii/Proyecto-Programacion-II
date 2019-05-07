@@ -25,24 +25,20 @@ import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 
-public class venCrearEquipo extends JFrame {
+public class venCrearEquipo extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JComboBox combosexo;
+	private JTextField txtnombreequipo;
 	private JTextField txtnombre;
 	private JTextField txtapellido1;
-	private JTextField txtapellido2;
 	private JTextField txtdni;
-	private JTextField txtnombreequipo;
+	private JComboBox combosexo;
+
 	
 	public static final String ACTION_COMAND_SIGUIENTE = "Siguiente";
 	
 	private clsGestorLN gestor = new clsGestorLN();
-	private JTextField textField_4;
+	private JTextField txtapellido2;
 
 	/**
 	 * Launch the application.
@@ -88,37 +84,37 @@ public class venCrearEquipo extends JFrame {
 		lblVamosACrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		panel.add(lblVamosACrear);
 		
-		textField = new JTextField();
-		textField.setBounds(238, 194, 137, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		txtnombreequipo = new JTextField();
+		txtnombreequipo.setBounds(238, 194, 137, 20);
+		panel.add(txtnombreequipo);
+		txtnombreequipo.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u00BFComo te llamas?");
 		lblNewLabel.setBounds(29, 57, 93, 14);
 		panel.add(lblNewLabel);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(29, 82, 108, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		txtnombre = new JTextField();
+		txtnombre.setBounds(29, 82, 108, 20);
+		panel.add(txtnombre);
+		txtnombre.setColumns(10);
 		
 		JLabel lblcomoTeApellidas = new JLabel("\u00BFCual es tu primer apellido?");
 		lblcomoTeApellidas.setBounds(29, 113, 143, 14);
 		panel.add(lblcomoTeApellidas);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(29, 138, 108, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		txtapellido1 = new JTextField();
+		txtapellido1.setBounds(29, 138, 108, 20);
+		panel.add(txtapellido1);
+		txtapellido1.setColumns(10);
 		
 		JLabel lblAadeleUnDni = new JLabel("A\u00F1adele un DNI");
 		lblAadeleUnDni.setBounds(238, 57, 86, 14);
 		panel.add(lblAadeleUnDni);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(238, 82, 93, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		txtdni = new JTextField();
+		txtdni.setBounds(238, 82, 93, 20);
+		panel.add(txtdni);
+		txtdni.setColumns(10);
 		
 		JLabel lblcualTuGenero = new JLabel("\u00BFCual tu genero?");
 		lblcualTuGenero.setBounds(238, 113, 93, 14);
@@ -132,12 +128,7 @@ public class venCrearEquipo extends JFrame {
 		
 		JButton btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setActionCommand(ACTION_COMAND_SIGUIENTE);
-		btnSiguiente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				venEquipacion obj = new venEquipacion();
-				obj.setVisible(true);
-			}
-		});
+		btnSiguiente.addActionListener(this);
 		btnSiguiente.setBounds(316, 229, 89, 23);
 		panel.add(btnSiguiente);
 		
@@ -145,10 +136,10 @@ public class venCrearEquipo extends JFrame {
 		lblcualEsTu.setBounds(29, 169, 155, 14);
 		panel.add(lblcualEsTu);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(29, 194, 108, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		txtapellido2 = new JTextField();
+		txtapellido2.setBounds(29, 194, 108, 20);
+		panel.add(txtapellido2);
+		txtapellido2.setColumns(10);
 		
 	}
 	
@@ -169,8 +160,8 @@ public class venCrearEquipo extends JFrame {
 			default:
 				sexo = ensexo.Masculino;
 			}
-			
-			if(!(txtnombre.getText().equals("") && txtapellido1.getText().equals("") && txtapellido2.getText().equals("") && txtdni.getText().equals("") && txtnombreequipo.getText().equals(""))) {
+			System.out.println("he entrado");
+			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") || txtdni.getText().equals("") || txtnombreequipo.getText().equals(""))) {
 				try {gestor.addManager(txtnombre.getText(),
 						txtapellido1.getText(),
 						txtapellido2.getText(),
@@ -187,9 +178,12 @@ public class venCrearEquipo extends JFrame {
 				txtapellido2.setText("");
 				txtdni.setText("");
 				txtnombreequipo.setText("");
+				venEquipacion obj = new venEquipacion();
+				obj.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
+			break;
 		}
 	}
 }
