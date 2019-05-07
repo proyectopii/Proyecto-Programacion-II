@@ -16,7 +16,7 @@ public class GestorBD {
     {
             if (connection == null)
                     throw new IllegalStateException(
-                                    "La conexion a la BD no ha sido creada todavia.");
+                                    "La conexion a la BD no ha sido creada.");
     }
  
     public GestorBD()
@@ -26,17 +26,9 @@ public class GestorBD {
     
     public void connect() throws SQLException
     {
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-        } 
-        catch (ClassNotFoundException e) {
- 
-            e.printStackTrace();
-        }
          
         //useSSL = true para que la conexion sea cifrada
-        String sURL = "jdbc:mysql://localhost:3306/mydb?useSSL=true";
+        String sURL = "jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=GMT&useSSL=false&allowPublicKeyRetrieval=true";
          
         connection = java.sql.DriverManager.getConnection( sURL , "root", "root");
                  

@@ -146,21 +146,6 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 		case ACTION_COMAND_SIGUIENTE:
-			ensexo sexo;
-			
-			switch(combosexo.getSelectedIndex()) {
-			case 0:
-				sexo = ensexo.Otro;
-				break;
-				
-			case 1:
-				sexo = ensexo.Femenino;
-				break;
-				
-			default:
-				sexo = ensexo.Masculino;
-			}
-			System.out.println("he entrado");
 			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") || txtdni.getText().equals("") || txtnombreequipo.getText().equals(""))) {
 				try {gestor.addManager(txtnombre.getText(),
 						txtapellido1.getText(),

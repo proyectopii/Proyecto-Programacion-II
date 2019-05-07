@@ -1098,8 +1098,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipacion values(" + nombre + apellido1 + apellido2 + dni + sexo + calidad
-						+ valoracion;
+				String query = "insert into manager values(" + nombre + apellido1 + apellido2 + dni + sexo + calidad+
+						","+ valoracion;
 
 				sentencia.executeUpdate(query);
 			} else {
