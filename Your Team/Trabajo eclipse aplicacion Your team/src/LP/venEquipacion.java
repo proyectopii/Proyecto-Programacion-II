@@ -8,7 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -17,11 +22,24 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class venEquipacion extends JFrame {
+import LN.clsGestorLN;
+
+public class venEquipacion extends JFrame implements ActionListener {
+	
+	private clsGestorLN gestor = new clsGestorLN();
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtSerigrafiadoEPrincipal;
+	private JTextField txtSerigrafiadoESeuandaria;
+	private JComboBox comboCPP;
+	private JComboBox comboCPS;
+	private JComboBox comboCSS;
+	private JComboBox comboCSP;
+	private JComboBox comboPubliP;
+	private JComboBox comboPubliS;
+	private JButton btnSiguiente;
+	
+	public static final String ACTION_COMMAND_SIGUIENTE = "Siguiente";
 
 	/**
 	 * Launch the application.
@@ -62,8 +80,8 @@ public class venEquipacion extends JFrame {
 		
 		JLabel lblEquipacionSecundaria = new JLabel("Equipacion Secundaria");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
+		comboCPP = new JComboBox();
+		comboCPP.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
 		JLabel lblColorPrincipal = new JLabel("Color Principal");
 		
@@ -71,38 +89,42 @@ public class venEquipacion extends JFrame {
 		
 		JLabel label = new JLabel("Color Principal");
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
+		comboCPS = new JComboBox();
+		comboCPS.setModel(new DefaultComboBoxModel(new String[] {"Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron", "Amarillo"}));
 		
 		JLabel label_1 = new JLabel("Color Secundario");
 		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
+		comboCSS = new JComboBox();
+		comboCSS.setModel(new DefaultComboBoxModel(new String[] {"Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron", "Amarillo"}));
 		
 		JLabel lblSerigafiado = new JLabel("Serigafiado");
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
+		comboCSP = new JComboBox();
+		comboCSP.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		txtSerigrafiadoEPrincipal = new JTextField();
+		txtSerigrafiadoEPrincipal.setColumns(10);
 		
 		JLabel lblPublicidad = new JLabel("Publicidad");
 		
-		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
+		comboPubliP = new JComboBox();
+		comboPubliP.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
 		
 		JLabel label_2 = new JLabel("Serigafiado");
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		txtSerigrafiadoESeuandaria = new JTextField();
+		txtSerigrafiadoESeuandaria.setColumns(10);
 		
 		JLabel label_3 = new JLabel("Publicidad");
 		
-		JComboBox comboBox_5 = new JComboBox();
-		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
+		comboPubliS = new JComboBox();
+		comboPubliS.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
 		
-		JButton btnNewButton = new JButton("Siguiente");
+		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
+		btnSiguiente.addActionListener(this);
+		panel.add(btnSiguiente);
+		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -112,7 +134,7 @@ public class venEquipacion extends JFrame {
 							.addGap(97)
 							.addComponent(lblTocaCrearLas)
 							.addGap(35)
-							.addComponent(btnNewButton))
+							.addComponent(btnSiguiente))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(41)
 							.addComponent(lblEquipacionPrincipal)
@@ -125,38 +147,38 @@ public class venEquipacion extends JFrame {
 							.addComponent(label, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(61)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboCPP, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 							.addGap(133)
-							.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+							.addComponent(comboCPS, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(51)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblColorSecundario, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(10)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addComponent(txtSerigrafiadoEPrincipal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(10)
-									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+									.addComponent(comboCSP, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 								.addComponent(lblSerigafiado, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblPublicidad, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(10)
-									.addComponent(comboBox_4, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(comboPubliP, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)))
 							.addGap(104)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(10)
-									.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addComponent(txtSerigrafiadoESeuandaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(10)
-									.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+									.addComponent(comboCSS, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 								.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(10)
-									.addComponent(comboBox_5, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)))))
+									.addComponent(comboPubliS, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE)))))
 					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
@@ -164,7 +186,7 @@ public class venEquipacion extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTocaCrearLas)
-						.addComponent(btnNewButton))
+						.addComponent(btnSiguiente))
 					.addGap(11)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblEquipacionPrincipal)
@@ -175,8 +197,8 @@ public class venEquipacion extends JFrame {
 						.addComponent(label))
 					.addGap(11)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
+						.addComponent(comboCPP, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboCPS, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
 					.addGap(12)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblColorSecundario)
@@ -184,28 +206,54 @@ public class venEquipacion extends JFrame {
 					.addGap(6)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboCSP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(lblSerigafiado)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(txtSerigrafiadoEPrincipal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtSerigrafiadoESeuandaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblPublicidad)
 								.addComponent(label_3)))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+							.addComponent(comboCSS, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(label_2)))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboBox_5, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboBox_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(comboPubliS, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboPubliP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(52, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		switch(e.getActionCommand()) {
+		case ACTION_COMMAND_SIGUIENTE:
+			if(!(txtSerigrafiadoEPrincipal.getText().equals("") || txtSerigrafiadoESeuandaria.getText().equals(""){
+				try {gestor.
+				}catch(Exception exv) {
+				}
+								
+				txtnombre.setText("");
+				txtapellido1.setText("");
+				txtapellido2.setText("");
+				txtdni.setText("");
+				txtnombreequipo.setText("");
+				venEquipacion obj = new venEquipacion();
+				obj.setVisible(true);
+			}else {
+				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
+			}
+			break;
+			
+		}
 		
 	}
 

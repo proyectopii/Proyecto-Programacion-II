@@ -35,7 +35,7 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 	private JComboBox combosexo;
 
 	
-	public static final String ACTION_COMAND_SIGUIENTE = "Siguiente";
+	public static final String ACTION_COMMAND_SIGUIENTE = "Siguiente";
 	
 	private clsGestorLN gestor = new clsGestorLN();
 	private JTextField txtapellido2;
@@ -127,7 +127,7 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 		panel.add(combosexo);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
-		btnSiguiente.setActionCommand(ACTION_COMAND_SIGUIENTE);
+		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(this);
 		btnSiguiente.setBounds(316, 229, 89, 23);
 		panel.add(btnSiguiente);
@@ -145,8 +145,9 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
-		case ACTION_COMAND_SIGUIENTE:
-			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") || txtdni.getText().equals("") || txtnombreequipo.getText().equals(""))) {
+		case ACTION_COMMAND_SIGUIENTE:
+			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") ||
+					txtdni.getText().equals("") || txtnombreequipo.getText().equals(""))) {
 				try {gestor.addManager(txtnombre.getText(),
 						txtapellido1.getText(),
 						txtapellido2.getText(),

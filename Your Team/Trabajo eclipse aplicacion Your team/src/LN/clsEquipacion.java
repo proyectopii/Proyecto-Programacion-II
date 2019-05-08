@@ -1,10 +1,12 @@
 package LN;
 
-import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR1;
-import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR2;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR1P;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR2P;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_DORSAL;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDAD;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADO;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR1S;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR2S;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -19,8 +21,10 @@ public class clsEquipacion implements itfProperty {
 	 * derecho a ser patrocinado por algui?n aunque si no quiere no pasar? nada cada
 	 * equipaci?n tendr? derecho a poder escribirse frases en las camisetas
 	 */
-	private String color1;
-	private String color2;
+	private String color1P;
+	private String color2P;
+	private String color1S;
+	private String color2S;
 	private String publicidad;
 	private String serigrafiado;
 	private int dorsal;
@@ -30,8 +34,10 @@ public class clsEquipacion implements itfProperty {
 	 * con par?metros
 	 */
 	public clsEquipacion() {
-		String color1 = "";
-		String color2 = "";
+		String color1P = "";
+		String color2P = "";
+		String color1S = "";
+		String color2S = "";
 		String publicidad = "";
 		String serigrafiado = "";
 		int dorsal = 0;
@@ -40,17 +46,21 @@ public class clsEquipacion implements itfProperty {
 	/**
 	 * Aqui creamos el constructor con parametros
 	 * 
-	 * @param color1
-	 * @param color2
+	 * @param color1P
+	 * @param color2P
+	 * @param color1S
+	 * @param color2S
 	 * @param publicidad
 	 * @param serigrafiado
 	 * @param dorsal
 	 */
 
-	public clsEquipacion(String color1, String color2, String publicidad, String serigrafiado, int dorsal) {
+	public clsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidad, String serigrafiado, int dorsal) {
 		super();
-		this.color1 = color1;
-		this.color2 = color2;
+		this.color1P = color1P;
+		this.color2P = color2P;
+		this.color1S = color1S;
+		this.color2S = color2S;		
 		this.publicidad = publicidad;
 		this.serigrafiado = serigrafiado;
 		this.dorsal = dorsal;
@@ -64,8 +74,8 @@ public class clsEquipacion implements itfProperty {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((color2 == null) ? 0 : color2.hashCode());
-		result = prime * result + ((color1 == null) ? 0 : color1.hashCode());
+		result = prime * result + ((color2P == null) ? 0 : color2P.hashCode());
+		result = prime * result + ((color1P == null) ? 0 : color1P.hashCode());
 		return result;
 	}
 
@@ -82,15 +92,15 @@ public class clsEquipacion implements itfProperty {
 		if (getClass() != obj.getClass())
 			return false;
 		clsEquipacion other = (clsEquipacion) obj;
-		if (color2 == null) {
-			if (other.color2 != null)
+		if (color2P == null) {
+			if (other.color2P != null)
 				return false;
-		} else if (!color2.equals(other.color2))
+		} else if (!color2P.equals(other.color2P))
 			return false;
-		if (color1 == null) {
-			if (other.color1 != null)
+		if (color1P == null) {
+			if (other.color1P != null)
 				return false;
-		} else if (!color1.equals(other.color1))
+		} else if (!color1P.equals(other.color1P))
 			return false;
 		return true;
 	}
@@ -99,10 +109,13 @@ public class clsEquipacion implements itfProperty {
 	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
 	 * salgan los nombres
 	 */
+	
+
 	@Override
 	public String toString() {
-		return "clsEquipacion [color1=" + color1 + ", color2=" + color2 + ", publicidad=" + publicidad
-				+ ", serigrafiado=" + serigrafiado + ", dorsal=" + dorsal + "]";
+		return "clsEquipacion [color1P=" + color1P + ", color2P=" + color2P + ", color1S=" + color1S + ", color2S="
+				+ color2S + ", publicidad=" + publicidad + ", serigrafiado=" + serigrafiado + ", dorsal=" + dorsal
+				+ "]";
 	}
 
 	/**
@@ -112,10 +125,14 @@ public class clsEquipacion implements itfProperty {
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {
-		case PROPIEDAD_clsEQUIPACION_COLOR1:
-			return this.color1;
-		case PROPIEDAD_clsEQUIPACION_COLOR2:
-			return this.color2;
+		case PROPIEDAD_clsEQUIPACION_COLOR1P:
+			return this.color1P;
+		case PROPIEDAD_clsEQUIPACION_COLOR2P:
+			return this.color2P;
+		case PROPIEDAD_clsEQUIPACION_COLOR1S:
+			return this.color1S;
+		case PROPIEDAD_clsEQUIPACION_COLOR2S:
+			return this.color2S;
 		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADO:
 			return this.serigrafiado;
 		case PROPIEDAD_clsEQUIPACION_PUBLICIDAD:
@@ -142,11 +159,17 @@ public class clsEquipacion implements itfProperty {
 	public void setObjectProperty(String propiedad, Object valor) {
 
 		switch (propiedad) {
-		case PROPIEDAD_clsEQUIPACION_COLOR1:
-			color1 = ((String) valor);
+		case PROPIEDAD_clsEQUIPACION_COLOR1P:
+			color1P = ((String) valor);
 			break;
-		case PROPIEDAD_clsEQUIPACION_COLOR2:
-			color2 = ((String) valor);
+		case PROPIEDAD_clsEQUIPACION_COLOR2P:
+			color2P = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_COLOR1S:
+			color1S = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_COLOR2S:
+			color2S = ((String) valor);
 			break;
 		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADO:
 			serigrafiado = ((String) valor);
