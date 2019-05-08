@@ -87,25 +87,38 @@ public class clsMenu {
 	 */
 
 	public static void Crearequipacion() {
-		String color1;
-		String color2;
-		String publicidad;
-		String serigrafiado = "";
-		String oppublicidad;
-		String opserigrafiado;
+		String color1P;
+		String color2P;
+		String color1S;
+		String color2S;
+		String publicidadP = "";
+		String publicidadS = "";;
+		String serigrafiadoP = "";;
+		String serigrafiadoS = "";;
+		String oppublicidad = "";;
+		String opserigrafiado = "";;
 
-		System.out.println("Elige el color primario para tu equipacion");
-		color1 = UtilidadesLP.leerCadena();
+		System.out.println("Elige el color primario para tu equipacion principal");
+		color1P = UtilidadesLP.leerCadena();
 
-		System.out.println("Elige el color secundario para tu equipacion");
-		color2 = UtilidadesLP.leerCadena();
+		System.out.println("Elige el color secundario para tu equipacion principal");
+		color2P = UtilidadesLP.leerCadena();
+		
+		System.out.println("Elige el color primario para tu equipacion secundaria");
+		color1S = UtilidadesLP.leerCadena();
+		
+		System.out.println("Elige el color secundario para tu equipacion secundaria");
+		color2S = UtilidadesLP.leerCadena();
 
 		System.out.println("?Quieres poner publicidad?");
 		oppublicidad = UtilidadesLP.leerCadena();
 
 		if (oppublicidad.equalsIgnoreCase("si")) {
-			System.out.println("?Qu? publicidad quieres poner?");
-			publicidad = UtilidadesLP.leerCadena();
+			System.out.println("?Qu? publicidad quieres poner en la principal?");
+			publicidadP = UtilidadesLP.leerCadena();
+			
+			System.out.println("?Qu? publicidad quieres poner en la secundaria?");
+			publicidadS = UtilidadesLP.leerCadena();
 
 		}
 
@@ -113,16 +126,19 @@ public class clsMenu {
 		opserigrafiado = UtilidadesLP.leerCadena();
 
 		if (opserigrafiado.equalsIgnoreCase("si")) {
-			System.out.println("?Que publicidad quieres poner?");
-			serigrafiado = UtilidadesLP.leerCadena();
-
+			System.out.println("?Que serigrafiado quieres poner en la principal?");
+			serigrafiadoP = UtilidadesLP.leerCadena();
+			
+			System.out.println("?Que serigrafiado quieres poner en la secundaria?");
+			serigrafiadoS = UtilidadesLP.leerCadena();
 		}
 		/**
 		 * Aqui es donde lanzamos la excepcion que hemos propagado
 		 */
 		try {
 
-			gln.anadirclsEquipacion(color1, color2, oppublicidad, opserigrafiado, 0);
+			gln.anadirclsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+					serigrafiadoS, 0);
 		} catch (clsExcepcionEquipacionRepetida e) {
 			System.out.println(e.getMessage());
 
