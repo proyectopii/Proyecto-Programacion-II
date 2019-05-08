@@ -26,7 +26,14 @@ public class GestorBD {
     
     public void connect() throws SQLException
     {
-         
+    	  try
+          {
+              Class.forName("com.mysql.cj.jdbc.Driver");
+          } 
+          catch (ClassNotFoundException e) {
+   
+              e.printStackTrace();
+          }  
         //useSSL = true para que la conexion sea cifrada
         String sURL = "jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=GMT&useSSL=false&allowPublicKeyRetrieval=true";
          
