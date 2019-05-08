@@ -17,8 +17,10 @@ public class Constantes {
 	public static final String PROPIEDAD_clsEQUIPACION_COLOR1S = "color1S";
 	public static final String PROPIEDAD_clsEQUIPACION_COLOR2S = "color2S";
 	public static final String PROPIEDAD_clsEQUIPACION_DORSAL = "dorsal";
-	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDAD = "publicidad";
-	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADO = "serigrafiado";
+	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDADP = "publicidadP";
+	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDADS = "publicidadS";
+	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADOP = "serigrafiadoP";
+	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS = "serigrafiadoS";
 
 	/**
 	 * Aqui ponemos todas las constantes finales de equipo como fundacionEquipo y

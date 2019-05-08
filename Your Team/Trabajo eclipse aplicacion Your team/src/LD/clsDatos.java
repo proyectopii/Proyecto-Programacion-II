@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class clsDatos {
 	/**
-	 * Crearemos m?todos para cargar,buscar,si hay repetidos y insertar equipaciones
+	 * Crearemos metodos para cargar,buscar,si hay repetidos e insertar equipaciones
 	 * 
 	 * @return
 	 */
@@ -58,7 +58,7 @@ public class clsDatos {
 	 * @return
 	 */
 
-	public ResultSet buscarEquipacion(String color1) {
+	public ResultSet buscarEquipacion(String color1P) {
 		try {
 			gbd.connect();
 
@@ -67,7 +67,7 @@ public class clsDatos {
 			 * Hacemos una select de color1 en la base de datos
 			 */
 
-			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipacion where color1 = '" + color1 + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipacion where color1 = '" + color1P + "'");
 
 			return rs;
 		} catch (SQLException se) {
@@ -121,19 +121,21 @@ public class clsDatos {
 	 * @param dorsal
 	 */
 
-	public void insertarEquipaciones(String color1, String color2, String publicidad, String serigrafiado, int dorsal) {
+	public void insertarEquipaciones(String color1P, String color2P, String color1S, String color2S, String publicidadP,
+			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
 		try {
 			gbd.connect();
 
 			Statement sentencia = gbd.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-			boolean r = existeclsEquipacion(color1);
+			boolean r = existeclsEquipacion(color1P);
 			/**
 			 * Para introducir hacemos una insert
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipacion values(" + color1 + color2 + publicidad + serigrafiado + dorsal;
+				String query = "insert into Equipacion values(" + color1P + color2P+ color1S + color2S + publicidadP + publicidadS
+						+ serigrafiadoP + serigrafiadoS + dorsal;
 				/**
 				 * Si ya existe una equipacion nos saldra equipo existente
 				 */
@@ -1098,8 +1100,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into manager values(" + nombre+"," + apellido1+"," + apellido2 +"," + dni +"," + sexo +"," + calidad+
-						","+ valoracion+")";
+				String query = "insert into manager values(" + nombre + apellido1 + apellido2 + dni + sexo + calidad+
+						","+ valoracion;
 
 				sentencia.executeUpdate(query);
 			} else {

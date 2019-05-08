@@ -67,16 +67,20 @@ public class clsGestorLN {
 	 * 
 	 * @param color1
 	 * @param color2
-	 * @param publicidad
-	 * @param serigrafiado
+	 * @param publicidadP
+	 * @param publicidadS
+	 * @param serigrafiadoP
+	 * @param serigrafiadoS
 	 * @param dorsal
 	 * @return
 	 */
-	public boolean anadirclsEquipacion(String color1, String color2, String publicidad, String serigrafiado, int dorsal)
+	public boolean anadirclsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
+			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
 			throws clsExcepcionEquipacionRepetida { // Aquí estoy propagando la excepcion
 
-		clsEquipacion eq = new clsEquipacion(color1, color2, publicidad, serigrafiado, dorsal);// Aqui creamos una nueva
-																								// equipacion con sus
+		clsEquipacion eq = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
+				serigrafiadoP, serigrafiadoS, dorsal);// Aqui creamos una nueva equipacion
+																								 
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
@@ -96,7 +100,8 @@ public class clsGestorLN {
 		} else {
 			tuequipacion.add(eq);
 
-			clsDatos.insertarEquipaciones(color1, color2, publicidad, serigrafiado, dorsal);
+			clsDatos.insertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
+					serigrafiadoP, serigrafiadoS, dorsal);
 
 			return true;
 		}
@@ -112,20 +117,22 @@ public class clsGestorLN {
 	 * @return
 	 */
 
-	public boolean cambioclsEquipacion(String color1, String color2, String publicidad, String serigrafiado)
+	public boolean cambioclsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP, 
+			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
 	/**
 	 * Con la propiedad itfproperty sacamos la equipacion que tenemos con sus
 	 * atributos
 	 */
 	{
-		itfProperty datoABuscar = new clsEquipacion(color1, color2, publicidad, serigrafiado, 0);
+		itfProperty datoABuscar = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+				serigrafiadoS, 0);
 
 		int p = tuequipo.indexOf(datoABuscar);
 
 		if (p != -1) {
 			datoABuscar = tuequipo.get(p); // Aqui cambiamos la equipacion
-			datoABuscar.setObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1,
-					Constantes.PROPIEDAD_clsEQUIPACION_COLOR2);
+			datoABuscar.setObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1P,
+					Constantes.PROPIEDAD_clsEQUIPACION_COLOR2P);
 
 			return true;
 		} else {
@@ -140,20 +147,21 @@ public class clsGestorLN {
 	 * @return
 	 */
 
-	public String buscarclsequipacion(String color1, String color2, String publicidad, String serigrafiado,
-			int dorsal) {
+	public String buscarclsequipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
+			String publicidadS,	String serigrafiadoP, String serigrafiadoS, int dorsal) {
 		/**
 		 * Utilizaremos itfproperty para buscar y utilizaremos como clave el color 1
 		 */
 
-		itfProperty datoABuscar = new clsEquipacion(color1, color2, publicidad, serigrafiado, dorsal);
+		itfProperty datoABuscar = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+				serigrafiadoS, 0);
 
 		int p = tuequipacion.indexOf(datoABuscar);
 
 		if (p != -1) {
 			datoABuscar = tuequipacion.get(p); // Aqui obtenemos el dato
 
-			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1);
+			String prop = (String) datoABuscar.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1P);
 
 			return prop;
 		} else {
@@ -170,8 +178,10 @@ public class clsGestorLN {
 	 * @param serigrafiado
 	 * @return
 	 */
-	public boolean borrarclsEquipacion(String color1, String color2, String publicidad, String serigrafiado) {
-		clsEquipacion equipacion = new clsEquipacion(color1, color2, publicidad, serigrafiado, 0);
+	public boolean borrarclsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
+			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
+		clsEquipacion equipacion = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+				serigrafiadoS, 0);
 
 		return tuequipacion.remove(equipacion);// aqui es cuando borramos la equipacion creada
 	}
@@ -195,8 +205,10 @@ public class clsGestorLN {
 				 * Con el getString recuperamos todos sus atributos
 				 */
 
-				clsEquipacion nuevoCoche = new clsEquipacion(rs.getString("color1"), rs.getString("color2"),
-						rs.getString("serigrafiado"), rs.getString("publicidad"), rs.getInt(0));
+				clsEquipacion nuevoCoche = new clsEquipacion(rs.getString("color1P"), rs.getString("color2P"),
+						rs.getString("color1S"), rs.getString("color2S"),rs.getString("serigrafiadoP"), 
+						rs.getString("serigrafiadoS"), rs.getString("publicidadP"),
+						rs.getString("publicidadS"), rs.getInt(0));
 
 				temp.add(nuevoCoche);
 			}
@@ -219,14 +231,19 @@ public class clsGestorLN {
 		 */
 
 		for (clsEquipacion c : tuequipacion) {
-			String color1 = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1);
-			String color2 = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR2);
-			String publicidad = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDAD);
-			String serigrafiado = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADO);
+			String color1P = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1P);
+			String color1S = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1S);
+			String color2P = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR2P);
+			String color2S = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR2S);
+			String publicidadP = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDADP);
+			String publicidadS = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDADS);
+			String serigrafiadoP = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADOP);
+			String serigrafiadoS = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS);
 			int DORSAL = (int) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_DORSAL);
 
-			clsDatos.insertarEquipaciones(color1, color2, publicidad, serigrafiado, DORSAL);// Aqui es cuando lo
-																							// guardamps
+			clsDatos.insertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+					serigrafiadoS, DORSAL);// Aqui es cuando lo
+																							
 		}
 	}
 

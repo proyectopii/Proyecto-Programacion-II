@@ -3,8 +3,10 @@ package LN;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR1P;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR2P;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_DORSAL;
-import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDAD;
-import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADO;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDADP;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_PUBLICIDADS;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADOP;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR1S;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPACION_COLOR2S;
 
@@ -25,8 +27,10 @@ public class clsEquipacion implements itfProperty {
 	private String color2P;
 	private String color1S;
 	private String color2S;
-	private String publicidad;
-	private String serigrafiado;
+	private String publicidadP;
+	private String publicidadS;
+	private String serigrafiadoP;
+	private String serigrafiadoS;
 	private int dorsal;
 
 	/**
@@ -55,14 +59,17 @@ public class clsEquipacion implements itfProperty {
 	 * @param dorsal
 	 */
 
-	public clsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidad, String serigrafiado, int dorsal) {
+	public clsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP, String publicidadS,
+			String serigrafiadoP, String serigrafiadoS, int dorsal) {
 		super();
 		this.color1P = color1P;
 		this.color2P = color2P;
 		this.color1S = color1S;
 		this.color2S = color2S;		
-		this.publicidad = publicidad;
-		this.serigrafiado = serigrafiado;
+		this.publicidadP = publicidadP;
+		this.publicidadS = publicidadS;
+		this.serigrafiadoP = serigrafiadoP;
+		this.serigrafiadoS = serigrafiadoS;
 		this.dorsal = dorsal;
 	}
 
@@ -111,11 +118,13 @@ public class clsEquipacion implements itfProperty {
 	 */
 	
 
+	
+
 	@Override
 	public String toString() {
 		return "clsEquipacion [color1P=" + color1P + ", color2P=" + color2P + ", color1S=" + color1S + ", color2S="
-				+ color2S + ", publicidad=" + publicidad + ", serigrafiado=" + serigrafiado + ", dorsal=" + dorsal
-				+ "]";
+				+ color2S + ", publicidadP=" + publicidadP + ", publicidadS=" + publicidadS + ", serigrafiadoP="
+				+ serigrafiadoP + ", serigrafiadoS=" + serigrafiadoS + ", dorsal=" + dorsal + "]";
 	}
 
 	/**
@@ -133,10 +142,14 @@ public class clsEquipacion implements itfProperty {
 			return this.color1S;
 		case PROPIEDAD_clsEQUIPACION_COLOR2S:
 			return this.color2S;
-		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADO:
-			return this.serigrafiado;
-		case PROPIEDAD_clsEQUIPACION_PUBLICIDAD:
-			return this.publicidad;
+		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADOP:
+			return this.serigrafiadoP;
+		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS:
+			return this.serigrafiadoS;
+		case PROPIEDAD_clsEQUIPACION_PUBLICIDADP:
+			return this.publicidadP;
+		case PROPIEDAD_clsEQUIPACION_PUBLICIDADS:
+			return this.publicidadS;
 		case PROPIEDAD_clsEQUIPACION_DORSAL:
 			return this.dorsal;
 		/**
@@ -171,11 +184,17 @@ public class clsEquipacion implements itfProperty {
 		case PROPIEDAD_clsEQUIPACION_COLOR2S:
 			color2S = ((String) valor);
 			break;
-		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADO:
-			serigrafiado = ((String) valor);
+		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADOP:
+			serigrafiadoP = ((String) valor);
 			break;
-		case PROPIEDAD_clsEQUIPACION_PUBLICIDAD:
-			publicidad = ((String) valor);
+		case PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS:
+			serigrafiadoS = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_PUBLICIDADP:
+			publicidadP = ((String) valor);
+			break;
+		case PROPIEDAD_clsEQUIPACION_PUBLICIDADS:
+			publicidadS = ((String) valor);
 			break;
 		case PROPIEDAD_clsEQUIPACION_DORSAL:
 			dorsal = ((int) valor);
