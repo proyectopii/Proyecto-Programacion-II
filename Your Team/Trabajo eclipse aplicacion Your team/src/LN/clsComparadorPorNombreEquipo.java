@@ -4,6 +4,7 @@ package LN;
  */
 
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO;
+import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO;
 
 import java.util.Comparator;
 
@@ -25,8 +26,8 @@ public class clsComparadorPorNombreEquipo implements Comparator<clsEquipo> {
 				.compareTo((String) e2.getObjectProperty(PROPIEDAD_clsEQUIPO_NOMBREEQUIPO)) == 0) {
 			return 0;
 		} else {
-			return (((String) e1.getObjectProperty(PROPIEDAD_clsEQUIPO_NOMBREEQUIPO))
-					.compareTo((String) e2.getObjectProperty(PROPIEDAD_clsEQUIPO_NOMBREEQUIPO)));
+			return (((String) e1.getObjectProperty(PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO))
+					.compareTo((String) e2.getObjectProperty(PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO)));
 		}
 	}
 

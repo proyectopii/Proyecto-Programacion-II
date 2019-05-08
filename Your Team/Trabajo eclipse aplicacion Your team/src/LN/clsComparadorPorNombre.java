@@ -5,7 +5,7 @@ package LN;
 
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_NOMBRE;
 import static COMUN.Constantes.PROPIEDAD_clsPERSONA_APELLIDO1;
-import static COMUN.Constantes.PROPIEDAD_clsPERSONA_DNI;
+
 
 /**
  * Creamos el comparador

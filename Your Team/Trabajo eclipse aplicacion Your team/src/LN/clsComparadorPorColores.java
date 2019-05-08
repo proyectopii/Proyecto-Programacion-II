@@ -4,6 +4,7 @@ package LN;
  */
 
 import static COMUN.Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO;
+import static COMUN.Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO;
 
 import java.util.Comparator;
 
@@ -25,9 +26,12 @@ public class clsComparadorPorColores implements Comparator<clsEscudo> {
 		if (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO))
 				.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)) == 0) {
 			return 0;
+			/**
+			 * Este seria nuestro segundo criterio
+			 */
 		} else {
-			return (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO))
-					.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)));
+			return (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_FORMAESCUDO))
+					.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_FORMAESCUDO)));
 		}
 	}
 
