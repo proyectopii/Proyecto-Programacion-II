@@ -236,17 +236,17 @@ public class venEquipacion extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		switch(e.getActionCommand()) {
 		case ACTION_COMMAND_SIGUIENTE:
-			if(!(txtSerigrafiadoEPrincipal.getText().equals("") || txtSerigrafiadoESeuandaria.getText().equals(""){
-				try {gestor.
+			if(!(txtSerigrafiadoEPrincipal.getText().equals("") || txtSerigrafiadoESeuandaria.getText().equals(""))) {
+				try {gestor.anadirclsEquipacion((String) comboCPP.getSelectedItem(), (String) comboCSP.getSelectedItem(),
+						txtSerigrafiadoEPrincipal.getText(), (String) comboPubliP.getSelectedItem(),
+						(String) comboCPS.getSelectedItem(), (String) comboCSS.getSelectedItem(), 
+						txtSerigrafiadoESeuandaria.getText(), (String) comboPubliS.getSelectedItem());
 				}catch(Exception exv) {
 				}
 								
-				txtnombre.setText("");
-				txtapellido1.setText("");
-				txtapellido2.setText("");
-				txtdni.setText("");
-				txtnombreequipo.setText("");
-				venEquipacion obj = new venEquipacion();
+				txtSerigrafiadoEPrincipal.setText("");
+				txtSerigrafiadoESeuandaria.setText("");
+				venEscudo obj = new venEscudo();
 				obj.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
