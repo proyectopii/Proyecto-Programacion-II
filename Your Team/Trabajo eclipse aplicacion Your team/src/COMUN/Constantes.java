@@ -12,8 +12,10 @@ public class Constantes {
 	 * Aqui ponemos todas las constantes finales de equipacion como color1, color2,
 	 * dorsal, publicidad y serigrafiado
 	 */
-	public static final String PROPIEDAD_clsEQUIPACION_COLOR1 = "color1";
-	public static final String PROPIEDAD_clsEQUIPACION_COLOR2 = "color2";
+	public static final String PROPIEDAD_clsEQUIPACION_COLOR1P = "color1P";
+	public static final String PROPIEDAD_clsEQUIPACION_COLOR2P = "color2P";
+	public static final String PROPIEDAD_clsEQUIPACION_COLOR1S = "color1S";
+	public static final String PROPIEDAD_clsEQUIPACION_COLOR2S = "color2S";
 	public static final String PROPIEDAD_clsEQUIPACION_DORSAL = "dorsal";
 	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDAD = "publicidad";
 	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADO = "serigrafiado";
