@@ -1059,7 +1059,7 @@ public class clsDatos {
 			 * Aqui hacemos una select de manager
 			 */
 
-			System.out.println("SELECT * FROM Manager where dni = '" + dni + "'");
+			
 
 			if (rs.first() == false) {
 				return false;
@@ -1099,9 +1099,12 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into manager values(" + nombre +"'" + apellido1 +"'" + apellido2 +"'" + dni +"'" + sexo +"'" + calidad+
-						","+ valoracion +")";
+				String query = "insert into manager values('" + nombre +"','" + apellido1 +"','" + apellido2 +"','" + dni +"','" + sexo +"','" + calidad+
+						"','"+ valoracion +"')";
 
+				System.out.println( query );
+				
+				
 				sentencia.executeUpdate(query);
 			} else {
 				System.out.println("Manager Existente!"); // por si hay managers repetidos
