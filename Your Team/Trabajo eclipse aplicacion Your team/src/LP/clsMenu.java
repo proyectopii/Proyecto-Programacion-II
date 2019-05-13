@@ -74,7 +74,7 @@ public class clsMenu {
 		 * Aqui es donde lanzamos la excepcion que hemos propagado
 		 */
 		try {
-			gln.añadirEquipo(nombreEquipo, fundacionEquipo);
+			gln.anadirEquipo(nombreEquipo, fundacionEquipo);
 		} catch (clsExcepcionEquipoRepetido e) {
 			System.out.println(e.getMessage());
 		}
@@ -166,7 +166,7 @@ public class clsMenu {
 		 */
 
 		try {
-			gln.añadirEscudo(formaEscudo, colorEscudo);
+			gln.anadirEscudo(formaEscudo, colorEscudo);
 
 		} catch (clsExcepcionEscudoRepetido e) {
 			System.out.println(e.getMessage());
@@ -191,7 +191,7 @@ public class clsMenu {
 		 * Aqui es donde lanzamos la excepcion que hemos propagado
 		 */
 		try {
-			gln.addIntercambio(equipoOrigen, equipoDestino);
+			gln.anadirIntercambio(equipoOrigen, equipoDestino);
 		} catch (clsExcepcionIntercambioRepetido e) {
 			System.out.println(e.getMessage());
 		}

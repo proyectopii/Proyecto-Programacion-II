@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class Excepciones {
 	/**
-	 * Aqui meteremos con try catch posible excepciones que se puedan ocasionar para
+	 * Aqui meteremos con try catch posibles excepciones que se puedan ocasionar para
 	 * la base de datos
 	 */
 	private static Excepciones instance = null;

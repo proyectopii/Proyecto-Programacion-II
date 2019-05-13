@@ -255,7 +255,7 @@ public class clsGestorLN {
 	 * @param fundacionEquipo
 	 * @return
 	 */
-	public boolean añadirEquipo(String nombreEquipo, Date fundacionEquipo) throws clsExcepcionEquipoRepetido {
+	public boolean anadirEquipo(String nombreEquipo, Date fundacionEquipo) throws clsExcepcionEquipoRepetido {
 		clsEquipo e = new clsEquipo(nombreEquipo, fundacionEquipo);
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
@@ -303,7 +303,7 @@ public class clsGestorLN {
 	 * @param nombreEquipo
 	 * @return
 	 */
-	public String BuscarEquipo(String nombreEquipo) {
+	public String buscarEquipo(String nombreEquipo) {
 
 		itfProperty datoABuscar = new clsEquipo(nombreEquipo, null);
 
@@ -393,7 +393,7 @@ public class clsGestorLN {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean añadirEscudo(String formaEscudo, String colorEscudo) throws Exception {
+	public boolean anadirEscudo(String formaEscudo, String colorEscudo) throws Exception {
 		clsEscudo es = new clsEscudo(formaEscudo, colorEscudo);
 		clsComparadorPorColores comp = new clsComparadorPorColores();
 		/**
@@ -442,7 +442,7 @@ public class clsGestorLN {
 	 * Aqui buscaremos los posibles escudos que haya
 	 */
 
-	public String BuscarEscudo(String formaEscudo, String colorEscudo) {
+	public String buscarEscudo(String formaEscudo, String colorEscudo) {
 
 		itfProperty datoABuscar = new clsEscudo(formaEscudo, colorEscudo);
 
@@ -524,7 +524,7 @@ public class clsGestorLN {
 	 * @return
 	 * @throws clsExcepcionIntercambioRepetido
 	 */
-	public boolean addIntercambio(String equipoOrigen, String equipoDestino) throws clsExcepcionIntercambioRepetido {
+	public boolean anadirIntercambio(String equipoOrigen, String equipoDestino) throws clsExcepcionIntercambioRepetido {
 		clsIntercambio i = new clsIntercambio(equipoOrigen, equipoDestino);
 		/**
 		 * Utilizaremos el contains para añadirlo
@@ -663,7 +663,7 @@ public class clsGestorLN {
 	 * @param skills
 	 * @return
 	 */
-	public boolean addJugador(String nombre, String apellido1, String apellido2, String dni, String sexo,
+	public boolean anadirJugador(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			int formaFisica, double skills) {
 		clsJugador j = new clsJugador(formaFisica, skills);
 		/**
@@ -851,7 +851,7 @@ public class clsGestorLN {
 	 * @param fechaInicioPartido
 	 * @return
 	 */
-	public boolean addPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
+	public boolean anadirPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		clsPartidos p = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
 		/**
 		 * Con el contains nos ayudaremos para añadirlo si esta repetido no lo añade

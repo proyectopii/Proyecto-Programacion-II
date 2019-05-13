@@ -84,7 +84,7 @@ public class clsDatos {
 	 * @return
 	 */
 
-	public boolean existeclsEquipacion(String color1) {
+	public boolean existeclsEquipacion(String color1P) {
 		try {
 			gbd.connect();
 
@@ -94,9 +94,9 @@ public class clsDatos {
 			 * Hacemos otra select en equipacion
 			 */
 
-			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipacion where color1 = '" + color1 + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipacion where color1P = '" + color1P + "'");
 
-			System.out.println("SELECT * FROM Equipacion where color1 = '" + color1 + "'");
+			System.out.println("SELECT * FROM Equipacion where color1 = '" + color1P + "'");
 
 			if (rs.first() == false) {
 				return false;
@@ -134,11 +134,12 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipacion values(" + color1P +"'" + color2P+"'" + color1S +"'" + color2S +"'" + publicidadP +"'" + publicidadS
-						+"'" + serigrafiadoP +"'" + serigrafiadoS +"'" + dorsal+")";
+				String query = "insert into Equipacion values(null,'" + color1P +"','" + color2P+"','" + color1S +"','" + color2S +"','" +
+						publicidadP +"','" + publicidadS +"','" + serigrafiadoP +"','" + serigrafiadoS +"'," + dorsal+ ")";
 				/**
 				 * Si ya existe una equipacion nos saldra equipo existente
 				 */
+				System.out.println(query);
 
 				sentencia.executeUpdate(query);
 			} else {
