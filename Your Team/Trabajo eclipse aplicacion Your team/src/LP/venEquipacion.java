@@ -80,8 +80,8 @@ public class venEquipacion extends JDialog implements ActionListener {
 		lblEquipacionPrincipal.setBounds(41, 34, 93, 14);
 		
 		JLabel lblTocaCrearLas = new JLabel("Toca crear las equipaciones");
-		lblTocaCrearLas.setBounds(97, 0, 205, 21);
-		lblTocaCrearLas.setFont(new Font("Sitka Text", Font.ITALIC, 16));
+		lblTocaCrearLas.setBounds(72, 0, 230, 21);
+		lblTocaCrearLas.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		
 		JLabel lblEquipacionSecundaria = new JLabel("Equipacion Secundaria");
 		lblEquipacionSecundaria.setBounds(241, 34, 137, 14);

@@ -67,7 +67,7 @@ public class venEscudo extends JDialog implements ActionListener {
 		panel.setLayout(null);
 		
 		JLabel lblHoraDeCrear = new JLabel("Hora de crear el escudo");
-		lblHoraDeCrear.setFont(new Font("Sitka Text", Font.ITALIC, 16));
+		lblHoraDeCrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		lblHoraDeCrear.setBounds(119, 11, 188, 14);
 		panel.add(lblHoraDeCrear);
 		
