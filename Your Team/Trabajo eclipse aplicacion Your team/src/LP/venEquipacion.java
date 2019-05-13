@@ -173,7 +173,8 @@ public class venEquipacion extends JFrame implements ActionListener {
 		switch(e.getActionCommand()) {
 		case ACTION_COMMAND_SIGUIENTE:
 			if(!(txtSerigrafiadoEPrincipal.getText().equals("") || txtSerigrafiadoESeuandaria.getText().equals(""))) {
-				try {gestor.anadirclsEquipacion((String) comboCPP.getSelectedItem(), (String) comboCSP.getSelectedItem(),
+				try {
+					gestor.anadirclsEquipacion((String) comboCPP.getSelectedItem(), (String) comboCSP.getSelectedItem(),
 						txtSerigrafiadoEPrincipal.getText(), (String) comboPubliP.getSelectedItem(),
 						(String) comboCPS.getSelectedItem(), (String) comboCSS.getSelectedItem(), 
 						txtSerigrafiadoESeuandaria.getText(), (String) comboPubliS.getSelectedItem(), 0);
