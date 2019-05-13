@@ -8,8 +8,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import LN.clsGestorLN;
+
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -21,6 +26,7 @@ public class venEscudo extends JFrame implements ActionListener {
 	private JComboBox comboForma;
 	private JComboBox comboColor;
 	private JButton btnResgistrarse;
+	private clsGestorLN gestor = new clsGestorLN();
 	
 	public static final String ACTION_COMMAND_REGISTRARSE = "Registrarse";
 
@@ -89,11 +95,24 @@ public class venEscudo extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
 		switch (e.getActionCommand()) {
 		case ACTION_COMMAND_REGISTRARSE:
-			
+			if(!comboForma.getSelectedItem().equals("") || comboColor.getSelectedItem().equals("")) {
+				try {gestor.anadirEscudo((String) comboForma.getSelectedItem(), (String) comboColor.getSelectedItem());
+				}catch(Exception exv) {
+				}
+								
+				comboColor.setSelectedItem("");
+				comboForma.setSelectedItem("");
+				venEscudo obj = new venEscudo();
+				obj.setVisible(true);
+			}else {
+				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
+			}
 			break;
+			
+			
 		}
 	}
 }
