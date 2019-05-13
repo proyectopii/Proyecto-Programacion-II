@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 
 
-public class venInicio extends JFrame {
+public class venInicio extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 
@@ -70,12 +70,7 @@ public class venInicio extends JFrame {
 		
 		JButton btnCrearEquipo = new JButton();
 		btnCrearEquipo.setBounds(50, 74, 139, 150);
-		btnCrearEquipo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				venCrearEquipo obj = new venCrearEquipo();
-				obj.setVisible(true);
-			}
-		});
+		btnCrearEquipo.addActionListener(this);
 		btnCrearEquipo.setIcon(new ImageIcon(venInicio.class.getResource("/Imagenes/crearequipo4.png")));
 	
 		JButton btnContinuar = new JButton(new ImageIcon(venInicio.class.getResource("/Imagenes/login1.png")));
@@ -95,5 +90,12 @@ public class venInicio extends JFrame {
 		lblContinuar.setBounds(279, 222, 90, 29);
 		lblContinuar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		panel.add(lblContinuar);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		venCrearEquipo obj = new venCrearEquipo();
+		obj.setVisible(true);
 	}
 }

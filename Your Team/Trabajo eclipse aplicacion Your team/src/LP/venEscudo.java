@@ -107,8 +107,6 @@ public class venEscudo extends JFrame implements ActionListener {
 				comboForma.setSelectedItem("");
 				
 				JOptionPane.showMessageDialog(this, "El usuario es el nombre de equipo y el DNI la contraseña");
-				venEscudo obj = new venEscudo();
-				obj.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
