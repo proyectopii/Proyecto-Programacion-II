@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -24,7 +25,7 @@ import javax.swing.JButton;
 
 import LN.clsGestorLN;
 
-public class venEquipacion extends JFrame implements ActionListener {
+public class venEquipacion extends JDialog implements ActionListener {
 	
 	private clsGestorLN gestor = new clsGestorLN();
 
@@ -44,7 +45,8 @@ public class venEquipacion extends JFrame implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -55,12 +57,13 @@ public class venEquipacion extends JFrame implements ActionListener {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public venEquipacion() {
+	public venEquipacion(venCrearEquipo objequipo, boolean modal) {
+		super(objequipo, modal);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
@@ -183,8 +186,12 @@ public class venEquipacion extends JFrame implements ActionListener {
 								
 				txtSerigrafiadoEPrincipal.setText("");
 				txtSerigrafiadoESeuandaria.setText("");
-				venEscudo obj = new venEscudo();
+				venEscudo obj = new venEscudo(this, true);
 				obj.setVisible(true);
+				setModal(true);
+				/**
+				 * Sirve para que no puedas usar la ventana anterior
+				 */
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}

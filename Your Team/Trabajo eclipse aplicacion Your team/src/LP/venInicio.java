@@ -16,6 +16,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
@@ -95,7 +97,7 @@ public class venInicio extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		venCrearEquipo obj = new venCrearEquipo();
+		venCrearEquipo obj = new venCrearEquipo(this, true);
 		obj.setVisible(true);
 	}
 }

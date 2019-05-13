@@ -21,11 +21,12 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 
-public class venCrearEquipo extends JFrame implements ActionListener{
+public class venCrearEquipo extends JDialog implements ActionListener{
 
 	private JPanel contentPane;
 	private JTextField txtnombreequipo;
@@ -43,23 +44,27 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 	/**
 	 * Launch the application.
 	 */
+	
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					venCrearEquipo frame = new venCrearEquipo();
+					venCrearEquipo frame = new venCrearEquipo(this, true);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public venCrearEquipo() {
+	public venCrearEquipo(JFrame owner, boolean modal) {
+		super(owner, modal);
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
@@ -164,8 +169,12 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 				txtapellido2.setText("");
 				txtdni.setText("");
 				txtnombreequipo.setText("");
-				venEquipacion obj = new venEquipacion();
+				venEquipacion obj = new venEquipacion(this, true);
 				obj.setVisible(true);
+				setModal(true);
+				/**
+				 * Sirve para que no puedas usar la ventana anterior
+				 */
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}

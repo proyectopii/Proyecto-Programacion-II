@@ -17,10 +17,11 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
-public class venEscudo extends JFrame implements ActionListener {
+public class venEscudo extends JDialog implements ActionListener {
 
 	private JPanel contentPane;
 	private JComboBox comboForma;
@@ -33,7 +34,8 @@ public class venEscudo extends JFrame implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -44,12 +46,13 @@ public class venEscudo extends JFrame implements ActionListener {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public venEscudo() {
+	public venEscudo(venEquipacion objequipacion, boolean modal) {
+		super(objequipacion, modal);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
@@ -107,6 +110,8 @@ public class venEscudo extends JFrame implements ActionListener {
 				comboForma.setSelectedItem("");
 				
 				JOptionPane.showMessageDialog(this, "El usuario es el nombre de equipo y el DNI la contraseña");
+				setVisible(true);
+				setModal(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
