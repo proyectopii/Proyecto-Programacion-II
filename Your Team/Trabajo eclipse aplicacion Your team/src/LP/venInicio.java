@@ -24,6 +24,9 @@ import javax.swing.border.BevelBorder;
 public class venInicio extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	
+	private static final String ACTION_COMMAND_CREAREQUIPO = "Crear equipo";
+	private static final String ACTION_COMMAND_INICIARSESION = "Iniciar Sesion";
 
 	/**
 	 * Launch the application.
@@ -71,11 +74,14 @@ public class venInicio extends JFrame implements ActionListener {
 		JButton btnCrearEquipo = new JButton();
 		btnCrearEquipo.setBounds(50, 74, 139, 150);
 		btnCrearEquipo.addActionListener(this);
+		btnCrearEquipo.setActionCommand(ACTION_COMMAND_CREAREQUIPO);
 		btnCrearEquipo.setIcon(new ImageIcon(venInicio.class.getResource("/Imagenes/crearequipo4.png")));
 	
 		JButton btnContinuar = new JButton(new ImageIcon(venInicio.class.getResource("/Imagenes/login1.png")));
 		btnContinuar.setBounds(238, 74, 139, 150);
 		panel.setLayout(null);
+		btnContinuar.setActionCommand(ACTION_COMMAND_INICIARSESION);
+		btnContinuar.addActionListener(this);
 		panel.add(lblBienvenidoAYour);
 		panel.add(lblLaAppDonde);
 		panel.add(btnCrearEquipo);
@@ -90,12 +96,21 @@ public class venInicio extends JFrame implements ActionListener {
 		lblContinuar.setBounds(279, 222, 90, 29);
 		lblContinuar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		panel.add(lblContinuar);
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		venCrearEquipo obj = new venCrearEquipo();
-		obj.setVisible(true);
-	}
+		switch(e.getActionCommand()) {
+		case ACTION_COMMAND_CREAREQUIPO:
+			venCrearEquipo obj1 = new venCrearEquipo();
+			obj1.setVisible(true);
+			break;
+			
+		case ACTION_COMMAND_INICIARSESION:
+			venIniciarSesion obj2 = new venIniciarSesion();
+			obj2.setVisible(true);
+			break;
+		}
+}
 }
