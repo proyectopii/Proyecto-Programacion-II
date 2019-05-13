@@ -979,7 +979,7 @@ public class clsGestorLN {
 	 * @param anioTemporada
 	 * @return
 	 */
-	public boolean addTemporada(int puestos, String trofeos, Date anioTemporada) {
+	public boolean anadirTemporada(int puestos, String trofeos, Date anioTemporada) {
 		clsTemporada t = new clsTemporada(puestos, trofeos, anioTemporada);
 
 		if (tutemporada.contains(t) == true) {
@@ -1103,7 +1103,7 @@ public class clsGestorLN {
 	/**
 	 * Aqui añadiremos manager nos ayudaremos del contains
 	 */
-	public boolean addManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
+	public boolean anadirManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion) throws clsExcepcionManagerRepetido {
 		/**
 		 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y

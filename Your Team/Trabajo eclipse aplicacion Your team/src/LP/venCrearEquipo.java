@@ -148,7 +148,7 @@ public class venCrearEquipo extends JFrame implements ActionListener{
 		case ACTION_COMMAND_SIGUIENTE:
 			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") ||
 					txtdni.getText().equals("") || txtnombreequipo.getText().equals(""))) {
-				try {gestor.addManager(txtnombre.getText(),
+				try {gestor.anadirManager(txtnombre.getText(),
 						txtapellido1.getText(),
 						txtapellido2.getText(),
 						txtdni.getText(),
