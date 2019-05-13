@@ -134,16 +134,20 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		char[] clave = txtcontraseña.getPassword();
-		String clavefinal = new String(clave);
-		
-		if(txtusuario.getText().equals("nombreequipo") && clavefinal.equals("nombreequipo")) {
-			JOptionPane.showMessageDialog(null, "Que bueno que viniste", clavefinal, JOptionPane.INFORMATION_MESSAGE);
-		}else{
-			JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");
+		switch(e.getActionCommand()) {
+			case ACTION_COMMAND_LOGIN:
+				char[] clave = txtcontraseña.getPassword();
+				String clavefinal = new String(clave);
+				
+				if(txtusuario.getText().equals("nombreequipo") && clavefinal.equals("nombreequipo")) {
+					JOptionPane.showMessageDialog(null, "Que bueno que viniste", clavefinal, JOptionPane.INFORMATION_MESSAGE);
+					venMostrarEquipo obj = new venMostrarEquipo(this, true);
+					obj.setVisible(true);
+					setModal(true);
+				}else{
+					JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto");
+				}
+				break;
 		}
-		
-		setVisible(true);
-		setModal(true);
 	}
 }
