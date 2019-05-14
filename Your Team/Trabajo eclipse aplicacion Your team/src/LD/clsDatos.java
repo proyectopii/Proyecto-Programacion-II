@@ -204,7 +204,7 @@ public class clsDatos {
 			 * Aqui haremos una select
 			 */
 
-			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where Nombre equipo = '" + nombreEquipo + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where 'Nombre equipo' = '" + nombreEquipo + "'");
 
 			return rs;
 		} catch (SQLException se) {
@@ -231,7 +231,7 @@ public class clsDatos {
 			 * Hacemos una select de su nombre
 			 */
 
-			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipo where Nombre equipo = '" + nombreEquipo + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipo where 'Nombre equipo' = '" + nombreEquipo + "'");
 
 			System.out.println("SELECT * FROM equipo where Nombre equipo = '" + nombreEquipo + "'");
 
@@ -266,7 +266,7 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipo values(" + nombreEquipo +"'" + fundacionEquipo+")";
+				String query = "insert into Equipo values('" + nombreEquipo +"','" + fundacionEquipo+"')";
 
 				sentencia.executeUpdate(query);
 				/**

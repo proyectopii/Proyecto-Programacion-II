@@ -20,6 +20,8 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class venEscudo extends JDialog implements ActionListener {
 
@@ -64,36 +66,67 @@ public class venEscudo extends JDialog implements ActionListener {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.ORANGE);
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
 		
 		JLabel lblHoraDeCrear = new JLabel("Hora de crear el escudo");
 		lblHoraDeCrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
-		lblHoraDeCrear.setBounds(119, 11, 188, 14);
-		panel.add(lblHoraDeCrear);
 		
 		JLabel lblElijeFormaDel = new JLabel("Elije forma del escudo");
-		lblElijeFormaDel.setBounds(60, 61, 113, 14);
-		panel.add(lblElijeFormaDel);
 		
 		comboForma = new JComboBox();
 		comboForma.setModel(new DefaultComboBoxModel(new String[] {"Circulo", "Triangulo", "Heptagono", "Octagono", "Hexagono"}));
-		comboForma.setBounds(70, 86, 87, 22);
-		panel.add(comboForma);
 		
 		JLabel lblqueColorQuieres = new JLabel("\u00BFQue color quieres?");
-		lblqueColorQuieres.setBounds(60, 145, 113, 14);
-		panel.add(lblqueColorQuieres);
 		
 		comboColor = new JComboBox();
 		comboColor.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
-		comboColor.setBounds(70, 170, 87, 22);
-		panel.add(comboColor);
 		
 		btnResgistrarse = new JButton("Registrarse");
 		btnResgistrarse.addActionListener(this);
 		btnResgistrarse.setActionCommand(ACTION_COMMAND_REGISTRARSE);
-		btnResgistrarse.setBounds(242, 120, 89, 23);
-		panel.add(btnResgistrarse);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(119)
+							.addComponent(lblHoraDeCrear, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(70)
+							.addComponent(comboForma, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(242)
+							.addComponent(btnResgistrarse, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(70)
+							.addComponent(comboColor, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(60)
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(lblqueColorQuieres, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(lblElijeFormaDel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))))
+					.addContainerGap(110, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(11)
+					.addComponent(lblHoraDeCrear, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addGap(36)
+					.addComponent(lblElijeFormaDel)
+					.addGap(11)
+					.addComponent(comboForma, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(12)
+							.addComponent(btnResgistrarse))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(37)
+							.addComponent(lblqueColorQuieres)))
+					.addGap(11)
+					.addComponent(comboColor, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
+		);
+		panel.setLayout(gl_panel);
 	}
 
 	@Override
