@@ -25,6 +25,8 @@ import javax.swing.JDialog;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class venCrearEquipo extends JDialog implements ActionListener{
 
@@ -78,73 +80,120 @@ public class venCrearEquipo extends JDialog implements ActionListener{
 		panel.setBackground(Color.RED);
 		panel.setForeground(Color.WHITE);
 		contentPane.add(panel);
-		panel.setLayout(null);
 		
 		JLabel lblcomoQuieresLlamar = new JLabel("\u00BFComo quieres llamar a tu equipo?");
-		lblcomoQuieresLlamar.setBounds(238, 169, 163, 14);
-		panel.add(lblcomoQuieresLlamar);
 		
 		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager y\t el equipo, te ayudare");
-		lblVamosACrear.setBounds(24, 11, 394, 24);
 		lblVamosACrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
-		panel.add(lblVamosACrear);
 		
 		txtnombreequipo = new JTextField();
-		txtnombreequipo.setBounds(238, 194, 137, 20);
-		panel.add(txtnombreequipo);
 		txtnombreequipo.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u00BFComo te llamas?");
-		lblNewLabel.setBounds(29, 57, 93, 14);
-		panel.add(lblNewLabel);
 		
 		txtnombre = new JTextField();
-		txtnombre.setBounds(29, 82, 108, 20);
-		panel.add(txtnombre);
 		txtnombre.setColumns(10);
 		
 		JLabel lblcomoTeApellidas = new JLabel("\u00BFCual es tu primer apellido?");
-		lblcomoTeApellidas.setBounds(29, 113, 143, 14);
-		panel.add(lblcomoTeApellidas);
 		
 		txtapellido1 = new JTextField();
-		txtapellido1.setBounds(29, 138, 108, 20);
-		panel.add(txtapellido1);
 		txtapellido1.setColumns(10);
 		
 		JLabel lblAadeleUnDni = new JLabel("A\u00F1adele un DNI");
-		lblAadeleUnDni.setBounds(238, 57, 86, 14);
-		panel.add(lblAadeleUnDni);
 		
 		txtdni = new JTextField();
-		txtdni.setBounds(238, 82, 93, 20);
-		panel.add(txtdni);
 		txtdni.setColumns(10);
 		
 		JLabel lblcualTuGenero = new JLabel("\u00BFCual tu genero?");
-		lblcualTuGenero.setBounds(238, 113, 93, 14);
-		panel.add(lblcualTuGenero);
 		
 		combosexo = new JComboBox();
 		combosexo.setModel(new DefaultComboBoxModel(new String[] {"Otro", "Femenino", "Masculino"}));
-		combosexo.setBounds(238, 136, 93, 22);
-		
-		panel.add(combosexo);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(this);
-		btnSiguiente.setBounds(316, 229, 89, 23);
-		panel.add(btnSiguiente);
 		
 		JLabel lblcualEsTu = new JLabel("\u00BFCual es tu segundo apellido?");
-		lblcualEsTu.setBounds(29, 169, 155, 14);
-		panel.add(lblcualEsTu);
 		
 		txtapellido2 = new JTextField();
-		txtapellido2.setBounds(29, 194, 108, 20);
-		panel.add(txtapellido2);
 		txtapellido2.setColumns(10);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(24)
+							.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblcomoTeApellidas, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)
+							.addGap(66)
+							.addComponent(lblcualTuGenero, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(29)
+							.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+							.addGap(101)
+							.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblcualEsTu, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)
+							.addGap(54)
+							.addComponent(lblcomoQuieresLlamar))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(29)
+							.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+							.addGap(101)
+							.addComponent(txtnombreequipo, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(316)
+							.addComponent(btnSiguiente, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(29)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
+							.addGap(80)
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblAadeleUnDni, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))))
+					.addGap(23))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(11)
+					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addGap(22)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(lblAadeleUnDni))
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblcomoTeApellidas)
+						.addComponent(lblcualTuGenero))
+					.addGap(9)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(2)
+							.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblcomoQuieresLlamar)
+						.addComponent(lblcualEsTu))
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtnombreequipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(15)
+					.addComponent(btnSiguiente))
+		);
+		panel.setLayout(gl_panel);
 		
 	}
 	
