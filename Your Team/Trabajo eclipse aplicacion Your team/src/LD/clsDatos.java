@@ -252,7 +252,7 @@ public class clsDatos {
 	 * @param nombreEquipo
 	 * @param fundacionEquipo
 	 */
-	public void insertarEquipo(String nombreEquipo, Date fundacionEquipo) {
+	public void insertarEquipo(String nombreEquipo, Date fundacionEquipo, String dni) {
 		try {
 			gbd.connect();
 
@@ -264,7 +264,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipo values('" + nombreEquipo +"','" + fundacionEquipo+"')";
+				String query = "insert into Equipo values(null,'" + nombreEquipo +"','" + fundacionEquipo + dni + "','" +
+						"')";
 
 				sentencia.executeUpdate(query);
 				/**
