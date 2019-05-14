@@ -233,8 +233,6 @@ public class clsDatos {
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipo where 'Nombre equipo' = '" + nombreEquipo + "'");
 
-			System.out.println("SELECT * FROM equipo where Nombre equipo = '" + nombreEquipo + "'");
-
 			if (rs.first() == false) {
 				return false;
 			} else {
@@ -1100,11 +1098,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into manager values('" + nombre +"','" + apellido1 +"','" + apellido2 +"','" + dni +"','" + sexo +"','" + calidad+
-						"','"+ valoracion +"')";
-
-				System.out.println( query );
-				
+				String query = "insert into manager values('" + nombre + "','" + apellido1 + "','" + apellido2 + "','" + dni + "','" + 
+				sexo + "','" + calidad + "'," + valoracion +")";
 				
 				sentencia.executeUpdate(query);
 			} else {

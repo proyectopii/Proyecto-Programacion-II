@@ -1102,6 +1102,7 @@ public class clsGestorLN {
 	// -------------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * Aqui añadiremos manager nos ayudaremos del contains
+	 * @param  
 	 */
 	public boolean anadirManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion) throws clsExcepcionManagerRepetido {
