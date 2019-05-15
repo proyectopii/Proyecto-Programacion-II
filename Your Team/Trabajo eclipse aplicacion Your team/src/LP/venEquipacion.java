@@ -62,7 +62,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public venEquipacion(venCrearEquipo objequipo, boolean modal) {
+	public venEquipacion(venManager objequipo, boolean modal) {
 		super(objequipo, modal);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);

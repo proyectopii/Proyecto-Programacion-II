@@ -31,7 +31,7 @@ public class venEscudo extends JDialog implements ActionListener {
 	private JButton btnResgistrarse;
 	private clsGestorLN gestor = new clsGestorLN();
 	
-	public static final String ACTION_COMMAND_REGISTRARSE = "Registrarse";
+	public static final String ACTION_COMMAND_SIGUIENTE = "Registrarse";
 
 	/**
 	 * Launch the application.
@@ -82,7 +82,7 @@ public class venEscudo extends JDialog implements ActionListener {
 		
 		btnResgistrarse = new JButton("Registrarse");
 		btnResgistrarse.addActionListener(this);
-		btnResgistrarse.setActionCommand(ACTION_COMMAND_REGISTRARSE);
+		btnResgistrarse.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -133,7 +133,7 @@ public class venEscudo extends JDialog implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		switch (e.getActionCommand()) {
-		case ACTION_COMMAND_REGISTRARSE:
+		case ACTION_COMMAND_SIGUIENTE:
 			if(!comboForma.getSelectedItem().equals("") || comboColor.getSelectedItem().equals("")) {
 				try {gestor.anadirEscudo((String) comboForma.getSelectedItem(), (String) comboColor.getSelectedItem());
 				}catch(Exception exv) {

@@ -106,7 +106,7 @@ public class venInicio extends JFrame implements ActionListener {
 	
 		switch(e.getActionCommand()){
 		case ACTION_COMMAND_CREAREQUIPO:
-			venCrearEquipo obj1 = new venCrearEquipo(this, true);
+			venManager obj1 = new venManager(this, true);
 			obj1.setVisible(true);
 			break;
 			

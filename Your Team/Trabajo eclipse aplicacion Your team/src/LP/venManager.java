@@ -28,8 +28,11 @@ import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import com.toedter.calendar.JDateChooser;
 
-public class venCrearEquipo extends JDialog implements ActionListener{
+
+
+public class venManager extends JDialog implements ActionListener{
 
 	private JPanel contentPane;
 	private JTextField txtnombreequipo;
@@ -66,7 +69,7 @@ public class venCrearEquipo extends JDialog implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public venCrearEquipo(JFrame owner, boolean modal) {
+	public venManager(JFrame owner, boolean modal) {
 		super(owner, modal);
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -124,6 +127,8 @@ public class venCrearEquipo extends JDialog implements ActionListener{
 		
 		combocalidad = new JComboBox();
 		combocalidad.setModel(new DefaultComboBoxModel(new String[] {"Bronce", "Plata", "Oro"}));
+		
+		JDateChooser dateChooser = new JDateChooser();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -156,17 +161,19 @@ public class venCrearEquipo extends JDialog implements ActionListener{
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblAadeleUnDni, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
 								.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 							.addGroup(gl_panel.createSequentialGroup()
 								.addGap(29)
 								.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+								.addPreferredGap(ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+								.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGap(30)
 								.addComponent(btnSiguiente, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-							.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+							.addGroup(gl_panel.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(lblElijeCalidadDel, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 159, Short.MAX_VALUE))
-							.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+								.addPreferredGap(ComponentPlacement.RELATED, 265, Short.MAX_VALUE))
+							.addGroup(gl_panel.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(lblcualEsTu, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)
 								.addGap(54)
@@ -211,7 +218,9 @@ public class venCrearEquipo extends JDialog implements ActionListener{
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED))
-						.addComponent(btnSiguiente))
+						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+							.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(btnSiguiente)))
 					.addGap(16))
 		);
 		panel.setLayout(gl_panel);
