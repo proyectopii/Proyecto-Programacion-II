@@ -232,6 +232,7 @@ public class venCrearEquipo extends JDialog implements ActionListener{
 						0);
 					gestor.anadirEquipo(txtnombreequipo.getText(), null);
 				}catch(Exception exv) {
+					System.out.println(exv.getMessage());
 				}
 								
 				txtnombre.setText("");

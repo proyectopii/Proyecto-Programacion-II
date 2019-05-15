@@ -137,6 +137,7 @@ public class venEscudo extends JDialog implements ActionListener {
 			if(!comboForma.getSelectedItem().equals("") || comboColor.getSelectedItem().equals("")) {
 				try {gestor.anadirEscudo((String) comboForma.getSelectedItem(), (String) comboColor.getSelectedItem());
 				}catch(Exception exv) {
+					System.out.println(exv.getMessage());
 				}
 								
 				comboColor.setSelectedItem("");
