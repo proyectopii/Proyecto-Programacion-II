@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"COMUN"},{"l":"LD"},{"l":"LN"},{"l":"LP"}]
