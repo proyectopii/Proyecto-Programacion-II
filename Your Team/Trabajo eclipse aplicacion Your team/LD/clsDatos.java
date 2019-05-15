@@ -264,8 +264,9 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipo values(null,'" + nombreEquipo +"','" + fundacionEquipo + "','" +
+				String query = "insert into Equipo(id,niombre,asdas) values(null,'" + nombreEquipo +"','" + fundacionEquipo + "','" +
 						"')";
+				
 
 				sentencia.executeUpdate(query);
 				/**
