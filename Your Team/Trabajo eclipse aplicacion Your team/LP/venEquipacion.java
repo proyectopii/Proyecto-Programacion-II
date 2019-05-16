@@ -241,7 +241,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 						(String) comboCPS.getSelectedItem(), (String) comboCSS.getSelectedItem(), 
 						txtSerigrafiadoESeuandaria.getText(), (String) comboPubliS.getSelectedItem(), 0);
 				}catch(Exception exv) {
-					System.out.println(exv.getMessage());
+					JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
 								
 				txtSerigrafiadoEPrincipal.setText("");

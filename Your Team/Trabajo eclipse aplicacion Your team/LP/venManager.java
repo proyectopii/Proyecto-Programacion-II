@@ -241,7 +241,7 @@ public class venManager extends JDialog implements ActionListener{
 						0);
 					gestor.anadirEquipo(txtnombreequipo.getText(), null);
 				}catch(Exception exv) {
-					System.out.println(exv.getMessage());
+				JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
 								
 				txtnombre.setText("");
