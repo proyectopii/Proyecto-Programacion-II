@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.Color;
@@ -19,11 +21,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 
 
-public class venInicio extends JFrame implements ActionListener {
+public class venInicio extends JFrame implements ActionListener, WindowListener {
 
 	private JPanel contentPane;
 	
@@ -50,8 +54,9 @@ public class venInicio extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public venInicio() {
+		addWindowListener(this);
 		setBackground(new Color(255, 255, 255));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(155, 89, 182));
@@ -116,4 +121,42 @@ public class venInicio extends JFrame implements ActionListener {
 			break;
 		}
 }
+
+
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		int r=JOptionPane.showConfirmDialog(this, "¿Estas seguro?",
+				"Salir",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null);
+		if(r==JOptionPane.YES_OPTION) {
+			System.exit(0);
+		}
+		
+	}
+	@Override
+	public void windowOpened(WindowEvent e) {		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+	}
+	
+    @Override
+	public void windowIconified(WindowEvent e) {	
+	}
+    
+    @Override
+	public void windowDeiconified(WindowEvent e) {	
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {	
+	}
 }
