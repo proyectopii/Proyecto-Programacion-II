@@ -35,7 +35,6 @@ import com.toedter.calendar.JDateChooser;
 public class venManager extends JDialog implements ActionListener{
 
 	private JPanel contentPane;
-	private JTextField txtnombreequipo;
 	private JTextField txtnombre;
 	private JTextField txtapellido1;
 	private JTextField txtdni;
@@ -84,15 +83,10 @@ public class venManager extends JDialog implements ActionListener{
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.RED);
 		panel.setForeground(Color.WHITE);
-		contentPane.add(panel);
+		contentPane.add(panel, BorderLayout.NORTH);
 		
-		JLabel lblcomoQuieresLlamar = new JLabel("\u00BFComo quieres llamar a tu equipo?");
-		
-		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager y\t el equipo, te ayudare");
+		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager, te ayudare");
 		lblVamosACrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
-		
-		txtnombreequipo = new JTextField();
-		txtnombreequipo.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("\u00BFComo te llamas?");
 		
@@ -127,100 +121,86 @@ public class venManager extends JDialog implements ActionListener{
 		
 		combocalidad = new JComboBox();
 		combocalidad.setModel(new DefaultComboBoxModel(new String[] {"Bronce", "Plata", "Oro"}));
-		
-		JDateChooser dateChooser = new JDateChooser();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
+			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(24)
-							.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnSiguiente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(lblcomoTeApellidas, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)
-							.addGap(66)
-							.addComponent(lblcualTuGenero, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE))
+							.addComponent(lblcualEsTu, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(29)
-							.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-							.addGap(101)
-							.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(29)
-							.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-							.addGap(101)
-							.addComponent(txtnombreequipo, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(29)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
-							.addGap(80)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblAadeleUnDni, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-							.addGroup(gl_panel.createSequentialGroup()
-								.addGap(29)
-								.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-								.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
-								.addGap(30)
-								.addComponent(btnSiguiente, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-							.addGroup(gl_panel.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(lblElijeCalidadDel, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 265, Short.MAX_VALUE))
-							.addGroup(gl_panel.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(lblcualEsTu, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)
-								.addGap(54)
-								.addComponent(lblcomoQuieresLlamar))))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGap(29)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+									.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+										.addGroup(gl_panel.createSequentialGroup()
+											.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
+											.addGap(21))
+										.addGroup(gl_panel.createSequentialGroup()
+											.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
+											.addGap(19))))
+								.addGroup(gl_panel.createSequentialGroup()
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_panel.createSequentialGroup()
+											.addGap(29)
+											.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_panel.createSequentialGroup()
+											.addContainerGap()
+											.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_panel.createSequentialGroup()
+											.addContainerGap()
+											.addComponent(lblcomoTeApellidas, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)))
+									.addGap(37)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblcualTuGenero, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblElijeCalidadDel, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+											.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+											.addComponent(lblAadeleUnDni, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)))))
+							.addGap(66)))
 					.addGap(81))
+				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+					.addGap(65)
+					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 310, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(91, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(11)
-					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 					.addGap(22)
+					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel)
 						.addComponent(lblAadeleUnDni))
 					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblcomoTeApellidas)
 						.addComponent(lblcualTuGenero))
-					.addGap(9)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(2)
-							.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
 					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblcomoQuieresLlamar)
-						.addComponent(lblcualEsTu))
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblcualEsTu)
+						.addComponent(lblElijeCalidadDel))
 					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtnombreequipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addComponent(lblElijeCalidadDel)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED))
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-							.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(btnSiguiente)))
+						.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(28)
+					.addComponent(btnSiguiente)
 					.addGap(16))
 		);
 		panel.setLayout(gl_panel);
@@ -231,7 +211,7 @@ public class venManager extends JDialog implements ActionListener{
 		switch(e.getActionCommand()) {
 		case ACTION_COMMAND_SIGUIENTE:
 			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") ||
-					txtdni.getText().equals("") || txtnombreequipo.getText().equals(""))) {
+					txtdni.getText().equals(""))) {
 				try {gestor.anadirManager(txtnombre.getText(),
 						txtapellido1.getText(),
 						txtapellido2.getText(),
@@ -239,7 +219,6 @@ public class venManager extends JDialog implements ActionListener{
 						(String)combosexo.getSelectedItem(),
 						(String)combocalidad.getSelectedItem(),						
 						0);
-					gestor.anadirEquipo(txtnombreequipo.getText(), null);
 				}catch(Exception exv) {
 				JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
@@ -248,7 +227,6 @@ public class venManager extends JDialog implements ActionListener{
 				txtapellido1.setText("");
 				txtapellido2.setText("");
 				txtdni.setText("");
-				txtnombreequipo.setText("");
 				venEquipacion obj = new venEquipacion(this, true);
 				obj.setVisible(true);
 				setModal(true);

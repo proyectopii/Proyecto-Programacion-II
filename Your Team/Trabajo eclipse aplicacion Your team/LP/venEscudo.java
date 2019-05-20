@@ -31,7 +31,7 @@ public class venEscudo extends JDialog implements ActionListener {
 	private JButton btnResgistrarse;
 	private clsGestorLN gestor = new clsGestorLN();
 	
-	public static final String ACTION_COMMAND_SIGUIENTE = "Registrarse";
+	public static final String ACTION_COMMAND_SIGUIENTE = "Siguiente";
 
 	/**
 	 * Launch the application.
@@ -144,7 +144,9 @@ public class venEscudo extends JDialog implements ActionListener {
 				comboForma.setSelectedItem("");
 				
 				JOptionPane.showMessageDialog(this, "El usuario es el nombre de equipo y el DNI la contraseña");
-				setVisible(true);
+				
+				venEquipo obj = new venEquipo(this, true);
+				obj.setVisible(true);
 				setModal(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
