@@ -21,21 +21,15 @@ public class clsConstantesBD {
 	public static final String  SELECT_SQL_EQUIPACION="SELECT * FROM Equipacion where color1=?";
 	public static final String SELECT_SQL_EQUIPO="SELECT * FROM  where Nombre equipo=?";
 	public static final String SELECT_SQL_ESCUDO="SELECT * FROM  where forma escudo =?";
-	public static final String SELECT_SQLINTERCAMBIO="SELECT * FROM  where Equipo origen y Equipo destino =?";
+	public static final String SELECT_SQLINTERCAMBIO="SELECT * FROM  where Equipo origen and Equipo destino =?";
 	public static final String SELECT_SQL_JUGADOR="SELECT * FROM Jugador  where idJugador =?";
 	public static final String SELECT_SQL_PARTIDOS="SELECT * FROM Jugador where Skills =?";
 	public static final String SELECT_SQL_TEMPORADA="SELECT * FROM temporada where Puestos y Trofeos y Anio temporada  =?";
 	
 	
 	
-	public static final String INSERT_SQL_MANAGER=INSERT INTO `mydb`.`manager`
-			(`Nombre`,
-					`Apellido1`,
-					`Apellido2`,
-					`dni`,
-					`Sexo`,
-					`Calidad`,
-					`Valoracion`)
-
+	public static final String INSERT_SQL_MANAGER=	"INSERT INTO `mydb`.`manager`"
+													+ "(`Nombre`,`Apellido1`,`Apellido2`,`dni`,`Sexo`,"
+													+ "`Calidad`,`Valoracion`)";
 
 }
