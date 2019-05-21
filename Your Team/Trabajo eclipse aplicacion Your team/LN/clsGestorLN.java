@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import LD.clsDatos;
+import LD.clsDatosBD;
 import COMUN.Constantes;
 import COMUN.clsExcepcionEquipacionRepetida;
 import COMUN.clsExcepcionEquipoRepetido;
@@ -27,6 +28,7 @@ import COMUN.itfProperty;
 
 public class clsGestorLN {
 	private clsDatos clsDatos = new clsDatos();
+	private clsDatosBD clsDatosBD = new clsDatosBD();
 
 	/**
 	 * Aqu? creamos el Arraylist privado donde guardaremos los equipos
@@ -100,7 +102,7 @@ public class clsGestorLN {
 		} else {
 			tuequipacion.add(eq);
 
-			clsDatos.insertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
+			clsDatosBD.InsertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
 					serigrafiadoP, serigrafiadoS, dorsal);
 
 			return true;
@@ -197,7 +199,7 @@ public class clsGestorLN {
 		try {
 			ArrayList<clsEquipacion> temp = new ArrayList<>();
 
-			ResultSet rs = clsDatos.cargarEquipaciones();// Nos ayudaremos de la base de datos para poder para poder
+			ResultSet rs = clsDatosBD.CargarEquipacion();// Nos ayudaremos de la base de datos para poder para poder
 															// recuperarlo
 
 			while (rs.next()) {
@@ -241,7 +243,7 @@ public class clsGestorLN {
 			String serigrafiadoS = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS);
 			int DORSAL = (int) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_DORSAL);
 
-			clsDatos.insertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+			clsDatosBD.InsertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
 					serigrafiadoS, DORSAL);// Aqui es cuando lo
 																							
 		}
