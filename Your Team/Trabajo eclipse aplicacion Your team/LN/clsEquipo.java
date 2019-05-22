@@ -3,7 +3,7 @@ package LN;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO;
 import static COMUN.Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

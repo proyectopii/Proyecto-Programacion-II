@@ -257,7 +257,8 @@ public class clsGestorLN {
 	 * @param fundacionEquipo
 	 * @return
 	 */
-	public boolean anadirEquipo(String nombreEquipo, Date fundacionEquipo) throws clsExcepcionEquipoRepetido {
+	public boolean anadirEquipo(String nombreEquipo, java.util.Date fundacionEquipo) throws clsExcepcionEquipoRepetido {
+		
 		clsEquipo e = new clsEquipo(nombreEquipo, fundacionEquipo);
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
