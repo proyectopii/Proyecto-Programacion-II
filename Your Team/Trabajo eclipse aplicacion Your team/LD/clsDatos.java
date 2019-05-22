@@ -253,6 +253,8 @@ public class clsDatos {
 	 * @param fundacionEquipo
 	 */
 	public void insertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo) {
+		java.sql.Date dateequipo = new java.sql.Date(fundacionEquipo.getTime()); 
+		
 		try {
 			gbd.connect();
 
@@ -264,7 +266,7 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipo(id,niombre,asdas) values(null,'" + nombreEquipo +"','" + fundacionEquipo + "','" +
+				String query = "insert into Equipo(id,niombre,asdas) values(null,'" + nombreEquipo +"','" + dateequipo + "','" +
 						"')";
 				
 

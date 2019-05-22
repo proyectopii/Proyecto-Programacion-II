@@ -138,7 +138,7 @@ public class venEquipo extends JDialog implements ActionListener {
 					.addContainerGap(17, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
-	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -165,5 +165,4 @@ public class venEquipo extends JDialog implements ActionListener {
 			break;
 		}
 	}
-}
 

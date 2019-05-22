@@ -167,8 +167,9 @@ public class clsDatosBD {
 			
 	 }
 	//--------------------------------------------------------------------------------------------------
-	 public  int InsertarEquipo(String nombreEquipo, Date fundacionEquipo)
+	 public  int InsertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo)
 	 {
+		 java.sql.Date dateequipo = new java.sql.Date (fundacionEquipo.getTime());
 		 
 		 int regActualizados=0;
 		 int retorno=0;
@@ -177,7 +178,7 @@ public class clsDatosBD {
 		 {
 			ps= conn.prepareStatement(INSERT_SQL_EQUIPO,PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nombreEquipo);
-			ps.setDate(2, fundacionEquipo);
+			ps.setDate(2, dateequipo);
 			
 			
 			
