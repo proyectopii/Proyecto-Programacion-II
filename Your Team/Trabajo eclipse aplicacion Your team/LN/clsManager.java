@@ -100,4 +100,11 @@ public class clsManager extends clsPersona implements itfProperty {
 
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((calidad == null) ? 0 : calidad.hashCode());
+		return result;
+	}
 }

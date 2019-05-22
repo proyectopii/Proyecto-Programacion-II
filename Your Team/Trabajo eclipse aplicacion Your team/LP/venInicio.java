@@ -30,7 +30,6 @@ import javax.swing.border.BevelBorder;
 public class venInicio extends JFrame implements ActionListener, WindowListener {
 
 	private JPanel contentPane;
-	private JFrame ventana = new JFrame("Your Team");
 	
 	private static final String ACTION_COMMAND_CREAREQUIPO = "Crear equipo";
 	private static final String ACTION_COMMAND_INICIARSESION = "Iniciar Sesion";
@@ -55,9 +54,9 @@ public class venInicio extends JFrame implements ActionListener, WindowListener 
 	 * Create the frame.
 	 */
 	public venInicio() {
-		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
 		setBackground(new Color(255, 255, 255));
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(155, 89, 182));
