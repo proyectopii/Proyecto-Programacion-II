@@ -212,15 +212,19 @@ public class venManager extends JDialog implements ActionListener{
 		case ACTION_COMMAND_SIGUIENTE:
 			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") ||
 					txtdni.getText().equals(""))) {
-				try {gestor.anadirManager(txtnombre.getText(),
+				try 
+				{
+					gestor.anadirManager(txtnombre.getText(),
 						txtapellido1.getText(),
 						txtapellido2.getText(),
 						txtdni.getText(),
 						(String)combosexo.getSelectedItem(),
 						(String)combocalidad.getSelectedItem(),						
 						0);
-				}catch(Exception exv) {
-				JOptionPane.showMessageDialog(this,exv.getMessage());
+				}
+				catch(Exception exv) 
+				{
+					JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
 								
 				txtnombre.setText("");

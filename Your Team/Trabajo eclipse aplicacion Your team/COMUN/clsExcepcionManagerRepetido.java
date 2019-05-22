@@ -30,6 +30,6 @@ public class clsExcepcionManagerRepetido extends Exception {
 	}
 
 	public String getMessage() {
-		return mensaje;
+		return this.mensaje;
 	}
 }

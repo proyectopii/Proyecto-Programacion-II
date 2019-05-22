@@ -57,31 +57,9 @@ public class clsManager extends clsPersona implements itfProperty {
 	 * Generamos el hascode y equals para establecer un patron de ordenacion
 	 */
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((calidad == null) ? 0 : calidad.hashCode());
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		clsManager other = (clsManager) obj;
-		if (calidad == null) {
-			if (other.calidad != null)
-				return false;
-		} else if (!calidad.equals(other.calidad))
-			return false;
-		return true;
-	}
 
+	
 	/**
 	 * Aqui tenemos el get object property donde obtendremos los datos de manager
 	 */
