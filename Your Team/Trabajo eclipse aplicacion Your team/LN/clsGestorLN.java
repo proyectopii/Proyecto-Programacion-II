@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Connection;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -1133,7 +1134,7 @@ public class clsGestorLN {
 		listadoManagers.add(m7);
 		*/
 		
-		
+		clsDatosBD.Connect();
 		
 		/**
 		 * Llamamos al comparadaor por nombre para compararlo
@@ -1156,7 +1157,7 @@ public class clsGestorLN {
 			tumanager.add(m);
 
 			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
-
+          clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -1243,7 +1244,7 @@ public class clsGestorLN {
 
 		try {
 			ArrayList<clsManager> temp = new ArrayList<>();
-
+			clsDatosBD.Connect();
 			ResultSet rs = clsDatosBD.CargarManager();
 
 			while (rs.next()) {
@@ -1254,12 +1255,16 @@ public class clsGestorLN {
 
 				temp.add(manager);
 			}
-
+			clsDatosBD.Disconnect();
 			return temp;
+			
+			
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			return null;
+			
 		}
+		
 	}
 
 	/**
@@ -1267,7 +1272,7 @@ public class clsGestorLN {
 	 */
 
 	public void guardarManager() {
-
+clsDatosBD.Connect();
 		for (clsManager m : tumanager) {
 			String nombre = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE);
 			String apellido1 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1);
@@ -1279,7 +1284,7 @@ public class clsGestorLN {
 
 			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
 		}
-
+clsDatosBD.Disconnect();
 	}
 
 }

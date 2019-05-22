@@ -222,7 +222,7 @@ public class venManager extends JDialog implements ActionListener{
 						(String)combocalidad.getSelectedItem(),						
 						0);
 				}
-				catch(Exception exv) 
+				catch(clsExcepcionManagerRepetido exv) 
 				{
 					JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
