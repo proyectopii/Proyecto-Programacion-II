@@ -1155,7 +1155,7 @@ public class clsGestorLN {
 		else {
 			tumanager.add(m);
 
-			clsDatos.insertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
 
 			return true;
 		}
@@ -1244,7 +1244,7 @@ public class clsGestorLN {
 		try {
 			ArrayList<clsManager> temp = new ArrayList<>();
 
-			ResultSet rs = clsDatos.cargarManager();
+			ResultSet rs = clsDatosBD.CargarManager();
 
 			while (rs.next()) {
 
@@ -1277,7 +1277,7 @@ public class clsGestorLN {
 			String calidad = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
 			int valoracion = (int) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_VALORACION);
 
-			clsDatos.insertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
 		}
 
 	}
