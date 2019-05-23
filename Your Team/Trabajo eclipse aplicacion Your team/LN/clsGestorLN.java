@@ -1132,7 +1132,7 @@ public class clsGestorLN {
 	 * @param  
 	 */
 	public boolean anadirManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
-			String calidad, int valoracion) throws clsExcepcionManagerRepetido {
+			String calidad, int valoracion, String contrasenia) throws clsExcepcionManagerRepetido {
 		/**
 		 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y
 		 * valoracion
@@ -1169,7 +1169,7 @@ public class clsGestorLN {
 		 */
 
 		Collections.sort(listadoManagers, comp);
-		clsManager m =new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+		clsManager m =new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		if (tumanager.contains(m) == true) {
 			throw new clsExcepcionManagerRepetido("Manager Repetido");
 
@@ -1180,7 +1180,7 @@ public class clsGestorLN {
 		else {
 			tumanager.add(m);
 
-			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
           clsDatosBD.Disconnect();
 			return true;
 		}
@@ -1200,8 +1200,8 @@ public class clsGestorLN {
 	 */
 
 	public boolean cambioDeManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
-			String calidad, int valoracion) {
-		itfProperty datoABuscar = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			String calidad, int valoracion, String contrasenia) {
+		itfProperty datoABuscar = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 
 		int p = tumanager.indexOf(datoABuscar);
 
@@ -1225,7 +1225,7 @@ public class clsGestorLN {
 
 	public String consultarManager(String dni) {
 
-		itfProperty datoABuscar = new clsManager(null, null, null, dni, null, null, 0);
+		itfProperty datoABuscar = new clsManager(null, null, null, dni, null, null, 0, null);
 
 		int p = tumanager.indexOf(datoABuscar);
 
@@ -1252,8 +1252,8 @@ public class clsGestorLN {
 	 * @return
 	 */
 	public boolean borrarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
-			String calidad, int valoracion) {
-		clsManager manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			String calidad, int valoracion, String contrasenia) {
+		clsManager manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 
 		return tumanager.remove(manager);
 	}
@@ -1275,7 +1275,7 @@ public class clsGestorLN {
 
 				clsManager manager = new clsManager(rs.getString("nombre"), rs.getString("apellido1"),
 						rs.getString("apellido2"), rs.getString("dni"), rs.getString("sexo"), rs.getString("calidad"),
-						rs.getInt(0));
+						rs.getInt(0), rs.getString("contrasenia"));
 
 				temp.add(manager);
 			}
@@ -1305,8 +1305,9 @@ clsDatosBD.Connect();
 			String sexo = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_SEXO);
 			String calidad = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_CALIDAD);
 			int valoracion = (int) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_VALORACION);
+			String contrasenia = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsMANAGER_CONTRASENIA);
 
-			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion);
+			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		}
 clsDatosBD.Disconnect();
 	}

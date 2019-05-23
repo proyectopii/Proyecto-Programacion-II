@@ -2,6 +2,7 @@ package LN;
 
 import static COMUN.Constantes.PROPIEDAD_clsMANAGER_VALORACION;
 import static COMUN.Constantes.PROPIEDAD_clsMANAGER_CALIDAD;
+import static COMUN.Constantes.PROPIEDAD_clsMANAGER_CONTRASENIA;
 
 import java.sql.Date;
 
@@ -15,6 +16,7 @@ public class clsManager extends clsPersona implements itfProperty {
 	 */
 	private String calidad;
 	private int valoracion;
+	private String contrasenia;
 
 	/**
 	 * Aqui tenemos el constructor vacio
@@ -34,32 +36,27 @@ public class clsManager extends clsPersona implements itfProperty {
 	 * @param sexo
 	 * @param calidad
 	 * @param valoracion
+	 * @param contraseña
 	 */
 
 	public clsManager(String nombre, String apellido1, String apellido2, String dni, String sexo, String calidad,
-			int valoracion) {
+			int valoracion, String contraseña) {
 		super(nombre, apellido1, apellido2, dni, sexo);
 		this.calidad = calidad;
 		this.valoracion = valoracion;
+		this.contrasenia = contraseña;
 	}
 
 	/**
 	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
 	 * salgan los nombres
 	 */
-
+	
 	@Override
 	public String toString() {
-		return "clsManager [calidad=" + calidad + ", valoracion=" + valoracion + "]";
+		return "clsManager [calidad=" + calidad + ", valoracion=" + valoracion + ", contraseña=" + contrasenia + "]";
 	}
 
-	/**
-	 * Generamos el hascode y equals para establecer un patron de ordenacion
-	 */
-
-
-
-	
 	/**
 	 * Aqui tenemos el get object property donde obtendremos los datos de manager
 	 */
@@ -70,6 +67,8 @@ public class clsManager extends clsPersona implements itfProperty {
 			return this.valoracion;
 		case PROPIEDAD_clsMANAGER_CALIDAD:
 			return this.calidad;
+		case PROPIEDAD_clsMANAGER_CONTRASENIA:
+			return this.contrasenia;
 		/**
 		 * Aqui es donde propagaremos y lanzaremos la excepcion de run time exception de
 		 * itfproperty
@@ -95,7 +94,9 @@ public class clsManager extends clsPersona implements itfProperty {
 		case PROPIEDAD_clsMANAGER_CALIDAD:
 			calidad = ((String) valor);
 			break;
-
+		case PROPIEDAD_clsMANAGER_CONTRASENIA:
+			contrasenia = ((String) valor);
+			break;
 		}
 
 	}

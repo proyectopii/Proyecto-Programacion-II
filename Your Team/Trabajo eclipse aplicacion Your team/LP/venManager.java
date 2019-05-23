@@ -46,6 +46,7 @@ public class venManager extends JDialog implements ActionListener{
 	
 	private clsGestorLN gestor = new clsGestorLN();
 	private JTextField txtapellido2;
+	private JTextField txtcontrasenia;
 
 	/**
 	 * Launch the application.
@@ -121,9 +122,14 @@ public class venManager extends JDialog implements ActionListener{
 		
 		combocalidad = new JComboBox();
 		combocalidad.setModel(new DefaultComboBoxModel(new String[] {"Bronce", "Plata", "Oro"}));
+		
+		JLabel lblcontrasenia = new JLabel("\u00BFContrase\u00F1a?");
+		
+		txtcontrasenia = new JTextField();
+		txtcontrasenia.setColumns(10);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
+			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnSiguiente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
@@ -134,9 +140,12 @@ public class venManager extends JDialog implements ActionListener{
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_panel.createSequentialGroup()
 									.addGap(29)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
 										.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
+										.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_panel.createSequentialGroup()
+											.addGap(3)
+											.addComponent(txtcontrasenia)))
 									.addPreferredGap(ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
 									.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
 										.addGroup(gl_panel.createSequentialGroup()
@@ -165,10 +174,14 @@ public class venManager extends JDialog implements ActionListener{
 											.addComponent(lblAadeleUnDni, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)))))
 							.addGap(66)))
 					.addGap(81))
-				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(65)
 					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 310, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(91, Short.MAX_VALUE))
+					.addContainerGap(124, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblcontrasenia)
+					.addContainerGap(365, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -199,8 +212,15 @@ public class venManager extends JDialog implements ActionListener{
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(28)
-					.addComponent(btnSiguiente)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(28)
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnSiguiente)
+								.addComponent(txtcontrasenia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblcontrasenia)))
 					.addGap(16))
 		);
 		panel.setLayout(gl_panel);
@@ -211,7 +231,7 @@ public class venManager extends JDialog implements ActionListener{
 		switch(e.getActionCommand()) {
 		case ACTION_COMMAND_SIGUIENTE:
 			if(!(txtnombre.getText().equals("") || txtapellido1.getText().equals("") || txtapellido2.getText().equals("") ||
-					txtdni.getText().equals(""))) {
+					txtdni.getText().equals("") || txtcontrasenia.getText().equals(""))) {
 				try 
 				{
 					gestor.anadirManager(txtnombre.getText(),
@@ -220,7 +240,8 @@ public class venManager extends JDialog implements ActionListener{
 						txtdni.getText(),
 						(String)combosexo.getSelectedItem(),
 						(String)combocalidad.getSelectedItem(),						
-						0);
+						0,
+						txtcontrasenia.getText());
 				}
 				catch(clsExcepcionManagerRepetido exv) 
 				{
@@ -231,6 +252,7 @@ public class venManager extends JDialog implements ActionListener{
 				txtapellido1.setText("");
 				txtapellido2.setText("");
 				txtdni.setText("");
+				txtcontrasenia.setText("");
 				venEquipacion obj = new venEquipacion(this, true);
 				obj.setVisible(true);
 				setModal(true);

@@ -51,6 +51,7 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 	 */
 	public venIniciarSesion(JFrame owner, boolean modal) {
 		super(owner, modal);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();

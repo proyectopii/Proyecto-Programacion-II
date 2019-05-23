@@ -42,8 +42,10 @@ public class clsEquipacion implements itfProperty {
 		String color2P = "";
 		String color1S = "";
 		String color2S = "";
-		String publicidad = "";
-		String serigrafiado = "";
+		String publicidadP = "";
+		String publicidadS = "";
+		String serigrafiadoP = "";
+		String serigrafiadoS = "";
 		int dorsal = 0;
 	}
 
