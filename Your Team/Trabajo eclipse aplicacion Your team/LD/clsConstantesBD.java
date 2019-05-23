@@ -10,7 +10,7 @@ public class clsConstantesBD {
 	public static final String TIME="?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	public static final String USER = "root";
-	public static final String PASS = "root";
+	public static final String PASS = "bkn1959";
 	
 	
 	/**

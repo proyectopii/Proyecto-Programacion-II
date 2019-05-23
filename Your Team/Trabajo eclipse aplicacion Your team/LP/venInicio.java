@@ -55,6 +55,7 @@ public class venInicio extends JFrame implements ActionListener, WindowListener 
 	 */
 	public venInicio() {
 		addWindowListener(this);
+		setResizable(false);
 		setBackground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
