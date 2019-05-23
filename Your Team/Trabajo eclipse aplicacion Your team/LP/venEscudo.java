@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.DefaultComboBoxModel;
@@ -28,10 +30,12 @@ public class venEscudo extends JDialog implements ActionListener {
 	private JPanel contentPane;
 	private JComboBox comboForma;
 	private JComboBox comboColor;
-	private JButton btnResgistrarse;
+	private JButton btnSiguiente;
 	private clsGestorLN gestor = new clsGestorLN();
 	
 	public static final String ACTION_COMMAND_SIGUIENTE = "Siguiente";
+	
+	private String titulo = "Your Team: Escudo";
 
 	/**
 	 * Launch the application.
@@ -55,6 +59,8 @@ public class venEscudo extends JDialog implements ActionListener {
 	 */
 	public venEscudo(venEquipacion objequipacion, boolean modal) {
 		super(objequipacion, modal);
+		setTitle(titulo);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
@@ -80,9 +86,9 @@ public class venEscudo extends JDialog implements ActionListener {
 		comboColor = new JComboBox();
 		comboColor.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
-		btnResgistrarse = new JButton("Registrarse");
-		btnResgistrarse.addActionListener(this);
-		btnResgistrarse.setActionCommand(ACTION_COMMAND_SIGUIENTE);
+		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(this);
+		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -96,7 +102,7 @@ public class venEscudo extends JDialog implements ActionListener {
 							.addComponent(comboForma, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(242)
-							.addComponent(btnResgistrarse, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
+							.addComponent(btnSiguiente, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(70)
 							.addComponent(comboColor, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
@@ -119,7 +125,7 @@ public class venEscudo extends JDialog implements ActionListener {
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(12)
-							.addComponent(btnResgistrarse))
+							.addComponent(btnSiguiente))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(37)
 							.addComponent(lblqueColorQuieres)))

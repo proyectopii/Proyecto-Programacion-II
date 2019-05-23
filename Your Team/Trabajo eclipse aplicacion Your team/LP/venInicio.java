@@ -25,23 +25,27 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
+import java.awt.Toolkit;
 
 
-public class venInicio extends JFrame implements ActionListener, WindowListener {
+public class venInicio extends JDialog implements ActionListener, WindowListener {
 
 	private JPanel contentPane;
 	
 	private static final String ACTION_COMMAND_CREAREQUIPO = "Crear equipo";
 	private static final String ACTION_COMMAND_INICIARSESION = "Iniciar Sesion";
+	
+	private String titulo = "Your Team";
 
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					venInicio frame = new venInicio();
+					venInicio frame = new venInicio(null, true);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +57,10 @@ public class venInicio extends JFrame implements ActionListener, WindowListener 
 	/**
 	 * Create the frame.
 	 */
-	public venInicio() {
+	public venInicio(venEquipo objEquipo, boolean modal) {
+		super(objEquipo, modal);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
+		setTitle(titulo);
 		addWindowListener(this);
 		setResizable(false);
 		setBackground(new Color(255, 255, 255));

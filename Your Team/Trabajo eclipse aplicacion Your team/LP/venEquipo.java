@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -37,7 +38,8 @@ public class venEquipo extends JDialog implements ActionListener {
 	private JPanel contentPane;
 	private JTextField txtnombreequipo;
 	JDateChooser dateChooser;
-	
+		
+	private String titulo = "Your Team: Equipo";
 
 	/**
 	 * Launch the application.
@@ -61,6 +63,8 @@ public class venEquipo extends JDialog implements ActionListener {
 	 */
 	public venEquipo(venEscudo objEscudo, boolean modal) {
 		super(objEscudo, modal);
+		setTitle(titulo);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -156,6 +160,10 @@ public class venEquipo extends JDialog implements ActionListener {
 				}
 								
 				txtnombreequipo.setText("");
+				
+				venInicio obj = new venInicio(this, true);
+				obj.setVisible(true);
+				setModal(true);
 				
 				/**
 				 * Sirve para que no puedas usar la ventana anterior

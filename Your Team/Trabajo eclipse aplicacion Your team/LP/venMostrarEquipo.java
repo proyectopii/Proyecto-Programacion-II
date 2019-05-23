@@ -2,6 +2,7 @@ package LP;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,6 +16,8 @@ public class venMostrarEquipo extends JDialog implements ActionListener {
 
 	private JPanel contentPane;
 
+	private String titulo = "Your Team: Este es tu equipo";
+	
 	/**
 	 * Launch the application.
 	 */
@@ -34,9 +37,14 @@ public class venMostrarEquipo extends JDialog implements ActionListener {
 
 	/**
 	 * Create the frame.
+	 * @param b 
+	 * @param objIniciarSesion 
 	 */
-	public venMostrarEquipo(venIniciarSesion objIniciarSesion, boolean modal) {
+	public venMostrarEquipo(venIniciarSesion objIniciarSesion, boolean b, boolean modal) {
 		super(objIniciarSesion, modal);
+		setTitle(titulo);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();

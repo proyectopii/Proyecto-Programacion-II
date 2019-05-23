@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -45,6 +46,8 @@ public class venEquipacion extends JDialog implements ActionListener {
 	
 	public static final String ACTION_COMMAND_SIGUIENTE = "Siguiente";
 
+	private String titulo = "Your Team: Equipación";
+	
 	/**
 	 * Launch the application.
 	 */
@@ -67,6 +70,8 @@ public class venEquipacion extends JDialog implements ActionListener {
 	 */
 	public venEquipacion(venManager objequipo, boolean modal) {
 		super(objequipo, modal);
+		setTitle(titulo);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();

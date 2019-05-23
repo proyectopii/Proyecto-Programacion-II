@@ -29,6 +29,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Toolkit;
 
 
 
@@ -47,6 +48,8 @@ public class venManager extends JDialog implements ActionListener{
 	private clsGestorLN gestor = new clsGestorLN();
 	private JTextField txtapellido2;
 	private JTextField txtcontrasenia;
+	
+	private String titulo = "Your Team: Manager";
 
 	/**
 	 * Launch the application.
@@ -69,9 +72,10 @@ public class venManager extends JDialog implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public venManager(JFrame owner, boolean modal) {
-		super(owner, modal);
-		
+	public venManager(venInicio objInicio, boolean modal) {
+		super(objInicio, modal);
+		setTitle(titulo);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();

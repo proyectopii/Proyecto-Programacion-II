@@ -49,8 +49,8 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public venIniciarSesion(JFrame owner, boolean modal) {
-		super(owner, modal);
+	public venIniciarSesion(venInicio objInicio, boolean modal) {
+		super(objInicio, modal);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
@@ -140,7 +140,7 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 				//Cambiar los "nombreequipo" por la variables nombreequipo y dni respectivamente
 				if(txtusuario.getText().equals("nombreequipo") && clavefinal.equals("nombreequipo")) {
 					JOptionPane.showMessageDialog(null, "Que bueno que viniste", clavefinal, JOptionPane.INFORMATION_MESSAGE);
-					venMostrarEquipo obj = new venMostrarEquipo(this, true);
+					venMostrarEquipo obj = new venMostrarEquipo(this, true, true);
 					obj.setVisible(true);
 					setModal(true);
 				}else{
