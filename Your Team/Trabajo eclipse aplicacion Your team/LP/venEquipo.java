@@ -138,7 +138,7 @@ public class venEquipo extends JDialog implements ActionListener {
 					.addContainerGap(17, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
-	
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -149,7 +149,7 @@ public class venEquipo extends JDialog implements ActionListener {
 				try 
 				{		 
 					gestor.anadirEquipo(txtnombreequipo.getText(), dateChooser.getDate());
-				catch(Exception exv) 
+				}catch(Exception exv) 
 				{
 					JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
@@ -163,6 +163,9 @@ public class venEquipo extends JDialog implements ActionListener {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
 			break;
-		}
+			}
+			
+		
 	}
+}
 
