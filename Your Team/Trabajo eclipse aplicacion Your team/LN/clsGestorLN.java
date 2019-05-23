@@ -44,6 +44,7 @@ public class clsGestorLN {
 	private ArrayList<clsJugador> listadoJugadores;
 	private ArrayList<clsEquipo> listadoEquipos;
 	private ArrayList<clsEscudo> listadoEscudos;
+	private ArrayList<clsPartidos> listadoPartidos;
 	private ArrayList<clsManager> listadoManagers;
 	private ArrayList<clsManager> tumanager;
 
@@ -880,6 +881,7 @@ public class clsGestorLN {
 		if (tupartido.contains(p) == true) {
 			return false;
 		} else {
+			Collections.sort(listadoPartidos);
 			tupartido.add(p);
 
 			clsDatosBD.InsertarPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
