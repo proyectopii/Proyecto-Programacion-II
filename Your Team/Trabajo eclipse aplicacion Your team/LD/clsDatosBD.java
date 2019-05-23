@@ -97,7 +97,7 @@ public class clsDatosBD {
 		 
 	 
 	 public int InsertarManager(String nombre, String apellido1, String apellido2, String dni, String sexo, String calidad,
-				int valoracion)
+				int valoracion, String contrasenia)
 	 {
 		 
 		 int regActualizados=0;
@@ -113,6 +113,7 @@ public class clsDatosBD {
 			ps.setString(5,sexo);
 			ps.setString(6, calidad);
 			ps.setInt(7,valoracion);
+			ps.setString(8, contrasenia);
 			
 			
 			regActualizados=ps.executeUpdate();
