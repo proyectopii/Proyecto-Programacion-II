@@ -30,27 +30,27 @@ public class clsConstantesBD {
 	
 	public static final String INSERT_SQL_MANAGER=	"INSERT INTO `mydb`.`manager`"
 													+ "(`Nombre`,`Apellido1`,`Apellido2`,`dni`,`Sexo`,"
-													+ "`Calidad`,`Valoracion`)";
+													+ "`Calidad`,`Valoracion`) values(?,?,?,?,?,?,?)";
 	public static final String INSERT_SQL_EQUIPACION="INSERT INTO `mydb`.`equipacion`"
 													+"(`idEquipación`,`color1P`,`color2P`,`serigrafiadoP`,"
 													+"`publicidadP`,`color1S`,`color2S`,`serigrafiadoS`,"
-													+"`publicidadS`,`Dorsal`)";
+													+"`publicidadS`,`Dorsal`) values(?,?,?,?,?,?,?,?,?,?)";
 	public static final String INSERT_SQL_EQUIPO="INSERT INTO `mydb`.`equipo`"
 			                                        +"(`idEquipo`,`Nombre equipo`,`Fecha fundacion`,`Manager_dni`,"
 			                                        + "`Escudo_idEscudo`,`Intercambio_idIntercambio`,`Equipacion_idEquipación`,"
-			                                        +"`Partido_idPartidos`)";
+			                                        +"`Partido_idPartidos`) values(?,?,?,?,?,?,?,?)";
 	public static final String INSERT_SQL_ESCUDO="INSERT INTO `mydb`.`escudo`"
-			                                        +"(`idEscudo`,`color escudo`,`forma escudo`)";
+			                                        +"(`idEscudo`,`color escudo`,`forma escudo`) values(?,?,?)";
 	public static final String INSERT_SQL_INTERCAMBIO="INSERT INTO `mydb`.`intercambio`"
-			                                        +"(`idIntercambio`,	`Equipo origen`,`Equipo destino`)";
+			                                        +"(`idIntercambio`,	`Equipo origen`,`Equipo destino`) values(?,?,?)";
 	public static final String INSERT_SQL_JUGADOR="INSERT INTO `mydb`.`jugador`"
 			                                        +"(`Nombre`,`Apellido1`,`Apellido2`,`dni`,`Sexo`,`Forma fisica`,"
-			                                        +"`Skills`,`Intercambio_idIntercambio`)";
+			                                        +"`Skills`,`Intercambio_idIntercambio`) values(?,?,?,?,?,?,?,?)";
 	public static final String INSERT_SQL_PARTIDOS="INSERT INTO `mydb`.`partido`"
 			                                        +"(`idPartidos`,`Fecha partido`,`Equipo local`,`Equipo visitante`,"
-			                                        +"`Temporada_idTemporada`)";
+			                                        +"`Temporada_idTemporada`) values(?,?,?,?,?)";
 	public static final String INSERT_SQL_TEMPORADA="INSERT INTO `mydb`.`temporada`"
-			                                        +"(`Anio temporada`,`Trofeos`,`Puestos`,`idTemporada`)";
+			                                        +"(`Anio temporada`,`Trofeos`,`Puestos`,`idTemporada`) values(?,?,?,?)";
 
 
 }
