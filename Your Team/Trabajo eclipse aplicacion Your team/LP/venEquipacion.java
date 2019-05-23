@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import COMUN.clsExcepcionEquipacionRepetida;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -247,7 +250,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 						txtSerigrafiadoEPrincipal.getText(), (String) comboPubliP.getSelectedItem(),
 						(String) comboCPS.getSelectedItem(), (String) comboCSS.getSelectedItem(), 
 						txtSerigrafiadoESeuandaria.getText(), (String) comboPubliS.getSelectedItem(), 0);
-				}catch(Exception exv) {
+				}catch(clsExcepcionEquipacionRepetida exv) {
 					JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
 								

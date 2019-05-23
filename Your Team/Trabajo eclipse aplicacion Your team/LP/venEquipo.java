@@ -22,6 +22,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JDayChooser;
 
+import COMUN.clsExcepcionEquipoRepetido;
 import LN.clsGestorLN;
 
 import javax.swing.JButton;
@@ -149,7 +150,7 @@ public class venEquipo extends JDialog implements ActionListener {
 				try 
 				{		 
 					gestor.anadirEquipo(txtnombreequipo.getText(), dateChooser.getDate());
-				}catch(Exception exv) 
+				}catch(clsExcepcionEquipoRepetido exv) 
 				{
 					JOptionPane.showMessageDialog(this,exv.getMessage());
 				}
