@@ -78,13 +78,13 @@ public class clsGestorLN {
 	 * @param dorsal
 	 * @return
 	 */
-	public boolean anadirclsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
-			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
+	public boolean anadirclsEquipacion(String color1P, String color2P, String color1S, String color2S,
+			String publicidadP, String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
 			throws clsExcepcionEquipacionRepetida { // Aquí estoy propagando la excepcion
 
 		clsEquipacion eq = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
 				serigrafiadoP, serigrafiadoS, dorsal);// Aqui creamos una nueva equipacion
-			clsDatosBD.Connect();																					 
+		clsDatosBD.Connect();
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
@@ -104,9 +104,9 @@ public class clsGestorLN {
 		} else {
 			tuequipacion.add(eq);
 
-			clsDatosBD.InsertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
-					serigrafiadoP, serigrafiadoS, dorsal);
-           clsDatosBD.Disconnect();
+			clsDatosBD.InsertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
+					serigrafiadoS, dorsal);
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -121,15 +121,15 @@ public class clsGestorLN {
 	 * @return
 	 */
 
-	public boolean cambioclsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP, 
-			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
+	public boolean cambioclsEquipacion(String color1P, String color2P, String color1S, String color2S,
+			String publicidadP, String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
 	/**
 	 * Con la propiedad itfproperty sacamos la equipacion que tenemos con sus
 	 * atributos
 	 */
 	{
-		itfProperty datoABuscar = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
-				serigrafiadoS, 0);
+		itfProperty datoABuscar = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
+				serigrafiadoP, serigrafiadoS, 0);
 
 		int p = tuequipo.indexOf(datoABuscar);
 
@@ -151,14 +151,14 @@ public class clsGestorLN {
 	 * @return
 	 */
 
-	public String buscarclsequipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
-			String publicidadS,	String serigrafiadoP, String serigrafiadoS, int dorsal) {
+	public String buscarclsequipacion(String color1P, String color2P, String color1S, String color2S,
+			String publicidadP, String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
 		/**
 		 * Utilizaremos itfproperty para buscar y utilizaremos como clave el color 1
 		 */
 
-		itfProperty datoABuscar = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
-				serigrafiadoS, 0);
+		itfProperty datoABuscar = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
+				serigrafiadoP, serigrafiadoS, 0);
 
 		int p = tuequipacion.indexOf(datoABuscar);
 
@@ -182,11 +182,13 @@ public class clsGestorLN {
 	 * @param serigrafiado
 	 * @return
 	 */
-	public boolean borrarclsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
-			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
-		clsEquipacion equipacion = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
-				serigrafiadoS, 0);
-
+	public boolean borrarclsEquipacion(String color1P, String color2P, String color1S, String color2S,
+			String publicidadP, String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
+		clsEquipacion equipacion = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
+				serigrafiadoP, serigrafiadoS, 0);
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarEquipaciones();
+		clsDatosBD.Disconnect();
 		return tuequipacion.remove(equipacion);// aqui es cuando borramos la equipacion creada
 	}
 
@@ -211,9 +213,9 @@ public class clsGestorLN {
 				 */
 
 				clsEquipacion nuevoCoche = new clsEquipacion(rs.getString("color1P"), rs.getString("color2P"),
-						rs.getString("color1S"), rs.getString("color2S"),rs.getString("serigrafiadoP"), 
-						rs.getString("serigrafiadoS"), rs.getString("publicidadP"),
-						rs.getString("publicidadS"), rs.getInt(0));
+						rs.getString("color1S"), rs.getString("color2S"), rs.getString("serigrafiadoP"),
+						rs.getString("serigrafiadoS"), rs.getString("publicidadP"), rs.getString("publicidadS"),
+						rs.getInt(0));
 
 				temp.add(nuevoCoche);
 				clsDatosBD.Disconnect();
@@ -235,7 +237,7 @@ public class clsGestorLN {
 		 * Con el getobjectproperty sacamos todos sus atributos y las guardamos en la
 		 * base de datos
 		 */
-               clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsEquipacion c : tuequipacion) {
 			String color1P = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1P);
 			String color1S = (String) c.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPACION_COLOR1S);
@@ -249,7 +251,7 @@ public class clsGestorLN {
 
 			clsDatosBD.InsertarEquipaciones(color1P, color2P, color1S, color2S, publicidadP, publicidadS, serigrafiadoP,
 					serigrafiadoS, DORSAL);// Aqui es cuando lo
-			clsDatosBD.Disconnect();																				
+			clsDatosBD.Disconnect();
 		}
 	}
 
@@ -262,7 +264,7 @@ public class clsGestorLN {
 	 * @return
 	 */
 	public boolean anadirEquipo(String nombreEquipo, java.util.Date fundacionEquipo) throws clsExcepcionEquipoRepetido {
-		
+
 		clsEquipo e = new clsEquipo(nombreEquipo, fundacionEquipo);
 		clsDatosBD.Connect();
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
@@ -338,7 +340,9 @@ public class clsGestorLN {
 
 	public boolean borrarEquipo(String nombreEquipo) {
 		clsEquipo equipo = new clsEquipo(nombreEquipo, null); // despues de crearlo con el remove lo borramos
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarEquipo();
+		clsDatosBD.Disconnect();
 		return tuequipo.remove(equipo);
 	}
 
@@ -362,7 +366,7 @@ public class clsGestorLN {
 
 				temp.add(nuevoequipo);
 			}
-             clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return temp;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -375,7 +379,7 @@ public class clsGestorLN {
 	 */
 
 	public void guardarDatosEquipo() {
-     clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsEquipo e : tuequipo) {
 			String nombreEquipo = (String) e.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPO_NOMBREEQUIPO); // Con la
 																												// clase
@@ -421,7 +425,7 @@ public class clsGestorLN {
 			tuescudo.add(es);
 
 			clsDatosBD.InsertarEscudo(formaEscudo, colorEscudo);
-            clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -481,7 +485,9 @@ public class clsGestorLN {
 
 	public boolean borrarEscudo(String formaEscudo, String colorEscudo) {
 		clsEscudo escudo = new clsEscudo(formaEscudo, colorEscudo);
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarEscudo();
+		clsDatosBD.Disconnect();
 		return tuescudo.remove(escudo);
 	}
 
@@ -519,7 +525,7 @@ public class clsGestorLN {
 	 */
 
 	public void guardarEscudos() {
-         clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsEscudo es : tuescudo) {
 			String formaEscudo = (String) es.getObjectProperty(Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO);
 			String colorEscudo = (String) es.getObjectProperty(Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO);
@@ -544,7 +550,7 @@ public class clsGestorLN {
 		/**
 		 * Utilizaremos el contains para añadirlo
 		 */
-           clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		if (tuintercambio.contains(i) == true) {
 			throw new clsExcepcionIntercambioRepetido("Intercambio Repetido");
 			/**
@@ -554,7 +560,7 @@ public class clsGestorLN {
 			tuintercambio.add(i);
 
 			clsDatosBD.InsertarIntercambio(equipoOrigen, equipoDestino);
-            clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -618,7 +624,9 @@ public class clsGestorLN {
 
 	public boolean borrarIntercambio(String equipoOrigen, String equipoDestino) {
 		clsIntercambio intercambio = new clsIntercambio(equipoOrigen, equipoDestino);
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarIntercambio();
+		clsDatosBD.Disconnect();
 		return tuintercambio.remove(intercambio);
 	}
 
@@ -643,7 +651,7 @@ public class clsGestorLN {
 
 				temp.add(nuevointercambio);
 			}
-           clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return temp;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -656,7 +664,7 @@ public class clsGestorLN {
 	 */
 
 	public void guardarIntercambios() {
-     clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsIntercambio i : tuintercambio) {
 			String equipoDestino = (String) i.getObjectProperty(Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPODESTINO);
 			String equipoOrigen = (String) i.getObjectProperty(Constantes.PROPIEDAD_clsINTERCAMBIO_EQUIPOORIGEN);
@@ -732,7 +740,7 @@ public class clsGestorLN {
 		listadoJugadores.add(p21);
 
 		clsComparadorPorNombre comp = new clsComparadorPorNombre();
-		
+
 		/**
 		 * Aquí ya tenemos los jugadores ordenados y utilizamos el collections sort
 		 */
@@ -745,7 +753,7 @@ public class clsGestorLN {
 			tujugador.add(j);
 
 			clsDatosBD.InsertarJugador(nombre, apellido1, apellido2, dni, sexo, skills, formaFisica);
-          clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -811,7 +819,9 @@ public class clsGestorLN {
 
 	public boolean borrarJugador(int formaFisica, double skills) {
 		clsJugador jugador = new clsJugador(formaFisica, skills);
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarJugador();
+		clsDatosBD.Disconnect();
 		return tujugador.remove(jugador);
 	}
 
@@ -834,7 +844,7 @@ public class clsGestorLN {
 
 				temp.add(jugador);
 			}
-          clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return temp;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -847,7 +857,7 @@ public class clsGestorLN {
 	 */
 
 	public void guardarJugadores() {
-       clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsJugador j : tujugador) {
 			String nombre = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE);
 			String apellido1 = (String) j.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1);
@@ -858,9 +868,8 @@ public class clsGestorLN {
 			double skills = (Double) j.getObjectProperty(Constantes.PROPIEDAD_clsJUGADOR_SKILLS);
 
 			clsDatosBD.InsertarJugador(nombre, apellido1, apellido2, dni, sexo, skills, formaFisica);
-		clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 		}
-		
 
 	}
 
@@ -886,7 +895,7 @@ public class clsGestorLN {
 			tupartido.add(p);
 
 			clsDatosBD.InsertarPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-            clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -946,7 +955,9 @@ public class clsGestorLN {
 
 	public boolean borrarPartido(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		clsPartidos partidos = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarPartido();
+		clsDatosBD.Disconnect();
 		return tupartido.remove(partidos);
 	}
 
@@ -985,14 +996,14 @@ public class clsGestorLN {
 	 */
 
 	public void guardarPartidos() {
-      clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsPartidos p : tupartido) {
 			String equipoLocal = (String) p.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOLOCAL);
 			String equipoVisitante = (String) p.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_EQUIPOVISITANTE);
 			Date fechaInicioPartido = (Date) p.getObjectProperty(Constantes.PROPIEDAD_clsPARTIDOS_FECHAINICIOPARTIDO);
 
 			clsDatosBD.InsertarPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
-		clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 		}
 
 	}
@@ -1008,7 +1019,7 @@ public class clsGestorLN {
 	 */
 	public boolean anadirTemporada(int puestos, String trofeos, Date anioTemporada) {
 		clsTemporada t = new clsTemporada(puestos, trofeos, anioTemporada);
-         clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		if (tutemporada.contains(t) == true) {
 			return false;
 		}
@@ -1019,7 +1030,7 @@ public class clsGestorLN {
 			tutemporada.add(t);
 
 			clsDatosBD.InsertarTemporada(puestos, trofeos, anioTemporada);
-             clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -1080,7 +1091,9 @@ public class clsGestorLN {
 	 */
 	public boolean borrarTemporada(Date anioTemporada) {
 		clsTemporada temporada = new clsTemporada(0, null, anioTemporada);
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarTemporada();
+		clsDatosBD.Disconnect();
 		return tutemporada.remove(temporada);
 	}
 
@@ -1117,7 +1130,7 @@ public class clsGestorLN {
 	 * Y si queremos guardarla con sus atributos utilizaremos este metodo
 	 */
 	public void guardarTemporada() {
-          clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsTemporada t : tutemporada) {
 			int puestos = (int) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_PUESTOS);
 			String trofeos = (String) t.getObjectProperty(Constantes.PROPIEDAD_clsTEMPORADA_TROFEOS);
@@ -1132,7 +1145,8 @@ public class clsGestorLN {
 	// -------------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	 * Aqui añadiremos manager nos ayudaremos del contains
-	 * @param  
+	 * 
+	 * @param
 	 */
 	public boolean anadirManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion, String contrasenia) throws clsExcepcionManagerRepetido {
@@ -1140,29 +1154,28 @@ public class clsGestorLN {
 		 * Primero creamos varios Managers con el nombre,apellidos,dni,sexo,calidad y
 		 * valoracion
 		 */
-		
+
 		/*
-		clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B", "masculino", "buena", 76);
-		clsManager m2 = new clsManager("Rosa", "Bernarda", "Guereñu", "12332671O", "femenino", "media", 54);
-		clsManager m3 = new clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media", 52);
-		clsManager m4 = new clsManager("Michael", "Sese", "Arder", "31324594T", "masculino", "mala", 20);
-		clsManager m5 = new clsManager("Miren", "Subell", "Bies", "90215338B", "femenino", "buena", 80);
-		clsManager m6 = new clsManager("Jone", " Campos", "Iparaguirre", "26471740P", "femenina", "muy buena", 96);
-		clsManager m7 = new clsManager("Joseba", " Lopez", "Poter", "24753285I", "masculino", "mala", 26);
-		
-		En caso de descomentar crear comentario Javadoc
-		
-		listadoManagers.add(m1);
-		listadoManagers.add(m2);
-		istadoManagers.add(m3);
-		listadoManagers.add(m4);
-		listadoManagers.add(m5);
-		listadoManagers.add(m6);
-		listadoManagers.add(m7);
-		*/
-		
+		 * clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B",
+		 * "masculino", "buena", 76); clsManager m2 = new clsManager("Rosa", "Bernarda",
+		 * "Guereñu", "12332671O", "femenino", "media", 54); clsManager m3 = new
+		 * clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media",
+		 * 52); clsManager m4 = new clsManager("Michael", "Sese", "Arder", "31324594T",
+		 * "masculino", "mala", 20); clsManager m5 = new clsManager("Miren", "Subell",
+		 * "Bies", "90215338B", "femenino", "buena", 80); clsManager m6 = new
+		 * clsManager("Jone", " Campos", "Iparaguirre", "26471740P", "femenina",
+		 * "muy buena", 96); clsManager m7 = new clsManager("Joseba", " Lopez", "Poter",
+		 * "24753285I", "masculino", "mala", 26);
+		 * 
+		 * En caso de descomentar crear comentario Javadoc
+		 * 
+		 * listadoManagers.add(m1); listadoManagers.add(m2); istadoManagers.add(m3);
+		 * listadoManagers.add(m4); listadoManagers.add(m5); listadoManagers.add(m6);
+		 * listadoManagers.add(m7);
+		 */
+
 		clsDatosBD.Connect();
-		
+
 		/**
 		 * Llamamos al comparadaor por nombre para compararlo
 		 */
@@ -1173,9 +1186,9 @@ public class clsGestorLN {
 		 */
 
 		Collections.sort(listadoManagers, comp);
-		
+
 		Collections.sort(listadoManagers, comp2);
-		clsManager m =new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
+		clsManager m = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		if (tumanager.contains(m) == true) {
 			throw new clsExcepcionManagerRepetido("Manager Repetido");
 
@@ -1187,7 +1200,7 @@ public class clsGestorLN {
 			tumanager.add(m);
 
 			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
-          clsDatosBD.Disconnect();
+			clsDatosBD.Disconnect();
 			return true;
 		}
 	}
@@ -1207,7 +1220,8 @@ public class clsGestorLN {
 
 	public boolean cambioDeManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion, String contrasenia) {
-		itfProperty datoABuscar = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
+		itfProperty datoABuscar = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion,
+				contrasenia);
 
 		int p = tumanager.indexOf(datoABuscar);
 
@@ -1260,7 +1274,9 @@ public class clsGestorLN {
 	public boolean borrarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion, String contrasenia) {
 		clsManager manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
-
+		clsDatosBD.Connect();
+		clsDatosBD.EliminarManager();
+		clsDatosBD.Disconnect();
 		return tumanager.remove(manager);
 	}
 
@@ -1287,14 +1303,13 @@ public class clsGestorLN {
 			}
 			clsDatosBD.Disconnect();
 			return temp;
-			
-			
+
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 			return null;
-			
+
 		}
-		
+
 	}
 
 	/**
@@ -1302,7 +1317,7 @@ public class clsGestorLN {
 	 */
 
 	public void guardarManager() {
-clsDatosBD.Connect();
+		clsDatosBD.Connect();
 		for (clsManager m : tumanager) {
 			String nombre = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_NOMBRE);
 			String apellido1 = (String) m.getObjectProperty(Constantes.PROPIEDAD_clsPERSONA_APELLIDO1);
@@ -1315,7 +1330,7 @@ clsDatosBD.Connect();
 
 			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		}
-clsDatosBD.Disconnect();
+		clsDatosBD.Disconnect();
 	}
 
 }
