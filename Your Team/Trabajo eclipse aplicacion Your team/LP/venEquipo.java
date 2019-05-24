@@ -137,8 +137,9 @@ public class venEquipo extends JDialog implements ActionListener {
 				
 				JOptionPane.showMessageDialog(this, "El usuario es el DNI");
 				
+				this.dispose();
 				venInicio obj = new venInicio(this, true);
-				obj.setVisible(true);
+				obj.setVisible(true);;
 				setModal(true);
 				
 				/**

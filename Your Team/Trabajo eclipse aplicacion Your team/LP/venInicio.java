@@ -126,11 +126,13 @@ public class venInicio extends JDialog implements ActionListener, WindowListener
 	
 		switch(e.getActionCommand()){
 		case ACTION_COMMAND_CREAREQUIPO:
+			this.dispose();
 			venManager obj1 = new venManager(this, true);
 			obj1.setVisible(true);
 			break;
 			
 		case ACTION_COMMAND_INICIARSESION:
+			this.dispose();
 			venIniciarSesion obj2 = new venIniciarSesion(this, true);
 			obj2.setVisible(true);
 			break;

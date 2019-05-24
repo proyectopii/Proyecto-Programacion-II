@@ -142,6 +142,7 @@ public class venEscudo extends JDialog implements ActionListener {
 				comboColor.setSelectedItem("");
 				comboForma.setSelectedItem("");
 				
+				this.dispose();
 				venEquipo obj = new venEquipo(this, true);
 				obj.setVisible(true);
 				setModal(true);

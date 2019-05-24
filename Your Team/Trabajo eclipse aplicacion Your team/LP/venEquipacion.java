@@ -211,6 +211,8 @@ public class venEquipacion extends JDialog implements ActionListener {
 								
 				txtSerigrafiadoEPrincipal.setText("");
 				txtSerigrafiadoESeuandaria.setText("");
+				
+				this.dispose();
 				venEscudo obj = new venEscudo(this, true);
 				obj.setVisible(true);
 				setModal(true);
