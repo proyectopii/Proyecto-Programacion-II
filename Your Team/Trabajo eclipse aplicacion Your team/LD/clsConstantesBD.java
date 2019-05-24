@@ -10,7 +10,7 @@ public class clsConstantesBD {
 	public static final String TIME="?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	public static final String USER = "root";
-	public static final String PASS = "bkn1959";
+	public static final String PASS = "root";
 	
 	
 	/**
@@ -31,6 +31,7 @@ public class clsConstantesBD {
 	public static final String INSERT_SQL_MANAGER=	"INSERT INTO `mydb`.`manager`"
 													+ "(`Nombre`,`Apellido1`,`Apellido2`,`dni`,`Sexo`,"
 													+ "`Calidad`,`Valoracion`,`Contrasenia`) values(?,?,?,?,?,?,?,?)";
+
 	public static final String INSERT_SQL_EQUIPACION="INSERT INTO `mydb`.`equipacion`"
 													+"(`color1P`,`color2P`,`serigrafiadoP`,"
 													+"`publicidadP`,`color1S`,`color2S`,`serigrafiadoS`,"
@@ -52,5 +53,14 @@ public class clsConstantesBD {
 	public static final String INSERT_SQL_TEMPORADA="INSERT INTO `mydb`.`temporada`"
 			                                        +"(`Anio temporada`,`Trofeos`,`Puestos`,`idTemporada`) values(?,?,?,?)";
 
+	
+	public static final String DELETE_SQL_MANAGER="DELETE FROM `mydb`.`manager`WHERE=?";
+	public static final String DELETE_SQL_EQUIPACION="DELETE FROM `mydb`.`equipacion`WHERE=?";
+    public static final String DELETE_SQL_EQUIPO="DELETE FROM `mydb`.`equipo`WHERE=?";
+    public static final String DELETE_SQL_ESCUDO="DELETE FROM `mydb`.`escudo`WHERE=?";
+    public static final String DELETE_SQL_INTERCAMBIO="DELETE FROM `mydb`.`intercambio`WHERE=?";
+    public static final String DELETE_SQL_JUGADOR="DELETE FROM `mydb`.`jugador`WHERE=?";
+    public static final String DELETE_SQL_PARTIDOS="DELETE FROM `mydb`.`partido`WHERE=?";
+    public static final String DELETE_SQL_TEMPORADA="DELETE FROM `mydb`.`temporada`WHERE=?";
 
 }
