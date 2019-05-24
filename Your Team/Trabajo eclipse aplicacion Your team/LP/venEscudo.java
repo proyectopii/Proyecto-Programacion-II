@@ -81,7 +81,7 @@ public class venEscudo extends JDialog implements ActionListener {
 		
 		JLabel lblElijeFormaDel = new JLabel("Elije forma del escudo");
 		lblElijeFormaDel.setForeground(Color.WHITE);
-		lblElijeFormaDel.setBounds(60, 61, 121, 14);
+		lblElijeFormaDel.setBounds(60, 61, 175, 14);
 		
 		comboForma = new JComboBox();
 		comboForma.setBounds(70, 86, 87, 22);
@@ -112,14 +112,14 @@ public class venEscudo extends JDialog implements ActionListener {
 		labelejemplo.setBounds(252, 80, 99, 105);
 		panel.add(labelejemplo);
 		
-		JLabel lblIremosMejorandolosEn = new JLabel("Iremos mejorando los escudos en las proximas actualizaciones");
+		JLabel lblIremosMejorandolosEn = new JLabel("Iremos mejorando los escudos\r\nen las proximas actualizaciones");
 		lblIremosMejorandolosEn.setForeground(Color.WHITE);
-		lblIremosMejorandolosEn.setBounds(10, 251, 310, 14);
+		lblIremosMejorandolosEn.setBounds(10, 216, 370, 33);
 		panel.add(lblIremosMejorandolosEn);
 		
 		JLabel lblPorEjemplo = new JLabel("Por ejemplo");
 		lblPorEjemplo.setForeground(Color.WHITE);
-		lblPorEjemplo.setBounds(274, 61, 66, 14);
+		lblPorEjemplo.setBounds(274, 61, 106, 14);
 		panel.add(lblPorEjemplo);
 		
 		JLabel label = new JLabel("");
@@ -141,8 +141,6 @@ public class venEscudo extends JDialog implements ActionListener {
 								
 				comboColor.setSelectedItem("");
 				comboForma.setSelectedItem("");
-				
-				JOptionPane.showMessageDialog(this, "El usuario es el nombre de equipo y el DNI la contraseña");
 				
 				venEquipo obj = new venEquipo(this, true);
 				obj.setVisible(true);

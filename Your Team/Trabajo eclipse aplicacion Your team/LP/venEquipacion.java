@@ -107,7 +107,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 		
 		JLabel lblColorSecundario = new JLabel("Color Secundario");
 		lblColorSecundario.setForeground(Color.ORANGE);
-		lblColorSecundario.setBounds(51, 118, 83, 14);
+		lblColorSecundario.setBounds(51, 118, 113, 14);
 		
 		JLabel label = new JLabel("Color Principal");
 		label.setForeground(Color.ORANGE);
@@ -119,7 +119,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 		
 		JLabel label_1 = new JLabel("Color Secundario");
 		label_1.setForeground(Color.ORANGE);
-		label_1.setBounds(251, 118, 83, 14);
+		label_1.setBounds(251, 118, 127, 14);
 		
 		comboCSS = new JComboBox();
 		comboCSS.setBounds(261, 138, 86, 22);
@@ -162,7 +162,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 		comboPubliS.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
 		
 		btnSiguiente = new JButton("Siguiente");
-		btnSiguiente.setBounds(337, 0, 77, 23);
+		btnSiguiente.setBounds(321, 0, 93, 23);
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(this);
 		panel.setLayout(null);

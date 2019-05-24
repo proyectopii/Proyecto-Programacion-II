@@ -84,14 +84,14 @@ public class venEquipo extends JDialog implements ActionListener {
 		
 		JLabel lblcomoQuieresLlamar = new JLabel("\u00BFComo quieres llamar a tu equipo?");
 		lblcomoQuieresLlamar.setForeground(Color.BLACK);
-		lblcomoQuieresLlamar.setBounds(43, 101, 163, 14);
+		lblcomoQuieresLlamar.setBounds(47, 101, 233, 14);
 		
 		txtnombreequipo = new JTextField();
 		txtnombreequipo.setBounds(71, 126, 135, 20);
 		txtnombreequipo.setColumns(10);
 		
 		JLabel lblqueDiaSe = new JLabel("\u00BFQue dia se fundo tu equipo?");
-		lblqueDiaSe.setBounds(243, 101, 140, 14);
+		lblqueDiaSe.setBounds(259, 101, 198, 14);
 		
 		JButton buttonlogin = new JButton("");
 		buttonlogin.setBounds(0, 220, 91, 61);
@@ -134,6 +134,8 @@ public class venEquipo extends JDialog implements ActionListener {
 				}
 								
 				txtnombreequipo.setText("");
+				
+				JOptionPane.showMessageDialog(this, "El usuario es el DNI");
 				
 				venInicio obj = new venInicio(this, true);
 				obj.setVisible(true);
