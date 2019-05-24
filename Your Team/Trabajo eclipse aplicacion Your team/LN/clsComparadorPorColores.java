@@ -23,16 +23,7 @@ public class clsComparadorPorColores implements Comparator<clsEscudo> {
 
 	@Override
 	public int compare(clsEscudo c1, clsEscudo c2) {
-		if (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO))
-				.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)) == 0) {
-			return 0;
-			/**
-			 * Este seria nuestro segundo criterio
-			 */
-		} else {
-			return (((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_FORMAESCUDO))
-					.compareTo((String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_FORMAESCUDO)));
-		}
+		return ((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)).compareTo( (String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO) );
 	}
 
 }
