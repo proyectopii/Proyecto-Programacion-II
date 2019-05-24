@@ -24,6 +24,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 
 public class venEscudo extends JDialog implements ActionListener {
 
@@ -64,7 +65,7 @@ public class venEscudo extends JDialog implements ActionListener {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -74,65 +75,57 @@ public class venEscudo extends JDialog implements ActionListener {
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JLabel lblHoraDeCrear = new JLabel("Hora de crear el escudo");
+		lblHoraDeCrear.setForeground(Color.RED);
+		lblHoraDeCrear.setBounds(119, 11, 188, 14);
 		lblHoraDeCrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		
 		JLabel lblElijeFormaDel = new JLabel("Elije forma del escudo");
+		lblElijeFormaDel.setForeground(Color.WHITE);
+		lblElijeFormaDel.setBounds(60, 61, 121, 14);
 		
 		comboForma = new JComboBox();
+		comboForma.setBounds(70, 86, 87, 22);
 		comboForma.setModel(new DefaultComboBoxModel(new String[] {"Circulo", "Triangulo", "Heptagono", "Octagono", "Hexagono"}));
 		
 		JLabel lblqueColorQuieres = new JLabel("\u00BFQue color quieres?");
+		lblqueColorQuieres.setForeground(Color.WHITE);
+		lblqueColorQuieres.setBounds(60, 145, 121, 14);
 		
 		comboColor = new JComboBox();
+		comboColor.setBounds(70, 170, 87, 22);
 		comboColor.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
 		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setBounds(342, 247, 89, 23);
 		btnSiguiente.addActionListener(this);
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(119)
-							.addComponent(lblHoraDeCrear, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(70)
-							.addComponent(comboForma, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(242)
-							.addComponent(btnSiguiente, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(70)
-							.addComponent(comboColor, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(60)
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(lblqueColorQuieres, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(lblElijeFormaDel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))))
-					.addContainerGap(110, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(11)
-					.addComponent(lblHoraDeCrear, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-					.addGap(36)
-					.addComponent(lblElijeFormaDel)
-					.addGap(11)
-					.addComponent(comboForma, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(12)
-							.addComponent(btnSiguiente))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(37)
-							.addComponent(lblqueColorQuieres)))
-					.addGap(11)
-					.addComponent(comboColor, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-		);
-		panel.setLayout(gl_panel);
+		panel.setLayout(null);
+		panel.add(lblHoraDeCrear);
+		panel.add(comboForma);
+		panel.add(btnSiguiente);
+		panel.add(comboColor);
+		panel.add(lblqueColorQuieres);
+		panel.add(lblElijeFormaDel);
+		
+		JLabel labelejemplo = new JLabel("");
+		labelejemplo.setIcon(new ImageIcon(venEscudo.class.getResource("/Imagenes/fotoejemploescudo2.png")));
+		labelejemplo.setBounds(252, 80, 99, 105);
+		panel.add(labelejemplo);
+		
+		JLabel lblIremosMejorandolosEn = new JLabel("Iremos mejorando los escudos en las proximas actualizaciones");
+		lblIremosMejorandolosEn.setForeground(Color.WHITE);
+		lblIremosMejorandolosEn.setBounds(10, 251, 310, 14);
+		panel.add(lblIremosMejorandolosEn);
+		
+		JLabel lblPorEjemplo = new JLabel("Por ejemplo");
+		lblPorEjemplo.setForeground(Color.WHITE);
+		lblPorEjemplo.setBounds(274, 61, 66, 14);
+		panel.add(lblPorEjemplo);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(venEscudo.class.getResource("/Imagenes/fotoescudo1.png")));
+		label.setBounds(0, 0, 441, 281);
+		panel.add(label);
 	}
 
 	@Override

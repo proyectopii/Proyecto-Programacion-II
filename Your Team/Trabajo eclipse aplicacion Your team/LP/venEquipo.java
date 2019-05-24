@@ -66,9 +66,9 @@ public class venEquipo extends JDialog implements ActionListener {
 		setTitle(titulo);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(venInicio.class.getResource("/Imagenes/your team.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.MAGENTA);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -78,71 +78,45 @@ public class venEquipo extends JDialog implements ActionListener {
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JLabel lblYaNoQueda = new JLabel("Ya no queda nada para terminar");
+		lblYaNoQueda.setForeground(Color.ORANGE);
+		lblYaNoQueda.setBounds(113, 0, 255, 21);
 		lblYaNoQueda.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		
 		JLabel lblcomoQuieresLlamar = new JLabel("\u00BFComo quieres llamar a tu equipo?");
+		lblcomoQuieresLlamar.setForeground(Color.BLACK);
+		lblcomoQuieresLlamar.setBounds(43, 101, 163, 14);
 		
 		txtnombreequipo = new JTextField();
+		txtnombreequipo.setBounds(71, 126, 135, 20);
 		txtnombreequipo.setColumns(10);
 		
 		JLabel lblqueDiaSe = new JLabel("\u00BFQue dia se fundo tu equipo?");
+		lblqueDiaSe.setBounds(243, 101, 140, 14);
 		
 		JButton buttonlogin = new JButton("");
+		buttonlogin.setBounds(0, 220, 91, 61);
 		buttonlogin.addActionListener(this);
 		buttonlogin.setActionCommand(ACTION_COMMAND_REGISTRARSE);
 		buttonlogin.setIcon(new ImageIcon(venEquipo.class.getResource("/Imagenes/log-in.png")));
 		
 		JLabel lblRegistrarse = new JLabel("Registrarse");
+		lblRegistrarse.setBounds(20, 195, 55, 14);
 		
 		dateChooser = new JDateChooser();
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(27)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(10)
-							.addComponent(txtnombreequipo, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-							.addGap(42)
-							.addComponent(lblqueDiaSe)
-							.addContainerGap())
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(48)
-							.addComponent(lblRegistrarse)
-							.addPreferredGap(ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-							.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addGap(85))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(22)
-							.addComponent(buttonlogin, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE))
-						.addComponent(lblcomoQuieresLlamar)))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(83)
-					.addComponent(lblYaNoQueda)
-					.addContainerGap(86, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblYaNoQueda)
-					.addGap(18)
-					.addComponent(lblcomoQuieresLlamar)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtnombreequipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblqueDiaSe))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(lblRegistrarse))
-						.addComponent(dateChooser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(buttonlogin, GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-					.addContainerGap(17, Short.MAX_VALUE))
-		);
-		panel.setLayout(gl_panel);
+		dateChooser.setBounds(265, 126, 103, 20);
+		panel.setLayout(null);
+		panel.add(txtnombreequipo);
+		panel.add(lblqueDiaSe);
+		panel.add(lblRegistrarse);
+		panel.add(dateChooser);
+		panel.add(buttonlogin);
+		panel.add(lblcomoQuieresLlamar);
+		panel.add(lblYaNoQueda);
+		
+		JLabel labelfoto = new JLabel("");
+		labelfoto.setIcon(new ImageIcon(venEquipo.class.getResource("/Imagenes/fotoequipo.png")));
+		labelfoto.setBounds(0, 0, 441, 281);
+		panel.add(labelfoto);
 	}
 
 	@Override

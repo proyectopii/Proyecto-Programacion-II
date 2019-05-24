@@ -30,6 +30,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 
 
@@ -79,7 +80,7 @@ public class venManager extends JDialog implements ActionListener{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.RED);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setForeground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -88,146 +89,94 @@ public class venManager extends JDialog implements ActionListener{
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.RED);
 		panel.setForeground(Color.WHITE);
-		contentPane.add(panel, BorderLayout.NORTH);
+		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager, te ayudare");
+		lblVamosACrear.setBounds(65, 22, 310, 24);
 		lblVamosACrear.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		
 		JLabel lblNewLabel = new JLabel("\u00BFComo te llamas?");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setBounds(10, 57, 129, 14);
 		
 		txtnombre = new JTextField();
+		txtnombre.setBounds(29, 82, 108, 20);
 		txtnombre.setColumns(10);
 		
 		JLabel lblcomoTeApellidas = new JLabel("\u00BFCual es tu primer apellido?");
+		lblcomoTeApellidas.setForeground(Color.WHITE);
+		lblcomoTeApellidas.setBounds(10, 113, 162, 14);
 		
 		txtapellido1 = new JTextField();
+		txtapellido1.setBounds(29, 139, 108, 20);
 		txtapellido1.setColumns(10);
 		
 		JLabel lblAadeleUnDni = new JLabel("A\u00F1adele un DNI");
+		lblAadeleUnDni.setForeground(Color.WHITE);
+		lblAadeleUnDni.setBounds(209, 57, 114, 14);
 		
 		txtdni = new JTextField();
+		txtdni.setBounds(230, 82, 93, 20);
 		txtdni.setColumns(10);
 		
 		JLabel lblcualTuGenero = new JLabel("\u00BFCual tu genero?");
+		lblcualTuGenero.setForeground(Color.WHITE);
+		lblcualTuGenero.setBounds(209, 113, 107, 14);
 		
 		combosexo = new JComboBox();
+		combosexo.setBounds(233, 138, 98, 22);
 		combosexo.setModel(new DefaultComboBoxModel(new String[] {"Otro", "Femenino", "Masculino"}));
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setBounds(329, 244, 89, 23);
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(this);
 		
 		JLabel lblcualEsTu = new JLabel("\u00BFCual es tu segundo apellido?");
+		lblcualEsTu.setForeground(Color.WHITE);
+		lblcualEsTu.setBounds(10, 171, 174, 14);
 		
 		txtapellido2 = new JTextField();
+		txtapellido2.setBounds(29, 196, 108, 20);
 		txtapellido2.setColumns(10);
 		
 		JLabel lblElijeCalidadDel = new JLabel("Elije calidad del manager");
+		lblElijeCalidadDel.setForeground(Color.WHITE);
+		lblElijeCalidadDel.setBounds(209, 171, 143, 14);
 		
 		combocalidad = new JComboBox();
+		combocalidad.setBounds(235, 196, 98, 20);
 		combocalidad.setModel(new DefaultComboBoxModel(new String[] {"Bronce", "Plata", "Oro"}));
 		
 		JLabel lblcontrasenia = new JLabel("\u00BFContrase\u00F1a?");
+		lblcontrasenia.setForeground(Color.WHITE);
+		lblcontrasenia.setBounds(10, 227, 66, 14);
 		
 		txtcontrasenia = new JTextField();
+		txtcontrasenia.setBounds(32, 245, 105, 20);
 		txtcontrasenia.setColumns(10);
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnSiguiente, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblcualEsTu, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGap(29)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addGap(3)
-											.addComponent(txtcontrasenia)))
-									.addPreferredGap(ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-									.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-											.addGap(21))
-										.addGroup(gl_panel.createSequentialGroup()
-											.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-											.addGap(19))))
-								.addGroup(gl_panel.createSequentialGroup()
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_panel.createSequentialGroup()
-											.addGap(29)
-											.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_panel.createSequentialGroup()
-											.addContainerGap()
-											.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_panel.createSequentialGroup()
-											.addContainerGap()
-											.addComponent(lblcomoTeApellidas, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE)))
-									.addGap(37)
-									.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblcualTuGenero, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblElijeCalidadDel, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-											.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
-											.addComponent(lblAadeleUnDni, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)))))
-							.addGap(66)))
-					.addGap(81))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(65)
-					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 310, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(124, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblcontrasenia)
-					.addContainerGap(365, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(22)
-					.addComponent(lblVamosACrear, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(lblAadeleUnDni))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtnombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtdni, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblcomoTeApellidas)
-						.addComponent(lblcualTuGenero))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtapellido1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(combosexo, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblcualEsTu)
-						.addComponent(lblElijeCalidadDel))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtapellido2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(combocalidad, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(28)
-							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnSiguiente)
-								.addComponent(txtcontrasenia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblcontrasenia)))
-					.addGap(16))
-		);
-		panel.setLayout(gl_panel);
+		panel.setLayout(null);
+		panel.add(btnSiguiente);
+		panel.add(lblcualEsTu);
+		panel.add(txtapellido2);
+		panel.add(txtapellido1);
+		panel.add(txtcontrasenia);
+		panel.add(combosexo);
+		panel.add(combocalidad);
+		panel.add(txtnombre);
+		panel.add(lblNewLabel);
+		panel.add(lblcomoTeApellidas);
+		panel.add(lblcualTuGenero);
+		panel.add(lblElijeCalidadDel);
+		panel.add(txtdni);
+		panel.add(lblAadeleUnDni);
+		panel.add(lblVamosACrear);
+		panel.add(lblcontrasenia);
+		
+		JLabel labelfoto = new JLabel("");
+		labelfoto.setIcon(new ImageIcon(venManager.class.getResource("/Imagenes/fotomanager.png")));
+		labelfoto.setBounds(0, 0, 441, 281);
+		panel.add(labelfoto);
 		
 	}
 	

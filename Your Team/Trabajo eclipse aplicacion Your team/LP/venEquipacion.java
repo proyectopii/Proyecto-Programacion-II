@@ -28,6 +28,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import LN.clsGestorLN;
+import javax.swing.ImageIcon;
 
 public class venEquipacion extends JDialog implements ActionListener {
 	
@@ -75,7 +76,7 @@ public class venEquipacion extends JDialog implements ActionListener {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(76, 175, 80));
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
@@ -85,162 +86,111 @@ public class venEquipacion extends JDialog implements ActionListener {
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JLabel lblEquipacionPrincipal = new JLabel("Equipacion Principal");
+		lblEquipacionPrincipal.setForeground(Color.ORANGE);
+		lblEquipacionPrincipal.setBounds(41, 34, 93, 14);
 		
 		JLabel lblTocaCrearLas = new JLabel("Toca crear las equipaciones");
+		lblTocaCrearLas.setBounds(72, 0, 230, 21);
 		lblTocaCrearLas.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
 		
 		JLabel lblEquipacionSecundaria = new JLabel("Equipacion Secundaria");
+		lblEquipacionSecundaria.setForeground(Color.ORANGE);
+		lblEquipacionSecundaria.setBounds(241, 34, 137, 14);
 		
 		comboCPP = new JComboBox();
+		comboCPP.setBounds(61, 84, 88, 22);
 		comboCPP.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
 		JLabel lblColorPrincipal = new JLabel("Color Principal");
+		lblColorPrincipal.setForeground(Color.ORANGE);
+		lblColorPrincipal.setBounds(51, 59, 98, 14);
 		
 		JLabel lblColorSecundario = new JLabel("Color Secundario");
+		lblColorSecundario.setForeground(Color.ORANGE);
+		lblColorSecundario.setBounds(51, 118, 83, 14);
 		
 		JLabel label = new JLabel("Color Principal");
+		label.setForeground(Color.ORANGE);
+		label.setBounds(251, 59, 98, 14);
 		
 		comboCPS = new JComboBox();
+		comboCPS.setBounds(261, 84, 88, 22);
 		comboCPS.setModel(new DefaultComboBoxModel(new String[] {"Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron", "Amarillo"}));
 		
 		JLabel label_1 = new JLabel("Color Secundario");
+		label_1.setForeground(Color.ORANGE);
+		label_1.setBounds(251, 118, 83, 14);
 		
 		comboCSS = new JComboBox();
+		comboCSS.setBounds(261, 138, 86, 22);
 		comboCSS.setModel(new DefaultComboBoxModel(new String[] {"Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron", "Amarillo"}));
 		
 		JLabel lblSerigafiado = new JLabel("Serigafiado");
+		lblSerigafiado.setForeground(Color.ORANGE);
+		lblSerigafiado.setBounds(51, 166, 67, 14);
 		
 		comboCSP = new JComboBox();
+		comboCSP.setBounds(61, 138, 86, 20);
 		comboCSP.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
 		txtSerigrafiadoEPrincipal = new JTextField();
+		txtSerigrafiadoEPrincipal.setBounds(61, 186, 86, 20);
 		txtSerigrafiadoEPrincipal.setColumns(10);
 		
 		JLabel lblPublicidad = new JLabel("Publicidad");
+		lblPublicidad.setForeground(Color.ORANGE);
+		lblPublicidad.setBounds(51, 212, 59, 14);
 		
 		comboPubliP = new JComboBox();
+		comboPubliP.setBounds(61, 232, 86, 20);
 		comboPubliP.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
 		
 		JLabel label_2 = new JLabel("Serigafiado");
+		label_2.setForeground(Color.ORANGE);
+		label_2.setBounds(251, 168, 67, 14);
 		
 		txtSerigrafiadoESeuandaria = new JTextField();
+		txtSerigrafiadoESeuandaria.setBounds(261, 186, 86, 20);
 		txtSerigrafiadoESeuandaria.setColumns(10);
 		
 		JLabel label_3 = new JLabel("Publicidad");
+		label_3.setForeground(Color.ORANGE);
+		label_3.setBounds(251, 212, 59, 14);
 		
 		comboPubliS = new JComboBox();
+		comboPubliS.setBounds(261, 232, 86, 20);
 		comboPubliS.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
 		
 		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setBounds(337, 0, 77, 23);
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(this);
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(72)
-					.addComponent(lblTocaCrearLas, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
-					.addGap(35)
-					.addComponent(btnSiguiente))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(41)
-					.addComponent(lblEquipacionPrincipal)
-					.addGap(107)
-					.addComponent(lblEquipacionSecundaria, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(51)
-					.addComponent(lblColorSecundario, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-					.addGap(117)
-					.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(51)
-					.addComponent(lblSerigafiado, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addGap(133)
-					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(61)
-							.addComponent(comboCSP, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-							.addGap(51)
-							.addComponent(lblPublicidad, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE))
-						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-							.addGap(61)
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(comboPubliP, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(txtSerigrafiadoEPrincipal))))
-					.addGap(104)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-							.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
-							.addGroup(gl_panel.createSequentialGroup()
-								.addGap(10)
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-									.addComponent(comboPubliS, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(txtSerigrafiadoESeuandaria))))
-						.addComponent(comboCSS, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(61)
-							.addComponent(comboCPP, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-							.addGap(51)
-							.addComponent(lblColorPrincipal, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)))
-					.addGap(102)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(10)
-							.addComponent(comboCPS, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addComponent(label, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblTocaCrearLas)
-						.addComponent(btnSiguiente))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblEquipacionPrincipal)
-						.addComponent(lblEquipacionSecundaria))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblColorPrincipal)
-						.addComponent(label))
-					.addGap(11)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboCPP, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboCPS, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-					.addGap(12)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblColorSecundario)
-						.addComponent(label_1))
-					.addGap(6)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboCSP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboCSS, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblSerigafiado)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(2)
-							.addComponent(label_2)))
-					.addGap(4)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(txtSerigrafiadoEPrincipal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtSerigrafiadoESeuandaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(6)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblPublicidad)
-						.addComponent(label_3))
-					.addGap(6)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(comboPubliS, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboPubliP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-		);
-		panel.setLayout(gl_panel);
+		panel.setLayout(null);
+		panel.add(lblTocaCrearLas);
+		panel.add(btnSiguiente);
+		panel.add(lblEquipacionPrincipal);
+		panel.add(lblEquipacionSecundaria);
+		panel.add(lblColorSecundario);
+		panel.add(label_1);
+		panel.add(lblSerigafiado);
+		panel.add(label_2);
+		panel.add(comboCSP);
+		panel.add(lblPublicidad);
+		panel.add(comboPubliP);
+		panel.add(txtSerigrafiadoEPrincipal);
+		panel.add(label_3);
+		panel.add(comboPubliS);
+		panel.add(txtSerigrafiadoESeuandaria);
+		panel.add(comboCSS);
+		panel.add(comboCPP);
+		panel.add(lblColorPrincipal);
+		panel.add(comboCPS);
+		panel.add(label);
+		
+		JLabel labelfoto = new JLabel("");
+		labelfoto.setIcon(new ImageIcon(venEquipacion.class.getResource("/Imagenes/fotoequipacion1.png")));
+		labelfoto.setBounds(0, 0, 441, 281);
+		panel.add(labelfoto);
 		
 	}
 

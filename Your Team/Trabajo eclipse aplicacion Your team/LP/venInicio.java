@@ -67,7 +67,7 @@ public class venInicio extends JDialog implements ActionListener, WindowListener
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 467, 330);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(155, 89, 182));
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -103,14 +103,21 @@ public class venInicio extends JDialog implements ActionListener, WindowListener
 		panel.add(btnContinuar);
 		
 		JLabel lblCrearEquipo_1 = new JLabel("Crear Equipo");
+		lblCrearEquipo_1.setForeground(Color.WHITE);
 		lblCrearEquipo_1.setBounds(75, 223, 102, 27);
 		lblCrearEquipo_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		panel.add(lblCrearEquipo_1);
 		
 		JLabel lblContinuar = new JLabel("Continuar");
+		lblContinuar.setForeground(Color.WHITE);
 		lblContinuar.setBounds(279, 222, 90, 29);
 		lblContinuar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		panel.add(lblContinuar);
+		
+		JLabel labelfoto = new JLabel("");
+		labelfoto.setIcon(new ImageIcon(venInicio.class.getResource("/Imagenes/fotoinicio2.png")));
+		labelfoto.setBounds(0, 0, 441, 281);
+		panel.add(labelfoto);
 		
 	}
 
