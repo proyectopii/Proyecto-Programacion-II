@@ -61,37 +61,7 @@ public class clsJugador extends clsPersona implements itfProperty {
 		this.skills = skills;
 	}
 
-	/**
-	 * Crearemos el hashcode con nombre jugador por si queremos a?adir buscar o
-	 * eliminar
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(skills);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
-	}
-
-	/**
-	 * Aqui generaremos el equals para establecer un patron de ordenamiento
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		clsJugador other = (clsJugador) obj;
-		if (Double.doubleToLongBits(skills) != Double.doubleToLongBits(other.skills))
-			return false;
-		return true;
-	}
-
+	
 	/**
 	 * Crearemos los getters y setters de los atributos
 	 */
