@@ -78,12 +78,13 @@ public class venEquipacion extends JDialog implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 451, 291);
 		panel.setBackground(new Color(76, 175, 80));
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(panel);
 		
 		JLabel lblEquipacionPrincipal = new JLabel("Equipacion Principal");
 		lblEquipacionPrincipal.setForeground(Color.ORANGE);
@@ -108,10 +109,6 @@ public class venEquipacion extends JDialog implements ActionListener {
 		JLabel lblColorSecundario = new JLabel("Color Secundario");
 		lblColorSecundario.setForeground(Color.ORANGE);
 		lblColorSecundario.setBounds(51, 118, 113, 14);
-		
-		JLabel label = new JLabel("Color Principal");
-		label.setForeground(Color.ORANGE);
-		label.setBounds(251, 59, 98, 14);
 		
 		comboCPS = new JComboBox();
 		comboCPS.setBounds(261, 84, 88, 22);
@@ -162,9 +159,10 @@ public class venEquipacion extends JDialog implements ActionListener {
 		comboPubliS.setModel(new DefaultComboBoxModel(new String[] {"Spotify", "Cocacola", "Tinder", "Youtube", "Google", "McDonalds", "Audi", "BMW", "Instagram", "Sony"}));
 		
 		btnSiguiente = new JButton("Siguiente");
-		btnSiguiente.setBounds(321, 0, 93, 23);
+		btnSiguiente.setBounds(348, 257, 93, 23);
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		btnSiguiente.addActionListener(this);
+		
 		panel.setLayout(null);
 		panel.add(lblTocaCrearLas);
 		panel.add(btnSiguiente);
@@ -185,11 +183,15 @@ public class venEquipacion extends JDialog implements ActionListener {
 		panel.add(comboCPP);
 		panel.add(lblColorPrincipal);
 		panel.add(comboCPS);
-		panel.add(label);
+		
+		JLabel lblColorPrincipal_1 = new JLabel("Color Principal");
+		lblColorPrincipal_1.setForeground(Color.ORANGE);
+		lblColorPrincipal_1.setBounds(241, 59, 106, 14);
+		panel.add(lblColorPrincipal_1);
 		
 		JLabel labelfoto = new JLabel("");
-		labelfoto.setIcon(new ImageIcon(venEquipacion.class.getResource("/Imagenes/fotoequipacion1.png")));
-		labelfoto.setBounds(0, 0, 441, 281);
+		labelfoto.setIcon(new ImageIcon(venEquipacion.class.getResource("/Imagenes/fotoequipacion2.png")));
+		labelfoto.setBounds(0, 0, 451, 291);
 		panel.add(labelfoto);
 		
 	}

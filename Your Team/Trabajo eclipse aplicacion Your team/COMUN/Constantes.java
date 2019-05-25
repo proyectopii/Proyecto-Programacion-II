@@ -92,6 +92,8 @@ public class Constantes {
 	public static final String PROPIEDAD_clsMANAGER_CALIDAD = "calidad";
 	public static final String PROPIEDAD_clsMANAGER_VALORACION = "valoracion";
 	
+	private static final String ACTION_COMMAND_REGISTRARSE = "registrarse";
+	
 	/**
 	 * Aqui ponemos todas las constantes finales para enumerar
 	 */

@@ -70,12 +70,13 @@ public class venEquipo extends JDialog implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 451, 291);
 		panel.setBackground(Color.MAGENTA);
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(panel);
 		
 		JLabel lblYaNoQueda = new JLabel("Ya no queda nada para terminar");
 		lblYaNoQueda.setForeground(Color.ORANGE);
@@ -114,8 +115,8 @@ public class venEquipo extends JDialog implements ActionListener {
 		panel.add(lblYaNoQueda);
 		
 		JLabel labelfoto = new JLabel("");
-		labelfoto.setIcon(new ImageIcon(venEquipo.class.getResource("/Imagenes/fotoequipo.png")));
-		labelfoto.setBounds(0, 0, 441, 281);
+		labelfoto.setIcon(new ImageIcon(venEquipo.class.getResource("/Imagenes/fotoequipo1.png")));
+		labelfoto.setBounds(0, 0, 451, 291);
 		panel.add(labelfoto);
 	}
 
@@ -138,8 +139,6 @@ public class venEquipo extends JDialog implements ActionListener {
 				JOptionPane.showMessageDialog(this, "El usuario es el DNI");
 				
 				this.dispose();
-				venInicio obj = new venInicio(this, true);
-				obj.setVisible(true);;
 				setModal(true);
 				
 				/**
