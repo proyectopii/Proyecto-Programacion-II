@@ -130,6 +130,39 @@ public class clsEquipo implements itfProperty {
 		return "clsEquipo [nombreEquipo=" + nombreEquipo + ", fundacionEquipo=" + fundacionEquipo + ", date=" + date
 				+ "]";
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+
+	public String getNombreEquipo() {
+		return nombreEquipo;
+	}
+
+	public void setNombreEquipo(String nombreEquipo) {
+		this.nombreEquipo = nombreEquipo;
+	}
+
+	public Date getFundacionEquipo() {
+		return fundacionEquipo;
+	}
+
+	public void setFundacionEquipo(Date fundacionEquipo) {
+		this.fundacionEquipo = fundacionEquipo;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public static String getFecha() {
+		return fecha;
+	}
+	
 	
 
 	

@@ -3,7 +3,7 @@ package LN;
  * Importamos las constantes finales que necesitaremos de la clase cls persona y es con eso con los que ordenaremos
  */
 
-import static COMUN.Constantes.PROPIEDAD_clsPERSONA_NOMBRE;
+
 
 
 import java.util.Comparator;
@@ -22,7 +22,7 @@ public class clsComparadorPorNombreManagers implements Comparator<clsManager> {
 		 * Aqui comparamos nombre de persona de un sitio y de otro y lo ordenaremos
 		 * alfabeticamente como vemos utilizando el String
 		 */
-		return ((String) m1.getObjectProperty(PROPIEDAD_clsPERSONA_NOMBRE)).compareTo((String) m2.getObjectProperty(PROPIEDAD_clsPERSONA_NOMBRE));
+		return ( m1.getNombre()).compareTo( m2.getNombre());
 	}
 
 }

@@ -205,5 +205,81 @@ public class clsEquipacion implements itfProperty {
 		}
 
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+	public String getColor1P() {
+		return color1P;
+	}
+
+	public void setColor1P(String color1p) {
+		color1P = color1p;
+	}
+
+	public String getColor2P() {
+		return color2P;
+	}
+
+	public void setColor2P(String color2p) {
+		color2P = color2p;
+	}
+
+	public String getColor1S() {
+		return color1S;
+	}
+
+	public void setColor1S(String color1s) {
+		color1S = color1s;
+	}
+
+	public String getColor2S() {
+		return color2S;
+	}
+
+	public void setColor2S(String color2s) {
+		color2S = color2s;
+	}
+
+	public String getPublicidadP() {
+		return publicidadP;
+	}
+
+	public void setPublicidadP(String publicidadP) {
+		this.publicidadP = publicidadP;
+	}
+
+	public String getPublicidadS() {
+		return publicidadS;
+	}
+
+	public void setPublicidadS(String publicidadS) {
+		this.publicidadS = publicidadS;
+	}
+
+	public String getSerigrafiadoP() {
+		return serigrafiadoP;
+	}
+
+	public void setSerigrafiadoP(String serigrafiadoP) {
+		this.serigrafiadoP = serigrafiadoP;
+	}
+
+	public String getSerigrafiadoS() {
+		return serigrafiadoS;
+	}
+
+	public void setSerigrafiadoS(String serigrafiadoS) {
+		this.serigrafiadoS = serigrafiadoS;
+	}
+
+	public int getDorsal() {
+		return dorsal;
+	}
+
+	public void setDorsal(int dorsal) {
+		this.dorsal = dorsal;
+	}
+	
 
 }
