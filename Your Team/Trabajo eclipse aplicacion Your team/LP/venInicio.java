@@ -70,11 +70,12 @@ public class venInicio extends JDialog implements ActionListener, WindowListener
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(52, 152, 219));
-		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setBounds(0, 0, 451, 291);
+		panel.setBackground(Color.WHITE);
+		contentPane.add(panel);
 		
 		JLabel lblBienvenidoAYour = new JLabel("Bienvenido a Your Team");
 		lblBienvenidoAYour.setBounds(72, 11, 307, 29);
@@ -116,7 +117,7 @@ public class venInicio extends JDialog implements ActionListener, WindowListener
 		
 		JLabel labelfoto = new JLabel("");
 		labelfoto.setIcon(new ImageIcon(venInicio.class.getResource("/Imagenes/fotoinicio2.png")));
-		labelfoto.setBounds(0, 0, 441, 281);
+		labelfoto.setBounds(0, 0, 451, 291);
 		panel.add(labelfoto);
 		
 	}

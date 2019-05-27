@@ -1163,14 +1163,22 @@ public class clsGestorLN {
 		 * Llamamos al comparadaor por nombre para compararlo
 		 */
 		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
+<<<<<<< HEAD
 		
+=======
+		//clsComparadorPorDni comp2 = new clsComparadorPorDni();
+>>>>>>> master
 		/**
 		 * Aquí ya tenemos los managers ordenados
 		 */
 
 		Collections.sort(listadoManagers, comp);
 
+<<<<<<< HEAD
 		
+=======
+		//Collections.sort(listadoManagers, comp2);
+>>>>>>> master
 		clsManager m = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		if (tumanager.contains(m) == true) {
 			throw new clsExcepcionManagerRepetido("Manager Repetido");

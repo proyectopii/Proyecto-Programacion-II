@@ -84,12 +84,13 @@ public class venManager extends JDialog implements ActionListener{
 		contentPane.setForeground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 451, 291);
 		panel.setBackground(Color.RED);
 		panel.setForeground(Color.WHITE);
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(panel);
 		
 		JLabel lblVamosACrear = new JLabel("Vamos a crear el manager, te ayudare");
 		lblVamosACrear.setBounds(65, 22, 310, 24);
@@ -173,10 +174,10 @@ public class venManager extends JDialog implements ActionListener{
 		panel.add(lblVamosACrear);
 		panel.add(lblcontrasenia);
 		
-		JLabel labelfoto = new JLabel("");
-		labelfoto.setIcon(new ImageIcon(venManager.class.getResource("/Imagenes/fotomanager.png")));
-		labelfoto.setBounds(0, 0, 441, 281);
-		panel.add(labelfoto);
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(venManager.class.getResource("/Imagenes/fotomanager1.png")));
+		label.setBounds(0, 0, 451, 291);
+		panel.add(label);
 		
 	}
 	
@@ -206,16 +207,17 @@ public class venManager extends JDialog implements ActionListener{
 				txtapellido2.setText("");
 				txtdni.setText("");
 				txtcontrasenia.setText("");
+				this.dispose();
 				venEquipacion obj = new venEquipacion(this, true);
 				obj.setVisible(true);
 				setModal(true);
 				/**
 				 * Sirve para que no puedas usar la ventana anterior
-				 */
+				 */	
 			}else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
 			break;
-		}
 	}
+}
 }

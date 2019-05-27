@@ -67,12 +67,13 @@ public class venEscudo extends JDialog implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 451, 291);
 		panel.setBackground(Color.ORANGE);
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(panel);
 		
 		JLabel lblHoraDeCrear = new JLabel("Hora de crear el escudo");
 		lblHoraDeCrear.setForeground(Color.RED);
@@ -96,7 +97,7 @@ public class venEscudo extends JDialog implements ActionListener {
 		comboColor.setModel(new DefaultComboBoxModel(new String[] {"Amarillo", "Naranja", "Rojo", "Morado", "Azul", "Rosa", "Negro", "Blanco", "Verde", "Marron"}));
 		
 		btnSiguiente = new JButton("Siguiente");
-		btnSiguiente.setBounds(342, 247, 89, 23);
+		btnSiguiente.setBounds(352, 247, 89, 23);
 		btnSiguiente.addActionListener(this);
 		btnSiguiente.setActionCommand(ACTION_COMMAND_SIGUIENTE);
 		panel.setLayout(null);
@@ -112,9 +113,9 @@ public class venEscudo extends JDialog implements ActionListener {
 		labelejemplo.setBounds(252, 80, 99, 105);
 		panel.add(labelejemplo);
 		
-		JLabel lblIremosMejorandolosEn = new JLabel("Iremos mejorando los escudos\r\nen las proximas actualizaciones");
+		JLabel lblIremosMejorandolosEn = new JLabel("Iremos mejorando los escudos");
 		lblIremosMejorandolosEn.setForeground(Color.WHITE);
-		lblIremosMejorandolosEn.setBounds(10, 216, 370, 33);
+		lblIremosMejorandolosEn.setBounds(10, 247, 213, 22);
 		panel.add(lblIremosMejorandolosEn);
 		
 		JLabel lblPorEjemplo = new JLabel("Por ejemplo");
@@ -122,10 +123,15 @@ public class venEscudo extends JDialog implements ActionListener {
 		lblPorEjemplo.setBounds(274, 61, 106, 14);
 		panel.add(lblPorEjemplo);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(venEscudo.class.getResource("/Imagenes/fotoescudo1.png")));
-		label.setBounds(0, 0, 441, 281);
-		panel.add(label);
+		JLabel lblEnLasProximas = new JLabel("en las proximas actualizaciones");
+		lblEnLasProximas.setForeground(Color.WHITE);
+		lblEnLasProximas.setBounds(10, 258, 193, 22);
+		panel.add(lblEnLasProximas);
+		
+		JLabel labelfoto = new JLabel("");
+		labelfoto.setIcon(new ImageIcon(venEscudo.class.getResource("/Imagenes/fotoescudo1.png")));
+		labelfoto.setBounds(0, 0, 451, 291);
+		panel.add(labelfoto);
 	}
 
 	@Override
@@ -142,6 +148,7 @@ public class venEscudo extends JDialog implements ActionListener {
 				comboColor.setSelectedItem("");
 				comboForma.setSelectedItem("");
 				
+				this.dispose();
 				venEquipo obj = new venEquipo(this, true);
 				obj.setVisible(true);
 				setModal(true);
