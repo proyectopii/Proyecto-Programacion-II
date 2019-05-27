@@ -21,7 +21,6 @@ public class Constantes {
 	public static final String PROPIEDAD_clsEQUIPACION_PUBLICIDADS = "publicidadS";
 	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADOP = "serigrafiadoP";
 	public static final String PROPIEDAD_clsEQUIPACION_SERIGRAFIADOS = "serigrafiadoS";
-	public static final String PROPIEDAD_clsMANAGER_CONTRASENIA = "contraseña";
 
 	/**
 	 * Aqui ponemos todas las constantes finales de equipo como fundacionEquipo y
@@ -91,8 +90,7 @@ public class Constantes {
 
 	public static final String PROPIEDAD_clsMANAGER_CALIDAD = "calidad";
 	public static final String PROPIEDAD_clsMANAGER_VALORACION = "valoracion";
-	
-	private static final String ACTION_COMMAND_REGISTRARSE = "registrarse";
+	public static final String PROPIEDAD_clsMANAGER_CONTRASENIA = "contrasenia";
 	
 	/**
 	 * Aqui ponemos todas las constantes finales para enumerar
