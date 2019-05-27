@@ -122,5 +122,26 @@ public class clsIntercambio implements itfProperty {
 	public String toString() {
 		return "clsIntercambio [equipoOrigen=" + equipoOrigen + ", equipoDestino=" + equipoDestino + "]";
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+	public String getEquipoOrigen() {
+		return equipoOrigen;
+	}
+
+	public void setEquipoOrigen(String equipoOrigen) {
+		this.equipoOrigen = equipoOrigen;
+	}
+
+	public String getEquipoDestino() {
+		return equipoDestino;
+	}
+
+	public void setEquipoDestino(String equipoDestino) {
+		this.equipoDestino = equipoDestino;
+	}
+
+	
 
 }

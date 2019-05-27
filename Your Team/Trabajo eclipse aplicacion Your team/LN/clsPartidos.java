@@ -146,5 +146,34 @@ public class clsPartidos implements itfProperty, Comparable {
 		return "clsPartidos [equipoLocal=" + equipoLocal + ", equipoVisitante=" + equipoVisitante
 				+ ", fechaInicioPartido=" + fechaInicioPartido + "]";
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+	public String getEquipoLocal() {
+		return equipoLocal;
+	}
+
+	public void setEquipoLocal(String equipoLocal) {
+		this.equipoLocal = equipoLocal;
+	}
+
+	public String getEquipoVisitante() {
+		return equipoVisitante;
+	}
+
+	public void setEquipoVisitante(String equipoVisitante) {
+		this.equipoVisitante = equipoVisitante;
+	}
+
+	public Date getFechaInicioPartido() {
+		return fechaInicioPartido;
+	}
+
+	public void setFechaInicioPartido(Date fechaInicioPartido) {
+		this.fechaInicioPartido = fechaInicioPartido;
+	}
+
+	
 
 }

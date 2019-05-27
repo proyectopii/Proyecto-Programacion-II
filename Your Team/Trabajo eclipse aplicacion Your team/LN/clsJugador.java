@@ -109,5 +109,26 @@ public class clsJugador extends clsPersona implements itfProperty {
 	public String toString() {
 		return "clsJugador [formaFisica=" + formaFisica + ", skills=" + skills + "]";
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+	public int getFormaFisica() {
+		return formaFisica;
+	}
+
+	public void setFormaFisica(int formaFisica) {
+		this.formaFisica = formaFisica;
+	}
+
+	public double getSkills() {
+		return skills;
+	}
+
+	public void setSkills(double skills) {
+		this.skills = skills;
+	}
+
+	
 
 }

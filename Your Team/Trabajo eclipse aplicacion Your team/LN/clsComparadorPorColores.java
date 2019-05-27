@@ -3,9 +3,6 @@ package LN;
  * Importamos las constantes finales que necesitaremos de la clase cls escudo y es con eso con los que ordenaremos
  */
 
-import static COMUN.Constantes.PROPIEDAD_clsESCUDO_COLORESCUDO;
-import static COMUN.Constantes.PROPIEDAD_clsESCUDO_FORMAESCUDO;
-
 import java.util.Comparator;
 
 /**
@@ -23,7 +20,7 @@ public class clsComparadorPorColores implements Comparator<clsEscudo> {
 
 	@Override
 	public int compare(clsEscudo c1, clsEscudo c2) {
-		return ((String) c1.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO)).compareTo( (String) c2.getObjectProperty(PROPIEDAD_clsESCUDO_COLORESCUDO) );
+		return (c1.getColorEscudo().compareTo(c2.getColorEscudo() ));
 	}
 
 }

@@ -3,8 +3,7 @@ package LN;
  * Importamos las constantes finales que necesitaremos de la clase cls persona y es con eso con los que ordenaremos
  */
 
-import static COMUN.Constantes.PROPIEDAD_clsPERSONA_NOMBRE;
-import static COMUN.Constantes.PROPIEDAD_clsPERSONA_APELLIDO1;
+
 
 
 /**
@@ -13,7 +12,6 @@ import static COMUN.Constantes.PROPIEDAD_clsPERSONA_APELLIDO1;
  * @author Industria 4.0
  *
  */
-
 import java.util.Comparator;
 
 public class clsComparadorPorNombre implements Comparator<clsJugador> {
@@ -23,7 +21,7 @@ public class clsComparadorPorNombre implements Comparator<clsJugador> {
 	 */
 	@Override
 	public int compare(clsJugador p1, clsJugador p2) {
-		return ((String) p1.getObjectProperty(PROPIEDAD_clsPERSONA_NOMBRE)).compareTo( (String) p2.getObjectProperty(PROPIEDAD_clsPERSONA_NOMBRE) );
+		return ( p1.getNombre().compareTo(  p2.getNombre()));
 	}
 }
 	

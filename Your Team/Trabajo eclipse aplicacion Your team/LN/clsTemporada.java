@@ -132,5 +132,34 @@ public class clsTemporada implements itfProperty {
 	public String toString() {
 		return "clsTemporada [puestos=" + puestos + ", trofeos=" + trofeos + ", anioTemporada=" + anioTemporada + "]";
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+	public int getPuestos() {
+		return puestos;
+	}
+
+	public void setPuestos(int puestos) {
+		this.puestos = puestos;
+	}
+
+	public String getTrofeos() {
+		return trofeos;
+	}
+
+	public void setTrofeos(String trofeos) {
+		this.trofeos = trofeos;
+	}
+
+	public Date getAnioTemporada() {
+		return anioTemporada;
+	}
+
+	public void setAnioTemporada(Date anioTemporada) {
+		this.anioTemporada = anioTemporada;
+	}
+
+	
 
 }

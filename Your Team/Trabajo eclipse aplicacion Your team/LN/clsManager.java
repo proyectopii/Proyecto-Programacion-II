@@ -107,4 +107,33 @@ public class clsManager extends clsPersona implements itfProperty {
 		result = prime * result + ((calidad == null) ? 0 : calidad.hashCode());
 		return result;
 	}
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+	public String getCalidad() {
+		return calidad;
+	}
+
+	public void setCalidad(String calidad) {
+		this.calidad = calidad;
+	}
+
+	public int getValoracion() {
+		return valoracion;
+	}
+
+	public void setValoracion(int valoracion) {
+		this.valoracion = valoracion;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	
 }

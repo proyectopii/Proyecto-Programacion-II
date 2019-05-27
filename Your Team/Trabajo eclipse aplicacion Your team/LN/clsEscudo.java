@@ -124,5 +124,27 @@ public class clsEscudo implements itfProperty {
 	public String toString() {
 		return "clsEscudo [formaEscudo=" + formaEscudo + ", colorEscudo=" + colorEscudo + "]";
 	}
+	
+	/**
+	 * Aqui generaremos los getters y setters
+	 */
+
+
+	public String getFormaEscudo() {
+		return formaEscudo;
+	}
+
+	public void setFormaEscudo(String formaEscudo) {
+		this.formaEscudo = formaEscudo;
+	}
+
+	public String getColorEscudo() {
+		return colorEscudo;
+	}
+
+	public void setColorEscudo(String colorEscudo) {
+		this.colorEscudo = colorEscudo;
+	}
+	
 
 }
