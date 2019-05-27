@@ -74,8 +74,7 @@ public class clsManager extends clsPersona implements itfProperty {
 		 * itfproperty
 		 */
 
-		default:
-			throw new PropiedadInexistente("No existe esa propiedad!");
+		default: return super.getObjectProperty(propiedad);
 
 		}
 

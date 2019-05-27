@@ -1155,24 +1155,7 @@ public class clsGestorLN {
 		 * valoracion
 		 */
 
-		/*
-		 * clsManager m1 = new clsManager("Ruiz", "Lopez", "Meno", "12485678B",
-		 * "masculino", "buena", 76); clsManager m2 = new clsManager("Rosa", "Bernarda",
-		 * "Guereñu", "12332671O", "femenino", "media", 54); clsManager m3 = new
-		 * clsManager("Miguel", "Ortiz", "Berneder", "87324321C", "masculino", "media",
-		 * 52); clsManager m4 = new clsManager("Michael", "Sese", "Arder", "31324594T",
-		 * "masculino", "mala", 20); clsManager m5 = new clsManager("Miren", "Subell",
-		 * "Bies", "90215338B", "femenino", "buena", 80); clsManager m6 = new
-		 * clsManager("Jone", " Campos", "Iparaguirre", "26471740P", "femenina",
-		 * "muy buena", 96); clsManager m7 = new clsManager("Joseba", " Lopez", "Poter",
-		 * "24753285I", "masculino", "mala", 26);
-		 * 
-		 * En caso de descomentar crear comentario Javadoc
-		 * 
-		 * listadoManagers.add(m1); listadoManagers.add(m2); istadoManagers.add(m3);
-		 * listadoManagers.add(m4); listadoManagers.add(m5); listadoManagers.add(m6);
-		 * listadoManagers.add(m7);
-		 */
+		
 
 		clsDatosBD.Connect();
 
@@ -1180,14 +1163,14 @@ public class clsGestorLN {
 		 * Llamamos al comparadaor por nombre para compararlo
 		 */
 		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
-		clsComparadorPorDni comp2 = new clsComparadorPorDni();
+		
 		/**
 		 * Aquí ya tenemos los managers ordenados
 		 */
 
 		Collections.sort(listadoManagers, comp);
 
-		Collections.sort(listadoManagers, comp2);
+		
 		clsManager m = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		if (tumanager.contains(m) == true) {
 			throw new clsExcepcionManagerRepetido("Manager Repetido");

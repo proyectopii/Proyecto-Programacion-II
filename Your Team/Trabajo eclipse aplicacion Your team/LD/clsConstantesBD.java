@@ -63,4 +63,14 @@ public class clsConstantesBD {
     public static final String DELETE_SQL_PARTIDOS="DELETE FROM `mydb`.`partido`WHERE=?";
     public static final String DELETE_SQL_TEMPORADA="DELETE FROM `mydb`.`temporada`WHERE=?";
 
+    public static final String UPDATE_SQL_MANAGER= "UPDATE `mydb`.`manager`"
+    		                                        +"SET `Nombre` = ?,"
+    		                                        +"`Apellido1` = ?,"
+    		                                        +"`Apellido2` = ?,"
+    		                                        +"`dni` = ?,"
+    		                                        +"`Sexo` = ?,"
+    		                                        +"`Calidad` = ?,"
+    		                                        +"`Valoracion` =?,"
+    		                                        +"`Contrasenia` = ?"
+    		                                        +"WHERE `dni` = ?";
 }

@@ -78,8 +78,7 @@ public class clsJugador extends clsPersona implements itfProperty {
 		 * property con el default
 		 */
 
-		default:
-			throw new PropiedadInexistente("No existe esa propiedad!");
+		default: return super.getObjectProperty(propiedad);
 
 		}
 
