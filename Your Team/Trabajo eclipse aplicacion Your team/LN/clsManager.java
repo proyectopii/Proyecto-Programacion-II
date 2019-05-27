@@ -15,7 +15,7 @@ public class clsManager extends clsPersona implements itfProperty {
 	 * media o mala Tambien tendra una valoracion que va del 0 al 100
 	 */
 	private String calidad;
-	private int valoracion = (int) (Math.random()*100)+1;
+	private int valoracion;
 	private String contrasenia;
 	
 	

@@ -151,7 +151,7 @@ public class venManager extends JDialog implements ActionListener{
 		
 		JLabel lblcontrasenia = new JLabel("\u00BFContrase\u00F1a?");
 		lblcontrasenia.setForeground(Color.WHITE);
-		lblcontrasenia.setBounds(10, 227, 66, 14);
+		lblcontrasenia.setBounds(10, 227, 155, 14);
 		
 		txtcontrasenia = new JTextField();
 		txtcontrasenia.setBounds(32, 245, 105, 20);

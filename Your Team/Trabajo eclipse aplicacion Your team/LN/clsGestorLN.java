@@ -41,12 +41,16 @@ public class clsGestorLN {
 	private ArrayList<clsPartidos> tupartido;
 	private ArrayList<clsTemporada> tutemporada;
 	private ArrayList<clsIntercambio> tuintercambio;
+	private ArrayList<clsManager> tumanager;
+	
 	private ArrayList<clsJugador> listadoJugadores;
 	private ArrayList<clsEquipo> listadoEquipos;
 	private ArrayList<clsEscudo> listadoEscudos;
 	private ArrayList<clsPartidos> listadoPartidos;
 	private ArrayList<clsManager> listadoManagers;
-	private ArrayList<clsManager> tumanager;
+	
+
+	private int posicion = -1;
 
 	/**
 	 * Crearemos el constructor del arraylist
@@ -59,11 +63,13 @@ public class clsGestorLN {
 		tupartido = new ArrayList<clsPartidos>();
 		tutemporada = new ArrayList<clsTemporada>();
 		tuintercambio = new ArrayList<clsIntercambio>();
+		tumanager = new ArrayList<clsManager>();
+		
 		listadoJugadores = new ArrayList<clsJugador>();
 		listadoEquipos = new ArrayList<clsEquipo>();
 		listadoEscudos = new ArrayList<clsEscudo>();
 		listadoManagers = new ArrayList<clsManager>();
-		tumanager = new ArrayList<clsManager>();
+		
 	}
 
 	/**
@@ -84,6 +90,9 @@ public class clsGestorLN {
 
 		clsEquipacion eq = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
 				serigrafiadoP, serigrafiadoS, dorsal);// Aqui creamos una nueva equipacion
+
+		dorsal = (int) Math.random() * 100 + 1;
+
 		clsDatosBD.Connect();
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
@@ -267,12 +276,6 @@ public class clsGestorLN {
 
 		clsEquipo e = new clsEquipo(nombreEquipo, fundacionEquipo);
 		clsDatosBD.Connect();
-		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
-		/**
-		 * Aquí ya tenemos los jugadores ordenados
-		 */
-
-		Collections.sort(listadoEquipos, comp);
 
 		if (tuequipo.contains(e) == true) {
 			throw new clsExcepcionEquipoRepetido("Equipo repetido");// Aquí no nos admitira el equipo si esta repetido
@@ -411,12 +414,6 @@ public class clsGestorLN {
 	public boolean anadirEscudo(String formaEscudo, String colorEscudo) throws Exception {
 		clsEscudo es = new clsEscudo(formaEscudo, colorEscudo);
 		clsDatosBD.Connect();
-		clsComparadorPorColores comp = new clsComparadorPorColores();
-		/**
-		 * Aquí ya tenemos los jugadores ordenados
-		 */
-
-		Collections.sort(listadoEscudos, comp);
 
 		if (tuescudo.contains(es) == true)// Nos aseguramos que no hay ninguno repetido
 		{
@@ -738,14 +735,6 @@ public class clsGestorLN {
 		listadoJugadores.add(p19);
 		listadoJugadores.add(p20);
 		listadoJugadores.add(p21);
-
-		clsComparadorPorNombre comp = new clsComparadorPorNombre();
-
-		/**
-		 * Aquí ya tenemos los jugadores ordenados y utilizamos el collections sort
-		 */
-
-		Collections.sort(listadoJugadores, comp);
 
 		if (tujugador.contains(j) == true) {
 			return false;
@@ -1155,24 +1144,13 @@ public class clsGestorLN {
 		 * valoracion
 		 */
 
-		
+		valoracion = (int) (Math.random() * 100) + 1;
 
 		clsDatosBD.Connect();
 
 		/**
 		 * Llamamos al comparadaor por nombre para compararlo
 		 */
-		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
-
-		/**
-		 * Aquí ya tenemos los managers ordenados
-		 */
-
-		Collections.sort(listadoManagers, comp);
-
-		
-
-
 
 		clsManager m = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		if (tumanager.contains(m) == true) {
@@ -1257,12 +1235,24 @@ public class clsGestorLN {
 	 * @param valoracion
 	 * @return
 	 */
-	public boolean borrarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
-			String calidad, int valoracion, String contrasenia) {
-		clsManager manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
-		clsDatosBD.Connect();
-		clsDatosBD.EliminarManager();
-		clsDatosBD.Disconnect();
+	public boolean borrarManager() {
+		clsManager manager = null;
+		
+		if(posicion != -1) {
+			String nombre = (String) listadoManagers.get(posicion).getNombre();
+			String apellido1 = (String) listadoManagers.get(posicion).getApellido1();
+			String apellido2 = (String) listadoManagers.get(posicion).getApellido2();
+			String dni = (String) listadoManagers.get(posicion).getDni();
+			String sexo = (String) listadoManagers.get(posicion).getSexo();
+			String calidad = (String) listadoManagers.get(posicion).getCalidad();
+			int valoracion = (int) listadoManagers.get(posicion).getValoracion();
+			String contrasenia = (String) listadoManagers.get(posicion).getContrasenia();
+			
+			 manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
+			clsDatosBD.Connect();
+			clsDatosBD.EliminarManager();
+			clsDatosBD.Disconnect();
+		}	
 		return tumanager.remove(manager);
 	}
 
@@ -1317,6 +1307,109 @@ public class clsGestorLN {
 			clsDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 		}
 		clsDatosBD.Disconnect();
+	}
+
+	public int atras() {
+		if (tumanager.size() != 0) {
+			if (posicion == -1) {
+				posicion = 0;
+			} else if (posicion == 0) {
+				posicion = tumanager.size() - 1;
+			} else {
+				posicion = posicion - 1;
+			}
+
+			return posicion;
+		} else {
+			return -1;
+		}
+	}
+
+	public int alante() {
+		if (tumanager.size() != 0) {
+			if (posicion == -1) {
+				posicion = 0;
+			} else if (posicion == tumanager.size() - 1) // ultimo
+			{
+				posicion = 0;
+			} else {
+				posicion = posicion + 1;
+			}
+
+			return posicion;
+		} else {
+			return -1;
+		}
+	}
+	
+	public void ordenporcolor() {
+		clsComparadorPorColores comp = new clsComparadorPorColores();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+
+		Collections.sort(listadoEscudos, comp);
+	}
+	
+	public void ordenpornombre() {
+		clsComparadorPorNombre comp = new clsComparadorPorNombre();
+
+		/**
+		 * Aquí ya tenemos los jugadores ordenados y utilizamos el collections sort
+		 */
+
+		Collections.sort(listadoJugadores, comp);
+	}
+	
+	public void ordenporequipo() {
+		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
+		/**
+		 * Aquí ya tenemos los jugadores ordenados
+		 */
+
+		Collections.sort(listadoEquipos, comp);
+	}
+	
+	public void ordenpormanager() {
+		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
+
+		/**
+		 * Aquí ya tenemos los managers ordenados
+		 */
+
+		Collections.sort(tumanager, comp);
+	}
+	
+	public String obtenernombre(int p) {
+		return (String) tumanager.get(p).getNombre();
+	}
+	
+	public String obtenerapellido1(int p) {
+		return (String) tumanager.get(p).getApellido1();
+	}
+	
+	public String obtenerapellido2(int p) {
+		return (String) tumanager.get(p).getApellido2();
+	}
+	
+	public String obtenerdni(int p) {
+		return (String) tumanager.get(p).getDni();
+	}
+	
+	public String obtenersexo(int p) {
+		return (String) tumanager.get(p).getSexo();
+	}
+	
+	public String obtenercalidad(int p) {
+		return (String) tumanager.get(p).getCalidad();
+	}
+	
+	public int obtenervaloracion(int p) {
+		return (int) tumanager.get(p).getValoracion();
+	}
+	
+	public String obtenercontrasenia(int p) {
+		return (String) tumanager.get(p).getContrasenia();
 	}
 
 }
