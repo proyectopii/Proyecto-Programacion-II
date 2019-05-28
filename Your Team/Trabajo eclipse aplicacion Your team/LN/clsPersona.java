@@ -178,11 +178,4 @@ public abstract class clsPersona implements itfProperty {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-
-
-	
-
-	
-	
-
 }

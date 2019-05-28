@@ -3,9 +3,6 @@ package LN;
  * Importamos las constantes finales que necesitaremos de la clase cls equipo y es con eso con los que ordenaremos
  */
 
-
-
-
 import java.util.Comparator;
 
 /**

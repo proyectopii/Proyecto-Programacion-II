@@ -1411,5 +1411,4 @@ public class clsGestorLN {
 	public String obtenercontrasenia(int p) {
 		return (String) tumanager.get(p).getContrasenia();
 	}
-
 }

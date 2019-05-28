@@ -173,7 +173,4 @@ public class clsPartidos implements itfProperty, Comparable {
 	public void setFechaInicioPartido(Date fechaInicioPartido) {
 		this.fechaInicioPartido = fechaInicioPartido;
 	}
-
-	
-
 }

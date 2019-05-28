@@ -280,6 +280,4 @@ public class clsEquipacion implements itfProperty {
 	public void setDorsal(int dorsal) {
 		this.dorsal = dorsal;
 	}
-	
-
 }

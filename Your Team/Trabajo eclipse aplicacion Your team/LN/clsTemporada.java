@@ -159,7 +159,4 @@ public class clsTemporada implements itfProperty {
 	public void setAnioTemporada(Date anioTemporada) {
 		this.anioTemporada = anioTemporada;
 	}
-
-	
-
 }

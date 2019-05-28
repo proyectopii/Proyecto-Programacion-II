@@ -128,7 +128,4 @@ public class clsJugador extends clsPersona implements itfProperty {
 	public void setSkills(double skills) {
 		this.skills = skills;
 	}
-
-	
-
 }

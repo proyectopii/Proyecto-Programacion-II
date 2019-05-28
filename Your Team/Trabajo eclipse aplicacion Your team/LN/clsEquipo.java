@@ -162,9 +162,4 @@ public class clsEquipo implements itfProperty {
 	public static String getFecha() {
 		return fecha;
 	}
-	
-	
-
-	
-
 }

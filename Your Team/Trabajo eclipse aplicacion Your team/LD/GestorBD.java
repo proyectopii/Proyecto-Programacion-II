@@ -60,6 +60,4 @@ public class GestorBD {
         checkConnected();
         return connection.createStatement(resultSetType, resultSetConcurrency );
     }   
-	
-
 }

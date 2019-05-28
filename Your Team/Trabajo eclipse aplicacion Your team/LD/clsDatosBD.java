@@ -571,10 +571,8 @@ public class clsDatosBD {
 
 	}
 
+
 	public void EliminarTemporada() {
 		sendSelect7(DELETE_SQL_TEMPORADA);
-	
-
 	}
-
 }

@@ -22,5 +22,4 @@ public class clsComparadorPorColores implements Comparator<clsEscudo> {
 	public int compare(clsEscudo c1, clsEscudo c2) {
 		return (c1.getColorEscudo().compareTo(c2.getColorEscudo() ));
 	}
-
 }

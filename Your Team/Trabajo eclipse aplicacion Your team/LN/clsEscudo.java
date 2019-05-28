@@ -145,6 +145,4 @@ public class clsEscudo implements itfProperty {
 	public void setColorEscudo(String colorEscudo) {
 		this.colorEscudo = colorEscudo;
 	}
-	
-
 }

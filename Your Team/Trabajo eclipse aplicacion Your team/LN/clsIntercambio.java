@@ -141,7 +141,4 @@ public class clsIntercambio implements itfProperty {
 	public void setEquipoDestino(String equipoDestino) {
 		this.equipoDestino = equipoDestino;
 	}
-
-	
-
 }

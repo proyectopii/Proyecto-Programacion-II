@@ -136,6 +136,4 @@ public class clsManager extends clsPersona implements itfProperty {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-
-	
 }

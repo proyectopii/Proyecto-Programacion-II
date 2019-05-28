@@ -24,6 +24,3 @@ public class clsComparadorPorNombre implements Comparator<clsJugador> {
 		return ( p1.getNombre().compareTo(  p2.getNombre()));
 	}
 }
-	
-
-
