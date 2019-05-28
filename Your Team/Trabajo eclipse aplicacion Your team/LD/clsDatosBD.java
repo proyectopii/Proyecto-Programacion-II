@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.mysql.cj.xdevapi.Statement;
+
 import static LD.clsConstantesBD.DRIVER;
 import static LD.clsConstantesBD.PASS;
 import static LD.clsConstantesBD.SCHEMA;
@@ -154,10 +156,10 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarManager() {
-		rs = sendSelect(DELETE_SQL_MANAGER);
-		return rs;
-
+	public void EliminarManager() {
+		
+			sendSelect(DELETE_SQL_MANAGER);
+			
 	}
 
 	// --------------------------------------------------------------------------------------------------
@@ -192,7 +194,7 @@ public class clsDatosBD {
 
 	public ResultSet CargarEquipo() {
 
-		rs = sendSelect(SELECT_SQL_EQUIPO);
+		rs = sendSelect2(SELECT_SQL_EQUIPO);
 
 		return rs;
 
@@ -212,10 +214,10 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarEquipo() {
-		rs = sendSelect(DELETE_SQL_EQUIPO);
-		return rs;
-
+	public void EliminarEquipo() {
+		
+			sendSelect2(DELETE_SQL_MANAGER);
+			
 	}
 
 	// --------------------------------------------------------------------------------------------------
@@ -277,9 +279,9 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarEquipaciones() {
-		rs = sendSelect(DELETE_SQL_EQUIPACION);
-		return rs;
+	public void EliminarEquipaciones() {
+		 sendSelect1(DELETE_SQL_EQUIPACION);
+		
 
 	}
 
@@ -334,9 +336,9 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarEscudo() {
-		rs = sendSelect(DELETE_SQL_ESCUDO);
-		return rs;
+	public void EliminarEscudo() {
+		 sendSelect3(DELETE_SQL_ESCUDO);
+		
 
 	}
 
@@ -391,9 +393,9 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarIntercambio() {
-		rs = sendSelect(DELETE_SQL_INTERCAMBIO);
-		return rs;
+	public void EliminarIntercambio() {
+		 sendSelect5(DELETE_SQL_INTERCAMBIO);
+		
 
 	}
 
@@ -453,9 +455,9 @@ public class clsDatosBD {
 		return rs;
 	}
 
-	public ResultSet EliminarJugador() {
-		rs = sendSelect(DELETE_SQL_JUGADOR);
-		return rs;
+	public void EliminarJugador() {
+		 sendSelect4(DELETE_SQL_JUGADOR);
+		
 
 	}
 	// --------------------------------------------------------------------------------------------------
@@ -511,9 +513,9 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarPartido() {
-		rs = sendSelect(DELETE_SQL_PARTIDOS);
-		return rs;
+	public void EliminarPartido() {
+	 sendSelect6(DELETE_SQL_PARTIDOS);
+		
 
 	}
 	// --------------------------------------------------------------------------------------------------
@@ -569,9 +571,9 @@ public class clsDatosBD {
 
 	}
 
-	public ResultSet EliminarTemporada() {
-		rs = sendSelect(DELETE_SQL_TEMPORADA);
-		return rs;
+	public void EliminarTemporada() {
+		sendSelect7(DELETE_SQL_TEMPORADA);
+	
 
 	}
 
