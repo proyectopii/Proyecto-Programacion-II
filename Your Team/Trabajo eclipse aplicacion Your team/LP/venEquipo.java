@@ -30,33 +30,31 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
 public class venEquipo extends JDialog implements ActionListener {
-	
+	/**
+	 * Aqui haremos un objt gestor y definiremos todos los buttons y todo que
+	 * utilizamos
+	 */
+
 	public clsGestorLN gestor = new clsGestorLN();
-	
+
 	private static final String ACTION_COMMAND_REGISTRARSE = "registrarse";
 
 	private JPanel contentPane;
 	private JTextField txtnombreequipo;
 	JDateChooser dateChooser;
-		
+
 	private String titulo = "Your Team: Equipo";
 
 	/**
 	 * Launch the application.
 	 */
-	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					venEquipo frame = new venEquipo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+
+	/*
+	 * public static void main(String[] args) { EventQueue.invokeLater(new
+	 * Runnable() { public void run() { try { venEquipo frame = new venEquipo();
+	 * frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); } } });
+	 * }
+	 */
 
 	/**
 	 * Create the frame.
@@ -72,37 +70,37 @@ public class venEquipo extends JDialog implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 451, 291);
 		panel.setBackground(Color.MAGENTA);
 		contentPane.add(panel);
-		
+
 		JLabel lblYaNoQueda = new JLabel("Ya no queda nada para terminar");
 		lblYaNoQueda.setForeground(Color.ORANGE);
 		lblYaNoQueda.setBounds(113, 0, 255, 21);
 		lblYaNoQueda.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
-		
+
 		JLabel lblcomoQuieresLlamar = new JLabel("\u00BFComo quieres llamar a tu equipo?");
 		lblcomoQuieresLlamar.setForeground(Color.BLACK);
 		lblcomoQuieresLlamar.setBounds(47, 101, 233, 14);
-		
+
 		txtnombreequipo = new JTextField();
 		txtnombreequipo.setBounds(71, 126, 135, 20);
 		txtnombreequipo.setColumns(10);
-		
+
 		JLabel lblqueDiaSe = new JLabel("\u00BFQue dia se fundo tu equipo?");
 		lblqueDiaSe.setBounds(259, 101, 198, 14);
-		
+
 		JButton buttonlogin = new JButton("");
 		buttonlogin.setBounds(0, 220, 91, 61);
 		buttonlogin.addActionListener(this);
 		buttonlogin.setActionCommand(ACTION_COMMAND_REGISTRARSE);
 		buttonlogin.setIcon(new ImageIcon(venEquipo.class.getResource("/Imagenes/log-in.png")));
-		
+
 		JLabel lblRegistrarse = new JLabel("Registrarse");
 		lblRegistrarse.setBounds(20, 195, 55, 14);
-		
+
 		dateChooser = new JDateChooser();
 		dateChooser.setBounds(265, 126, 103, 20);
 		panel.setLayout(null);
@@ -113,44 +111,43 @@ public class venEquipo extends JDialog implements ActionListener {
 		panel.add(buttonlogin);
 		panel.add(lblcomoQuieresLlamar);
 		panel.add(lblYaNoQueda);
-		
+
 		JLabel labelfoto = new JLabel("");
 		labelfoto.setIcon(new ImageIcon(venEquipo.class.getResource("/Imagenes/fotoequipo1.png")));
 		labelfoto.setBounds(0, 0, 451, 291);
 		panel.add(labelfoto);
 	}
 
+	/**
+	 * Aqui a traves de un switch haremos las diferemos opciones del switch
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		switch(e.getActionCommand()) {
+		switch (e.getActionCommand()) {
 		case ACTION_COMMAND_REGISTRARSE:
-			if(!(txtnombreequipo.getText().equals(""))){
-				try 
-				{		 
+			if (!(txtnombreequipo.getText().equals(""))) {
+				try {
 					gestor.anadirEquipo(txtnombreequipo.getText(), dateChooser.getDate());
-				}catch(clsExcepcionEquipoRepetido exv) 
-				{
-					JOptionPane.showMessageDialog(this,exv.getMessage());
+				} catch (clsExcepcionEquipoRepetido exv) {
+					JOptionPane.showMessageDialog(this, exv.getMessage());
 				}
-								
+
 				txtnombreequipo.setText("");
-				
+
 				JOptionPane.showMessageDialog(this, "El usuario es el DNI");
-				
+
 				this.dispose();
 				setModal(true);
-				
+
 				/**
 				 * Sirve para que no puedas usar la ventana anterior
 				 */
-			}else {
+			} else {
 				JOptionPane.showMessageDialog(this, "Debes rellenar todos los campos");
 			}
 			break;
-			}
-			
-		
+		}
+
 	}
 }
-

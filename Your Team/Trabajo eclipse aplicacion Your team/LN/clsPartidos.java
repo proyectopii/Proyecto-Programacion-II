@@ -146,6 +146,7 @@ public class clsPartidos implements itfProperty, Comparable {
 		return "clsPartidos [equipoLocal=" + equipoLocal + ", equipoVisitante=" + equipoVisitante
 				+ ", fechaInicioPartido=" + fechaInicioPartido + "]";
 	}
+
 	/**
 	 * Aqui generaremos los getters y setters
 	 */

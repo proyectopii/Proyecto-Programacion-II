@@ -22,10 +22,10 @@ public class clsMenu {
 		System.out.println("Bienvenido a nuestra comunidad esperemos que te guste");
 		System.out.println();
 		System.out.println("A continuacion te mostraremos un menu para apuntarte");
-		
+
 		venInicio v = new venInicio(null, false);
 		v.setVisible(true);
-		
+
 		do {
 			System.out.println("1-Empezar creando tu equipo ");
 			System.out.println("2-Hacer un intercambio");
@@ -94,21 +94,26 @@ public class clsMenu {
 		String color1S;
 		String color2S;
 		String publicidadP = "";
-		String publicidadS = "";;
-		String serigrafiadoP = "";;
-		String serigrafiadoS = "";;
-		String oppublicidad = "";;
-		String opserigrafiado = "";;
+		String publicidadS = "";
+		;
+		String serigrafiadoP = "";
+		;
+		String serigrafiadoS = "";
+		;
+		String oppublicidad = "";
+		;
+		String opserigrafiado = "";
+		;
 
 		System.out.println("Elige el color primario para tu equipacion principal");
 		color1P = UtilidadesLP.leerCadena();
 
 		System.out.println("Elige el color secundario para tu equipacion principal");
 		color2P = UtilidadesLP.leerCadena();
-		
+
 		System.out.println("Elige el color primario para tu equipacion secundaria");
 		color1S = UtilidadesLP.leerCadena();
-		
+
 		System.out.println("Elige el color secundario para tu equipacion secundaria");
 		color2S = UtilidadesLP.leerCadena();
 
@@ -118,7 +123,7 @@ public class clsMenu {
 		if (oppublicidad.equalsIgnoreCase("si")) {
 			System.out.println("?Qu? publicidad quieres poner en la principal?");
 			publicidadP = UtilidadesLP.leerCadena();
-			
+
 			System.out.println("?Qu? publicidad quieres poner en la secundaria?");
 			publicidadS = UtilidadesLP.leerCadena();
 
@@ -130,7 +135,7 @@ public class clsMenu {
 		if (opserigrafiado.equalsIgnoreCase("si")) {
 			System.out.println("?Que serigrafiado quieres poner en la principal?");
 			serigrafiadoP = UtilidadesLP.leerCadena();
-			
+
 			System.out.println("?Que serigrafiado quieres poner en la secundaria?");
 			serigrafiadoS = UtilidadesLP.leerCadena();
 		}
@@ -201,5 +206,3 @@ public class clsMenu {
 	}
 
 }
-
-

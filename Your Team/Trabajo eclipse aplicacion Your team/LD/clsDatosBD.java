@@ -31,9 +31,6 @@ import static COMUN.clsConstantesBD.SELECT_SQL_TEMPORADA;
 import static COMUN.clsConstantesBD.TIME;
 import static COMUN.clsConstantesBD.URL;
 import static COMUN.clsConstantesBD.USER;
-import static COMUN.clsConstantesBD.SELECT_SQL_EQUIP;
-import static COMUN.clsConstantesBD.SELECT_SQL_INTER;
-import static COMUN.clsConstantesBD.SELECT_SQL_PART;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -69,6 +66,9 @@ public class clsDatosBD {
 	 * Método para la conexión a la base de datos.
 	 * 
 	 */
+	/**
+	 * Con este metodo conectaremos para hacer lo que queramos
+	 */
 	public void Connect() {
 
 		try {
@@ -80,6 +80,10 @@ public class clsDatosBD {
 			System.out.println("NO CONNECTION ");
 		}
 	}
+
+	/**
+	 * Con este metodo descanecta de la base de datos
+	 */
 
 	public void Disconnect() {
 
@@ -99,6 +103,20 @@ public class clsDatosBD {
 				/* no hago nada */}
 		}
 	}
+
+	/**
+	 * Aqui insertamos todos los datos de manager
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dni
+	 * @param sexo
+	 * @param calidad
+	 * @param valoracion
+	 * @param contrasenia
+	 * @return
+	 */
 
 	public int InsertarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion, String contrasenia) {
@@ -135,6 +153,12 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos todos los datos de manager
+	 * 
+	 * @return
+	 */
+
 	public ResultSet CargarManager() {
 
 		rs = sendSelect(SELECT_SQL_MANAGER);
@@ -157,13 +181,25 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Con este metodo eliminaremos los managers
+	 */
+
 	public void EliminarManager() {
-		
-			sendSelect(DELETE_SQL_MANAGER);
-			
+
+		sendSelect(DELETE_SQL_MANAGER);
+
 	}
 
 	// --------------------------------------------------------------------------------------------------
+
+	/**
+	 * Aqui insertaremos equipos
+	 * 
+	 * @param nombreEquipo
+	 * @param fundacionEquipo
+	 * @return
+	 */
 	public int InsertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo) {
 		java.sql.Date dateequipo = new java.sql.Date(fundacionEquipo.getTime());
 
@@ -174,12 +210,12 @@ public class clsDatosBD {
 			ps = conn.prepareStatement(INSERT_SQL_EQUIPO, PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nombreEquipo);
 			ps.setDate(2, dateequipo);
-			ps.setString(3,SELECT_SQL_MANAGER );
-			ps.setInt(4,(SELECT_SQL_ESC));
-			ps.setInt(5, SELECT_SQL_INTER);
-			ps.setInt(6,SELECT_SQL_EQUIP);
-			ps.setInt(7,SELECT_SQL_PART);
-			
+			ps.setString(3, SELECT_SQL_MANAGER);
+			ps.setString(4, (SELECT_SQL_ESCUDO));
+			ps.setString(5, SELECT_SQL_INTERCAMBIO);
+			ps.setString(6, SELECT_SQL_EQUIPO);
+			ps.setString(7, SELECT_SQL_PARTIDOS);
+
 			regActualizados = ps.executeUpdate();
 
 			if (regActualizados == 1) {
@@ -197,6 +233,12 @@ public class clsDatosBD {
 		return retorno;
 
 	}
+
+	/**
+	 * Aqui cargaremos equipos
+	 * 
+	 * @return
+	 */
 
 	public ResultSet CargarEquipo() {
 
@@ -220,13 +262,31 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui eliminaremos equipos
+	 */
+
 	public void EliminarEquipo() {
-		
-			sendSelect2(DELETE_SQL_MANAGER);
-			
+
+		sendSelect2(DELETE_SQL_MANAGER);
+
 	}
 
 	// --------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui insertaremos equipaciones
+	 * 
+	 * @param color1P
+	 * @param color2P
+	 * @param color1S
+	 * @param color2S
+	 * @param publicidadP
+	 * @param publicidadS
+	 * @param serigrafiadoP
+	 * @param serigrafiadoS
+	 * @param dorsal
+	 * @return
+	 */
 	public int InsertarEquipaciones(String color1P, String color2P, String color1S, String color2S, String publicidadP,
 			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
 
@@ -263,6 +323,12 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos equipaciones
+	 * 
+	 * @return
+	 */
+
 	public ResultSet CargarEquipacion() {
 
 		rs = sendSelect(SELECT_SQL_EQUIPACION);
@@ -285,13 +351,23 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui eliminaremos equipaciones
+	 */
+
 	public void EliminarEquipaciones() {
-		 sendSelect1(DELETE_SQL_EQUIPACION);
-		
+		sendSelect1(DELETE_SQL_EQUIPACION);
 
 	}
 
 	// --------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui insertaremos escudo
+	 * 
+	 * @param formaEscudo
+	 * @param colorEscudo
+	 * @return
+	 */
 	public int InsertarEscudo(String formaEscudo, String colorEscudo) {
 
 		int regActualizados = 0;
@@ -320,6 +396,11 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos escudo
+	 * 
+	 * @return
+	 */
 	public ResultSet CargarEscudo() {
 
 		rs = sendSelect(SELECT_SQL_ESCUDO);
@@ -342,13 +423,22 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui eliminaremos escudp
+	 */
 	public void EliminarEscudo() {
-		 sendSelect3(DELETE_SQL_ESCUDO);
-		
+		sendSelect3(DELETE_SQL_ESCUDO);
 
 	}
 
 	// --------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui insertaremos intercambio
+	 * 
+	 * @param equipoOrigen
+	 * @param equipoDestino
+	 * @return
+	 */
 	public int InsertarIntercambio(String equipoOrigen, String equipoDestino) {
 
 		int regActualizados = 0;
@@ -377,6 +467,12 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos intercambio
+	 * 
+	 * @return
+	 */
+
 	public ResultSet CargarIntercambio() {
 
 		rs = sendSelect(SELECT_SQL_INTERCAMBIO);
@@ -399,13 +495,27 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui eliminaremos intercambio
+	 */
 	public void EliminarIntercambio() {
-		 sendSelect5(DELETE_SQL_INTERCAMBIO);
-		
+		sendSelect5(DELETE_SQL_INTERCAMBIO);
 
 	}
 
 	// --------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui insertaremos jugadores
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dni
+	 * @param sexo
+	 * @param skills
+	 * @param formaFisica
+	 * @return
+	 */
 	public int InsertarJugador(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			double skills, int formaFisica) {
 
@@ -440,6 +550,11 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos jugadores
+	 * 
+	 * @return
+	 */
 	public ResultSet CargarJugador() {
 
 		rs = sendSelect(SELECT_SQL_JUGADOR);
@@ -461,13 +576,24 @@ public class clsDatosBD {
 		return rs;
 	}
 
+	/**
+	 * Aqui eliminaremos jugadores
+	 */
+
 	public void EliminarJugador() {
-		 sendSelect4(DELETE_SQL_JUGADOR);
-		
+		sendSelect4(DELETE_SQL_JUGADOR);
 
 	}
-	// --------------------------------------------------------------------------------------------------
 
+	// --------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui insertaremos partidos
+	 * 
+	 * @param equipoLocal
+	 * @param equipoVisitante
+	 * @param fechaInicioPartido
+	 * @return
+	 */
 	public int InsertarPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 
 		int regActualizados = 0;
@@ -497,6 +623,11 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos partido
+	 * 
+	 * @return
+	 */
 	public ResultSet CargarPartidos() {
 
 		rs = sendSelect(SELECT_SQL_PARTIDOS);
@@ -519,13 +650,24 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui eliminaremos partido
+	 */
+
 	public void EliminarPartido() {
-	 sendSelect6(DELETE_SQL_PARTIDOS);
-		
+		sendSelect6(DELETE_SQL_PARTIDOS);
 
 	}
-	// --------------------------------------------------------------------------------------------------
 
+	// --------------------------------------------------------------------------------------------------
+	/**
+	 * Aqui insertaremos temporada
+	 * 
+	 * @param puestos
+	 * @param trofeos
+	 * @param anioTemporada
+	 * @return
+	 */
 	public int InsertarTemporada(int puestos, String trofeos, Date anioTemporada) {
 
 		int regActualizados = 0;
@@ -555,6 +697,11 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui cargaremos temporada
+	 * 
+	 * @return
+	 */
 	public ResultSet CargarTemporada() {
 
 		rs = sendSelect(SELECT_SQL_TEMPORADA);
@@ -577,6 +724,9 @@ public class clsDatosBD {
 
 	}
 
+	/**
+	 * Aqui eliminaremos temporada
+	 */
 
 	public void EliminarTemporada() {
 		sendSelect7(DELETE_SQL_TEMPORADA);

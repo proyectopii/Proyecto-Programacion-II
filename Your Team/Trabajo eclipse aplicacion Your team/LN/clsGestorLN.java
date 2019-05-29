@@ -28,7 +28,7 @@ import COMUN.clsExcepcionManagerRepetido;
 import COMUN.itfProperty;
 
 public class clsGestorLN {
-	//private clsDatos clsDatos = new clsDatos();
+	// private clsDatos clsDatos = new clsDatos();
 	private clsDatosBD clsDatosBD = new clsDatosBD();
 
 	/**
@@ -42,9 +42,6 @@ public class clsGestorLN {
 	private ArrayList<clsTemporada> tutemporada;
 	private ArrayList<clsIntercambio> tuintercambio;
 	private ArrayList<clsManager> tumanager;
-	
-
-	
 
 	private int posicion = -1;
 
@@ -60,9 +57,7 @@ public class clsGestorLN {
 		tutemporada = new ArrayList<clsTemporada>();
 		tuintercambio = new ArrayList<clsIntercambio>();
 		tumanager = new ArrayList<clsManager>();
-		
-	
-		
+
 	}
 
 	/**
@@ -88,17 +83,18 @@ public class clsGestorLN {
 				serigrafiadoP, serigrafiadoS, dorsal);// Aqui creamos una nueva equipacion
 
 		dorsal = (int) Math.random() * 100 + 1;
-
+//---------------------------------------LD---------------------
 		clsDatosBD.Connect();
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
 		 */
-
+//---------------------------------------LD---------------------
 		Collections.sort(tuequipo, comp); // diferentes atributos
 		/**
 		 * Este metodo nos sirve para saber si hay repetidos para que no lo añada
 		 */
+//---------------------------------------LN------------------
 		if ((tuequipacion.contains(eq) == true)) {
 			throw new clsExcepcionEquipacionRepetida("Equipación Repetida");
 
@@ -749,7 +745,7 @@ public class clsGestorLN {
 		tujugador.add(p19);
 		tujugador.add(p20);
 		tujugador.add(p21);
-		
+
 		if (tujugador.contains(j) == true) {
 			return false;
 		} else {
@@ -1252,8 +1248,8 @@ public class clsGestorLN {
 	 */
 	public boolean borrarManager() {
 		clsManager manager = null;
-		
-		if(posicion != -1) {
+
+		if (posicion != -1) {
 			String nombre = (String) tumanager.get(posicion).getNombre();
 			String apellido1 = (String) tumanager.get(posicion).getApellido1();
 			String apellido2 = (String) tumanager.get(posicion).getApellido2();
@@ -1262,12 +1258,12 @@ public class clsGestorLN {
 			String calidad = (String) tumanager.get(posicion).getCalidad();
 			int valoracion = (int) tumanager.get(posicion).getValoracion();
 			String contrasenia = (String) tumanager.get(posicion).getContrasenia();
-			
-			 manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
+
+			manager = new clsManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 			clsDatosBD.Connect();
 			clsDatosBD.EliminarManager();
 			clsDatosBD.Disconnect();
-		}	
+		}
 		return tumanager.remove(manager);
 	}
 
@@ -1324,7 +1320,6 @@ public class clsGestorLN {
 		clsDatosBD.Disconnect();
 	}
 
-	
 	public void ordenporcolor() {
 		clsComparadorPorColores comp = new clsComparadorPorColores();
 		/**
@@ -1333,7 +1328,7 @@ public class clsGestorLN {
 
 		Collections.sort(tuescudo, comp);
 	}
-	
+
 	public void ordenpornombre() {
 		clsComparadorPorNombre comp = new clsComparadorPorNombre();
 
@@ -1343,7 +1338,7 @@ public class clsGestorLN {
 
 		Collections.sort(tujugador, comp);
 	}
-	
+
 	public void ordenporequipo() {
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
@@ -1352,7 +1347,7 @@ public class clsGestorLN {
 
 		Collections.sort(tuequipo, comp);
 	}
-	
+
 	public void ordenpormanager() {
 		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
 
@@ -1362,35 +1357,35 @@ public class clsGestorLN {
 
 		Collections.sort(tumanager, comp);
 	}
-	
+
 	public String obtenernombre(int p) {
 		return (String) tumanager.get(p).getNombre();
 	}
-	
+
 	public String obtenerapellido1(int p) {
 		return (String) tumanager.get(p).getApellido1();
 	}
-	
+
 	public String obtenerapellido2(int p) {
 		return (String) tumanager.get(p).getApellido2();
 	}
-	
+
 	public String obtenerdni(int p) {
 		return (String) tumanager.get(p).getDni();
 	}
-	
+
 	public String obtenersexo(int p) {
 		return (String) tumanager.get(p).getSexo();
 	}
-	
+
 	public String obtenercalidad(int p) {
 		return (String) tumanager.get(p).getCalidad();
 	}
-	
+
 	public int obtenervaloracion(int p) {
 		return (int) tumanager.get(p).getValoracion();
 	}
-	
+
 	public String obtenercontrasenia(int p) {
 		return (String) tumanager.get(p).getContrasenia();
 	}

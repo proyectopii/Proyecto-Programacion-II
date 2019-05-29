@@ -17,8 +17,6 @@ public class clsManager extends clsPersona implements itfProperty {
 	private String calidad;
 	private int valoracion;
 	private String contrasenia;
-	
-	
 
 	/**
 	 * Aqui tenemos el constructor vacio
@@ -53,7 +51,7 @@ public class clsManager extends clsPersona implements itfProperty {
 	 * Generamos el toString para que no nos salgan las rutas de los objetos y nos
 	 * salgan los nombres
 	 */
-	
+
 	@Override
 	public String toString() {
 		return "clsManager [calidad=" + calidad + ", valoracion=" + valoracion + ", contraseña=" + contrasenia + "]";
@@ -76,7 +74,8 @@ public class clsManager extends clsPersona implements itfProperty {
 		 * itfproperty
 		 */
 
-		default: return super.getObjectProperty(propiedad);
+		default:
+			return super.getObjectProperty(propiedad);
 
 		}
 
@@ -109,6 +108,7 @@ public class clsManager extends clsPersona implements itfProperty {
 		result = prime * result + ((calidad == null) ? 0 : calidad.hashCode());
 		return result;
 	}
+
 	/**
 	 * Aqui generaremos los getters y setters
 	 */

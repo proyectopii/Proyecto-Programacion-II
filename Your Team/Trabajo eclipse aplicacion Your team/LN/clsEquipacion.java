@@ -61,13 +61,13 @@ public class clsEquipacion implements itfProperty {
 	 * @param dorsal
 	 */
 
-	public clsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP, String publicidadS,
-			String serigrafiadoP, String serigrafiadoS, int dorsal) {
+	public clsEquipacion(String color1P, String color2P, String color1S, String color2S, String publicidadP,
+			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
 		super();
 		this.color1P = color1P;
 		this.color2P = color2P;
 		this.color1S = color1S;
-		this.color2S = color2S;		
+		this.color2S = color2S;
 		this.publicidadP = publicidadP;
 		this.publicidadS = publicidadS;
 		this.serigrafiadoP = serigrafiadoP;
@@ -118,9 +118,6 @@ public class clsEquipacion implements itfProperty {
 	 * Generamos el getString para que no nos salgan las rutas de los objetos y nos
 	 * salgan los nombres
 	 */
-	
-
-	
 
 	@Override
 	public String toString() {
@@ -205,6 +202,7 @@ public class clsEquipacion implements itfProperty {
 		}
 
 	}
+
 	/**
 	 * Aqui generaremos los getters y setters
 	 */

@@ -91,40 +91,20 @@ public class Constantes {
 	public static final String PROPIEDAD_clsMANAGER_CALIDAD = "calidad";
 	public static final String PROPIEDAD_clsMANAGER_VALORACION = "valoracion";
 	public static final String PROPIEDAD_clsMANAGER_CONTRASENIA = "contrasenia";
-	
+
 	/**
 	 * Aqui ponemos todas las constantes finales para enumerar
 	 */
-	
-	public static enum colorprimario{
-		Amarillo,
-		Naranja,
-		Rojo,
-		Morado,
-		Azul,
-		Rosa,
-		Negro,
-		Blanco,
-		Verde,
-		Marron;
+
+	public static enum colorprimario {
+		Amarillo, Naranja, Rojo, Morado, Azul, Rosa, Negro, Blanco, Verde, Marron;
 	}
 
-	public static enum encolorsecundario{
-		Amarillo,
-		Naranja,
-		Rojo,
-		Morado,
-		Azul,
-		Rosa,
-		Negro,
-		Blanco,
-		Verde,
-		Marron;
+	public static enum encolorsecundario {
+		Amarillo, Naranja, Rojo, Morado, Azul, Rosa, Negro, Blanco, Verde, Marron;
 	}
-	
-	public static enum ensexo{
-		Masculino,
-		Femenino,
-		Otro;
+
+	public static enum ensexo {
+		Masculino, Femenino, Otro;
 	}
 }

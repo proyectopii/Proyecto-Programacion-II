@@ -134,8 +134,9 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipacion values(null,'" + color1P +"','" + color2P+"','" + color1S +"','" + color2S +"','" +
-						publicidadP +"','" + publicidadS +"','" + serigrafiadoP +"','" + serigrafiadoS +"'," + dorsal+ ")";
+				String query = "insert into Equipacion values(null,'" + color1P + "','" + color2P + "','" + color1S
+						+ "','" + color2S + "','" + publicidadP + "','" + publicidadS + "','" + serigrafiadoP + "','"
+						+ serigrafiadoS + "'," + dorsal + ")";
 				/**
 				 * Si ya existe una equipacion nos saldra equipo existente
 				 */
@@ -231,7 +232,8 @@ public class clsDatos {
 			 * Hacemos una select de su nombre
 			 */
 
-			ResultSet rs = sentencia.executeQuery("SELECT * FROM Equipo where 'Nombre equipo' = '" + nombreEquipo + "'");
+			ResultSet rs = sentencia
+					.executeQuery("SELECT * FROM Equipo where 'Nombre equipo' = '" + nombreEquipo + "'");
 
 			if (rs.first() == false) {
 				return false;
@@ -253,8 +255,8 @@ public class clsDatos {
 	 * @param fundacionEquipo
 	 */
 	public void insertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo) {
-		java.sql.Date dateequipo = new java.sql.Date(fundacionEquipo.getTime()); 
-		
+		java.sql.Date dateequipo = new java.sql.Date(fundacionEquipo.getTime());
+
 		try {
 			gbd.connect();
 
@@ -266,9 +268,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Equipo(id,niombre,asdas) values(null,'" + nombreEquipo +"','" + dateequipo + "','" +
-						"')";
-				
+				String query = "insert into Equipo(id,niombre,asdas) values(null,'" + nombreEquipo + "','" + dateequipo
+						+ "','" + "')";
 
 				sentencia.executeUpdate(query);
 				/**
@@ -399,7 +400,7 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Escudo values(" + formaEscudo +"'" + colorEscudo+")";
+				String query = "insert into Escudo values(" + formaEscudo + "'" + colorEscudo + ")";
 
 				sentencia.executeUpdate(query);
 				/**
@@ -469,8 +470,8 @@ public class clsDatos {
 			 * Aqui haremos una select de equipo a trabés de origen y destino
 			 */
 
-			ResultSet rs = sentencia.executeQuery(
-					"SELECT * FROM  where Equipo origen y Equipo destino = '" + equipoOrigen +"'" + equipoDestino + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where Equipo origen y Equipo destino = '"
+					+ equipoOrigen + "'" + equipoDestino + "'");
 
 			String equiporigen = rs.getString("equipo origen");
 			String equipodestino = rs.getString("equipo destino");
@@ -501,8 +502,8 @@ public class clsDatos {
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM Intercambio where Equipo origen y Equipo destino = '"
 					+ equipoOrigen + equipoDestino + "'");
 
-			System.out.println("SELECT * FROM Intercambio where Equipo origen y Equipo destino = '" + equipoOrigen
-					+"'" + equipoDestino + "'");
+			System.out.println("SELECT * FROM Intercambio where Equipo origen y Equipo destino = '" + equipoOrigen + "'"
+					+ equipoDestino + "'");
 
 			if (rs.first() == false) {
 				return false;
@@ -536,7 +537,7 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Intercambio values(" + equipoOrigen +"'" + equipoDestino;
+				String query = "insert into Intercambio values(" + equipoOrigen + "'" + equipoDestino;
 
 				sentencia.executeUpdate(query);
 				/**
@@ -649,8 +650,6 @@ public class clsDatos {
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM Jugador where Skills = '" + skills + "'");
 
-			
-
 			if (rs.first() == false) { // si retorna falso es que no existe
 				return false;
 			} else {
@@ -689,8 +688,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Jugador values(" + nombre +"'" + apellido1 +"'" + apellido2 +"'" + dni +"'" + sexo +"'" + skills
-						+"'" + formaFisica+")";
+				String query = "insert into Jugador values(" + nombre + "'" + apellido1 + "'" + apellido2 + "'" + dni
+						+ "'" + sexo + "'" + skills + "'" + formaFisica + ")";
 
 				sentencia.executeUpdate(query);
 			} else {
@@ -757,8 +756,8 @@ public class clsDatos {
 			 * Aqui haremos una select de partido
 			 */
 
-			ResultSet rs = sentencia.executeQuery(
-					"SELECT * FROM  where Partido  = '" + equipoLocal +"'" + equipoVisitante +"'" + fechaInicioPartido);
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM  where Partido  = '" + equipoLocal + "'"
+					+ equipoVisitante + "'" + fechaInicioPartido);
 
 			String equipolocal = rs.getString("Equipo local");
 			String equipodestino = rs.getString("Equipo local");
@@ -791,8 +790,8 @@ public class clsDatos {
 			 * Hacemos una select de partidos
 			 */
 
-			ResultSet rs = sentencia.executeQuery(
-					"SELECT * FROM Partido where  = '" + equipoLocal +"'" + equipoVisitante +"'" + fechaInicioPartido + "'");
+			ResultSet rs = sentencia.executeQuery("SELECT * FROM Partido where  = '" + equipoLocal + "'"
+					+ equipoVisitante + "'" + fechaInicioPartido + "'");
 
 			System.out.println("SELECT * FROM Partido where Equipo origen y Equipo destino y Fecha partido = '"
 					+ equipoLocal + equipoVisitante + fechaInicioPartido + "'");
@@ -830,7 +829,8 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into Partido values(" + equipoLocal +"'" + equipoVisitante +"'" + fechaInicioPartido;
+				String query = "insert into Partido values(" + equipoLocal + "'" + equipoVisitante + "'"
+						+ fechaInicioPartido;
 
 				sentencia.executeUpdate(query);
 			} else {
@@ -898,7 +898,7 @@ public class clsDatos {
 			 */
 
 			ResultSet rs = sentencia.executeQuery("SELECT * FROM Temporada where Puestos y Trofeos y Anio temporada = '"
-					+ puestos +"'" + trofeos +"'" + anioTemporada + "'");
+					+ puestos + "'" + trofeos + "'" + anioTemporada + "'");
 
 			return rs;
 		} catch (SQLException se) {
@@ -929,10 +929,10 @@ public class clsDatos {
 
 			ResultSet rs = sentencia
 					.executeQuery("SELECT * FROM temporada where Puestos y Trofeos y Anio temporada  = '" + puestos
-							+ trofeos +"'" + anioTemporada + "'");
+							+ trofeos + "'" + anioTemporada + "'");
 
 			System.out.println("SELECT * FROM Temporada where Puestos y Trofeos y Anio temporada = '" + puestos
-					+ trofeos +"'" + anioTemporada + "'");
+					+ trofeos + "'" + anioTemporada + "'");
 
 			if (rs.first() == false) {
 				return false;
@@ -967,7 +967,7 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into temporada values(" + puestos +"'" + trofeos +"'" + anioTemporada+")";
+				String query = "insert into temporada values(" + puestos + "'" + trofeos + "'" + anioTemporada + ")";
 
 				sentencia.executeUpdate(query);
 			} else {
@@ -1062,8 +1062,6 @@ public class clsDatos {
 			 * Aqui hacemos una select de manager
 			 */
 
-			
-
 			if (rs.first() == false) {
 				return false;
 			} else {
@@ -1102,9 +1100,9 @@ public class clsDatos {
 			 */
 
 			if (r == false) {
-				String query = "insert into manager values('" + nombre + "','" + apellido1 + "','" + apellido2 + "','" + dni + "','" + 
-				sexo + "','" + calidad + "'," + valoracion +")";
-				
+				String query = "insert into manager values('" + nombre + "','" + apellido1 + "','" + apellido2 + "','"
+						+ dni + "','" + sexo + "','" + calidad + "'," + valoracion + ")";
+
 				sentencia.executeUpdate(query);
 			} else {
 				System.out.println("Manager Existente!"); // por si hay managers repetidos
