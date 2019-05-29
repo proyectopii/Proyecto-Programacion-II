@@ -1,5 +1,37 @@
 package LD;
 
+import static COMUN.clsConstantesBD.DELETE_SQL_EQUIPACION;
+import static COMUN.clsConstantesBD.DELETE_SQL_EQUIPO;
+import static COMUN.clsConstantesBD.DELETE_SQL_ESCUDO;
+import static COMUN.clsConstantesBD.DELETE_SQL_INTERCAMBIO;
+import static COMUN.clsConstantesBD.DELETE_SQL_JUGADOR;
+import static COMUN.clsConstantesBD.DELETE_SQL_MANAGER;
+import static COMUN.clsConstantesBD.DELETE_SQL_PARTIDOS;
+import static COMUN.clsConstantesBD.DELETE_SQL_TEMPORADA;
+import static COMUN.clsConstantesBD.DRIVER;
+import static COMUN.clsConstantesBD.INSERT_SQL_EQUIPACION;
+import static COMUN.clsConstantesBD.INSERT_SQL_EQUIPO;
+import static COMUN.clsConstantesBD.INSERT_SQL_ESCUDO;
+import static COMUN.clsConstantesBD.INSERT_SQL_INTERCAMBIO;
+import static COMUN.clsConstantesBD.INSERT_SQL_JUGADOR;
+import static COMUN.clsConstantesBD.INSERT_SQL_MANAGER;
+import static COMUN.clsConstantesBD.INSERT_SQL_PARTIDOS;
+import static COMUN.clsConstantesBD.INSERT_SQL_TEMPORADA;
+import static COMUN.clsConstantesBD.PASS;
+import static COMUN.clsConstantesBD.SCHEMA;
+import static COMUN.clsConstantesBD.SELECT_SQL_EQUIPACION;
+import static COMUN.clsConstantesBD.SELECT_SQL_EQUIPO;
+import static COMUN.clsConstantesBD.SELECT_SQL_ESC;
+import static COMUN.clsConstantesBD.SELECT_SQL_ESCUDO;
+import static COMUN.clsConstantesBD.SELECT_SQL_INTERCAMBIO;
+import static COMUN.clsConstantesBD.SELECT_SQL_JUGADOR;
+import static COMUN.clsConstantesBD.SELECT_SQL_MANAGER;
+import static COMUN.clsConstantesBD.SELECT_SQL_PARTIDOS;
+import static COMUN.clsConstantesBD.SELECT_SQL_TEMPORADA;
+import static COMUN.clsConstantesBD.TIME;
+import static COMUN.clsConstantesBD.URL;
+import static COMUN.clsConstantesBD.USER;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -8,40 +40,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mysql.cj.xdevapi.Statement;
-
-import static LD.clsConstantesBD.DRIVER;
-import static LD.clsConstantesBD.PASS;
-import static LD.clsConstantesBD.SCHEMA;
-import static LD.clsConstantesBD.URL;
-import static LD.clsConstantesBD.USER;
-import static LD.clsConstantesBD.TIME;
-
-import static LD.clsConstantesBD.INSERT_SQL_MANAGER;
-import static LD.clsConstantesBD.INSERT_SQL_EQUIPO;
-import static LD.clsConstantesBD.INSERT_SQL_EQUIPACION;
-import static LD.clsConstantesBD.INSERT_SQL_TEMPORADA;
-import static LD.clsConstantesBD.INSERT_SQL_ESCUDO;
-import static LD.clsConstantesBD.INSERT_SQL_INTERCAMBIO;
-import static LD.clsConstantesBD.INSERT_SQL_PARTIDOS;
-import static LD.clsConstantesBD.INSERT_SQL_JUGADOR;
-
-import static LD.clsConstantesBD.SELECT_SQL_MANAGER;
-import static LD.clsConstantesBD.SELECT_SQL_EQUIPO;
-import static LD.clsConstantesBD.SELECT_SQL_EQUIPACION;
-import static LD.clsConstantesBD.SELECT_SQL_TEMPORADA;
-import static LD.clsConstantesBD.SELECT_SQL_ESCUDO;
-import static LD.clsConstantesBD.SELECT_SQL_INTERCAMBIO;
-import static LD.clsConstantesBD.SELECT_SQL_PARTIDOS;
-import static LD.clsConstantesBD.SELECT_SQL_JUGADOR;
-
-import static LD.clsConstantesBD.DELETE_SQL_MANAGER;
-import static LD.clsConstantesBD.DELETE_SQL_EQUIPACION;
-import static LD.clsConstantesBD.DELETE_SQL_EQUIPO;
-import static LD.clsConstantesBD.DELETE_SQL_ESCUDO;
-import static LD.clsConstantesBD.DELETE_SQL_INTERCAMBIO;
-import static LD.clsConstantesBD.DELETE_SQL_JUGADOR;
-import static LD.clsConstantesBD.DELETE_SQL_PARTIDOS;
-import static LD.clsConstantesBD.DELETE_SQL_TEMPORADA;
 
 public class clsDatosBD {
 

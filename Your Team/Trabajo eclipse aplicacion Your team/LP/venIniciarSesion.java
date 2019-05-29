@@ -20,6 +20,8 @@ import javax.swing.JDialog;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import static COMUN.clsConstantesBD.SELECT_SQL_INDNI;
+import static COMUN.clsConstantesBD.SELECT_SQL_INCONTRASENIA;
 
 public class venIniciarSesion extends JDialog implements ActionListener{
 
@@ -129,6 +131,7 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 		panel.setLayout(gl_panel);
 	}
 
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -138,7 +141,7 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 				String clavefinal = new String(clave);
 				
 				//Cambiar los "nombreequipo" por la variables nombreequipo y dni respectivamente
-				if(txtusuario.getText().equals("nombreequipo") && clavefinal.equals("nombreequipo")) {
+				if((txtusuario.getText().equals(SELECT_SQL_INDNI)) && (clavefinal.equals(SELECT_SQL_INCONTRASENIA)))  {
 					JOptionPane.showMessageDialog(null, "Que bueno que viniste", clavefinal, JOptionPane.INFORMATION_MESSAGE);
 					venMostrarEquipo obj = new venMostrarEquipo(this, true);
 					obj.setVisible(true);

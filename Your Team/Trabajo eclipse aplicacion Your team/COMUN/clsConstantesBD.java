@@ -1,4 +1,4 @@
-package LD;
+package COMUN;
 
 public class clsConstantesBD {
 	/**
@@ -17,16 +17,17 @@ public class clsConstantesBD {
 	 * Aqui haremos todas las select que necesitemos
 	 */
 	
-	public static final String SELECT_SQL_MANAGER="SELECT * FROM Manager where  dni = ?";
-	public static final String  SELECT_SQL_EQUIPACION="SELECT * FROM Equipacion where color1=?";
-	public static final String SELECT_SQL_EQUIPO="SELECT * FROM  where Nombre equipo=?";
-	public static final String SELECT_SQL_ESCUDO="SELECT * FROM  where forma escudo =?";
-	public static final String SELECT_SQL_INTERCAMBIO="SELECT * FROM  where Equipo origen and Equipo destino =?";
-	public static final String SELECT_SQL_JUGADOR="SELECT * FROM Jugador  where idJugador =?";
-	public static final String SELECT_SQL_PARTIDOS="SELECT * FROM Jugador where Skills =?";
-	public static final String SELECT_SQL_TEMPORADA="SELECT * FROM temporada where Puestos y Trofeos y Anio temporada  =?";
+	public static final String SELECT_SQL_MANAGER="SELECT * FROM mydb.Manager where  dni = ?";
+	public static final String  SELECT_SQL_EQUIPACION="SELECT * FROM mydb.Equipacion where color1=?";
+	public static final String SELECT_SQL_EQUIPO="SELECT * FROM mydb.Equipo  where Nombre equipo=?";
+	public static final String SELECT_SQL_ESCUDO="SELECT * FROM mydb.Escudo  where forma escudo =?";
+	public static final String SELECT_SQL_INTERCAMBIO="SELECT * FROM mydb.Intercambio  where Equipo origen and Equipo destino =?";
+	public static final String SELECT_SQL_JUGADOR="SELECT * FROM mydb.Jugador  where idJugador =?";
+	public static final String SELECT_SQL_PARTIDOS="SELECT * FROM mydb.Partidos where Skills =?";
+	public static final String SELECT_SQL_TEMPORADA="SELECT * FROM mydb.Temporada where Puestos y Trofeos y Anio temporada  =?";
 	
 	
+	public static final int SELECT_SQL_ESC=7;
 	
 	
 	public static final String INSERT_SQL_MANAGER=	"INSERT INTO `mydb`.`manager`"
@@ -74,4 +75,51 @@ public class clsConstantesBD {
     		                                        +"`Valoracion` =?,"
     		                                        +"`Contrasenia` = ?"
     		                                        +"WHERE `dni` = ?";
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static final String SELECT_SQL_INDNI="SELECT dni FROM mydb.Manager where dni=?";
+	public static final String SELECT_SQL_INCONTRASENIA="SELECT Contrasenia FROM mydb.Manager where "
+			+ "Contrasenia=?";
+	
 }
