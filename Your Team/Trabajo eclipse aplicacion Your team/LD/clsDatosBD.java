@@ -31,6 +31,9 @@ import static COMUN.clsConstantesBD.SELECT_SQL_TEMPORADA;
 import static COMUN.clsConstantesBD.TIME;
 import static COMUN.clsConstantesBD.URL;
 import static COMUN.clsConstantesBD.USER;
+import static COMUN.clsConstantesBD.SELECT_SQL_EQUIP;
+import static COMUN.clsConstantesBD.SELECT_SQL_INTER;
+import static COMUN.clsConstantesBD.SELECT_SQL_PART;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -172,10 +175,11 @@ public class clsDatosBD {
 			ps.setString(1, nombreEquipo);
 			ps.setDate(2, dateequipo);
 			ps.setString(3,SELECT_SQL_MANAGER );
-			ps.setString(4,(SELECT_SQL_ESCUDO));
-			ps.setString(5, SELECT_SQL_INTERCAMBIO);
-			ps.setString(6,SELECT_SQL_EQUIPACION);
-			ps.setString(7,SELECT_SQL_PARTIDOS);
+			ps.setInt(4,(SELECT_SQL_ESC));
+			ps.setInt(5, SELECT_SQL_INTER);
+			ps.setInt(6,SELECT_SQL_EQUIP);
+			ps.setInt(7,SELECT_SQL_PART);
+			
 			regActualizados = ps.executeUpdate();
 
 			if (regActualizados == 1) {

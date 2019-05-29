@@ -10,7 +10,7 @@ public class clsConstantesBD {
 	public static final String TIME="?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	public static final String USER = "root";
-	public static final String PASS = "root";
+	public static final String PASS = "bkn1959";
 	
 	
 	/**
@@ -18,7 +18,7 @@ public class clsConstantesBD {
 	 */
 	
 	public static final String SELECT_SQL_MANAGER="SELECT * FROM mydb.Manager where  dni = ?";
-	public static final String  SELECT_SQL_EQUIPACION="SELECT * FROM mydb.Equipacion where color1=?";
+	public static final String SELECT_SQL_EQUIPACION="SELECT * FROM mydb.Equipacion where color1=?";
 	public static final String SELECT_SQL_EQUIPO="SELECT * FROM mydb.Equipo  where Nombre equipo=?";
 	public static final String SELECT_SQL_ESCUDO="SELECT * FROM mydb.Escudo  where forma escudo =?";
 	public static final String SELECT_SQL_INTERCAMBIO="SELECT * FROM mydb.Intercambio  where Equipo origen and Equipo destino =?";
@@ -28,6 +28,9 @@ public class clsConstantesBD {
 	
 	
 	public static final int SELECT_SQL_ESC=7;
+	public static final int SELECT_SQL_INTER=7;
+	public static final int SELECT_SQL_EQUIP=7;
+	public static final int SELECT_SQL_PART=7;
 	
 	
 	public static final String INSERT_SQL_MANAGER=	"INSERT INTO `mydb`.`manager`"
