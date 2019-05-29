@@ -19,7 +19,7 @@ public class clsComparadorPorNombreEquipo implements Comparator<clsEquipo> {
 
 	@Override
 	public int compare(clsEquipo e1, clsEquipo e2) {
-		return (e1.getNombreEquipo().compareTo(e2.getNombreEquipo()) );
+		return (e1.getNombreEquipo().compareTo(e2.getNombreEquipo()));
 	}
 
 }

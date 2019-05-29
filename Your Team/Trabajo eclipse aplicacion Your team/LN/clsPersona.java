@@ -51,23 +51,23 @@ public abstract class clsPersona implements itfProperty {
 	@Override
 	public Object getObjectProperty(String propiedad) {
 		switch (propiedad) {
-			case PROPIEDAD_clsPERSONA_NOMBRE:
-				return this.nombre;
-			case PROPIEDAD_clsPERSONA_APELLIDO1:
-				return this.apellido1;
-			case PROPIEDAD_clsPERSONA_APELLIDO2:
-				return this.apellido2;
-			case PROPIEDAD_clsPERSONA_DNI:
-				return this.dni;
-			case PROPIEDAD_clsPERSONA_SEXO:
-				return this.sexo;
-			/**
-			 * Aqui es donde lanzaremos las excepciones de run time por si entra por el
-			 * default
-			 */
-	
-			default:
-				throw new PropiedadInexistente("No existe esa propiedad!");
+		case PROPIEDAD_clsPERSONA_NOMBRE:
+			return this.nombre;
+		case PROPIEDAD_clsPERSONA_APELLIDO1:
+			return this.apellido1;
+		case PROPIEDAD_clsPERSONA_APELLIDO2:
+			return this.apellido2;
+		case PROPIEDAD_clsPERSONA_DNI:
+			return this.dni;
+		case PROPIEDAD_clsPERSONA_SEXO:
+			return this.sexo;
+		/**
+		 * Aqui es donde lanzaremos las excepciones de run time por si entra por el
+		 * default
+		 */
+
+		default:
+			throw new PropiedadInexistente("No existe esa propiedad!");
 
 		}
 
@@ -79,21 +79,21 @@ public abstract class clsPersona implements itfProperty {
 	@Override
 	public void setObjectProperty(String propiedad, Object valor) {
 		switch (propiedad) {
-			case PROPIEDAD_clsPERSONA_NOMBRE:
-				nombre = ((String) valor);
-				break;
-			case PROPIEDAD_clsPERSONA_APELLIDO1:
-				apellido1 = ((String) valor);
-				break;
-			case PROPIEDAD_clsPERSONA_APELLIDO2:
-				apellido2 = ((String) valor);
-				break;
-			case PROPIEDAD_clsPERSONA_DNI:
-				dni = ((String) valor);
-				break;
-			case PROPIEDAD_clsPERSONA_SEXO:
-				sexo = ((String) valor);
-				break;
+		case PROPIEDAD_clsPERSONA_NOMBRE:
+			nombre = ((String) valor);
+			break;
+		case PROPIEDAD_clsPERSONA_APELLIDO1:
+			apellido1 = ((String) valor);
+			break;
+		case PROPIEDAD_clsPERSONA_APELLIDO2:
+			apellido2 = ((String) valor);
+			break;
+		case PROPIEDAD_clsPERSONA_DNI:
+			dni = ((String) valor);
+			break;
+		case PROPIEDAD_clsPERSONA_SEXO:
+			sexo = ((String) valor);
+			break;
 
 		}
 
@@ -134,10 +134,10 @@ public abstract class clsPersona implements itfProperty {
 			return false;
 		return true;
 	}
+
 	/**
 	 * Aqui generaremos los getters y setters
 	 */
-
 
 	public String getNombre() {
 		return nombre;

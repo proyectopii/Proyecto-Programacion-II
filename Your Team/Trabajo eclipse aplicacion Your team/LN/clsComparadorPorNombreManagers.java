@@ -19,7 +19,7 @@ public class clsComparadorPorNombreManagers implements Comparator<clsManager> {
 		 * Aqui comparamos nombre de persona de un sitio y de otro y lo ordenaremos
 		 * alfabeticamente como vemos utilizando el String
 		 */
-		return ( m1.getNombre()).compareTo( m2.getNombre());
+		return (m1.getNombre()).compareTo(m2.getNombre());
 	}
 
 }

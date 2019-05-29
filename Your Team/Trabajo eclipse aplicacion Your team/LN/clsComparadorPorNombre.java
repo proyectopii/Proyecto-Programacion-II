@@ -3,9 +3,6 @@ package LN;
  * Importamos las constantes finales que necesitaremos de la clase cls persona y es con eso con los que ordenaremos
  */
 
-
-
-
 /**
  * Creamos el comparador
  * 
@@ -21,6 +18,6 @@ public class clsComparadorPorNombre implements Comparator<clsJugador> {
 	 */
 	@Override
 	public int compare(clsJugador p1, clsJugador p2) {
-		return ( p1.getNombre().compareTo(  p2.getNombre()));
+		return (p1.getNombre().compareTo(p2.getNombre()));
 	}
 }

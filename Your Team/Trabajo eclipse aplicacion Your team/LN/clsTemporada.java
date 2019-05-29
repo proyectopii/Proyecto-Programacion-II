@@ -132,6 +132,7 @@ public class clsTemporada implements itfProperty {
 	public String toString() {
 		return "clsTemporada [puestos=" + puestos + ", trofeos=" + trofeos + ", anioTemporada=" + anioTemporada + "]";
 	}
+
 	/**
 	 * Aqui generaremos los getters y setters
 	 */

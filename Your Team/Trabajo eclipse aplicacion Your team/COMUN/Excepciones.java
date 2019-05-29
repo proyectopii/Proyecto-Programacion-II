@@ -6,8 +6,8 @@ import java.sql.Statement;
 
 public class Excepciones {
 	/**
-	 * Aqui meteremos con try catch posibles excepciones que se puedan ocasionar para
-	 * la base de datos
+	 * Aqui meteremos con try catch posibles excepciones que se puedan ocasionar
+	 * para la base de datos
 	 */
 	private static Excepciones instance = null;
 	/**
@@ -85,5 +85,3 @@ public class Excepciones {
 		return connection.createStatement(resultSetType, resultSetConcurrency);
 	}
 }
-
-

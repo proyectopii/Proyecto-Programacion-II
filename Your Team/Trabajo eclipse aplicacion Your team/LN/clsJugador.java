@@ -61,7 +61,6 @@ public class clsJugador extends clsPersona implements itfProperty {
 		this.skills = skills;
 	}
 
-	
 	/**
 	 * Crearemos los getters y setters de los atributos
 	 */
@@ -78,7 +77,8 @@ public class clsJugador extends clsPersona implements itfProperty {
 		 * property con el default
 		 */
 
-		default: return super.getObjectProperty(propiedad);
+		default:
+			return super.getObjectProperty(propiedad);
 
 		}
 
@@ -109,6 +109,7 @@ public class clsJugador extends clsPersona implements itfProperty {
 	public String toString() {
 		return "clsJugador [formaFisica=" + formaFisica + ", skills=" + skills + "]";
 	}
+
 	/**
 	 * Aqui generaremos los getters y setters
 	 */
