@@ -28,6 +28,7 @@ public class clsConstantesBD {
 	
 	
 	
+	
 	public static final String INSERT_SQL_MANAGER=	"INSERT INTO `mydb`.`manager`"
 													+ "(`Nombre`,`Apellido1`,`Apellido2`,`dni`,`Sexo`,"
 													+ "`Calidad`,`Valoracion`,`Contrasenia`) values(?,?,?,?,?,?,?,?)";
