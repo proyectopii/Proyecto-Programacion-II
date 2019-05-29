@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 
 import LN.clsGestorLN;
@@ -20,6 +21,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
@@ -32,6 +34,7 @@ public class venEscudo extends JDialog implements ActionListener {
 	private JComboBox comboForma;
 	private JComboBox comboColor;
 	private JButton btnSiguiente;
+	
 	private clsGestorLN gestor = new clsGestorLN();
 	
 	public static final String ACTION_COMMAND_SIGUIENTE = "Siguiente";
@@ -132,6 +135,8 @@ public class venEscudo extends JDialog implements ActionListener {
 		labelfoto.setIcon(new ImageIcon(venEscudo.class.getResource("/Imagenes/fotoescudo1.png")));
 		labelfoto.setBounds(0, 0, 451, 291);
 		panel.add(labelfoto);
+		
+		 
 	}
 
 	@Override

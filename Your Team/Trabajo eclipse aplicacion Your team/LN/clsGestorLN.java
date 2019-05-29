@@ -1324,41 +1324,6 @@ public class clsGestorLN {
 		clsDatosBD.Disconnect();
 	}
 
-	public int atras() {
-		if (tumanager.size() != 0) {
-			if (posicion == -1) {
-				posicion = 0;
-			} else if (posicion == 0) {
-				posicion = tumanager.size() - 1;
-			} else {
-				posicion = posicion - 1;
-			}
-
-			return posicion;
-		} else {
-			return -1;
-		}
-	}
-
-	public int alante() {
-		if (tumanager.size() != 0) {
-			
-			if (posicion == -1) {
-				posicion = 0;
-			} else if (posicion == tumanager.size() - 1) // ultimo
-			{
-				
-				posicion = 0;
-			} else {
-				
-				posicion = posicion + 1;
-			}
-
-			return posicion;
-		} else {
-			return -1;
-		}
-	}
 	
 	public void ordenporcolor() {
 		clsComparadorPorColores comp = new clsComparadorPorColores();

@@ -141,7 +141,8 @@ public class venIniciarSesion extends JDialog implements ActionListener{
 				String clavefinal = new String(clave);
 				
 				//Cambiar los "nombreequipo" por la variables nombreequipo y dni respectivamente
-				if((txtusuario.getText().equals(SELECT_SQL_INDNI)) && (clavefinal.equals(SELECT_SQL_INCONTRASENIA)))  {
+				//if((txtusuario.getText().equals(SELECT_SQL_INDNI)) && (clavefinal.equals(SELECT_SQL_INCONTRASENIA))) 
+				if((txtusuario.getText().equals("123")) && (clavefinal.equals("123")))  {
 					JOptionPane.showMessageDialog(null, "Que bueno que viniste", clavefinal, JOptionPane.INFORMATION_MESSAGE);
 					venMostrarEquipo obj = new venMostrarEquipo(this, true);
 					obj.setVisible(true);

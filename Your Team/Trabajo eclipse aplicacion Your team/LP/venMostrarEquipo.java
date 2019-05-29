@@ -16,6 +16,7 @@ import LN.clsGestorLN;
 import java.awt.Color;
 import java.awt.Label;
 import javax.swing.JLabel;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import java.awt.TextArea;
 import javax.swing.JButton;
@@ -32,9 +33,6 @@ public class venMostrarEquipo extends JDialog implements ActionListener {
 	private clsGestorLN objgestor = new clsGestorLN();
 
 	private JPanel contentPane;
-	private JButton buttonatras;
-	private JButton buttonalante;
-	private JButton btnEliminar;
 	private JRadioButton rdbtnordenombre;
 	private JRadioButton rdbtnordenequipo;
 	private JRadioButton rdbtnordenColor;
@@ -86,24 +84,6 @@ public class venMostrarEquipo extends JDialog implements ActionListener {
 		textArea.setBounds(0, 0, 225, 146);
 		panel.add(textArea);
 		
-		buttonatras = new JButton("<<");
-		buttonatras.addActionListener(this);
-		buttonatras.setActionCommand(ACTION_COMMAND_ATRAS);
-		buttonatras.setBounds(10, 152, 89, 23);
-		panel.add(buttonatras);
-		
-		buttonalante = new JButton(">>");
-		buttonalante.addActionListener(this);
-		buttonalante.setActionCommand(ACTION_COMMAND_ALANTE);
-		buttonalante.setBounds(109, 152, 89, 23);
-		panel.add(buttonalante);
-		
-		btnEliminar = new JButton("Eliminar");
-		btnEliminar.addActionListener(this);
-		btnEliminar.setActionCommand(ACTION_COMMAND_ELIMINAR);
-		btnEliminar.setBounds(302, 86, 113, 23);
-		panel.add(btnEliminar);
-		
 		rdbtnordenombre = new JRadioButton("Ordenar por nombre");
 		rdbtnordenombre.setBounds(267, 211, 148, 23);
 		panel.add(rdbtnordenombre);
@@ -130,40 +110,18 @@ public class venMostrarEquipo extends JDialog implements ActionListener {
 		labelfoto.setIcon(new ImageIcon(venMostrarEquipo.class.getResource("/Imagenes/fotomostrarequipo2.png")));
 		labelfoto.setBounds(0, 0, 451, 291);
 		panel.add(labelfoto);
+		
+		ButtonGroup group = new ButtonGroup();
+		 group.add(rdbtnordenColor );
+	     group.add(rdbtnordenombre);
+	     group.add(rdbtnordenequipo);
+	     group.add(rdbtnordenManager);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
-			case ACTION_COMMAND_ATRAS:
-				int p = objgestor.atras();
-				
-				if(p != -1) {
-					String nombre = objgestor.obtenernombre(p);
-					String apellido1 = objgestor.obtenerapellido1(p);
-					String apellido2 = objgestor.obtenerapellido2(p);
-					String dni = objgestor.obtenerdni(p);
-					String sexo = objgestor.obtenersexo(p);
-					String calidad = objgestor.obtenercalidad(p);
-					int valoracion = objgestor.obtenervaloracion(p);
-					String contrasenia = objgestor.obtenercontrasenia(p);
-				}
-				break;
-				
-			case ACTION_COMMAND_ALANTE:
-				p = objgestor.alante();
-				
-				if(p != -1) {
-					String nombre = objgestor.obtenernombre(p);
-					String apellido1 = objgestor.obtenerapellido1(p);
-					String apellido2 = objgestor.obtenerapellido2(p);
-					String dni = objgestor.obtenerdni(p);
-					String sexo = objgestor.obtenersexo(p);
-					String calidad = objgestor.obtenercalidad(p);
-					int valoracion = objgestor.obtenervaloracion(p);
-					String contrasenia = objgestor.obtenercontrasenia(p);
-				}
-				break;
+			
 			case ACTION_COMMAND_REFRESCAR:
 				if(ordencolor()) {
 					objgestor.ordenporcolor();
