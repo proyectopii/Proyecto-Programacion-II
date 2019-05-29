@@ -68,14 +68,17 @@ public class clsGestorLN {
 	/**
 	 * Con este metodo añadiremos equipaciones
 	 * 
-	 * @param color1
-	 * @param color2
+	 * @param color1P
+	 * @param color2P
+	 * @param color1S
+	 * @param color2S
 	 * @param publicidadP
 	 * @param publicidadS
 	 * @param serigrafiadoP
 	 * @param serigrafiadoS
 	 * @param dorsal
 	 * @return
+	 * @throws clsExcepcionEquipacionRepetida
 	 */
 	public boolean anadirclsEquipacion(String color1P, String color2P, String color1S, String color2S,
 			String publicidadP, String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
@@ -116,10 +119,15 @@ public class clsGestorLN {
 	/**
 	 * Este metodo lo utilizaremos si queremos cambiar una equipacion
 	 * 
-	 * @param color1
-	 * @param color2
-	 * @param publicidad
-	 * @param serigrafiado
+	 * @param color1P
+	 * @param color2P
+	 * @param color1S
+	 * @param color2S
+	 * @param publicidadP
+	 * @param publicidadS
+	 * @param serigrafiadoP
+	 * @param serigrafiadoS
+	 * @param dorsal
 	 * @return
 	 */
 
@@ -149,7 +157,15 @@ public class clsGestorLN {
 	/**
 	 * Con este metodo buscamos equipaciones
 	 * 
-	 * @param color1
+	 * @param color1P
+	 * @param color2P
+	 * @param color1S
+	 * @param color2S
+	 * @param publicidadP
+	 * @param publicidadS
+	 * @param serigrafiadoP
+	 * @param serigrafiadoS
+	 * @param dorsal
 	 * @return
 	 */
 
@@ -178,10 +194,15 @@ public class clsGestorLN {
 	/**
 	 * Este metodo lo utilizaremos si queremos borrar alguna equipacion
 	 * 
-	 * @param color1
-	 * @param color2
-	 * @param publicidad
-	 * @param serigrafiado
+	 * @param color1P
+	 * @param color2P
+	 * @param color1S
+	 * @param color2S
+	 * @param publicidadP
+	 * @param publicidadS
+	 * @param serigrafiadoP
+	 * @param serigrafiadoS
+	 * @param dorsal
 	 * @return
 	 */
 	public boolean borrarclsEquipacion(String color1P, String color2P, String color1S, String color2S,
