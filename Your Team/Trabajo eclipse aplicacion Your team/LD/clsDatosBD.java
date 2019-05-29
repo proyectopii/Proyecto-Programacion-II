@@ -175,10 +175,10 @@ public class clsDatosBD {
 			ps.setString(1, nombreEquipo);
 			ps.setDate(2, dateequipo);
 			ps.setString(3,SELECT_SQL_MANAGER );
-			ps.setInt(4,(SELECT_SQL_ESC));
-			ps.setInt(5, SELECT_SQL_INTER);
-			ps.setInt(6,SELECT_SQL_EQUIP);
-			ps.setInt(7,SELECT_SQL_PART);
+			ps.setString(4,(SELECT_SQL_ESCUDO));
+			ps.setString(5, SELECT_SQL_INTERCAMBIO);
+			ps.setString(6,SELECT_SQL_EQUIPACION);
+			ps.setString(7,SELECT_SQL_PARTIDOS);
 			
 			regActualizados = ps.executeUpdate();
 
