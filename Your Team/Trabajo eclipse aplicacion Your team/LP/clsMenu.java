@@ -37,7 +37,6 @@ public class clsMenu {
 				Crearequipo();
 				Crearequipacion();
 				CrearEscudo();
-
 				break;
 			case 2:
 				CrearIntercambio();
@@ -202,7 +201,6 @@ public class clsMenu {
 		} catch (clsExcepcionIntercambioRepetido e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
 
 }
