@@ -210,7 +210,7 @@ public class clsDatosBD {
 			ps = conn.prepareStatement(INSERT_SQL_EQUIPO, PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nombreEquipo);
 			ps.setDate(2, dateequipo);
-<<<<<<< Updated upstream
+
 
 			ps.setString(3,SELECT_SQL_MANAGER );
 			ps.setString(4,(SELECT_SQL_ESCUDO));
@@ -225,14 +225,14 @@ public class clsDatosBD {
 			ps.setString(7, SELECT_SQL_PARTIDOS);
 
 
-=======
+
 			ps.setString(3, SELECT_SQL_MANAGER);
 			ps.setString(4, SELECT_SQL_ESCUDO);
 			ps.setString(5, SELECT_SQL_INTERCAMBIO);
 			ps.setString(6,SELECT_SQL_EQUIPACION);
 			ps.setString(7,SELECT_SQL_PARTIDOS);
 			
->>>>>>> Stashed changes
+
 			regActualizados = ps.executeUpdate();
 
 			if (regActualizados == 1) {
