@@ -122,7 +122,7 @@ public class clsDatosBD {
 			String calidad, int valoracion, String contrasenia) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_manager = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_MANAGER, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -140,7 +140,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_manager = rs.getInt(1);
 				}
 			}
 
@@ -149,7 +149,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_manager;
 
 	}
 
@@ -200,45 +200,30 @@ public class clsDatosBD {
 	 * @param fundacionEquipo
 	 * @return
 	 */
-	public int InsertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo) {
+	public int InsertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo, int id_manager, int id_escudo, int id_intercambio, 
+			int id_equipacion, int id_partido) {
+		
 		java.sql.Date dateequipo = new java.sql.Date(fundacionEquipo.getTime());
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_equipo = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_EQUIPO, PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nombreEquipo);
 			ps.setDate(2, dateequipo);
-
-
-			ps.setString(3,SELECT_SQL_MANAGER );
-			ps.setString(4,(SELECT_SQL_ESCUDO));
-			ps.setString(5, SELECT_SQL_INTERCAMBIO);
-			ps.setString(6,SELECT_SQL_EQUIPACION);
-			ps.setString(7,SELECT_SQL_PARTIDOS);
-
-			ps.setString(3, SELECT_SQL_MANAGER);
-			ps.setString(4, (SELECT_SQL_ESCUDO));
-			ps.setString(5, SELECT_SQL_INTERCAMBIO);
-			ps.setString(6, SELECT_SQL_EQUIPO);
-			ps.setString(7, SELECT_SQL_PARTIDOS);
-
-
-
-			ps.setString(3, SELECT_SQL_MANAGER);
-			ps.setString(4, SELECT_SQL_ESCUDO);
-			ps.setString(5, SELECT_SQL_INTERCAMBIO);
-			ps.setString(6,SELECT_SQL_EQUIPACION);
-			ps.setString(7,SELECT_SQL_PARTIDOS);
+			ps.setInt(3, id_manager);
+			ps.setInt(4, id_escudo);
+			ps.setInt(5, id_intercambio);
+			ps.setInt(6, id_equipacion);
+			ps.setInt(7, id_partido);
 			
-
 			regActualizados = ps.executeUpdate();
 
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_equipo = rs.getInt(1);
 				}
 			}
 
@@ -247,7 +232,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_equipo;
 
 	}
 
@@ -308,8 +293,9 @@ public class clsDatosBD {
 			String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_equipacion = 0;
 
+		
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_EQUIPACION, PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, color1P);
@@ -327,7 +313,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_equipacion = rs.getInt(1);
 				}
 			}
 
@@ -336,7 +322,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_equipacion;
 
 	}
 
@@ -388,7 +374,7 @@ public class clsDatosBD {
 	public int InsertarEscudo(String formaEscudo, String colorEscudo) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_escudo = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_ESCUDO, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -400,7 +386,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_escudo = rs.getInt(1);
 				}
 			}
 
@@ -409,7 +395,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_escudo;
 
 	}
 
@@ -459,7 +445,7 @@ public class clsDatosBD {
 	public int InsertarIntercambio(String equipoOrigen, String equipoDestino) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_intercambio = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_INTERCAMBIO, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -471,7 +457,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_intercambio = rs.getInt(1);
 				}
 			}
 
@@ -480,7 +466,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_intercambio;
 
 	}
 
@@ -537,7 +523,7 @@ public class clsDatosBD {
 			double skills, int formaFisica) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_jugador = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_JUGADOR, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -554,7 +540,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_jugador = rs.getInt(1);
 				}
 			}
 
@@ -563,7 +549,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_jugador;
 
 	}
 
@@ -614,7 +600,7 @@ public class clsDatosBD {
 	public int InsertarPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_partido = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_PARTIDOS, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -627,7 +613,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_partido = rs.getInt(1);
 				}
 			}
 
@@ -636,7 +622,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_partido;
 
 	}
 
@@ -688,7 +674,7 @@ public class clsDatosBD {
 	public int InsertarTemporada(int puestos, String trofeos, Date anioTemporada) {
 
 		int regActualizados = 0;
-		int retorno = 0;
+		int id_temporada = 0;
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_TEMPORADA, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -701,7 +687,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					retorno = rs.getInt(1);
+					id_temporada = rs.getInt(1);
 				}
 			}
 
@@ -710,7 +696,7 @@ public class clsDatosBD {
 			e.printStackTrace();
 		}
 
-		return retorno;
+		return id_temporada;
 
 	}
 

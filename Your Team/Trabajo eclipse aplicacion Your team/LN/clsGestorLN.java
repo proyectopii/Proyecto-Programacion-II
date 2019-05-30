@@ -293,7 +293,13 @@ public class clsGestorLN {
 		} else {
 			tuequipo.add(e);
 
-			clsDatosBD.InsertarEquipo(nombreEquipo, fundacionEquipo);
+			int id_manager = 0;
+			int id_escudo = 0;
+			int id_intercambio = 0;
+			int id_equipacion = 0;
+			int id_partido = 0;
+			clsDatosBD.InsertarEquipo(nombreEquipo, fundacionEquipo, id_manager, id_escudo, id_intercambio, 
+					id_equipacion, id_partido);
 			clsDatosBD.Disconnect();
 			return true;
 		}
@@ -406,8 +412,14 @@ public class clsGestorLN {
 																												// de
 																												// atributo
 			Date fundacionEquipo = (Date) e.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO);
-
-			clsDatosBD.InsertarEquipo(nombreEquipo, fundacionEquipo);
+			
+			int id_manager = 0;
+			int id_escudo = 0;
+			int id_intercambio = 0;
+			int id_equipacion = 0;
+			int id_partido = 0;
+			clsDatosBD.InsertarEquipo(nombreEquipo, fundacionEquipo, id_manager, id_escudo, id_intercambio, 
+					id_equipacion, id_partido);
 			clsDatosBD.Disconnect();
 		}
 
