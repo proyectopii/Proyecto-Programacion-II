@@ -22,6 +22,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import static COMUN.clsConstantesBD.SELECT_SQL_INDNI;
 import static COMUN.clsConstantesBD.SELECT_SQL_INCONTRASENIA;
+import static COMUN.clsConstantesBD.SELECT_SQL_MANAGER;
 
 public class venIniciarSesion extends JDialog implements ActionListener {
 	/**
@@ -129,7 +130,8 @@ public class venIniciarSesion extends JDialog implements ActionListener {
 			// respectivamente
 			// if((txtusuario.getText().equals(SELECT_SQL_INDNI)) &&
 			// (clavefinal.equals(SELECT_SQL_INCONTRASENIA)))
-			if ((txtusuario.getText().equals("123")) && (clavefinal.equals("123"))) {
+			if ((txtusuario.getText().equals("123")) &&
+					 (clavefinal.equals("123"))) {
 				JOptionPane.showMessageDialog(null, "Que bueno que viniste", clavefinal,
 						JOptionPane.INFORMATION_MESSAGE);
 				venMostrarEquipo obj = new venMostrarEquipo(this, true);

@@ -42,6 +42,7 @@ public class clsGestorLN {
 	private ArrayList<clsTemporada> tutemporada;
 	private ArrayList<clsIntercambio> tuintercambio;
 	private ArrayList<clsManager> tumanager;
+	
 
 	private int posicion = -1;
 
@@ -1321,12 +1322,14 @@ public class clsGestorLN {
 	}
 
 	public void ordenporcolor() {
+		
 		clsComparadorPorColores comp = new clsComparadorPorColores();
 		/**
 		 * Aquí ya tenemos los jugadores ordenados
 		 */
 
 		Collections.sort(tuescudo, comp);
+	
 	}
 
 	public void ordenpornombre() {

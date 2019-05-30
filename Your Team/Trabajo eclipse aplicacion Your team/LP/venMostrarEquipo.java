@@ -5,12 +5,14 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import COMUN.itfProperty;
 import LN.clsGestorLN;
 
 import java.awt.Color;
@@ -121,11 +123,12 @@ public class venMostrarEquipo extends JDialog implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		switch (e.getActionCommand()) {
 
 		case ACTION_COMMAND_REFRESCAR:
 			if (ordencolor()) {
-				objgestor.ordenporcolor();
+		      objgestor.ordenporcolor();				
 			} else if (ordennombre()) {
 				objgestor.ordenpornombre();
 			} else if (ordenequipo()) {
