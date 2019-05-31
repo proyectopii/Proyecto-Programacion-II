@@ -76,7 +76,7 @@ public class venEquipo extends JDialog implements ActionListener {
 		panel.setBackground(Color.MAGENTA);
 		contentPane.add(panel);
 
-		JLabel lblYaNoQueda = new JLabel("Ya no queda nada para terminar");
+		JLabel lblYaNoQueda = new JLabel("Ya no queda nada para terminar!");
 		lblYaNoQueda.setForeground(Color.ORANGE);
 		lblYaNoQueda.setBounds(113, 0, 255, 21);
 		lblYaNoQueda.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 16));
