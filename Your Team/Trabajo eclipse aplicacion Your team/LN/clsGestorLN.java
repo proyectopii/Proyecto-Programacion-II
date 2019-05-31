@@ -66,7 +66,7 @@ public class clsGestorLN {
 	}
 
 	/**
-	 * Con este metodo añadiremos equipaciones
+	 * Con este metodo aï¿½adiremos equipaciones
 	 * 
 	 * @param color1P
 	 * @param color2P
@@ -82,7 +82,7 @@ public class clsGestorLN {
 	 */
 	public boolean anadirclsEquipacion(String color1P, String color2P, String color1S, String color2S,
 			String publicidadP, String publicidadS, String serigrafiadoP, String serigrafiadoS, int dorsal)
-			throws clsExcepcionEquipacionRepetida { // Aquí estoy propagando la excepcion
+			throws clsExcepcionEquipacionRepetida { // Aquï¿½ estoy propagando la excepcion
 
 		clsEquipacion eq = new clsEquipacion(color1P, color2P, color1S, color2S, publicidadP, publicidadS,
 				serigrafiadoP, serigrafiadoS, dorsal);// Aqui creamos una nueva equipacion
@@ -92,19 +92,19 @@ public class clsGestorLN {
 		objDatosBD.Connect();
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
-		 * Aquí ya tenemos los jugadores ordenados
+		 * Aquï¿½ ya tenemos los jugadores ordenados
 		 */
 //---------------------------------------LD---------------------
 		Collections.sort(tuequipo, comp); // diferentes atributos
 		/**
-		 * Este metodo nos sirve para saber si hay repetidos para que no lo añada
+		 * Este metodo nos sirve para saber si hay repetidos para que no lo aï¿½ada
 		 */
 //---------------------------------------LN------------------
 		if ((tuequipacion.contains(eq) == true)) {
-			throw new clsExcepcionEquipacionRepetida("Equipación Repetida");
+			throw new clsExcepcionEquipacionRepetida("Equipaciï¿½n Repetida");
 
 			/**
-			 * Si no es repetido lo añadimos a la base de datos con sus atributos y nos lo
+			 * Si no es repetido lo aï¿½adimos a la base de datos con sus atributos y nos lo
 			 * retorna
 			 */
 		} else {
@@ -281,7 +281,7 @@ public class clsGestorLN {
 
 	// ----------------------------------------------------------------------------------------
 	/**
-	 * En este metodo añadiremos equipo junto con la base de datos
+	 * En este metodo aï¿½adiremos equipo junto con la base de datos
 	 * 
 	 * @param nombreEquipo
 	 * @param fundacionEquipo
@@ -293,7 +293,7 @@ public class clsGestorLN {
 		objDatosBD.Connect();
 
 		if (tuequipo.contains(e) == true) {
-			throw new clsExcepcionEquipoRepetido("Equipo repetido");// Aquí no nos admitira el equipo si esta repetido
+			throw new clsExcepcionEquipoRepetido("Equipo repetido");// Aquï¿½ no nos admitira el equipo si esta repetido
 		} else {
 			tuequipo.add(e);
 
@@ -342,7 +342,7 @@ public class clsGestorLN {
 
 		itfProperty datoABuscar = new clsEquipo(nombreEquipo, null);
 
-		int p = tuequipo.indexOf(datoABuscar);// Utilizaremos también el index
+		int p = tuequipo.indexOf(datoABuscar);// Utilizaremos tambiï¿½n el index
 
 		if (p != -1) {
 			datoABuscar = tuequipo.get(p);
@@ -431,7 +431,7 @@ public class clsGestorLN {
 
 	// ---------------------------------------------------------------------------------------------------
 	/**
-	 * Aqui añadiremos los escudos
+	 * Aqui aï¿½adiremos los escudos
 	 * 
 	 * @param formaEscudo
 	 * @param colorEscudo
@@ -562,7 +562,7 @@ public class clsGestorLN {
 
 //--------------------------------------------------------------------------
 	/**
-	 * Aqui añadiremos los intercambios que haya
+	 * Aqui aï¿½adiremos los intercambios que haya
 	 * 
 	 * @param equipoOrigen
 	 * @param equipoDestino
@@ -572,13 +572,13 @@ public class clsGestorLN {
 	public boolean anadirIntercambio(String equipoOrigen, String equipoDestino) throws clsExcepcionIntercambioRepetido {
 		clsIntercambio i = new clsIntercambio(equipoOrigen, equipoDestino);
 		/**
-		 * Utilizaremos el contains para añadirlo
+		 * Utilizaremos el contains para aï¿½adirlo
 		 */
 		objDatosBD.Connect();
 		if (tuintercambio.contains(i) == true) {
 			throw new clsExcepcionIntercambioRepetido("Intercambio Repetido");
 			/**
-			 * Aqui sencillamente si hay repetido no lo añade
+			 * Aqui sencillamente si hay repetido no lo aï¿½ade
 			 */
 		} else {
 			tuintercambio.add(i);
@@ -701,7 +701,7 @@ public class clsGestorLN {
 
 	// ----------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Aqui añadiremos los jugadores
+	 * Aqui aï¿½adiremos los jugadores
 	 * 
 	 * @param nombre
 	 * @param apellido1
@@ -725,8 +725,8 @@ public class clsGestorLN {
 		clsJugador p3 = new clsJugador("Xabier", "Tolano", "Herrero", "87654321C", "masculino", 2.0, 100);
 		clsJugador p4 = new clsJugador("Rogelio", "Tolosa", "Chapero", "31264594R", "masculino", 1.5, 100);
 		clsJugador p5 = new clsJugador("Raul", "Beltran", "Orobio", "90216538T", "masculino", 0.5, 100);
-		clsJugador p6 = new clsJugador("Martin", " Rodriguez", "Zuñiga", "26492740L", "masculino", 1.5, 100);
-		clsJugador p7 = new clsJugador("Ainhoa", " Serna", "Ruiz de viñaspe", "24759485O", "masculino", 3.0, 100);
+		clsJugador p6 = new clsJugador("Martin", " Rodriguez", "Zuï¿½iga", "26492740L", "masculino", 1.5, 100);
+		clsJugador p7 = new clsJugador("Ainhoa", " Serna", "Ruiz de viï¿½aspe", "24759485O", "masculino", 3.0, 100);
 		clsJugador p8 = new clsJugador("Oscar", "Areitio", "Sela", "32461554G", "masculino", 2.0, 100);
 		clsJugador p9 = new clsJugador("Omar", "Estebanez", "Galdos", "76984329W", "masculino", 1.0, 100);
 		clsJugador p10 = new clsJugador("Fran", " Alba", "Ortiz", "43015694F", "masculino", 2.5, 100);
@@ -891,7 +891,7 @@ public class clsGestorLN {
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Aqui añadiremos los partidos
+	 * Aqui aï¿½adiremos los partidos
 	 * 
 	 * @param equipoLocal
 	 * @param equipoVisitante
@@ -901,7 +901,7 @@ public class clsGestorLN {
 	public boolean anadirPartidos(String equipoLocal, String equipoVisitante, Date fechaInicioPartido) {
 		clsPartidos p = new clsPartidos(equipoLocal, equipoVisitante, fechaInicioPartido);
 		/**
-		 * Con el contains nos ayudaremos para añadirlo si esta repetido no lo añade
+		 * Con el contains nos ayudaremos para aï¿½adirlo si esta repetido no lo aï¿½ade
 		 */
 		objDatosBD.Connect();
 		if (tupartido.contains(p) == true) {
@@ -1026,7 +1026,7 @@ public class clsGestorLN {
 
 	// ------------------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Aqui añadiremos temporadas nos ayudaremos del contains
+	 * Aqui aï¿½adiremos temporadas nos ayudaremos del contains
 	 * 
 	 * @param puestos
 	 * @param trofeos
@@ -1040,7 +1040,7 @@ public class clsGestorLN {
 			return false;
 		}
 		/**
-		 * Si hay una repetida no la añade
+		 * Si hay una repetida no la aï¿½ade
 		 */
 		else {
 			tutemporada.add(t);
@@ -1160,7 +1160,7 @@ public class clsGestorLN {
 
 	// -------------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * Aqui añadiremos manager nos ayudaremos del contains
+	 * Aqui aï¿½adiremos manager nos ayudaremos del contains
 	 * 
 	 * @param
 	 */
@@ -1185,11 +1185,10 @@ public class clsGestorLN {
 
 		}
 		/**
-		 * Si hay una repetida no la añade
+		 * Si hay una repetida no la aï¿½ade
 		 */
 		else {
 			tumanager.add(m);
-			System.out.println(tumanager);
 
 			objDatosBD.InsertarManager(nombre, apellido1, apellido2, dni, sexo, calidad, valoracion, contrasenia);
 			objDatosBD.Disconnect();
@@ -1341,7 +1340,7 @@ public class clsGestorLN {
 		
 		clsComparadorPorColores comp = new clsComparadorPorColores();
 		/**
-		 * Aquí ya tenemos los jugadores ordenados
+		 * Aquï¿½ ya tenemos los jugadores ordenados
 		 */
 
 		Collections.sort(tuescudo, comp);
@@ -1352,7 +1351,7 @@ public class clsGestorLN {
 		clsComparadorPorNombre comp = new clsComparadorPorNombre();
 
 		/**
-		 * Aquí ya tenemos los jugadores ordenados y utilizamos el collections sort
+		 * Aquï¿½ ya tenemos los jugadores ordenados y utilizamos el collections sort
 		 */
 
 		Collections.sort(tujugador, comp);
@@ -1361,7 +1360,7 @@ public class clsGestorLN {
 	public void ordenporequipo() {
 		clsComparadorPorNombreEquipo comp = new clsComparadorPorNombreEquipo();
 		/**
-		 * Aquí ya tenemos los jugadores ordenados
+		 * Aquï¿½ ya tenemos los jugadores ordenados
 		 */
 
 		Collections.sort(tuequipo, comp);
@@ -1371,7 +1370,7 @@ public class clsGestorLN {
 		clsComparadorPorNombreManagers comp = new clsComparadorPorNombreManagers();
 
 		/**
-		 * Aquí ya tenemos los managers ordenados
+		 * Aquï¿½ ya tenemos los managers ordenados
 		 */
 
 		Collections.sort(tumanager, comp);
