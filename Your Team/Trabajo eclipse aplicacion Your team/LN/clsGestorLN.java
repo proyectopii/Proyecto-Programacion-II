@@ -297,7 +297,7 @@ public class clsGestorLN {
 		} else {
 			tuequipo.add(e);
 
-			int id_manager = 0;
+			String id_manager = "";
 			int id_escudo = 0;
 			int id_intercambio = 0;
 			int id_equipacion = 0;
@@ -417,7 +417,7 @@ public class clsGestorLN {
 																												// atributo
 			Date fundacionEquipo = (Date) e.getObjectProperty(Constantes.PROPIEDAD_clsEQUIPO_FUNDACIONEQUIPO);
 			
-			int id_manager = 0;
+			String id_manager = "";
 			int id_escudo = 0;
 			int id_intercambio = 0;
 			int id_equipacion = 0;

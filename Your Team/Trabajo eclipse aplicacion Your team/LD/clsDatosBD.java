@@ -118,11 +118,11 @@ public class clsDatosBD {
 	 * @return
 	 */
 
-	public int InsertarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
+	public String InsertarManager(String nombre, String apellido1, String apellido2, String dni, String sexo,
 			String calidad, int valoracion, String contrasenia) {
 
 		int regActualizados = 0;
-		int id_manager = 0;
+		String id_manager = "";
 
 		try {
 			ps = conn.prepareStatement(INSERT_SQL_MANAGER, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -140,7 +140,7 @@ public class clsDatosBD {
 			if (regActualizados == 1) {
 				ResultSet rs = ps.getGeneratedKeys();
 				if (rs.next()) {
-					id_manager = rs.getInt(1);
+					id_manager = rs.getString(1);
 				}
 			}
 
@@ -200,7 +200,7 @@ public class clsDatosBD {
 	 * @param fundacionEquipo
 	 * @return
 	 */
-	public int InsertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo, int id_manager, int id_escudo, int id_intercambio, 
+	public int InsertarEquipo(String nombreEquipo, java.util.Date fundacionEquipo, String id_manager, int id_escudo, int id_intercambio, 
 			int id_equipacion, int id_partido) {
 		
 		java.sql.Date dateequipo = new java.sql.Date(fundacionEquipo.getTime());
@@ -212,7 +212,7 @@ public class clsDatosBD {
 			ps = conn.prepareStatement(INSERT_SQL_EQUIPO, PreparedStatement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nombreEquipo);
 			ps.setDate(2, dateequipo);
-			ps.setInt(3, id_manager);
+			ps.setString(3, id_manager);
 			ps.setInt(4, id_escudo);
 			ps.setInt(5, id_intercambio);
 			ps.setInt(6, id_equipacion);
